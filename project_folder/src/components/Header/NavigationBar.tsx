@@ -1,32 +1,66 @@
 'use client';
 
+import Link from 'next/link';
+import styles from './styles/NavigationBar.module.scss'
+import { usePathname } from 'next/navigation';
+
 export default function NavigationBar(){
 
-    const navBarItems = [
-        {
-          title: "home" ,
-          href: "/"
-        },
-        {
-          title: "about" ,
-          href: "/about"
-        },
-        {
-          title: "projects" ,
-          href: "/projects"
-        },
-        {
-          title: "services" ,
-          href: "/services"
-        },
-        {
-          title: "Contact" ,
-          href: "/contact"
-        },
-    ];
+    const getPathname = usePathname();
+
+    // const navButtonArray = [
+    //     {
+    //         pageName: 'home',
+    //         href: '/'
+    //     },
+    //     {
+    //         pageName: 'about',
+    //         href: '/about'
+    //     },
+    //     {
+    //         pageName: 'projects',
+    //         href: '/projects'
+    //     },
+    //     {
+    //         pageName: 'services',
+    //         href: '/services'
+    //     },
+    //     {
+    //         pageName: 'contact',
+    //         href: '/contact'
+    //     },
+    // ]
 
     return <>
-        placeholder Navbar
-    </>
-
+        <Link
+        href='/'
+        className={`${styles.navButton} ${getPathname === '/' ? styles.activeButton : ''}`}
+        >
+            home
+        </Link>
+        <Link
+        href='/about'
+        className={`${styles.navButton} ${getPathname === '/about' ? styles.activeButton : ''}`}
+        >
+            about
+        </Link>
+        <Link
+        href='/projects'
+        className={`${styles.navButton} ${getPathname === '/projects' ? styles.activeButton : ''}`}
+        >
+            projects
+        </Link>
+        <Link
+        href='/services'
+        className={`${styles.navButton} ${getPathname === '/services' ? styles.activeButton : ''}`}
+        >
+            services
+        </Link>
+        <Link
+        href='/contact'
+        className={`${styles.navButton} ${getPathname === '/contact' ? styles.activeButton : ''}`}
+        >
+            contact
+        </Link>
+</>
 }
