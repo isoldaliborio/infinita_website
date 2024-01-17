@@ -1,6 +1,6 @@
 'use client';
 
-import styles from "./styles/LanguageSwitch.module.css";
+import styles from "./styles/LanguageSwitch.module.scss";
 import { useState } from "react";
 
 export default function LanguageSwitch() {

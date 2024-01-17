@@ -1,7 +1,7 @@
 'use client'
 import LanguageSwitch from './LanguageSwitch'
 import NavigationBar from './NavigationBar'
-import styles from './styles/Header.module.css'
+import styles from './styles/Header.module.scss'
 
 //TODO: make the best header ever!!!
 

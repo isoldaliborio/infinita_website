@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import styles from './styles/NavigationBar.module.css'
+import styles from './styles/NavigationBar.module.scss'
 import { usePathname } from 'next/navigation';
 
 export default function NavigationBar(){
