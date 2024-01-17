@@ -19,8 +19,8 @@ import styles from './styles/Header.module.css'
 
 export default function Header(){
     return <div id={styles.header}>
-
+        logo
         <NavigationBar/>
-
+        LanguageSwitcher
     </div>
 }
