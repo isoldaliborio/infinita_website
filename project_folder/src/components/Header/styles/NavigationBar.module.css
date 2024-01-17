@@ -1,9 +1,13 @@
 .navButton{
     width:10%;
-    background-color: grey;
-    padding-left: 2%;
+    background-color: none;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
 .activeButton{
-    background-color: red;
+    border-bottom: 2px;
+    border-top: 2px;
+    border-color: black;
+    border-style:solid none;
 }
