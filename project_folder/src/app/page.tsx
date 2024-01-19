@@ -1,11 +1,10 @@
 import styles from './page.module.scss'
+import Carousel from '@/components/Carousel/Carousel'
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        Hello world!
-      </div>
+      <Carousel/>
     </main>
   )
 }

@@ -1,6 +1,6 @@
 import styles from './page.module.scss'
 
-export default function Home() {
+export default function Projects() {
     return (
       <main className={styles.main}>
         <div className={styles.description}>
