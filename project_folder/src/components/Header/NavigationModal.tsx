@@ -9,11 +9,12 @@ import styles from './styles/NavigationModal.module.scss'
 import ReactPortal from './ReactPortal';
 import NavigationButtons from './NavigationButtons';
 import LanguageSwitch from './LanguageSwitch';
+import { LanguageContextType } from '../Context/LanguageContext';
 
 interface NavigationModalProps {
     isOpen: boolean;
     closeModal: () => void;
-    setLanguage: React.Dispatch<React.SetStateAction<"EN" | "PT">>;
+    setLanguage: React.Dispatch<React.SetStateAction<LanguageContextType>>;
 }
 
 export default function NavigationModal({isOpen, closeModal, setLanguage}: NavigationModalProps){

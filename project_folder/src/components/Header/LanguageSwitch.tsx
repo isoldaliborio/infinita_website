@@ -2,18 +2,17 @@
 
 import styles from "./styles/LanguageSwitch.module.scss";
 import { useContext } from "react";
-import { LanguageContext } from './Header'
+import { LanguageContextType, LanguageContext } from "../Context/LanguageContext";
 
 interface LanguageSwitchProps {
-    setLanguage: React.Dispatch<React.SetStateAction<"EN" | "PT">>;
+    setLanguage: React.Dispatch<React.SetStateAction<LanguageContextType>>;
 }
 
 export default function LanguageSwitch({setLanguage}:LanguageSwitchProps) {
 
-    // const [language, setLanguage] = useState("EN")
     let language = useContext(LanguageContext);
 
-    function changeLanguage(languageButton: "EN" | "PT") {
+    function changeLanguage(languageButton:LanguageContextType) {
         setLanguage(languageButton)
     }
 

@@ -5,9 +5,10 @@ import { useState} from 'react';
 import NavigationModal from './NavigationModal';
 import NavigationButtons from './NavigationButtons';
 import LanguageSwitch from './LanguageSwitch';
+import { LanguageContextType } from '../Context/LanguageContext';
 
 interface NavigationBarlProps {
-    setLanguage: React.Dispatch<React.SetStateAction<"EN" | "PT">>;
+    setLanguage: React.Dispatch<React.SetStateAction<LanguageContextType>>;
 }
 
 export default function NavigationBar({setLanguage}:NavigationBarlProps){
