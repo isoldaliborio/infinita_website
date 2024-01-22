@@ -4,8 +4,8 @@ import styles from "./styles/Footer.module.scss"
 export default function Footer() {
     return (
         <footer id={styles.footer}>
-            <section>
-                All rights reserver © 2024 Inifita Productions
+            <section className={styles.paragraph}>
+                All rights reserved © 2024 Inifita Productions
             </section>
             <SocialsBar/>
         </footer>

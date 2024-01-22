@@ -1,0 +1,16 @@
+.button_block {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    margin-top: 40vh;
+    margin-right: 1vw;
+    margin-bottom: 1rem;
+}
+
+.button {
+    width: 25px;
+    height: 25px;
+    border:1px solid black;
+    text-align: center;
+    font-size: 0.7rem;
+}
