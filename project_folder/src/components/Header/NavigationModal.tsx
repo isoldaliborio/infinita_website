@@ -1,5 +1,9 @@
 'use client';
 
+//TODO: add language switch to this modal menu
+//TODO: refactor for navButtons component
+
+
 import React, { useEffect } from 'react';
 import styles from './styles/NavigationModal.module.scss'
 import ReactPortal from './ReactPortal';
@@ -8,14 +12,14 @@ import { usePathname } from "next/navigation";
 
 interface NavigationModalProps {
     isOpen: boolean;
-    handleClose: () => void;
+    closeModal: () => void;
     navModalItems:{
         pageName:string,
         href:string
     }[]
 }
 
-export default function NavigationModal({isOpen, handleClose, navModalItems}: NavigationModalProps){
+export default function NavigationModal({isOpen, closeModal, navModalItems}: NavigationModalProps){
 
     const pathname = usePathname();
 
@@ -32,11 +36,11 @@ export default function NavigationModal({isOpen, handleClose, navModalItems}: Na
     return (
         <ReactPortal wrapperId="react-portal-modal-container" >
             <div id={styles.modalMenuBackground}>
-                <button id={styles.closeButton} onClick={handleClose}> Close </button>
+                <button id={styles.closeButton} onClick={closeModal}> Close </button>
                 <section id={styles.navButtonContainer}>
                     {navModalItems.map((item) => (
                         <Link 
-                            onClick={handleClose}
+                            onClick={closeModal}
                             key={item.pageName}
                             className={`${
                                 pathname === item.href 

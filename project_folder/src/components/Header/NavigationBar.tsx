@@ -1,5 +1,7 @@
 'use client';
 
+//TODO:refactor so navButtons are a separate reusable component for both navbar and nav modal
+
 import Link from 'next/link';
 import styles from './styles/NavigationBar.module.scss'
 import { usePathname } from 'next/navigation';
@@ -54,7 +56,7 @@ export default function NavigationBar(){
         {modalOpen && (
                 <NavigationModal 
                     isOpen={modalOpen}
-                    handleClose={() => setModalOpen(!modalOpen)}
+                    closeModal={closeModal}
                     navModalItems={navButtonArray}
                 />
             )}
