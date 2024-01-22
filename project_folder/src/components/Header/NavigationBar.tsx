@@ -3,11 +3,18 @@
 import Link from 'next/link';
 import styles from './styles/NavigationBar.module.scss'
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import NavigationModal from './NavigationModal';
 
 export default function NavigationBar(){
 
-    const getPathname = usePathname();
+    const [modalOpen, setModalOpen] = useState<boolean>(false);
 
+    function closeModal(){
+        setModalOpen(false)
+    }
+
+    const getPathname = usePathname();
 
     const navButtonArray = [
         {
@@ -35,6 +42,7 @@ export default function NavigationBar(){
     return <>
         {navButtonArray.map((item) => (
             <Link
+            onClick={closeModal}
             href={item.href}
             key={item.pageName}
             className={`${styles.navButton} ${getPathname === item.href ? styles.activeButton : ''}`}
@@ -42,6 +50,13 @@ export default function NavigationBar(){
                 {item.pageName}
             </Link>
         ))}
-        <button className={styles.modalMenuButton} > menu </button>
+        <button onClick={() => setModalOpen(!modalOpen)} className={styles.modalMenuButton} > menu </button>
+        {modalOpen && (
+                <NavigationModal 
+                    isOpen={modalOpen}
+                    handleClose={() => setModalOpen(!modalOpen)}
+                    navModalItems={navButtonArray}
+                />
+            )}
     </>
 }
