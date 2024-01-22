@@ -38,10 +38,10 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
     return <section id={styles.navButtonContainer}>
         {navButtonArray.map((item) => (
             <Link
-            onClick={closeModal}
-            href={item.href}
-            key={item.pageName}
-            className={`${styles.navButton} ${getPathname === item.href ? styles.activeButton : ''}`}
+                onClick={closeModal}
+                href={item.href}
+                key={item.pageName}
+                className={`${styles.navButton} ${getPathname === item.href ? styles.activeButton : ''}`}
             >
                 {item.pageName}
             </Link>

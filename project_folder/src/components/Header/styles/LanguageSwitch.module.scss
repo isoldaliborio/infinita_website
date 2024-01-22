@@ -1,5 +1,9 @@
+#languageSwitchContainer{
+    display: flex;
+    flex-direction: row;
 
-.activeButton{
-    background-color: red;
-    color: white;
+    .activeButton{
+        background-color: red;
+        color: white;
+    }
 }

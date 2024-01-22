@@ -1,19 +1,22 @@
 #buttonContainer{
     width: 65%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .modalMenuButton{
-    display:none;
+    display: none;
 }
 
 /* Mobile */
 @media (max-width: 700px) {
     #buttonContainer{
-        display:none;
+        display: none;
     }
 
     .modalMenuButton{
-        display:inline;
+        display: inline;
     }
 
   }

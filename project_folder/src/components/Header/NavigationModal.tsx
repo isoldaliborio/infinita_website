@@ -7,22 +7,16 @@
 import React, { useEffect } from 'react';
 import styles from './styles/NavigationModal.module.scss'
 import ReactPortal from './ReactPortal';
-import Link from 'next/link';
-import { usePathname } from "next/navigation";
 import NavigationButtons from './NavigationButtons';
+import LanguageSwitch from './LanguageSwitch';
 
 interface NavigationModalProps {
     isOpen: boolean;
     closeModal: () => void;
-    navModalItems:{
-        pageName:string,
-        href:string
-    }[]
+    setLanguage: React.Dispatch<React.SetStateAction<"EN" | "PT">>;
 }
 
-export default function NavigationModal({isOpen, closeModal, navModalItems}: NavigationModalProps){
-
-    const pathname = usePathname();
+export default function NavigationModal({isOpen, closeModal, setLanguage}: NavigationModalProps){
 
     //disable scroll on modal load
     useEffect(() => {
@@ -38,7 +32,8 @@ export default function NavigationModal({isOpen, closeModal, navModalItems}: Nav
         <ReactPortal wrapperId="react-portal-modal-container" >
             <div id={styles.modalMenuBackground}>
                 <button id={styles.closeButton} onClick={closeModal}> Close </button>
-                    <NavigationButtons closeModal={closeModal}/>
+                <NavigationButtons closeModal={closeModal}/>
+                <LanguageSwitch setLanguage = {setLanguage} />
             </div>
         </ReactPortal>
     )
