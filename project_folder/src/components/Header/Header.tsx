@@ -3,11 +3,9 @@ import LanguageSwitch from './LanguageSwitch'
 import NavigationBar from './NavigationBar'
 import styles from './styles/Header.module.scss'
 
-//TODO: make the best header ever!!!
-
 //Header is comprised of three separate components-
     // -Logo (image)
-    // -NavigationBar (Links- dynamically generated?)
+    // -NavigationBar (Links- dynamically generated?) ✅
     // -LanguageSwitcher (useContext for persistence across site? Local Storage?)
 
 //Header is placed at the top of the screen. This currently done with 'position:fixed' and 'top:0; left:0' to force the element

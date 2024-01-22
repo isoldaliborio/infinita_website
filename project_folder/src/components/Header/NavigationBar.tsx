@@ -8,6 +8,7 @@ export default function NavigationBar(){
 
     const getPathname = usePathname();
 
+
     const navButtonArray = [
         {
             pageName: 'home',
@@ -31,7 +32,7 @@ export default function NavigationBar(){
         },
     ]
 
-    return (<>
+    return <>
         {navButtonArray.map((item) => (
             <Link
             href={item.href}
@@ -41,6 +42,6 @@ export default function NavigationBar(){
                 {item.pageName}
             </Link>
         ))}
+        <button className={styles.modalMenuButton} > menu </button>
     </>
-    ) 
 }
