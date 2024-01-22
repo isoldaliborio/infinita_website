@@ -9,6 +9,7 @@ import styles from './styles/NavigationModal.module.scss'
 import ReactPortal from './ReactPortal';
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
+import NavigationButtons from './NavigationButtons';
 
 interface NavigationModalProps {
     isOpen: boolean;
@@ -37,22 +38,7 @@ export default function NavigationModal({isOpen, closeModal, navModalItems}: Nav
         <ReactPortal wrapperId="react-portal-modal-container" >
             <div id={styles.modalMenuBackground}>
                 <button id={styles.closeButton} onClick={closeModal}> Close </button>
-                <section id={styles.navButtonContainer}>
-                    {navModalItems.map((item) => (
-                        <Link 
-                            onClick={closeModal}
-                            key={item.pageName}
-                            className={`${
-                                pathname === item.href 
-                                    ? "underline"
-                                    : ""
-                                } px-2 py-6`} 
-                            href={item.href}
-                        >
-                            {item.pageName}
-                        </Link>
-                    ))}
-                </section>
+                    <NavigationButtons closeModal={closeModal}/>
             </div>
         </ReactPortal>
     )

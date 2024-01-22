@@ -7,6 +7,7 @@ import styles from './styles/NavigationBar.module.scss'
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import NavigationModal from './NavigationModal';
+import NavigationButtons from './NavigationButtons';
 
 export default function NavigationBar(){
 
@@ -42,7 +43,7 @@ export default function NavigationBar(){
     ]
 
     return <>
-        {navButtonArray.map((item) => (
+        {/* {navButtonArray.map((item) => (
             <Link
             onClick={closeModal}
             href={item.href}
@@ -51,7 +52,10 @@ export default function NavigationBar(){
             >
                 {item.pageName}
             </Link>
-        ))}
+        ))} */}
+        <section id={styles.buttonContainer}>
+            <NavigationButtons closeModal={closeModal}/>
+        </section>
         <button onClick={() => setModalOpen(!modalOpen)} className={styles.modalMenuButton} > menu </button>
         {modalOpen && (
                 <NavigationModal 
