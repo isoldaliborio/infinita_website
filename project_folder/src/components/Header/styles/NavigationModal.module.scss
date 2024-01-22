@@ -1,0 +1,30 @@
+#modalMenuBackground{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    //seems extreme, but it ensures modal placed above all other elements
+    z-index: 3000;
+    opacity: 90%;
+    //temporary color
+    background-color: white;
+
+    #closeButton{
+        justify-self: end;
+        position: fixed;
+        top: 5%;
+        right: 5%;
+    }
+
+    #navButtonContainer{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
