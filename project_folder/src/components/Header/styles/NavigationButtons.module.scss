@@ -18,15 +18,15 @@
     }
 
     .navButton:hover{
-        color:black;
+        color:$infinita-black;
     }
 
     .activeButton{
         border-bottom: 1px;
         border-top: 1px;
-        border-color: black;
-        border-style:solid none;
-        color: black;
+        border-color: $infinita-black;
+        border-style: solid none;
+        color: $infinita-black;
     }
 }
 
@@ -46,7 +46,7 @@
         .activeButton{
             border-bottom: 2px;
             border-top: 2px;
-            border-color: black;
+            border-color: $infinita-black;
             border-style:solid none;
         }
     }

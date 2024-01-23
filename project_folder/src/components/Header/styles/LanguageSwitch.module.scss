@@ -5,14 +5,16 @@
     flex-direction: row;
     width: 6.9vw;
     height: 3.45vw;
-    background-color: black;
+    background-color: $infinita-black;
     padding: none;
     margin-left: $desktop-header-button-spacing;
 
     .languageButton{
         padding: none;
         width:50%;
+        height:100%;
         background-color: white;
+        color: $infinita-black;
         border:none;
         cursor: pointer;
     }
