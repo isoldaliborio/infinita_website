@@ -1,6 +1,17 @@
 #languageSwitchContainer{
     display: flex;
     flex-direction: row;
+    width: 6.9vw;
+    height: 3.45vw;
+    background-color: black;
+    padding: none;
+
+    .languageButton{
+        width:50%;
+        background-color: white;
+        border:none;
+        cursor: pointer;
+    }
 
     .activeButton{
         background-color: red;

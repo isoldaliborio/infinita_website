@@ -12,7 +12,7 @@ export default function Header(){
 
     return <LanguageContext.Provider value={ language }>
         <div id={styles.header}>
-            <Image src="/images/infinita-logo.png" alt="infinita logo" width="200" height="50"/>
+            <Image id={styles.infinitaLogo} src="/images/infinita-logo.png" alt="infinita logo" width="200" height="50"/>
             <NavigationBar setLanguage = {setLanguage}/>
         </div>
     </LanguageContext.Provider>

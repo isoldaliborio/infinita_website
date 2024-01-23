@@ -19,13 +19,13 @@ export default function LanguageSwitch({setLanguage}:LanguageSwitchProps) {
     return <div id={styles.languageSwitchContainer}>
         <button 
             onClick={() => changeLanguage("EN")}
-            className={`${language === "EN"? styles.activeButton : ''}`}
+            className={`${styles.languageButton} ${language === "EN"? styles.activeButton : ''}`}
         >
             EN
         </button>
         <button 
             onClick={() => changeLanguage("PT")}
-            className={`${language === "PT"? styles.activeButton : ''}`}
+            className={`${styles.languageButton} ${language === "PT"? styles.activeButton : ''}`}
         >
             PT
         </button>
