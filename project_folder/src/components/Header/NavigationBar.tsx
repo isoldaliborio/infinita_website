@@ -1,66 +1,36 @@
 'use client';
 
-import Link from 'next/link';
 import styles from './styles/NavigationBar.module.scss'
-import { usePathname } from 'next/navigation';
+import { useState} from 'react';
+import NavigationModal from './NavigationModal';
+import NavigationButtons from './NavigationButtons';
+import LanguageSwitch from './LanguageSwitch';
+import { LanguageContextType } from '../Context/LanguageContext';
 
-export default function NavigationBar(){
+interface NavigationBarlProps {
+    setLanguage: React.Dispatch<React.SetStateAction<LanguageContextType>>;
+}
 
-    const getPathname = usePathname();
+export default function NavigationBar({setLanguage}:NavigationBarlProps){
 
-    // const navButtonArray = [
-    //     {
-    //         pageName: 'home',
-    //         href: '/'
-    //     },
-    //     {
-    //         pageName: 'about',
-    //         href: '/about'
-    //     },
-    //     {
-    //         pageName: 'projects',
-    //         href: '/projects'
-    //     },
-    //     {
-    //         pageName: 'services',
-    //         href: '/services'
-    //     },
-    //     {
-    //         pageName: 'contact',
-    //         href: '/contact'
-    //     },
-    // ]
+    const [modalOpen, setModalOpen] = useState<boolean>(false);
+
+    function closeModal(){
+        setModalOpen(false)
+    }
 
     return <>
-        <Link
-        href='/'
-        className={`${styles.navButton} ${getPathname === '/' ? styles.activeButton : ''}`}
-        >
-            home
-        </Link>
-        <Link
-        href='/about'
-        className={`${styles.navButton} ${getPathname === '/about' ? styles.activeButton : ''}`}
-        >
-            about
-        </Link>
-        <Link
-        href='/projects'
-        className={`${styles.navButton} ${getPathname === '/projects' ? styles.activeButton : ''}`}
-        >
-            projects
-        </Link>
-        <Link
-        href='/services'
-        className={`${styles.navButton} ${getPathname === '/services' ? styles.activeButton : ''}`}
-        >
-            services
-        </Link>
-        <Link
-        href='/contact'
-        className={`${styles.navButton} ${getPathname === '/contact' ? styles.activeButton : ''}`}
-        >
-            contact
-        </Link>
-</>
+        <section id={styles.buttonContainer}>
+            <NavigationButtons closeModal={closeModal}/>
+            <LanguageSwitch setLanguage = {setLanguage}/>
+        </section>
+        <button onClick={() => setModalOpen(!modalOpen)} className={styles.modalMenuButton} > menu </button>
+        {modalOpen && (
+                <NavigationModal 
+                    isOpen={modalOpen}
+                    closeModal={closeModal}
+                    setLanguage={setLanguage}
+                />
+            )}
+    </>
 }

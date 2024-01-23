@@ -1,17 +1,22 @@
 'use client';
 
 import styles from "./styles/LanguageSwitch.module.scss";
-import { useState } from "react";
+import { useContext } from "react";
+import { LanguageContextType, LanguageContext } from "../Context/LanguageContext";
 
-export default function LanguageSwitch() {
+interface LanguageSwitchProps {
+    setLanguage: React.Dispatch<React.SetStateAction<LanguageContextType>>;
+}
 
-    const [language, setLanguage] = useState("EN")
+export default function LanguageSwitch({setLanguage}:LanguageSwitchProps) {
 
-    function changeLanguage(languageButton: string) {
+    let language = useContext(LanguageContext);
+
+    function changeLanguage(languageButton:LanguageContextType) {
         setLanguage(languageButton)
     }
 
-    return <div>
+    return <div id={styles.languageSwitchContainer}>
         <button 
             onClick={() => changeLanguage("EN")}
             className={`${language === "EN"? styles.activeButton : ''}`}
