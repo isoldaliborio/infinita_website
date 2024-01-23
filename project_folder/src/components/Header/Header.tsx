@@ -1,9 +1,10 @@
 'use client'
 
-import NavigationBar from './NavigationBar'
-import styles from './styles/Header.module.scss'
-import { useState } from 'react';
-import { LanguageContextType, LanguageContext } from '../Context/LanguageContext'
+import styles from "./styles/Header.module.scss"
+import  Image  from "next/Image";
+import { useState } from "react";
+import { LanguageContextType, LanguageContext } from "../Context/LanguageContext";
+import NavigationBar from "./NavigationBar";
  
 export default function Header(){
     
@@ -11,7 +12,7 @@ export default function Header(){
 
     return <LanguageContext.Provider value={ language }>
         <div id={styles.header}>
-            logo
+            <Image id={styles.infinitaLogo} src="/images/infinita-logo.png" alt="infinita logo" width="200" height="50"/>
             <NavigationBar setLanguage = {setLanguage}/>
         </div>
     </LanguageContext.Provider>
