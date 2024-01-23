@@ -1,3 +1,5 @@
+// @import "/project_folder/public/fonts/fonts.scss";
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -24,3 +26,184 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+
+// MuseoModern
+
+@font-face {
+  font-family: 'museomodernothin_italic';
+  src: url('../../public/fonts/MuseoModerno_converted/museomoderno-italic-variablefont_wght-webfont.woff2') format('woff2'),
+       url('../../public/fonts/MuseoModerno_converted/museomoderno-italic-variablefont_wght-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'museomodernothin';
+  src: url('../../public/fonts/MuseoModerno_converted/museomoderno-variablefont_wght-webfont.woff2') format('woff2'),
+       url('../../public/fonts/MuseoModerno_converted/museomoderno-variablefont_wght-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+//poppings
+@font-face {
+  font-family: 'poppinsblack';
+  src: url('../../public/fonts/poppings_converted/poppins-black-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-black-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'poppinsblack_italic';
+  src: url('../../public/fonts/poppings_converted/poppins-blackitalic-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-blackitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'poppinsbold';
+  src: url('../../public/fonts/poppings_converted/poppins-bold-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'poppinsbold_italic';
+  src: url('../../public/fonts/poppings_converted/poppins-bolditalic-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-bolditalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'poppinsextrabold';
+  src: url('../../public/fonts/poppings_converted/poppins-extrabold-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-extrabold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'poppinsextrabold_italic';
+  src: url('../../public/fonts/poppings_converted/poppins-extrabolditalic-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-extrabolditalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'poppinsextralight';
+  src: url('../../public/fonts/poppings_converted/poppins-extralight-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-extralight-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'poppinsextralight_italic';
+  src: url('../../public/fonts/poppings_converted/poppins-extralightitalic-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-extralightitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'poppinsitalic';
+  src: url('../../public/fonts/poppings_converted/poppins-italic-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'poppinslight';
+  src: url('../../public/fonts/poppings_converted/poppins-light-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'poppinslight_italic';
+  src: url('../../public/fonts/poppings_converted/poppins-lightitalic-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-lightitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'poppinsmedium';
+  src: url('../../public/fonts/poppings_converted/poppins-medium-webfont.woff2') format('woff2'),
+       url('../../public/fonts/poppings_converted/poppins-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+// MuseoModern
+$museoModernThinItalic: 'museomodernothin_italic', sans-serif;
+$museoModernThin: 'museomodernothin', sans-serif;
+
+// Poppins
+$poppinsBlack: 'poppinsblack', sans-serif;
+$poppinsBlackItalic: 'poppinsblack_italic', sans-serif;
+$poppinsBold: 'poppinsbold', sans-serif;
+$poppinsBoldItalic: 'poppinsbold_italic', sans-serif;
+$poppinsExtraBold: 'poppinsextrabold', sans-serif;
+$poppinsExtraBoldItalic: 'poppinsextrabold_italic', sans-serif;
+$poppinsExtraLight: 'poppinsextralight', sans-serif;
+$poppinsExtraLightItalic: 'poppinsextralight_italic', sans-serif;
+$poppinsItalic: 'poppinsitalic', sans-serif;
+$poppinsLight: 'poppinslight', sans-serif;
+$poppinsLightItalic: 'poppinslight_italic', sans-serif;
+$poppinsMedium: 'poppinsmedium', sans-serif;
