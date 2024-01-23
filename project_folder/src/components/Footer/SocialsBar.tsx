@@ -5,11 +5,11 @@ import { faVimeoV, faLinkedin, faXTwitter, faFacebookF, faInstagram } from '@for
 export default function SocialsBar(){
     return (
         <div className={styles.container}>
-            <FontAwesomeIcon icon={faVimeoV} />
-            <FontAwesomeIcon icon={faLinkedin} />
-            <FontAwesomeIcon icon={faXTwitter} />
-            <FontAwesomeIcon icon={faFacebookF} size="sm" />
-            <FontAwesomeIcon icon={faInstagram} /> 
+            <FontAwesomeIcon icon={faVimeoV} className={styles.icon} id={styles.vimeo}/>
+            <FontAwesomeIcon icon={faLinkedin} className={styles.icon}/>
+            <FontAwesomeIcon icon={faXTwitter} className={styles.icon}/>
+            <FontAwesomeIcon icon={faFacebookF}className={styles.icon}/>
+            <FontAwesomeIcon icon={faInstagram} className={styles.icon}/> 
         </div>
     )
 }
