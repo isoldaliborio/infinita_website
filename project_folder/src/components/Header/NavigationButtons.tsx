@@ -14,23 +14,23 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
 
     const navButtonArray = [
         {
-            pageName: 'home',
+            pageName: 'HOME',
             href: '/'
         },
         {
-            pageName: 'about',
+            pageName: 'ABOUT',
             href: '/about'
         },
         {
-            pageName: 'projects',
+            pageName: 'PROJECTS',
             href: '/projects'
         },
         {
-            pageName: 'services',
+            pageName: 'SERVICES',
             href: '/services'
         },
         {
-            pageName: 'contact',
+            pageName: 'CONTACT',
             href: '/contact'
         },
     ]
