@@ -3,9 +3,9 @@
 #languageSwitchContainer{
     display: flex;
     flex-direction: row;
-    width: 6.9vw;
-    height: 3.45vw;
-    background-color: $infinita-black;
+    width: 6.1vw;
+    height: 3.05vw;
+    background-color: white;
     padding: none;
     margin-left: $desktop-header-button-spacing;
 
@@ -17,10 +17,20 @@
         color: $infinita-black;
         border:none;
         cursor: pointer;
+        transition: background-color, color;
+        transition-duration: 200ms;
+    }
+
+    .languageButton:hover{
+        background-color: $purple-accent-hover;
     }
 
     .activeButton{
         background-color: $purple-accent;
         color: white;
+    }
+
+    .activeButton:hover{
+        background-color: $purple-accent;
     }
 }
