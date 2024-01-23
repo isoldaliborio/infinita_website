@@ -32,7 +32,7 @@ export default function NavigationModal({isOpen, closeModal, setLanguage}: Navig
     return (
         <ReactPortal wrapperId="react-portal-modal-container" >
             <div id={styles.modalMenuBackground}>
-                <button id={styles.closeButton} onClick={closeModal}> Close </button>
+                <button id={styles.closeButton} onClick={closeModal}> X </button>
                 <NavigationButtons closeModal={closeModal}/>
                 <LanguageSwitch setLanguage = {setLanguage} />
             </div>
