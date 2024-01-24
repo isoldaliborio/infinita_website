@@ -21,13 +21,14 @@
         #closeButton{
             justify-self: end;
             position: fixed;
-            top: 5%;
+            top: 7%;
             right: 5%;
-            width: 5vw;
-            height: 5vw;
+            width: 8vw;
+            height: 8vw;
             border: none;
             background-color: white;
             font-size: 100%;
+            cursor: pointer;
         }
 
         #navButtonContainer{
