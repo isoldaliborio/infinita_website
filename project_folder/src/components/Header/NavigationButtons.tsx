@@ -1,8 +1,11 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
+import { useContext } from "react";
 import { usePathname } from "next/navigation";
-import styles from './styles/NavigationButtons.module.scss'
+import styles from "./styles/NavigationButtons.module.scss";
+import { motion } from "framer-motion";
+import { LanguageContext } from "../Context/LanguageContext";
 
 interface NavigationButtonProps {
     closeModal: () => void;
@@ -10,42 +13,60 @@ interface NavigationButtonProps {
 
 export default function NavigationButtons({closeModal}:NavigationButtonProps){
 
+    let language = useContext(LanguageContext);
+
     const getPathname = usePathname();
 
     const navButtonArray = [
         {
-            pageName: 'home',
-            href: '/'
+            ENpageName: "HOME",
+            PTpageName: "HOME",
+            href: "/"
         },
         {
-            pageName: 'about',
-            href: '/about'
+            ENpageName: "ABOUT",
+            PTpageName: "ABOUT",
+            href: "/about"
         },
         {
-            pageName: 'projects',
-            href: '/projects'
+            ENpageName: "PROJECTS",
+            PTpageName: "PROJECTS",
+            href: "/projects"
         },
         {
-            pageName: 'services',
-            href: '/services'
+            ENpageName: "SERVICES",
+            PTpageName: "SERVICES",
+            href: "/services"
         },
         {
-            pageName: 'contact',
-            href: '/contact'
+            ENpageName: "CONTACT",
+            PTpageName: "CONTACT",
+            href: "/contact"
         },
     ]
 
-    return <section id={styles.navButtonContainer}>
+    return <motion.section layout id={styles.navButtonContainer}>
         {navButtonArray.map((item) => (
             <Link
                 onClick={closeModal}
                 href={item.href}
-                key={item.pageName}
-                className={`${styles.navButton} ${getPathname === item.href ? styles.activeButton : ''}`}
+                key={item.ENpageName}
+                className={`${styles.navButton} ${getPathname === item.href ? styles.activeButton : ""}`}
             >
-                {item.pageName}
+                {getPathname === item.href ? (
+                    <motion.div
+                        className={`${styles.line} ${styles.top}`}
+                        layoutId="topLine"
+                    />
+                    ) : null}
+                {language === "EN" ? item.ENpageName : item.PTpageName}
+                {getPathname === item.href ? (
+                    <motion.div
+                        className={`${styles.line} ${styles.bottom}`}
+                        layoutId="bottomLine"
+                    />
+                    ) : null}
             </Link>
         ))}
-    </section>
-
+    </motion.section>
 }

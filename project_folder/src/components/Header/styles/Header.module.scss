@@ -1,3 +1,5 @@
+@use '../../../app/variables' as *;
+
 #header{
     width:100vw;
     height: 18vh;
@@ -11,13 +13,25 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-right: 5.3vw;
+    padding: $desktop-header-padding;
 
     #infinitaLogo{
-        margin-left: 5.3vw;
-        max-width: 240rem;
-        max-height: 85;
+        max-width: 18.3vw;
+        max-height: 90%;
         width: auto;
         height: auto;
     }
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+
+    #header{
+        #infinitaLogo{
+            max-width:50%;
+            max-height: 90%;
+        }
+    }
+
 }

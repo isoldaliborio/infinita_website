@@ -1,21 +1,50 @@
+@use '../../../app/variables' as *;
+
 #navButtonContainer{
-    width:100%;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     .navButton{
-        width:10%;
+        color: $faded-button-color;
         background-color: none;
-        margin-left: 1%;
-        margin-right: 1%;
+        margin: 0 $desktop-header-button-spacing;
+        font-family: 'MuseoModerno';
+        font-weight: 400;
+        text-align: center;
+        font-size: 1.5vw;
+        transition: color;
+        transition-duration: 300ms;
+
+        .line{
+            height: 0.01rem;
+            width:100%;
+            background:$infinita-black;
+            z-index: 0;
+
+        }
+
+        .top{
+            top:0;
+        }
+
+        .bottom{
+            bottom:0;
+        }
+    }
+
+    .navButton:hover{
+        color:$infinita-black;
     }
 
     .activeButton{
-        border-bottom: 2px;
-        border-top: 2px;
-        border-color: black;
-        border-style:solid none;
+        // keep these here in case thiago does not want the animated navbar.
+        // border-bottom: 1px;
+        // border-top: 1px;
+        // border-color: $infinita-black;
+        // border-style: solid none;
+        color: $infinita-black;
     }
 }
 
@@ -24,18 +53,20 @@
     #navButtonContainer{
         display:flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
+        height:58%;
+        margin-bottom: 15vw;
 
         .navButton{
-            margin-top: 2%;
-            margin-bottom: 2%;
+            margin:  8vw 0;
+            font-size: 7vw;
         }
     
         .activeButton{
             border-bottom: 2px;
             border-top: 2px;
-            border-color: black;
+            border-color: $infinita-black;
             border-style:solid none;
         }
     }
