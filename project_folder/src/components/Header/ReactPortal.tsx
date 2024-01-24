@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React, { useState, useLayoutEffect } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useState, useLayoutEffect } from "react";
+import { createPortal } from "react-dom";
 
 function createWrapperAndAppendToBody(wrapperId:string){
     if(!document) return null;
-    const wrapperElement = document.createElement('div');
-    wrapperElement.setAttribute('id', wrapperId);
+    const wrapperElement = document.createElement("div");
+    wrapperElement.setAttribute("id", wrapperId);
     document.body.appendChild(wrapperElement);
     return wrapperElement;
 } 

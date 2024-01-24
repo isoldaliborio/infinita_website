@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { LanguageContextType, LanguageContext } from "../Context/LanguageContext";

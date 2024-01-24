@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import styles from "./styles/LanguageSwitch.module.scss";
 import { useContext } from "react";
@@ -19,13 +19,13 @@ export default function LanguageSwitch({setLanguage}:LanguageSwitchProps) {
     return <div id={styles.languageSwitchContainer}>
         <button 
             onClick={() => changeLanguage("EN")}
-            className={`${styles.languageButton} ${language === "EN"? styles.activeButton : ''}`}
+            className={`${styles.languageButton} ${language === "EN"? styles.activeButton : ""}`}
         >
             EN
         </button>
         <button 
             onClick={() => changeLanguage("PT")}
-            className={`${styles.languageButton} ${language === "PT"? styles.activeButton : ''}`}
+            className={`${styles.languageButton} ${language === "PT"? styles.activeButton : ""}`}
         >
             PT
         </button>

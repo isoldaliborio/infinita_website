@@ -29,7 +29,7 @@ export default function NavigationBar({setLanguage}:NavigationBarlProps){
         <Image 
             className={styles.modalMenuButton} 
             src={menuIcon} 
-            alt='hamburger menu button' 
+            alt="hamburger menu button" 
             onClick={() => setModalOpen(!modalOpen)} 
         />
         {modalOpen && (

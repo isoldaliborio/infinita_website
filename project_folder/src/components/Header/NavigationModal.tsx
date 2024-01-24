@@ -1,15 +1,11 @@
-'use client';
+"use client";
 
-//TODO: add language switch to this modal menu
-//TODO: refactor for navButtons component
-
-
-import React, { useEffect } from 'react';
-import styles from './styles/NavigationModal.module.scss'
-import ReactPortal from './ReactPortal';
-import NavigationButtons from './NavigationButtons';
-import LanguageSwitch from './LanguageSwitch';
-import { LanguageContextType } from '../Context/LanguageContext';
+import React, { useEffect } from "react";
+import styles from "./styles/NavigationModal.module.scss"
+import ReactPortal from "./ReactPortal";
+import NavigationButtons from "./NavigationButtons";
+import LanguageSwitch from "./LanguageSwitch";
+import { LanguageContextType } from "../Context/LanguageContext";
 
 interface NavigationModalProps {
     isOpen: boolean;
@@ -21,9 +17,9 @@ export default function NavigationModal({isOpen, closeModal, setLanguage}: Navig
 
     //disable scroll on modal load
     useEffect(() => {
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = "hidden";
         return (): void => {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = "unset";
         };
     }, [isOpen])
 
@@ -37,9 +33,5 @@ export default function NavigationModal({isOpen, closeModal, setLanguage}: Navig
                 <LanguageSwitch setLanguage = {setLanguage} />
             </div>
         </ReactPortal>
-    )
-    
-    
-    
-   
+    )   
 }

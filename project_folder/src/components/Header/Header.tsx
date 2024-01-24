@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import styles from "./styles/Header.module.scss"
 import  Image  from "next/Image";
@@ -16,4 +16,4 @@ export default function Header({setLanguage}:HeaderProps){
         <NavigationBar setLanguage = {setLanguage}/>
     </div>
 
-};
+}
