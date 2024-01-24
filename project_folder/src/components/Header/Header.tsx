@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./styles/Header.module.scss"
-import  Image  from "next/Image";
+import Image from "next/Image";
 import { LanguageContextType } from "../Context/LanguageContext";
 import NavigationBar from "./NavigationBar";
 

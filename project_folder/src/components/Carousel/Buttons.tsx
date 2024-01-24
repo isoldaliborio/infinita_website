@@ -1,13 +1,20 @@
 import styles from "./styles/Buttons.module.scss"
+import { useState } from "react";
 
+export default function Buttons({data, setItem, activeItem}){
 
-export default function Buttons() {
+    // Replace with context
+    const language = "en";
+
     return (
-        <section className={styles.button_block}>
-            <div className={styles.button} id={styles.button1}> 01 </div>
-            <div className={styles.button} id={styles.button2}> 02 </div>
-            <div className={styles.button} id={styles.button3}> 03 </div>
-            <div className={styles.button} id={styles.button4}> 04 </div>
-        </section>
-    )
+        <div className={styles.button_block}>
+            {/* Iterate through the "featured" array and create Icon components */}
+            {data.featured.map((item, index) => (
+                <div key={index} className={`${styles.button} ${activeItem.path == item.path ? styles.active_button : ""}`} onClick={() => setItem(item)}>
+                    <div>0{index + 1}</div>
+                    <span>{item[language].title} - {item[language].category}</span>
+                </div>
+            ))}
+        </div>
+    );
 }
