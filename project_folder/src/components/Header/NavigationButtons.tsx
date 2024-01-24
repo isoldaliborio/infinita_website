@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useContext } from "react";
 import { usePathname } from "next/navigation";
-import styles from "./styles/NavigationButtons.module.scss"
-import { motion } from "framer-motion"
+import styles from "./styles/NavigationButtons.module.scss";
+import { motion } from "framer-motion";
+import { LanguageContext } from "../Context/LanguageContext";
 
 interface NavigationButtonProps {
     closeModal: () => void;
@@ -11,27 +13,34 @@ interface NavigationButtonProps {
 
 export default function NavigationButtons({closeModal}:NavigationButtonProps){
 
+    let language = useContext(LanguageContext);
+
     const getPathname = usePathname();
 
     const navButtonArray = [
         {
-            pageName: "HOME",
+            ENpageName: "HOME",
+            PTpageName: "HOME",
             href: "/"
         },
         {
-            pageName: "ABOUT",
+            ENpageName: "ABOUT",
+            PTpageName: "ABOUT",
             href: "/about"
         },
         {
-            pageName: "PROJECTS",
+            ENpageName: "PROJECTS",
+            PTpageName: "PROJECTS",
             href: "/projects"
         },
         {
-            pageName: "SERVICES",
+            ENpageName: "SERVICES",
+            PTpageName: "SERVICES",
             href: "/services"
         },
         {
-            pageName: "CONTACT",
+            ENpageName: "CONTACT",
+            PTpageName: "CONTACT",
             href: "/contact"
         },
     ]
@@ -41,7 +50,7 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
             <Link
                 onClick={closeModal}
                 href={item.href}
-                key={item.pageName}
+                key={item.ENpageName}
                 className={`${styles.navButton} ${getPathname === item.href ? styles.activeButton : ""}`}
             >
                 {getPathname === item.href ? (
@@ -50,7 +59,7 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
                         layoutId="topLine"
                     />
                     ) : null}
-                {item.pageName}
+                {language === "EN" ? item.ENpageName : item.PTpageName}
                 {getPathname === item.href ? (
                     <motion.div
                         className={`${styles.line} ${styles.bottom}`}
@@ -60,5 +69,4 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
             </Link>
         ))}
     </motion.section>
-
 }

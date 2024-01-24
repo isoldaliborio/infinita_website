@@ -1,8 +1,5 @@
 @use '../../../app/variables' as *;
 
-//using google fonts as temporary fix since local files are 'corrupt'
-@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400&display=swap');
-
 #navButtonContainer{
     display:flex;
     flex-direction: row;
@@ -42,7 +39,7 @@
     }
 
     .activeButton{
-        // keep these here in case thiago does not want animated navbar.
+        // keep these here in case thiago does not want the animated navbar.
         // border-bottom: 1px;
         // border-top: 1px;
         // border-color: $infinita-black;
@@ -56,12 +53,14 @@
     #navButtonContainer{
         display:flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
+        height:58%;
+        margin-bottom: 15vw;
 
         .navButton{
-            margin-top: 2%;
-            margin-bottom: 2%;
+            margin:  8vw 0;
+            font-size: 7vw;
         }
     
         .activeButton{

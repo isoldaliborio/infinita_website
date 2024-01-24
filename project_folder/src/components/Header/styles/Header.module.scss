@@ -22,3 +22,16 @@
         height: auto;
     }
 }
+
+
+/* Mobile */
+@media (max-width: 700px) {
+
+    #header{
+        #infinitaLogo{
+            max-width:50%;
+            max-height: 90%;
+        }
+    }
+
+}

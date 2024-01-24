@@ -7,7 +7,7 @@
     #modalMenuBackground{
         display: flex; 
         flex-direction: column; 
-        justify-content: center; 
+        justify-content: flex-end; 
         align-items: center; 
         position: fixed;
         top: 0;
@@ -16,9 +16,7 @@
         height: 100vh;
         //seems extreme, but it ensures modal placed above all other elements
         z-index: 3000;
-        opacity: 90%;
-        //temporary color
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.9);
 
         #closeButton{
             justify-self: end;

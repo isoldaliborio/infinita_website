@@ -34,3 +34,18 @@
         background-color: $purple-accent;
     }
 }
+
+/* Mobile */
+@media (max-width: 700px) {
+    #languageSwitchContainer{
+        width: 24vw;
+        height: 12vw;
+        margin: 16vw 0;
+
+        .activeButton{
+            background-color: $purple-accent;
+            color: white;
+            opacity: 100%;
+        }
+    }
+}
