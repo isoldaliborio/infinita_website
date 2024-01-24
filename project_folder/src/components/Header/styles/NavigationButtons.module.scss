@@ -19,6 +19,22 @@
         font-size: 1.5vw;
         transition: color;
         transition-duration: 300ms;
+
+        .line{
+            height: 0.01rem;
+            width:100%;
+            background:$infinita-black;
+            z-index: 0;
+
+        }
+
+        .top{
+            top:0;
+        }
+
+        .bottom{
+            bottom:0;
+        }
     }
 
     .navButton:hover{
@@ -26,10 +42,11 @@
     }
 
     .activeButton{
-        border-bottom: 1px;
-        border-top: 1px;
-        border-color: $infinita-black;
-        border-style: solid none;
+        // keep these here in case thiago does not want animated navbar.
+        // border-bottom: 1px;
+        // border-top: 1px;
+        // border-color: $infinita-black;
+        // border-style: solid none;
         color: $infinita-black;
     }
 }
