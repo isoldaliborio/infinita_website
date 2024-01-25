@@ -2,10 +2,13 @@
 
 import React, { useEffect } from "react";
 import styles from "./styles/NavigationModal.module.scss"
+import Image from "next/image";
 import ReactPortal from "./ReactPortal";
 import NavigationButtons from "./NavigationButtons";
 import LanguageSwitch from "./LanguageSwitch";
 import { LanguageContextType } from "../Context/LanguageContext";
+import { motion } from "framer-motion";
+// import closeIcon from "../../../public/icons/close_icon.png"
 
 interface NavigationModalProps {
     isOpen: boolean;
@@ -27,11 +30,37 @@ export default function NavigationModal({isOpen, closeModal, setLanguage}: Navig
 
     return (
         <ReactPortal wrapperId="react-portal-modal-container" >
-            <div id={styles.modalMenuBackground}>
-                <button id={styles.closeButton} onClick={closeModal}> X </button>
+            <motion.div 
+                id={styles.modalMenuBackground}
+                initial='initialState'
+                animate='animateState'
+                transition={{
+                    duration: 0.3,
+                    delay: 0.2
+                }}
+                variants={{
+                    initialState: {
+                        opacity:0,
+                        y:20
+                    },
+                    animateState: {
+                        opacity: 100,
+                        y:0
+                    }
+                }}
+            >
+                <Image 
+                    src={"/icons/close_icon.png"}
+                    alt="close button"
+                    width="50"
+                    height="50"
+                    id={styles.closeButton} 
+                    onClick={closeModal}
+                    priority
+                />
                 <NavigationButtons closeModal={closeModal}/>
                 <LanguageSwitch setLanguage = {setLanguage} />
-            </div>
+            </motion.div>
         </ReactPortal>
     )   
 }
