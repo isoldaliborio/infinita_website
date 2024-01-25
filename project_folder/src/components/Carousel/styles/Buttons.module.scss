@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    margin-top: 40vh;
     margin-right: 0.8vw;
     margin-bottom: 2.5%;
 
@@ -27,8 +26,11 @@
     }
 
     .active_button {
-        background-color: red;
+        background-color: black;
+        color: white;
         font-family: "museomodernothin";
+        width: 100px;
+        height: 30px;
 
         span {
             display: inline-block;
