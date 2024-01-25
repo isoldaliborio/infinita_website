@@ -1,16 +1,40 @@
 .button_block {
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
-    margin-top: 40vh;
-    margin-right: 1vw;
-    margin-bottom: 1rem;
-}
+    justify-content: flex-end;
+    margin-right: 0.8vw;
+    margin-bottom: 2.5%;
 
-.button {
-    width: 25px;
-    height: 25px;
-    border:1px solid black;
-    text-align: center;
-    font-size: 0.7rem;
+    .button {
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        text-align: center;
+        font-size: 0.5rem;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        font-family: "museomodernothin";
+        margin-top: 0.4rem;
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+
+        span {
+            display: none;
+        }
+
+    }
+
+    .active_button {
+        background-color: black;
+        color: white;
+        font-family: "museomodernothin";
+        width: 100px;
+        height: 30px;
+
+        span {
+            display: inline-block;
+        }
+
+    }
 }

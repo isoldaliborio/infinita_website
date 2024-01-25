@@ -1,4 +1,4 @@
-import SocialsBar from "./SocialsBar"
+import SBIcons from "./SocialsBar"
 import styles from "./styles/Footer.module.scss"
 
 export default function Footer() {
@@ -7,7 +7,7 @@ export default function Footer() {
             <section className={styles.paragraph}>
                 All rights reserved © 2024 Inifita Productions
             </section>
-            <SocialsBar/>
+            <SBIcons/>
         </footer>
     )
 }
