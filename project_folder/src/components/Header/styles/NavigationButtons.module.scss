@@ -3,13 +3,13 @@
 #navButtonContainer{
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    width:90%;
 
     .navButton{
         color: $faded-button-color;
         background-color: none;
-        margin: 0 $desktop-header-button-spacing;
         font-family: 'MuseoModerno';
         font-weight: 400;
         text-align: center;
@@ -61,6 +61,10 @@
         .navButton{
             margin:  8vw 0;
             font-size: 7vw;
+
+            .line{
+               display: none;
+            }
         }
     
         .activeButton{

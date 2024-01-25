@@ -25,22 +25,22 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
         },
         {
             ENpageName: "ABOUT",
-            PTpageName: "ABOUT",
+            PTpageName: "SOBRE",
             href: "/about"
         },
         {
             ENpageName: "PROJECTS",
-            PTpageName: "PROJECTS",
+            PTpageName: "PROJETOS",
             href: "/projects"
         },
         {
             ENpageName: "SERVICES",
-            PTpageName: "SERVICES",
+            PTpageName: "SERVIÇOS",
             href: "/services"
         },
         {
             ENpageName: "CONTACT",
-            PTpageName: "CONTACT",
+            PTpageName: "CONTATO",
             href: "/contact"
         },
     ]
