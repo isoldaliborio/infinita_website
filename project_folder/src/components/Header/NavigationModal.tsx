@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import styles from "./styles/NavigationModal.module.scss"
-import Image from "Next/Image";
+import Image from "next/image";
 import ReactPortal from "./ReactPortal";
 import NavigationButtons from "./NavigationButtons";
 import LanguageSwitch from "./LanguageSwitch";
