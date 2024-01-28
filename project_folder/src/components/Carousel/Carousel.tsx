@@ -11,11 +11,11 @@ export default function Carousel(){
         "featured": [
             {
                 "pt": {
-                    "title": "Imagem1",
-                    "category": "música",
+                    "title": "Image1",
+                    "category": "curating",
                 },
                 "en": {
-                    "title": "Image1",
+                    "title": "Sunset Screening Session 2021/22/23",
                     "category": "music",
                 },
                 "path": "image1.jpg"
@@ -26,7 +26,7 @@ export default function Carousel(){
                     "category": "produção",
                 },
                 "en": {
-                    "title": "Image2",
+                    "title": "Sunset Screening Session 2021/22/23",
                     "category": "production",
                 },
                 "path": "image2.jpg"
@@ -66,7 +66,7 @@ export default function Carousel(){
         <section id={styles.Carousel}>
             <Buttons data={dummyData} setItem={setActiveItem} activeItem={activeItem} />
             <div className={styles.imageContainer}>
-                <Image src={"/images/" + activeItem.path} alt="img" style={{objectFit: "cover"}} fill />
+                <Image id={styles.imagespace} src={"/images/" + activeItem.path} alt="img" style={{objectFit: "cover"}} fill />
             </div>
         </section>
     )

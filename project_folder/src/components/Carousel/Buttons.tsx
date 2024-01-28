@@ -11,8 +11,9 @@ export default function Buttons({data, setItem, activeItem}){
             {/* Iterate through the "featured" array and create Icon components */}
             {data.featured.map((item, index) => (
                 <div key={index} className={`${styles.button} ${activeItem.path == item.path ? styles.active_button : ""}`} onClick={() => setItem(item)}>
-                    <div>0{index + 1}</div>
-                    <span>{item[language].title} - {item[language].category}</span>
+                    <div id={styles.index}>0{index + 1}</div>
+                    <span id={styles.title}>{item[language].title}</span> 
+                    <span id={styles.category}> - {item[language].category}</span>
                 </div>
             ))}
         </div>
