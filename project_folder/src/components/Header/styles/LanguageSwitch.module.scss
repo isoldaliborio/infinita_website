@@ -6,20 +6,18 @@
     width: 6.1vw;
     height: 3.05vw;
     background-color: white;
-    padding: none;
     margin-left: $desktop-header-button-spacing;
 
     .languageButton{
-        padding: none;
         width:50%;
         height:100%;
         background-color: white;
         color: $infinita-black;
-        border:none;
+        border: none;
         cursor: pointer;
         transition: background-color, color;
         transition-duration: 200ms;
-        font-size: 1.2vw;
+        font-size: 1vw;
     }
 
     .languageButton:hover{
