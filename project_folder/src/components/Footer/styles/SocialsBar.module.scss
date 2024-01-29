@@ -1,18 +1,19 @@
-.container {
+.icons_container {
     display: flex;
     flex-direction: row;
     justify-content:space-between;
     width: 15vw;
-    margin-right: 2rem;
-    margin-top: 1.4rem;
+    margin-right: 4%;
+    // margin-top: 1.4rem;
     
+    .icon_box{
+        display: inline-block;
+        padding-right: 0.5rem;
+        margin: auto 0;
+       
+        
+        .icon {
+            height: 2.2vh;
+        }
+    }
 }
-
-.icon {
-    padding-right: 0.5rem;
-    height: 2.2vh;
-}
-    
-
-
-
