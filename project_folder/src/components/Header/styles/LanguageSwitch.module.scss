@@ -3,23 +3,22 @@
 #languageSwitchContainer{
     display: flex;
     flex-direction: row;
-    width: 6.1vw;
-    height: 3.05vw;
+    width: 4.16vw;
+    height: 2.08vw;
     background-color: white;
-    padding: none;
-    margin-left: $desktop-header-button-spacing;
+    margin-left: 0.78vw;
 
     .languageButton{
-        padding: none;
         width:50%;
         height:100%;
         background-color: white;
         color: $infinita-black;
-        border:none;
+        border: none;
         cursor: pointer;
         transition: background-color, color;
         transition-duration: 200ms;
-        font-size: 1.2vw;
+        font-size: 0.7vw;
+        font-style:normal;
     }
 
     .languageButton:hover{
@@ -39,9 +38,15 @@
 /* Mobile */
 @media (max-width: 700px) {
     #languageSwitchContainer{
-        width: 24vw;
-        height: 12vw;
-        margin: 16vw 0;
+        width: 13.34vh;
+        height: 6.67vh;
+        margin: 15vh 0 0 0;
+        background-color: none;
+        
+        .languageButton{
+            font-size: 2vh;
+            background-color: none;
+        }
 
         .activeButton{
             background-color: $purple-accent;

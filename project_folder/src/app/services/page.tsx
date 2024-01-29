@@ -1,11 +1,18 @@
-import styles from './page.module.scss'
+"use client";
+
+import styles from "./page.module.scss";
+import { LanguageContext } from "@/components/Context/LanguageContext";
+import { useContext } from "react";
 
 export default function Services() {
-    return (
-      <main className={styles.main}>
-        <div className={styles.description}>
-          Welcome to the services page!
-        </div>
-      </main>
-    )
+
+  let language = useContext(LanguageContext);
+
+  return (
+    <main className={styles.main}>
+      <div className={styles.description}>
+        {language === "EN" ? "Welcome to the services page!" : "Bem-vindo à página servicos" }
+      </div>
+    </main>
+  )
   }

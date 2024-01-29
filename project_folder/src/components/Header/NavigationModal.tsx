@@ -49,15 +49,17 @@ export default function NavigationModal({isOpen, closeModal, setLanguage}: Navig
                     }
                 }}
             >
-                <Image 
-                    src={"/icons/close_icon.png"}
-                    alt="close button"
-                    width="50"
-                    height="50"
-                    id={styles.closeButton} 
-                    onClick={closeModal}
-                    priority
-                />
+                <section id={styles.modalHeader}>
+                    <Image 
+                        src={"/icons/close_icon.png"}
+                        alt="close button"
+                        width="50"
+                        height="50"
+                        id={styles.closeButton} 
+                        onClick={closeModal}
+                        priority
+                    />
+                </section>
                 <NavigationButtons closeModal={closeModal}/>
                 <LanguageSwitch setLanguage = {setLanguage} />
             </motion.div>
