@@ -61,14 +61,15 @@
     #navButtonContainer{
         display:flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
-        height:58%;
-        margin-bottom: 15vw;
+        height:53vh;
+        width:100%;
 
         .navButton{
-            margin:  8vw 0;
-            font-size: 7vw;
+            margin:  2.9vh 0;
+            font-size: 5vw;
+            height:5.8vh;
 
             .line{
                display: none;
@@ -76,8 +77,8 @@
         }
     
         .activeButton{
-            border-bottom: 2px;
-            border-top: 2px;
+            border-bottom: 1px;
+            border-top: 1px;
             border-color: $infinita-black;
             border-style:solid none;
         }

@@ -38,9 +38,15 @@
 /* Mobile */
 @media (max-width: 700px) {
     #languageSwitchContainer{
-        width: 24vw;
-        height: 12vw;
-        margin: 16vw 0;
+        width: 13.34vh;
+        height: 6.67vh;
+        margin: 15vh 0 0 0;
+        background-color: none;
+        
+        .languageButton{
+            font-size: 2vh;
+            background-color: none;
+        }
 
         .activeButton{
             background-color: $purple-accent;
