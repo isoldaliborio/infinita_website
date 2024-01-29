@@ -16,12 +16,25 @@ body {
   max-height: 100vh;
 }
 
+// body {
+//   color: black; // remove from here
+//   background-image: url('/texture_double.jpg');
+//   background-repeat:no-repeat;
+//   background-size: 200% auto;
+//   position: absolute;
+//   background-position-y: 56vh;
+
+// }
+
+
 body {
   color: black; // remove from here
-  background-image: url('/texture_double.jpg');
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position-y: 120%;
+  background-image: url('/texture_white_gray.png');
+  background-repeat:no-repeat;
+  background-position: center;
+  
+  
+
 }
 
 a {

@@ -1,14 +1,21 @@
 
 #Carousel {
     width: 100%;
+    // position:absolute;
     height: 70vh;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 
     .imageContainer {
-        width: 94%;
-        background-color: black;
+        width: 93%;
+        background-color:antiquewhite;
         position: relative;
     }
+
 }
+
+
+@media (max-width: 1250px) {
+    /* … */
+  }
