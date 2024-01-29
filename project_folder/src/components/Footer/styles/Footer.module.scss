@@ -7,13 +7,15 @@
     display: flex;
     flex-direction: row;
     justify-content:space-between;
-    padding-top: 1vh;
+    padding-top: 1%h;
     
 }
 
 .paragraph {
-    margin-top: 2.6rem;
     font-size: 0.5rem;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
     margin-left: 3%;
     font-family: "poppinsmedium";
 }

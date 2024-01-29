@@ -10,9 +10,11 @@ interface IconProps {
 
 const Icon: React.FC<IconProps> = ({ href, icontype }) => {
   return (
-    <a href={href} target='_blank'>
-      <FontAwesomeIcon icon={icontype} className={styles.icon} />
-    </a>
+    <section className={styles.icon_box}>
+          <a href={href} target='_blank'>
+            <FontAwesomeIcon icon={icontype} className={styles.icon} />
+          </a>
+    </section>
   );
 }
 

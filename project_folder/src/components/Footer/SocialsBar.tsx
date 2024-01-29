@@ -24,7 +24,7 @@ import Icon from './Icons';
 
 export default function SBIcons() {
         return (
-            <div className={styles.container}>
+            <div className={styles.icons_container}>
                 <Icon href='https://vimeo.com/infinitaprod' icontype={faVimeoV} />
                 <Icon href='https://www.linkedin.com/company/infinitaproductions' icontype={faLinkedin} />
                 <Icon href='https://twitter.com/Infinita_Prod' icontype={faXTwitter} />
