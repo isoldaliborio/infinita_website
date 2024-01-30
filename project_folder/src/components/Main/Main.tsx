@@ -9,7 +9,7 @@ export default function Main({children}:{children: React.ReactNode}){
 
     const [language, setLanguage] = useState<LanguageContextType>("EN")
 
-    return <LanguageContext.Provider value={ language }>
+    return <LanguageContext.Provider value={language}>
         <Header setLanguage={setLanguage}/>
         {children}
         <Footer/>
