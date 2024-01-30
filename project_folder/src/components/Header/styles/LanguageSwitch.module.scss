@@ -1,6 +1,6 @@
 @use '../../../app/variables' as *;
 
-#languageSwitchContainer{
+#languageButtonContainer{
     display: flex;
     flex-direction: row;
     width: 4.16vw;
@@ -37,7 +37,7 @@
 
 /* Mobile */
 @media (max-width: 700px) {
-    #languageSwitchContainer{
+    #languageButtonContainer{
         width: 13.34vh;
         height: 6.67vh;
         margin: 15vh 0 0 0;

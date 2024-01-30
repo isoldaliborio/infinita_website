@@ -37,4 +37,4 @@ export default function ReactPortal( { children, wrapperId }: {children: React.R
     if(!wrapperElement) return null;
 
     return createPortal(children, wrapperElement);
-}
+};
