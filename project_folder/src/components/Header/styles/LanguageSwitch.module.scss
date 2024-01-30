@@ -5,7 +5,6 @@
     flex-direction: row;
     width: 4.16vw;
     height: 2.08vw;
-    background-color: white;
     margin-left: 0.78vw;
 
     .languageButton{
@@ -18,7 +17,6 @@
         transition: background-color, color;
         transition-duration: 200ms;
         font-size: 0.7vw;
-        font-style:normal;
     }
 
     .languageButton:hover{
@@ -36,21 +34,17 @@
 }
 
 /* Mobile */
-@media (max-width: 700px) {
+@media (max-width: $max-mobile-width) {
     #languageButtonContainer{
         width: 13.34vh;
         height: 6.67vh;
         margin: 15vh 0 0 0;
-        background-color: none;
         
         .languageButton{
             font-size: 2vh;
-            background-color: none;
         }
 
         .activeButton{
-            background-color: $purple-accent;
-            color: white;
             opacity: 100%;
         }
     }
