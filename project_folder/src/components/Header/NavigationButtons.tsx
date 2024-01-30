@@ -1,19 +1,19 @@
 "use client";
 
-import Link from "next/link";
+import Link from "next/Link";
 import { useContext } from "react";
 import { usePathname } from "next/navigation";
 import styles from "./styles/NavigationButtons.module.scss";
 import { motion } from "framer-motion";
 import { LanguageContext } from "../Context/LanguageContext";
 
-interface NavigationButtonProps {
+type NavigationButtonProps = {
     closeModal: () => void;
-}
+};
 
 export default function NavigationButtons({closeModal}:NavigationButtonProps){
 
-    let language = useContext(LanguageContext);
+    const language = useContext(LanguageContext);
 
     const getPathname = usePathname();
 
@@ -43,7 +43,7 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
             PTpageName: "CONTATO",
             href: "/contact"
         },
-    ]
+    ];
 
     return <motion.section layout id={styles.navButtonContainer}>
         {navButtonArray.map((item) => (
@@ -69,4 +69,4 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
             </Link>
         ))}
     </motion.section>
-}
+};

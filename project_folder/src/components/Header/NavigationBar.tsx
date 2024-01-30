@@ -1,25 +1,25 @@
 "use client";
 
-import styles from "./styles/NavigationBar.module.scss"
+import styles from "./styles/NavigationBar.module.scss";
 import { useState} from "react";
-import Image from "next/image";
+import Image from "next/Image";
 import NavigationModal from "./NavigationModal";
 import NavigationButtons from "./NavigationButtons";
 import LanguageSwitch from "./LanguageSwitch";
 import { LanguageContextType } from "../Context/LanguageContext";
 import menuIcon from "../../../public/icons/hamburger_menu_icon.svg";
 
-interface NavigationBarlProps {
+type NavigationBarProps = {
     setLanguage: React.Dispatch<React.SetStateAction<LanguageContextType>>;
-}
+};
 
-export default function NavigationBar({setLanguage}:NavigationBarlProps){
+export default function NavigationBar({setLanguage}:NavigationBarProps){
 
-    const [modalOpen, setModalOpen] = useState<boolean>(false);
+    const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
     function closeModal(){
-        setModalOpen(false)
-    }
+        setModalIsOpen(false);
+    };
 
     return <>
         <section id={styles.buttonContainer}>
@@ -30,14 +30,14 @@ export default function NavigationBar({setLanguage}:NavigationBarlProps){
             className={styles.modalMenuButton} 
             src={menuIcon} 
             alt="hamburger menu button" 
-            onClick={() => setModalOpen(!modalOpen)} 
+            onClick={() => setModalIsOpen(!modalIsOpen)} 
         />
-        {modalOpen && (
-                <NavigationModal 
-                    isOpen={modalOpen}
-                    closeModal={closeModal}
-                    setLanguage={setLanguage}
-                />
-            )}
+        {modalIsOpen && (
+            <NavigationModal 
+                isOpen={modalIsOpen}
+                closeModal={closeModal}
+                setLanguage={setLanguage}
+            />
+        )}
     </>
-}
+};

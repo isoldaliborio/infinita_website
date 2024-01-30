@@ -2,9 +2,20 @@ $faded-button-color: rgba(165, 165, 165);
 $purple-accent: rgba(188, 0, 147);
 $purple-accent-hover:rgba(188, 0, 147, 0.5);
 $infinita-black: rgba(33, 33, 33);
+$max-mobile-width: 700px;
+$min-desktop-width: $max-mobile-width + 1px;
 
 //applied to navigation buttons and language switcher
 $desktop-header-button-spacing: 1.9vw;
 
 //applied to Header
 $desktop-header-padding: 0 3vw 0 3.65vw;
+
+/* Mixins */
+@mixin mobile-only {
+    @media (min-width: $min-desktop-width) { display: none; }
+}
+  
+@mixin desktop-only {
+    @media (max-width: $max-mobile-width) { display: none; }
+}
