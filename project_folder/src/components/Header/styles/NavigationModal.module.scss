@@ -5,7 +5,7 @@
 }
 
 /* Mobile */
-@media (max-width: $max-mobile-width) {
+@media (max-width: $max-small-screen-width) {
     #modalMenuBackground{
         //ensures modal is placed above all other elements
         z-index: 3000;
