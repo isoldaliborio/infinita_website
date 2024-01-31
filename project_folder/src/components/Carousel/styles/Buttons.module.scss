@@ -8,8 +8,16 @@
     bottom: 9%;
     z-index: 1;
     width: 60%;
-    
 
+    @media (max-width: 1170px) { 
+        left: 3.2%;
+        width: 50%;
+    }
+
+    @media (max-width: 720px) {
+        left: 1.8%;
+    }
+    
     .button {
         width: 25px;
         min-height: 25px;
@@ -75,22 +83,16 @@
     
 //     }
 
-@media (max-width: 1170px) {
-    .button_block {
-        // position: absolute;
-        left: 3.2%;
-        // bottom: 9%;
-        // z-index: 1;
-        width: 50%;
-    }
-}
+// @media (max-width: 1170px) {
+//     .button_block {
+        
+//         left: 3.2%;
+//         width: 50%;
+//     }
+// }
 
-@media (max-width: 720px) {
-    .button_block {
-        position: absolute;
-        left: 2.0%;
-        bottom: 9%;
-        z-index: 1;
-        width: 50%;
-    }
-}
+// @media (max-width: 720px) {
+//     .button_block {
+//         left: 1.8%;
+//     }
+// }

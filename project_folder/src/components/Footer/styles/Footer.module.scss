@@ -16,6 +16,17 @@
     display: flex;
     justify-content: center; 
     align-items: center; 
-    margin-left: 3%;
+    margin-left: 4.5%;
     font-family: "poppinsmedium";
 }
+
+
+
+@media (max-width: 1170px) {
+    .paragraph {
+       
+        margin-left: 3%;
+        font-family: "poppinsmedium";
+    }
+}
+
