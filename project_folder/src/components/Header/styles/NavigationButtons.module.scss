@@ -7,6 +7,15 @@
     align-items: center;
     height:100%;
 
+    /* Mobile */
+    @media (max-width: $max-small-screen-width) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height:53vh;
+        width:100%;
+    }
+
     .navButton{
         color: $faded-button-color;
         background-color: none;
@@ -24,13 +33,27 @@
         justify-content: center;
         position: relative;
 
+        /* Medium Screens */
+        @media (min-width: $min-medium-screen-width) and (max-width: $max-medium-screen-width) {
+            margin: 0 1.8vw;
+            font-size: 1.35vw;
+            height: 20%;
+        }
+
+        /* Mobile */
+        @media (max-width: $max-small-screen-width) {
+            margin:  2.9vh 0;
+            font-size: 5vw;
+            height:5.8vh;
+        }
+
         .line{
+            @include desktop-only;
             height: 0.02rem;
             width:100%;
             background:$infinita-black;
             z-index: 0;
             position: absolute;
-            @include desktop-only;
         }
 
         .top{
@@ -47,37 +70,23 @@
     }
 
     .activeButton{
-        // keep these here in case thiago does not want the animated navbar.
-        // border-bottom: 1px;
-        // border-top: 1px;
-        // border-color: $infinita-black;
-        // border-style: solid none;
         color: $infinita-black;
-    }
-}
 
-/* Mobile */
-@media (max-width: $max-mobile-width) {
-    #navButtonContainer{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height:53vh;
-        width:100%;
-
-        .navButton{
-            margin:  2.9vh 0;
-            font-size: 5vw;
-            height:5.8vh;
-        }
-    
-        .activeButton{
+        /* Mobile */
+        @media (max-width: $max-small-screen-width) {
             border-bottom: 1px;
             border-top: 1px;
             border-color: $infinita-black;
             border-style:solid none;
         }
     }
+}
 
-  }
+//In case thiago does not want the animated navbar.
+//.activeButton{
+    // border-bottom: 1px;
+    // border-top: 1px;
+    // border-color: $infinita-black;
+    // border-style: solid none;
+    // color: $infinita-black;
+//}
