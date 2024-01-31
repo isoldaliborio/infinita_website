@@ -19,7 +19,8 @@ async function processHomePageData() {
                     const workIdKey = `work_id_${orderKey.split('_')[1]}`;
                     return {
                         img_id: acfField[imgIdKey],
-                        work_id: acfField[workIdKey]
+                        work_id: acfField[workIdKey],
+                        
                     };
                 });
 
@@ -30,11 +31,12 @@ async function processHomePageData() {
                 const imgData = await imgResponse.json();
                 item.img_url = imgData.media_details.sizes.full.source_url;
 
-                // Fetch category names
+                // Fetch category names and title
                 const postResponse = await fetch(`${mainUrl}/admin/wp-json/wp/v2/posts/${item.work_id}`);
                 const postData = await postResponse.json();
                 const categoryIds = postData.categories;
-
+                const title = postData.title.rendered;
+                
                 // Fetch category names for each category ID
                 const categoryNames = await Promise.all(categoryIds.map(async categoryId => {
                     const categoryResponse = await fetch(`${mainUrl}/admin/wp-json/wp/v2/categories/${categoryId}`);
@@ -43,10 +45,11 @@ async function processHomePageData() {
                 }));
 
                 item.category_names = categoryNames;
+                item.title = title;
             }
 
             // Log the final result
-            console.log(homePageImages);
+            // console.log(homePageImages);
             return homePageImages
         } else {
             console.error('ACF field not found in the JSON data.');
