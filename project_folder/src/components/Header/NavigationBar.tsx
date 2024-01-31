@@ -2,7 +2,7 @@
 
 import styles from "./styles/NavigationBar.module.scss";
 import { useState} from "react";
-import Image from "next/Image";
+import Image from "next/image";
 import NavigationModal from "./NavigationModal";
 import NavigationButtons from "./NavigationButtons";
 import LanguageSwitch from "./LanguageSwitch";

@@ -1,8 +1,8 @@
 "use client";
 
 import styles from "./styles/Header.module.scss";
-import  Image from "next/Image";
-import Link from "next/Link";
+import  Image from "next/image";
+import Link from "next/link";
 import { LanguageContextType } from "../Context/LanguageContext";
 import NavigationBar from "./NavigationBar";
 import InfinitaLogo from "../../../public/images/infinita-logo.png"
