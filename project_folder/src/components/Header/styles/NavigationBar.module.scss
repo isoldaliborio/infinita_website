@@ -11,14 +11,7 @@
 
 .modalMenuButton{
     @include mobile-only;
+    display: inline;
+    cursor: pointer;
+    width:6.2vw;
 }
-
-/* Mobile */
-@media (max-width: $max-mobile-width) {
-
-    .modalMenuButton{
-        display: inline;
-        cursor: pointer;
-        width:6.2vw;
-    }
-  }
