@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/Link";
+import Link from "next/link";
 import { useContext } from "react";
 import { usePathname } from "next/navigation";
 import styles from "./styles/NavigationButtons.module.scss";
