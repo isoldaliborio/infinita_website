@@ -9,7 +9,7 @@ const nextConfig = {
                 protocol: 'https',
                 hostname:  'infinitaproductions.com',
                 port: '',
-                pathname: '/admin/wp-content/**'
+                pathname: '/**'
             }
         ]
     }
