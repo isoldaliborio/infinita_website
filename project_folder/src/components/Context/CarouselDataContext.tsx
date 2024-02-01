@@ -2,9 +2,9 @@
 
 import { createContext } from "react";
 
-import processHomePageData from "@/utils/processHomePageData"
+// import processHomePageData from "@/utils/processHomePageData"
 
-export type CarouselDataContextType = {
+export type CarouselDataContextType = undefined |null | {
     category_names: string[]
     img_id: number
     img_url: string
@@ -12,4 +12,4 @@ export type CarouselDataContextType = {
     work_id: number
 }[]
 
-export const CarouselDataContext = createContext(processHomePageData());
+export const CarouselDataContext = createContext(null);

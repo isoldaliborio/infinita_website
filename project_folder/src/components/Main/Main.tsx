@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import { CarouselDataContext, CarouselDataContextType } from "../Context/CarouselDataContext";
+import { CarouselDataContext } from "../Context/CarouselDataContext";
 import { LanguageContextType, LanguageContext } from "../Context/LanguageContext";
 import processHomePageData from "@/utils/processHomePageData";
 
@@ -19,19 +19,18 @@ export default function Main({ children }: { children: React.ReactNode }) {
         fetchData();
     }, []);
 
-    if (!homePageData) {
-        // Data is still loading, return loading indicator or null
-        return null;
-    }
+    // if (!homePageData) {
+    //     // Data is still loading, return loading indicator or null
+    //     return null;
+    // }
 
     console.log(homePageData);
-
 
     return (
         <LanguageContext.Provider value={language}>
             <Header setLanguage={setLanguage} />
             <CarouselDataContext.Provider value={homePageData}>
-                {children}
+                    {children}
             </CarouselDataContext.Provider>
             <Footer />
         </LanguageContext.Provider>

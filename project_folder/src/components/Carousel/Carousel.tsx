@@ -9,7 +9,13 @@ import { useState, useContext } from "react";
 export default function Carousel(){
 
     const fetchedData: any = useContext(CarouselDataContext)
-    const [activeItem, setActiveItem] = useState<any>(fetchedData[0]);
+    const [activeItem, setActiveItem] = useState<any>(null);
+    
+    if (!fetchedData) {
+        // Data is still loading, return loading indicator or null
+        return null;
+    }
+
 
     if(!activeItem){
         return <div></div>
