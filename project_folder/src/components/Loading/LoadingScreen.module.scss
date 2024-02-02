@@ -2,10 +2,40 @@
 
     z-index:100;
     width: 100vw;
-    height: 100vh;
-    background-color: red;
+    height: 70vh;
+    background-color: white;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+
+    #logo{
+        width: 50vw;
+        height:auto;
+        position:absolute;
+        justify-self: center;
+        align-self: center;
+        opacity:15%;
+    }
 
     #loadingText{
-        color: blue;
+        color: black;
+        font-family: 'MuseoModerno';
+        font-size: 2vw;
+        font-weight:500;
+        letter-spacing: 0.1rem;
+        animation: pulse 2s infinite;
+        @keyframes pulse {
+            0% {
+                opacity:100%
+            }
+        
+            70% {
+                opacity:50%;
+            }
+        
+            100% {
+                opacity:100%;
+            }
+        }
     }
 }

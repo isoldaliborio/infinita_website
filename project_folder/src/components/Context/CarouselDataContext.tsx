@@ -2,7 +2,7 @@
 
 import { createContext } from "react";
 
-// import processHomePageData from "@/utils/processHomePageData"
+import processHomePageData from "@/utils/processHomePageData"
 
 export type CarouselDataContextType = undefined |null | {
     category_names: string[]
