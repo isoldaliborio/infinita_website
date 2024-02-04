@@ -5,6 +5,7 @@ $infinita-black: rgba(33, 33, 33);
 $max-small-screen-width: 700px;
 $min-medium-screen-width: $max-small-screen-width + 1px;
 $max-medium-screen-width: 1169px;
+$min-big-screen-width: $max-medium-screen-width + 1px;
 
 /* Mixins */
 @mixin mobile-only {
@@ -13,4 +14,12 @@ $max-medium-screen-width: 1169px;
   
 @mixin desktop-only {
     @media (max-width: $max-small-screen-width) { display: none; }
+} // TODO: remove (use the mixin below)
+
+@mixin medium-screem {
+    @media (max-width: $max-small-screen-width) or (min-width: $min-big-screen-width) { display: none; }
+}
+
+@mixin big-screem {
+    @media (max-width: $max-medium-screen-width) { display: none; }
 }

@@ -1,6 +1,6 @@
-// @import "/project_folder/public/fonts/fonts.scss";
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500&display=swap');
 
 * {
   box-sizing: border-box;
@@ -16,19 +16,9 @@ body {
   max-height: 100vh;
 }
 
-// body {
-//   color: black; // remove from here
-//   background-image: url('/texture_double.jpg');
-//   background-repeat:no-repeat;
-//   background-size: 200% auto;
-//   position: absolute;
-//   background-position-y: 56vh;
-
-// }
-
 body {
   color: black; // remove from here
-  background-image: url('texture_white_gray.png');
+  background-image: url('/texture_white_gray.png');
   background-repeat:no-repeat;
   background-position: center;
 }
