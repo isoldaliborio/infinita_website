@@ -1,26 +1,30 @@
+@use '../../../app/variables' as *;
+
 .button_block {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    margin-bottom: 7.5vh;
+    margin-bottom: 8.5vh;
     position: absolute;
-    left: 4.5%;
+    left: 3.8%;
     bottom: 9%;
     z-index: 1;
-    width: 60%;
+    // width: 40%;
 
-    @media (max-width: 1170px) { 
-        left: 3.2%;
-        // width: 60%;
-    }
 
-    @media (max-width: 720px) {
-        left: 1.8%;
+    // @include screen("medium") {
+    //     left: 3.2%;
+    //     // width: 60%;
+    // }
+
+
+    @include screen("small") {
+        left: 2%;
     }
     
     .button {
-        width: 25px;
-        min-height: 25px;
+        width: 2.083vw;
+        max-height: 2.083vw;
         border: 1px solid black;
         text-align: center;
         font-size: 0.5rem;
@@ -51,10 +55,10 @@
         }
         
         #index {
-            width: 25px;
-            min-height: 25px;
+            width: 2.083vw;
+            min-height: 2.083vw;
             text-align: center;
-            font-size: 0.5rem;
+            font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 0.15rem;
             font-family: 'MuseoModerno';
