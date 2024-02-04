@@ -7,11 +7,20 @@ $min-medium-screen-width: $max-small-screen-width + 1px;
 $max-medium-screen-width: 1169px;
 $min-big-screen-width: $max-medium-screen-width + 1px;
 
+$font-weights: ("regular": 400, "medium": 500, "bold": 700);
+
+$breakpoints: (
+    small: $max-small-screen-width,
+    medium: $min-medium-screen-width,
+    large: $max-medium-screen-width + 1px,
+);
+
 /* Mixins */
+
 @mixin mobile-only {
     @media (min-width: $min-medium-screen-width) { display: none; }
 }
-  
+    
 @mixin desktop-only {
     @media (max-width: $max-small-screen-width) { display: none; }
 } // TODO: remove (use the mixin below)
@@ -22,4 +31,14 @@ $min-big-screen-width: $max-medium-screen-width + 1px;
 
 @mixin big-screem {
     @media (max-width: $max-medium-screen-width) { display: none; }
+}
+
+@mixin screen($size) {
+    $query: map-get($breakpoints, $size);
+  
+    @if $size == "small" {
+        @media (max-width: $query) { @content; }
+    } @else {
+        @media (min-width: $query) { @content; }
+    }
 }
