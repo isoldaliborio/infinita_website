@@ -12,10 +12,10 @@
     // width: 40%;
 
 
-    // @include screen("medium") {
-    //     left: 3.2%;
-    //     // width: 60%;
-    // }
+    @include screen("medium") {
+        left: 3%;
+        // width: 60%;
+    }
 
 
     @include screen("small") {
