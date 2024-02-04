@@ -16,7 +16,6 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
     const language = useContext(LanguageContext);
 
     const getPathname = usePathname();
-    console.log(`getPathname: ${getPathname}`)
 
     const navButtonArray = [
         {

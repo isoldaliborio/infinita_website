@@ -26,8 +26,6 @@ export default function Main({ children }: { children: React.ReactNode }) {
     //     return <LoadingScreen/>;
     // }
 
-    console.log(homePageData);
-
     return (
         <LanguageContext.Provider value={language}>
             <Header setLanguage={setLanguage} />
