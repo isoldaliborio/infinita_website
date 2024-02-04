@@ -6,7 +6,7 @@ import Image from "next/image";
 import ReactPortal from "./ReactPortal";
 import NavigationButtons from "./NavigationButtons";
 import LanguageSwitch from "./LanguageSwitch";
-import { LanguageContextType } from "../Context/LanguageContext";
+import { LanguageContextType } from "../../context/LanguageContext";
 import { motion } from "framer-motion";
 import closeIcon from "../../../public/icons/close_icon.png";
 

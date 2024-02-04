@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import styles from "./styles/NavigationButtons.module.scss";
-import { LanguageContext } from "../Context/LanguageContext";
+import { LanguageContext } from "../../context/LanguageContext";
 
 type NavigationButtonProps = {
     closeModal: () => void;

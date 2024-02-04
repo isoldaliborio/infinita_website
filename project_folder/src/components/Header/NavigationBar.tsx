@@ -6,7 +6,7 @@ import Image from "next/image";
 import NavigationModal from "./NavigationModal";
 import NavigationButtons from "./NavigationButtons";
 import LanguageSwitch from "./LanguageSwitch";
-import { LanguageContextType } from "../Context/LanguageContext";
+import { LanguageContextType } from "../../context/LanguageContext";
 import menuIcon from "../../../public/icons/hamburger_menu_icon.svg";
 
 type NavigationBarProps = {

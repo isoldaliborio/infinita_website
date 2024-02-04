@@ -3,7 +3,7 @@
 import styles from "./styles/Carousel.module.scss"
 import Buttons from "@/components/Carousel/Buttons"
 import Image from "next/image"
-import { CarouselDataContext } from "../Context/CarouselDataContext";
+import { CarouselDataContext } from "../../context/CarouselDataContext";
 import { useState, useContext } from "react";
 import LoadingScreen from "../Loading/LoadingScreen";
 

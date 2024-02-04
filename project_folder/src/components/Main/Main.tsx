@@ -3,8 +3,8 @@
 import React, { useState, useEffect, Suspense } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import { CarouselDataContext } from "../Context/CarouselDataContext";
-import { LanguageContextType, LanguageContext } from "../Context/LanguageContext";
+import { CarouselDataContext } from "../../context/CarouselDataContext";
+import { LanguageContextType, LanguageContext } from "../../context/LanguageContext";
 import processHomePageData from "@/utils/processHomePageData";
 import LoadingScreen from "../Loading/LoadingScreen";
 
