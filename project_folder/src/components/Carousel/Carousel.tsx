@@ -6,7 +6,8 @@ import styles from "./styles/Carousel.module.scss";
 import Buttons from "@/components/Carousel/Buttons";
 import LoadingScreen from "../Loading/LoadingScreen";
 import { getHomePageDataJson, orderImages, processHomePageData } from "@/utils/processHomePageData";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import CarouselImage from "./CarouselImage";
 
 export default function Carousel() {
   const initialData = Array.from({ length: 4 }, () => ({
@@ -22,6 +23,7 @@ export default function Carousel() {
   const [activeItem, setActiveItem] = useState<any>();
   const [orderedImages, setOrderedImages] = useState<any>();
   const [isLoading, setIsLoading] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   // Order images
   useEffect(() => {
@@ -57,8 +59,8 @@ export default function Carousel() {
         setIsLoading(true); // Set loading state to true during data fetching
         const images = await orderedImages;
         const [imageData] = await processHomePageData([images[idx]]);
-
         initialData[idx] = imageData;
+
         setHomePageData(initialData);
         setActiveItem(imageData);
       }
@@ -66,19 +68,24 @@ export default function Carousel() {
       console.error("Error updating image:", error);
     } finally {
       setIsLoading(false); // Set loading state to false after data fetching is complete
+      setIsVisible(true); // Triggers fade-in of image 
     }
   }, [orderedImages]);
 
   // Set initial image
   useEffect(() => {
     homePageData && setActiveItem(homePageData[0]);
+    setIsVisible(true); // Triggers fade-in of image on initial render
   }, [homePageData]);
 
   // When activeItem changes
   useEffect(() => {
     if (activeItem && activeItem.index) {
       updateImage(activeItem.index);
-    }
+    };
+    if (activeItem && activeItem.index === 0){
+      setIsVisible(true); // Triggers appearance of image for image at index 0 (but not fade in- needs fixing!)
+    };
   }, [activeItem, updateImage]);
 
   // Conditional rendering of Loading Screen
@@ -88,17 +95,27 @@ export default function Carousel() {
 
   return (
     <section id={styles.Carousel}>
-      <Buttons data={homePageData} setItem={setActiveItem} activeItem={activeItem} isLoading={isLoading} />
-      <motion.div animate={{opacity:100}} transition={{duration:0.6}} className={styles.imageContainer}>
-        <Image
-          id={styles.imagespace}
-          src={activeItem?.img_url || "/images/blank.png"}
-          alt="img"
-          style={{ objectFit: "cover" }}
-          fill
-          priority
-        />
-      </motion.div>
+      <Buttons data={homePageData} setItem={setActiveItem} activeItem={activeItem} isLoading={isLoading} setIsVisible={setIsVisible}/>
+      {/* <AnimatePresence>
+        <motion.div 
+          initial={{opacity:0, x:100}} 
+          animate={{opacity:1, x:0}}
+          exit={{opacity:0, x:100}}
+          transition={{duration:0.6}} 
+          className={styles.imageContainer} 
+          id={activeItem}
+        >
+          <Image
+            id={styles.imagespace}
+            src={activeItem?.img_url || "/images/blank.png"}
+            alt="img"
+            style={{ objectFit: "cover" }}
+            fill
+            priority
+          />
+        </motion.div>
+      </AnimatePresence> */}
+      <CarouselImage activeItem={activeItem} isVisible={isVisible}/>
     </section>
   );
 }

@@ -2,41 +2,62 @@ import { motion } from "framer-motion";
 import styles from "./styles/Buttons.module.scss";
 import { useEffect, useState } from "react";
 
-export default function Buttons({ data, setItem, activeItem, isLoading }: { data: any; setItem: any; activeItem: any; isLoading: boolean }) {
+export default function Buttons({ data, setItem, activeItem, isLoading, setIsVisible }: { data: any; setItem: any; activeItem: any; isLoading: boolean; setIsVisible: any }) {
 
-    var imageCycleIndex = 0;
+  const [isCycling, setIsCycling] = useState(true);
 
-    const handleClick = (item: any, index: number) => {
+  const handleClick = (item: any, index: number) => {
     if (!isLoading) {
       item.index = index;
       setItem(item, index);
     }
+    //temporarily disables carousel cycling
+    if (setIsCycling){
+      setIsCycling(false);
+      console.log('set to false')
+    }
   };
+  
+  const variants = {
+    closed: { width:"25px",},
+    open: { width:"fit-content", },
+  }
 
-    const variants = {
-        closed: { width:"25px",},
-        open: { width:"fit-content", },
+  var imageCycleIndex = 0;
+
+  //cycle through images
+  useEffect(() => {
+    const cycleInterval = setInterval(() => {
+      if(!isLoading && isCycling){
+        setIsVisible(false); //triggers image fade-out
+        console.log(isCycling);
+        if(imageCycleIndex >= 3){
+          imageCycleIndex = 0;
+        } else{
+          imageCycleIndex++;
+        }
+        data[imageCycleIndex].index = imageCycleIndex
+        setItem(data[imageCycleIndex], imageCycleIndex)
       }
+    }, 5000)
+      return () => clearInterval(cycleInterval);
+  }, [isCycling]);
 
-      useEffect(() => {
-        //   let imageCycleIndex = 0
-          const interval = setInterval(() => {
-              if(!isLoading){
-                  if(imageCycleIndex >= 3){
-                    imageCycleIndex = 0;
-                  } else{
-                    imageCycleIndex++;
-                  }
-                  console.log(imageCycleIndex);
-                  data[imageCycleIndex].index = imageCycleIndex
-                  setItem(data[imageCycleIndex], imageCycleIndex)
-              }
-          }, 5000)
-          console.log(data)
-          return () => clearInterval(interval);
-      }, []);
+  //reset cycling after user has clicked on a button
+  useEffect(() => {
+    const cycleInterval = setInterval(() => {
+      console.log('checking to see if cycling...')
+      if(!isLoading && !isCycling){
+        console.log('is not cycling, resetting cycle...')
+        setIsCycling(true);
+        return () => clearInterval(cycleInterval);
+      } else{
+        console.log('is cycling, doing nothing...')
+      }
+    }, 15000)
+      return () => clearInterval(cycleInterval);
+  }, [isCycling]);
       
-
     return (
         <div className={styles.button_block}>
             {/* Iterate through the "featured" array and create Icon components */}

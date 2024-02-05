@@ -9,10 +9,16 @@
 
     .imageContainer {
         width: 93%;
+        height:100%;
         background-color: transparent;
         position: relative;
-        opacity: 0%;
     }
+
+    // #imageSpace{
+    //     object-fit: contain;
+    //     width:100%;
+    //     height:auto;
+    // }
 
 }
 
