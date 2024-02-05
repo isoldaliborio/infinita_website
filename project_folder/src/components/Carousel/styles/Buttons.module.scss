@@ -21,6 +21,8 @@
     .button {
         width: 25px;
         min-height: 25px;
+        height:25px;
+        min-width: 25px;
         border: 1px solid black;
         text-align: center;
         font-size: 0.5rem;
@@ -36,6 +38,18 @@
             display: none;
         }
 
+
+        //transition styling
+        overflow: hidden;
+        text-overflow: clip;
+        white-space: nowrap;
+        transition: background-color, color;
+        transition-duration: 300ms;
+        &:hover{
+            background-color: black;
+            color: white;
+        }
+
     }
 
     .active_button {
@@ -44,15 +58,15 @@
         font-family: 'MuseoModerno';
         width: fit-content;
         min-height: 30px;
+        height:30px;
         justify-content: left; 
-        
-
         span {
             display: inline-block;
         }
         
         #index {
             width: 25px;
+            min-width:25px;
             min-height: 25px;
             text-align: center;
             font-size: 0.5rem;

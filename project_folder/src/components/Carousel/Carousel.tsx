@@ -6,6 +6,7 @@ import Image from "next/image"
 import { CarouselDataContext } from "../Context/CarouselDataContext";
 import { useState, useContext } from "react";
 import LoadingScreen from "../Loading/LoadingScreen";
+import { motion } from "framer-motion";
 
 export default function Carousel(){
 
@@ -25,9 +26,9 @@ export default function Carousel(){
     return (
         <section id={styles.Carousel}>
             <Buttons data={fetchedData} setItem={setActiveItem} activeItem={activeItem} />
-            <div className={styles.imageContainer}>
+            <motion.div className={styles.imageContainer}>
                 <Image id={styles.imagespace} src={activeItem.img_url} alt="img" style={{objectFit: "cover"}} fill priority={true} />
-            </div>
+            </motion.div>
         </section>
     )
 }
