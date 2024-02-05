@@ -19,6 +19,7 @@ export default function Header({setLanguage}:HeaderProps){
                 id={styles.infinitaLogo} 
                 src={InfinitaLogo} 
                 alt="infinita logo"
+                priority
             />
         </Link>
         <NavigationBar setLanguage = {setLanguage}/>
