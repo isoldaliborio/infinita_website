@@ -72,7 +72,8 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
                 >
                     <div id={styles.index}>0{index + 1}</div>
                     <span id={styles.title}>{item.title}</span> 
-                    <span id={styles.category}> - {item.category_names[0]}</span>
+
+                    <span id={styles.category}> {item.category_names[0]}</span>
                 </motion.div>
             ))}
         </div>

@@ -5,6 +5,7 @@ $infinita-black: rgba(33, 33, 33);
 $max-small-screen-width: 700px;
 $min-medium-screen-width: $max-small-screen-width + 1px;
 $max-medium-screen-width: 1169px;
+$min-big-screen-width: $max-medium-screen-width + 1px;
 
 $font-weights: ("regular": 400, "medium": 500, "bold": 700);
 
@@ -16,7 +17,7 @@ $font-weights: ("regular": 400, "medium": 500, "bold": 700);
     
 @mixin desktop-only {
     @media (max-width: $max-small-screen-width) { display: none; }
-}
+} 
 
 @mixin screen($size) {
     @if $size == "small" {

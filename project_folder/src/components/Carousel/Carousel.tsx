@@ -93,29 +93,19 @@ export default function Carousel() {
     return <LoadingScreen />;
   }
 
-  return (
-    <section id={styles.Carousel}>
-      <Buttons data={homePageData} setItem={setActiveItem} activeItem={activeItem} isLoading={isLoading} setIsVisible={setIsVisible}/>
-      {/* <AnimatePresence>
-        <motion.div 
-          initial={{opacity:0, x:100}} 
-          animate={{opacity:1, x:0}}
-          exit={{opacity:0, x:100}}
-          transition={{duration:0.6}} 
-          className={styles.imageContainer} 
-          id={activeItem}
-        >
-          <Image
-            id={styles.imagespace}
-            src={activeItem?.img_url || "/images/blank.png"}
-            alt="img"
-            style={{ objectFit: "cover" }}
-            fill
-            priority
-          />
-        </motion.div>
-      </AnimatePresence> */}
-      <CarouselImage activeItem={activeItem} isVisible={isVisible}/>
-    </section>
-  );
+    return (
+        <div className={styles.mainWrapper}>
+            <div className={styles.leftBox}>
+                <div className={styles.innerBox}>
+                    <Buttons data={fetchedData} setItem={setActiveItem} activeItem={activeItem} isLoading={isLoading} setIsVisible={setIsVisible}/>
+                </div>
+            </div>
+            <section id={styles.Carousel}>
+<!--            carousel component with image animations   <CarouselImage activeItem={activeItem} isVisible={isVisible}/> -->
+                <div className={styles.imageContainer}>
+                    <Image id={styles.imagespace} src={activeItem.img_url} alt="img" style={{objectFit: "cover"}} fill priority={true} />
+                </div>
+            </section>
+        </div>
+    )
 }
