@@ -17,7 +17,7 @@ export default function Carousel(){
         return <LoadingScreen/>
     } 
     
-    //if this was above the if statement, it would throw an error trying to assign [0] to a null value
+    //when this was above the if statement on line 16, it would throw an error trying to assign index [0] to a null value
     //here, the state will only be created after the data has been fetched, removing any errors.
     const [activeItem, setActiveItem] = useState<any>(fetchedData[0]);
 
