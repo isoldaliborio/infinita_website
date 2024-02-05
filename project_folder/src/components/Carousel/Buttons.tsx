@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import styles from "./styles/Buttons.module.scss";
+import { useEffect, useState } from "react";
 
 export default function Buttons({ data, setItem, activeItem, isLoading }: { data: any; setItem: any; activeItem: any; isLoading: boolean }) {
-  
+
+    var imageCycleIndex = 0;
+
     const handleClick = (item: any, index: number) => {
     if (!isLoading) {
       item.index = index;
@@ -14,6 +17,24 @@ export default function Buttons({ data, setItem, activeItem, isLoading }: { data
         closed: { width:"25px",},
         open: { width:"fit-content", },
       }
+
+      useEffect(() => {
+        //   let imageCycleIndex = 0
+          const interval = setInterval(() => {
+              if(!isLoading){
+                  if(imageCycleIndex >= 3){
+                    imageCycleIndex = 0;
+                  } else{
+                    imageCycleIndex++;
+                  }
+                  console.log(imageCycleIndex);
+                  data[imageCycleIndex].index = imageCycleIndex
+                  setItem(data[imageCycleIndex], imageCycleIndex)
+              }
+          }, 5000)
+          console.log(data)
+          return () => clearInterval(interval);
+      }, []);
       
 
     return (
@@ -21,7 +42,7 @@ export default function Buttons({ data, setItem, activeItem, isLoading }: { data
             {/* Iterate through the "featured" array and create Icon components */}
             {data.map((item: any, index: any) => (
                 <motion.div 
-                    animate={activeItem.img_url == item.img_url ? "open" : "closed"}
+                    animate={activeItem.img_url == item.img_url && !isLoading ? "open" : "closed"}
                     variants={variants}
                     transition={{duration:0.6}}
                     key={index} 
