@@ -6,14 +6,14 @@
     justify-content: flex-end;
     margin-bottom: 8.5vh;
     position: absolute;
-    left: 3.8%;
+    left: 4.2%;
     bottom: 9%;
     z-index: 1;
-    // width: 40%;
+    max-width: 50%;
 
 
     @include screen("medium") {
-        left: 3%;
+        left: 3.2%;
         // width: 60%;
     }
 
@@ -23,14 +23,14 @@
     }
     
     .button {
-        width: 2.083vw;
-        max-height: 2.083vw;
+        width: 40px;
+        min-height: 40px;
         border: 1px solid black;
         text-align: center;
         font-size: 0.5rem;
-        font-weight: 600;
         letter-spacing: 0.1rem;
         font-family: 'MuseoModerno';
+        font-weight: 600;
         margin-top: 0.4rem;
         display: flex;
         justify-content: center; 
@@ -55,13 +55,13 @@
         }
         
         #index {
-            width: 2.083vw;
-            min-height: 2.083vw;
+            width: 40px;
+            min-height: 40px;
             text-align: center;
-            font-size: 0.7rem;
-            font-weight: 600;
+            font-size: 0.5rem;
             letter-spacing: 0.15rem;
             font-family: 'MuseoModerno';
+            font-weight: 600;
             display: flex;
             justify-content: center; 
             align-items: center; 
@@ -75,6 +75,7 @@
     font-size: 0.8rem;
     flex-wrap:wrap;
     width: fit-content;
+    font-weight: 500;
 }
 
 #category {
