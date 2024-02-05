@@ -26,8 +26,8 @@ export default function Carousel(){
     return (
         <section id={styles.Carousel}>
             <Buttons data={fetchedData} setItem={setActiveItem} activeItem={activeItem} />
-            <motion.div className={styles.imageContainer}>
-                <Image id={styles.imagespace} src={activeItem.img_url} alt="img" style={{objectFit: "cover"}} fill priority={true} />
+            <motion.div layout animate={{opacity:100}} transition={{duration:0.6}} className={styles.imageContainer}>
+                    <Image id={styles.imagespace} src={activeItem.img_url} alt="img" style={{objectFit: "cover"}} fill priority={true} />
             </motion.div>
         </section>
     )
