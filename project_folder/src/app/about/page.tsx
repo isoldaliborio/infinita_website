@@ -1,7 +1,7 @@
 "use client";
 
 import styles from './page.module.scss'
-import { LanguageContext } from '@/components/Context/LanguageContext'
+import { LanguageContext } from '@/context/LanguageContext'
 import { useContext } from 'react';
 
 export default function About() {

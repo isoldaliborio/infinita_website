@@ -1,6 +1,6 @@
 
 import styles from './LoadingScreen.module.scss';
-import Image from 'next/Image';
+import Image from 'next/image';
 import InfinitaLogo from "../../../public/images/infinita-logo.png";
 
 export default function LoadingScreen(){

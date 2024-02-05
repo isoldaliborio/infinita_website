@@ -6,11 +6,24 @@ $max-small-screen-width: 700px;
 $min-medium-screen-width: $max-small-screen-width + 1px;
 $max-medium-screen-width: 1169px;
 
+$font-weights: ("regular": 400, "medium": 500, "bold": 700);
+
 /* Mixins */
+
 @mixin mobile-only {
     @media (min-width: $min-medium-screen-width) { display: none; }
 }
-  
+    
 @mixin desktop-only {
     @media (max-width: $max-small-screen-width) { display: none; }
+}
+
+@mixin screen($size) {
+    @if $size == "small" {
+        @media (max-width: $max-small-screen-width) { @content; }
+    } @else if $size == "medium" {
+        @media (min-width: $min-medium-screen-width) and (max-width: $max-medium-screen-width) { @content; }
+    } @else if $size == "large" {
+        @media (min-width: ($max-medium-screen-width + 1px)) { @content; }
+    }
 }
