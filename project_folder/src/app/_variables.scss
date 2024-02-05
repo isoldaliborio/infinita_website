@@ -9,12 +9,6 @@ $min-big-screen-width: $max-medium-screen-width + 1px;
 
 $font-weights: ("regular": 400, "medium": 500, "bold": 700);
 
-$breakpoints: (
-    small: $max-small-screen-width,
-    medium: $min-medium-screen-width,
-    large: $max-medium-screen-width + 1px,
-);
-
 /* Mixins */
 
 @mixin mobile-only {
@@ -34,11 +28,11 @@ $breakpoints: (
 // }
 
 @mixin screen($size) {
-    $query: map-get($breakpoints, $size);
-  
     @if $size == "small" {
-        @media (max-width: $query) { @content; }
-    } @else {
-        @media (min-width: $query) { @content; }
+        @media (max-width: $max-small-screen-width) { @content; }
+    } @else if $size == "medium" {
+        @media (min-width: $min-medium-screen-width) and (max-width: $max-medium-screen-width) { @content; }
+    } @else if $size == "large" {
+        @media (min-width: ($max-medium-screen-width + 1px)) { @content; }
     }
 }
