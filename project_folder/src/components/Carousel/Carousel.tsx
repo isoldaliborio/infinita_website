@@ -16,11 +16,17 @@ export default function Carousel(){
     }
 
     return (
-        <section id={styles.Carousel}>
-            <Buttons data={fetchedData} setItem={setActiveItem} activeItem={activeItem} />
-            <div className={styles.imageContainer}>
-                <Image id={styles.imagespace} src={activeItem.img_url} alt="img" style={{objectFit: "cover"}} fill priority={true} />
+        <div className={styles.mainWrapper}>
+            <div className={styles.leftBox}>
+                <div className={styles.innerBox}>
+                    <Buttons data={fetchedData} setItem={setActiveItem} activeItem={activeItem} />
+                </div>
             </div>
-        </section>
+            <section id={styles.Carousel}>
+                <div className={styles.imageContainer}>
+                    <Image id={styles.imagespace} src={activeItem.img_url} alt="img" style={{objectFit: "cover"}} fill priority={true} />
+                </div>
+            </section>
+        </div>
     )
 }
