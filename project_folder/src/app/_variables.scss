@@ -17,15 +17,7 @@ $font-weights: ("regular": 400, "medium": 500, "bold": 700);
     
 @mixin desktop-only {
     @media (max-width: $max-small-screen-width) { display: none; }
-} // TODO: remove (use the mixin below)
-
-// @mixin medium-screem {
-//     @media (max-width: $max-small-screen-width) or (min-width: $min-big-screen-width) { display: none; }
-// }
-
-// @mixin big-screem {
-//     @media (max-width: $max-medium-screen-width) { display: none; }
-// }
+} 
 
 @mixin screen($size) {
     @if $size == "small" {

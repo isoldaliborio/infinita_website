@@ -5,29 +5,26 @@
     flex-direction: column;
     justify-content: flex-end;
     margin-bottom: 8.5vh;
-    position: absolute;
-    left: 4.2%;
-    bottom: 9%;
     z-index: 1;
-    max-width: 50%;
+    max-width: 40px; // change
+
 
 
     @include screen("medium") {
-        left: 3.2%;
-        // width: 60%;
+        width: 60%;
     }
-
 
     @include screen("small") {
-        left: 2%;
+        width: 70%;
     }
+
     
     .button {
         width: 40px;
         min-height: 40px;
         border: 1px solid black;
         text-align: center;
-        font-size: 0.5rem;
+        font-size: 0.6rem;
         letter-spacing: 0.1rem;
         font-family: 'MuseoModerno';
         font-weight: 600;
@@ -36,6 +33,17 @@
         justify-content: center; 
         align-items: center; 
         cursor: pointer;
+        
+
+        @media (max-width: 700px) {
+            width: 32px;
+            min-height: 32px;
+        }
+
+        @media (max-width: 300px) {
+            width: 25px;
+            min-height: 25px;
+        }
         span {
             display: none;
         }
@@ -46,7 +54,7 @@
         background-color: black;
         color: white;
         width: fit-content;
-        min-height: 30px;
+        min-height: 40px;
         justify-content: left; 
         
 
@@ -64,41 +72,36 @@
             font-weight: 600;
             display: flex;
             justify-content: center; 
-            align-items: center; 
+            align-items: center;    
+
+            @media (max-width: 700px) {
+                width: 32px;
+                min-height: 32px;
+            }
+    
+            @media (max-width: 300px) {
+                width: 25px;
+                min-height: 25px;
+            }
+
         }
 
     }
 }
 
 #title {
-    padding-left: 0.8rem;
+    padding-left: 1rem;
     font-size: 0.8rem;
-    flex-wrap:wrap;
-    width: fit-content;
+    flex-wrap: wrap;
+    width: max-content;
+    max-width: 55vw;
     font-weight: 500;
 }
 
 #category {
-    padding-left: 1.2vw;
+    padding-left: 1.8vw;
     padding-right: 1.8vw;
     font-family: 'Poppins';
     font-weight: 400;
+    font-size: 0.3rem;
 }
-
-// @media (max-width: 1920px) {
-    
-//     }
-
-// @media (max-width: 1170px) {
-//     .button_block {
-        
-//         left: 3.2%;
-//         width: 50%;
-//     }
-// }
-
-// @media (max-width: 720px) {
-//     .button_block {
-//         left: 1.8%;
-//     }
-// }

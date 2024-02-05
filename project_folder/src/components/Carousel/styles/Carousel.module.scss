@@ -1,16 +1,68 @@
+@use '../../../app/variables' as *;
 
-#Carousel {
+.mainWrapper {
     width: 100%;
-    // position:absolute;
-    height: 70vh;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 
-    .imageContainer {
-        width: 93%;
-        background-color:antiquewhite;
-        position: relative;
+    .leftBox {
+        width: 7%;
+
+        @include screen("small") {
+            width: 12%;
+        }
+
+        .innerBox {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-left: 23%;
+
+            @include screen("medium") {
+                margin-left: 30%;
+            }
+    
+            @include screen("small") {
+                margin-left: 0;
+            }
+            
+            @media (max-width: 560px) {
+                margin-left: 0;
+            }
+            
+        }
     }
 
+    #Carousel {
+        width: 93%;
+        height: 70vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;   
+
+        @include screen("small") {
+            width: 88%;
+        }
+    
+        .imageContainer {
+            width: 100%;
+            position: relative;
+    
+    
+            @include screen("medium") {
+                width: 97%;
+            }
+    
+            @include screen("small") {
+                width: 100%;
+                margin-bottom: 5vh;
+            }
+
+        }
+    
+    }
 }
+

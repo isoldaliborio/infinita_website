@@ -1,18 +1,32 @@
+@use '../../../app/variables' as *;
+
 .icons_container {
     display: flex;
     flex-direction: row;
     justify-content:space-between;
     width: 15vw;
     margin-right: 3.5%;
+
+    @include screen("small") {
+        width: 65vw;
+    }
     
     .icon_box{
         display: inline-block;
         padding-right: 0.5rem;
         margin: auto 0;
+
+        @include screen("small") {
+            padding-right: 0.8rem;
+        }
        
         
         .icon {
-            height: 2.2vh;
+            height: 2.8vh;
+
+            @include screen("small") {
+                height: 2.8vh;
+            }
         }
     }
 }
