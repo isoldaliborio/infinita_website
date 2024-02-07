@@ -48,6 +48,18 @@
             display: none;
         }
 
+
+        //transition styling
+        overflow: hidden;
+        text-overflow: clip;
+        white-space: nowrap;
+        transition: background-color, color;
+        transition-duration: 300ms;
+        &:hover{
+            background-color: black;
+            color: white;
+        }
+
     }
 
     .active_button {
@@ -56,8 +68,6 @@
         width: fit-content;
         min-height: 40px;
         justify-content: left; 
-        
-
         span {
             display: inline-block;
         }

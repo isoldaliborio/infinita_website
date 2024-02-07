@@ -3,7 +3,7 @@
 import styles from "./styles/Header.module.scss";
 import  Image from "next/image";
 import Link from "next/link";
-import { LanguageContextType } from "../Context/LanguageContext";
+import { LanguageContextType } from "../../context/LanguageContext";
 import NavigationBar from "./NavigationBar";
 import InfinitaLogo from "../../../public/images/infinita-logo.png"
 
@@ -19,6 +19,7 @@ export default function Header({setLanguage}:HeaderProps){
                 id={styles.infinitaLogo} 
                 src={InfinitaLogo} 
                 alt="infinita logo"
+                priority
             />
         </Link>
         <NavigationBar setLanguage = {setLanguage}/>

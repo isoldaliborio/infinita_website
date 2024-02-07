@@ -2,7 +2,7 @@
 
 import styles from "./styles/LanguageSwitch.module.scss";
 import { useContext } from "react";
-import { LanguageContextType, LanguageContext } from "../Context/LanguageContext";
+import { LanguageContextType, LanguageContext } from "../../context/LanguageContext";
 
 type LanguageSwitchProps = {
     setLanguage: React.Dispatch<React.SetStateAction<LanguageContextType>>;
