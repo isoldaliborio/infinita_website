@@ -97,13 +97,12 @@ export default function Carousel() {
         <div className={styles.mainWrapper}>
             <div className={styles.leftBox}>
                 <div className={styles.innerBox}>
-                    <Buttons data={fetchedData} setItem={setActiveItem} activeItem={activeItem} isLoading={isLoading} setIsVisible={setIsVisible}/>
+                    <Buttons data={homePageData} setItem={setActiveItem} activeItem={activeItem} isLoading={isLoading} setIsVisible={setIsVisible}/>
                 </div>
             </div>
             <section id={styles.Carousel}>
-<!--            carousel component with image animations   <CarouselImage activeItem={activeItem} isVisible={isVisible}/> -->
                 <div className={styles.imageContainer}>
-                    <Image id={styles.imagespace} src={activeItem.img_url} alt="img" style={{objectFit: "cover"}} fill priority={true} />
+                    <CarouselImage activeItem={activeItem} isVisible={isVisible}/>
                 </div>
             </section>
         </div>
