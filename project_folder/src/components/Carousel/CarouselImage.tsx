@@ -19,7 +19,7 @@ export default function CarouselImage({activeItem, isVisible}:any){
           alt="img"
           style={{ objectFit: "cover" }}
           fill
-          priority
+          priority={true}
         />
       </motion.div>
     )}
