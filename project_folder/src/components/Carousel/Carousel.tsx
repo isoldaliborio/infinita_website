@@ -102,7 +102,6 @@ export default function Carousel() {
             </div>
             <section id={styles.Carousel}>
                 <div className={styles.imageContainer}>
-                    {/* <Image id={styles.imagespace} src={activeItem.img_url} alt="img" style={{objectFit: "cover"}} fill priority={true} /> */}
                     <CarouselImage activeItem={activeItem} isVisible={isVisible}/>
                 </div>
             </section>
