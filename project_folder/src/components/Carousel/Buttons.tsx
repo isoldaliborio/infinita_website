@@ -19,44 +19,44 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   };
   
   const variants = {
-    closed: { width:"25px",},
+    closed: { width:"0px",},
     open: { width:"fit-content", },
   }
 
   var imageCycleIndex = 0;
 
-  //cycle through images
-  useEffect(() => {
-    const cycleInterval = setInterval(() => {
-      if(!isLoading && isCycling){
-        setIsVisible(false); //triggers image fade-out
-        console.log(isCycling);
-        if(imageCycleIndex >= 3){
-          imageCycleIndex = 0;
-        } else{
-          imageCycleIndex++;
-        }
-        data[imageCycleIndex].index = imageCycleIndex
-        setItem(data[imageCycleIndex], imageCycleIndex)
-      }
-    }, 5000)
-      return () => clearInterval(cycleInterval);
-  }, [isCycling]);
+    // //cycle through images
+    // useEffect(() => {
+    //   const cycleInterval = setInterval(() => {
+    //     if(!isLoading && isCycling){
+    //       setIsVisible(false); //triggers image fade-out
+    //       console.log(isCycling);
+    //       if(imageCycleIndex >= 3){
+    //         imageCycleIndex = 0;
+    //       } else{
+    //         imageCycleIndex++;
+    //       }
+    //       data[imageCycleIndex].index = imageCycleIndex
+    //       setItem(data[imageCycleIndex], imageCycleIndex)
+    //     }
+    //   }, 5000)
+    //     return () => clearInterval(cycleInterval);
+    // }, [isCycling]);
 
-  //reset cycling after user has clicked on a button
-  useEffect(() => {
-    const cycleInterval = setInterval(() => {
-      console.log('checking to see if cycling...')
-      if(!isLoading && !isCycling){
-        console.log('is not cycling, resetting cycle...')
-        setIsCycling(true);
-        return () => clearInterval(cycleInterval);
-      } else{
-        console.log('is cycling, doing nothing...')
-      }
-    }, 15000)
-      return () => clearInterval(cycleInterval);
-  }, [isCycling]);
+    // //reset cycling after user has clicked on a button
+    // useEffect(() => {
+    //   const cycleInterval = setInterval(() => {
+    //     console.log('checking to see if cycling...')
+    //     if(!isLoading && !isCycling){
+    //       console.log('is not cycling, resetting cycle...')
+    //       setIsCycling(true);
+    //       return () => clearInterval(cycleInterval);
+    //     } else{
+    //       console.log('is cycling, doing nothing...')
+    //     }
+    //   }, 15000)
+    //     return () => clearInterval(cycleIgnterval);
+    // }, [isCycling]);
       
     return (
         <div className={styles.button_block}>

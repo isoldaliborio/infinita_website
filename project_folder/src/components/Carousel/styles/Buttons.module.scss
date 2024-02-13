@@ -1,12 +1,14 @@
 @use '../../../app/variables' as *;
 
+$button-width: 40px;
+
 .button_block {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     margin-bottom: 8.5vh;
     z-index: 1;
-    max-width: 40px; // change
+    max-width: $button-width; // change
 
 
 
@@ -20,9 +22,9 @@
 
     
     .button {
-        width: 40px;
-        min-width: 40px;
-        min-height: 40px;
+        width: $button-width;
+        min-width: $button-width;
+        min-height: $button-width;
         border: 1px solid black;
         text-align: center;
         font-size: 0.6rem;
@@ -69,15 +71,15 @@
         background-color: black;
         color: white;
         width: fit-content;
-        min-height: 40px;
+        min-height: $button-width;
         justify-content: left; 
         span {
             display: inline-block;
         }
         
         #index {
-            width: 40px;
-            min-height: 40px;
+            width: $button-width;
+            min-height: $button-width;
             text-align: center;
             font-size: 0.5rem;
             letter-spacing: 0.15rem;
