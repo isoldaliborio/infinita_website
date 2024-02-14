@@ -87,6 +87,7 @@ export default function Carousel() {
     };
     if (activeItem && activeItem.index === 0){
       setIsVisible(true); // Triggers appearance of image for image at index 0 (but not fade in- needs fixing!)
+      setIsLoading(false); //Triggers buttons transition for button at index 0
     };
   }, [activeItem, updateImage]);
 
@@ -99,11 +100,11 @@ export default function Carousel() {
         <div className={styles.mainWrapper}>
             <div className={styles.leftBox}>
                 <div className={styles.innerBox}>
-                    <Buttons data={homePageData} setItem={setActiveItem} activeItem={activeItem} isLoading={isLoading} setIsVisible={setIsVisible}/>
+                    <Buttons data={homePageData} setItem={setActiveItem} activeItem={activeItem} isLoading={isLoading} setIsLoading={setIsLoading} setIsVisible={setIsVisible}/>
                 </div>
             </div>
             <section id={styles.Carousel}>
-              <CarouselImage activeItem={activeItem} isVisible={isVisible}/>
+              <CarouselImage activeItem={activeItem} isVisible={isVisible} isLoading ={isLoading}/>
                 {/* <div className={styles.imageContainer}>
                     <Image id={styles.imagespace} src={activeItem.img_url} alt="img" style={{objectFit: "cover"}} fill priority={true} />
                 </div> */}

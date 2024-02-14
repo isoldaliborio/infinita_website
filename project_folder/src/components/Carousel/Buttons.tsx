@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import styles from "./styles/Buttons.module.scss";
 import { useEffect, useState } from "react";
 
-export default function Buttons({ data, setItem, activeItem, isLoading, setIsVisible }: { data: any; setItem: any; activeItem: any; isLoading: boolean; setIsVisible: any }) {
+export default function Buttons({ data, setItem, activeItem, isLoading, setIsLoading, setIsVisible }: { data: any; setItem: any; activeItem: any; isLoading: boolean; setIsLoading:any; setIsVisible: any }) {
 
   const [isCycling, setIsCycling] = useState(true);
 
@@ -38,6 +38,7 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
         }
         data[imageCycleIndex].index = imageCycleIndex
         setItem(data[imageCycleIndex], imageCycleIndex)
+        setIsLoading(true); //this fixes the buttons glitching as the active item will not be 'open' before the data has been fetched, but has caused a bug where the button of index 0 doesnt render
       }
     }, 5000)
       return () => clearInterval(cycleInterval);
@@ -67,7 +68,7 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
                     variants={variants}
                     transition={{duration:0.6}}
                     key={index} 
-                    className={`${styles.button} ${activeItem.img_url == item.img_url && !isLoading ? styles.active_button : ""}`}
+                    className={`${styles.button} ${activeItem.img_url == item.img_url && !isLoading && activeItem.title ? styles.active_button : ""}`}
                     onClick={() => handleClick(item, index)}
                 >
                     <div id={styles.index}>0{index + 1}</div>
