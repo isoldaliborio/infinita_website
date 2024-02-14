@@ -1,8 +1,9 @@
 @use '../../../app/variables' as *;
 
 $button-width-large: 40px;
-$button-width-medium: 32px;
-$button-width-small: 25px;
+$button-width-medium: 35px;
+$button-width-small: 30px;
+$button-width-supersmall: 23px;
 
 .button_block {
     display: flex;
@@ -18,6 +19,10 @@ $button-width-small: 25px;
 
     @include screen("small") {
         width: $button-width-small;
+    }
+
+    @media (max-width: 299px) {
+        width: $button-width-supersmall;
     }
 
     
@@ -48,6 +53,13 @@ $button-width-small: 25px;
             min-width: $button-width-small;
             min-height: $button-width-small;
         }
+
+        @media (max-width: 299px) {
+            width: $button-width-supersmall;
+            min-width: $button-width-supersmall;
+            min-height: $button-width-supersmall;
+        }
+        
         
         span {
             display: none;
