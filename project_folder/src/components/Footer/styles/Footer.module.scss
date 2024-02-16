@@ -8,12 +8,19 @@
     justify-content:space-between;
     padding-top: 1%h;
 
-    @include screen("small") {
+    @media all and (orientation:portrait) {
         flex-direction: column-reverse;
         justify-content: center; 
         align-items: center;
         margin-bottom: 1vh;
-    }
+        }
+
+    // @include screen("small") {
+    //     flex-direction: column-reverse;
+    //     justify-content: center; 
+    //     align-items: center;
+    //     margin-bottom: 1vh;
+    // }
     
 }
 
@@ -30,11 +37,17 @@
         margin-left: 3%;
     }
 
-    @include screen("small") {
+    // @include screen("small") {
+    //     margin-left: 0%;
+    //     margin-top: 3vh;
+    //     font-size: 0.6rem;
+    // }
+
+    @media all and (orientation:portrait) {
         margin-left: 0%;
         margin-top: 3vh;
         font-size: 0.6rem;
-    }
+        }
 }
 
 

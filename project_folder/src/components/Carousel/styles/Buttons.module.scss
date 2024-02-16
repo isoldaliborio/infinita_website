@@ -1,27 +1,35 @@
 @use '../../../app/variables' as *;
 
+$button-width-large: 40px;
+$button-width-medium: 35px;
+$button-width-small: 30px;
+$button-width-supersmall: 23px;
+
 .button_block {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     margin-bottom: 8.5vh;
     z-index: 1;
-    max-width: 40px; // change
-
-
+    width: $button-width-large;
 
     @include screen("medium") {
-        width: 60%;
+        width: $button-width-medium;
     }
 
     @include screen("small") {
-        width: 70%;
+        width: $button-width-small;
+    }
+
+    @media (max-width: 299px) {
+        width: $button-width-supersmall;
     }
 
     
     .button {
-        width: 40px;
-        min-height: 40px;
+        width: $button-width-large;
+        min-width: $button-width-large;
+        min-height: $button-width-large;
         border: 1px solid black;
         text-align: center;
         font-size: 0.6rem;
@@ -33,21 +41,29 @@
         justify-content: center; 
         align-items: center; 
         cursor: pointer;
+
+        @include screen("medium") {
+            width: $button-width-medium;
+            min-width: $button-width-medium;
+            min-height: $button-width-medium;
+        }
+    
+        @include screen("small") {
+            width: $button-width-small;
+            min-width: $button-width-small;
+            min-height: $button-width-small;
+        }
+
+        @media (max-width: 299px) {
+            width: $button-width-supersmall;
+            min-width: $button-width-supersmall;
+            min-height: $button-width-supersmall;
+        }
         
-
-        @media (max-width: 700px) {
-            width: 32px;
-            min-height: 32px;
-        }
-
-        @media (max-width: 300px) {
-            width: 25px;
-            min-height: 25px;
-        }
+        
         span {
             display: none;
         }
-
 
         //transition styling
         overflow: hidden;
@@ -66,15 +82,15 @@
         background-color: black;
         color: white;
         width: fit-content;
-        min-height: 40px;
-        justify-content: flex-end; 
+        min-height: $button-width-large;
+        justify-content: left; 
         span {
             display: inline-block;
         }
         
         #index {
-            width: 40px;
-            min-height: 40px;
+            width: $button-width-large;
+            min-height: $button-width-large;
             text-align: center;
             font-size: 0.5rem;
             letter-spacing: 0.15rem;
@@ -93,9 +109,7 @@
                 width: 25px;
                 min-height: 25px;
             }
-
         }
-
     }
 }
 
