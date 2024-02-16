@@ -14,8 +14,8 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   };
   
   const variants = {
-    closed: { width:"0px",},
-    open: { width:"fit-content", },
+    closed: { width:"40px"},
+    open: { width:"fit-content", maxWidth:"fit-content", },
   }
 
   var imageCycleIndex = 0;
@@ -58,11 +58,11 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
             {/* Iterate through the "featured" array and create Icon components */}
             {data.map((item: any, index: any) => (
                 <motion.div 
-                    animate={activeItem.img_url == item.img_url && !isLoading ? "open" : "closed"}
+                    animate={activeItem.title == item.title && !isLoading ? "open" : "closed"}
                     variants={variants}
                     transition={{duration:0.6}}
                     key={index} 
-                    className={`${styles.button} ${activeItem.img_url == item.img_url && !isLoading ? styles.active_button : ""}`}
+                    className={`${styles.button} ${activeItem.img_url == item.img_url && !isLoading && activeItem.title ? styles.active_button : ""}`}
                     onClick={() => handleClick(item, index)}
                 >
                     <div id={styles.index}>0{index + 1}</div>

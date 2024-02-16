@@ -82,9 +82,12 @@ export default function Carousel() {
   useEffect(() => {
     if (activeItem && activeItem.index) {
       updateImage(activeItem.index);
+      console.log(activeItem)
+      console.log(homePageData)
     };
     if (activeItem && activeItem.index === 0){
       setIsVisible(true); // Triggers appearance of image for image at index 0 (but not fade in- needs fixing!)
+      setIsLoading(false); //Triggers buttons transition for button at index 0
     };
   }, [activeItem, updateImage]);
 

@@ -2,9 +2,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import styles from "./styles/Carousel.module.scss";
 import Image from "next/image";
 
-export default function CarouselImage({activeItem, isVisible}:any){
+export default function CarouselImage({activeItem, isVisible, isLoading}:any){
+
   return <AnimatePresence>
-    { isVisible && (
+    { isVisible && !isLoading && (
       <motion.div
         initial={{opacity:0}} 
         animate={{opacity:1}}
@@ -19,7 +20,7 @@ export default function CarouselImage({activeItem, isVisible}:any){
           alt="img"
           style={{ objectFit: "cover" }}
           fill
-          priority
+          priority={true}
         />
       </motion.div>
     )}
