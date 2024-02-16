@@ -11,11 +11,6 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
       item.index = index;
       setItem(item, index);
     }
-    //temporarily disables carousel cycling
-    if (setIsCycling){
-      setIsCycling(false);
-      console.log('set to false')
-    }
   };
   
   const variants = {

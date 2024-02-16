@@ -8,9 +8,13 @@
     margin-right: 3.5%;
     margin-left: 3.5%;
 
-    @include screen("small") {
+    @media all and (orientation:portrait) {
         width: 65vw;
-    }
+        }
+
+    // @include screen("small") {
+    //     width: 65vw;
+    // }
     
     .icon_box{
         display: inline-block;
