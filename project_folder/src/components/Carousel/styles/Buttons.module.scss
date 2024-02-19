@@ -76,20 +76,9 @@ $button-width-supersmall: 23px;
             color: white;
         }
 
-    }
-
-    .active_button {
-        background-color: black;
-        color: white;
-        width: fit-content;
-        min-height: $button-width-large;
-        justify-content: left; 
-        span {
-            display: inline-block;
-        }
-        
-        #index {
+        .index {
             width: $button-width-large;
+            min-width: $button-width-large;
             min-height: $button-width-large;
             text-align: center;
             font-size: 0.5rem;
@@ -100,32 +89,74 @@ $button-width-supersmall: 23px;
             justify-content: center; 
             align-items: center;    
 
-            @media (max-width: 700px) {
-                width: 32px;
-                min-height: 32px;
+            @include screen("medium") {
+                width: $button-width-medium;
+                min-width: $button-width-medium;
+                min-height: $button-width-medium;
+            }
+        
+            @include screen("small") {
+                width: $button-width-small;
+                min-width: $button-width-small;
+                min-height: $button-width-small;
             }
     
-            @media (max-width: 300px) {
-                width: 25px;
-                min-height: 25px;
+            @media (max-width: 299px) {
+                width: $button-width-supersmall;
+                min-width: $button-width-supersmall;
+                min-height: $button-width-supersmall;
             }
         }
+
+        .title {
+            padding-left: 1rem;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            width: max-content;
+            max-width: 55vw;
+            font-weight: 500;
+
+            @include screen("small") {
+                text-wrap: pretty;
+                max-width: 60vw; // TODO: choose a proper mobile width
+            }
+        }
+        
+        .category {
+            padding-left: 1.8vw;
+            padding-right: 1.8vw;
+            font-family: 'Poppins';
+            font-weight: 400;
+            font-size: 0.3rem;
+        }
+
+    }
+
+    .active_button {
+        background-color: black;
+        color: white;
+        width: fit-content;
+        min-height: $button-width-large;
+        justify-content: left; 
+        border: 0;
+
+        @include screen("medium") {
+            min-height: $button-width-medium;
+        }
+    
+        @include screen("small") {
+            width: 70vw; // TODO: choose a proper mobile width
+        }
+
+        @media (max-width: 299px) {
+            min-height: $button-width-supersmall;
+        }
+
+        span {
+            display: inline-block;
+        }
+        
     }
 }
 
-#title {
-    padding-left: 1rem;
-    font-size: 0.8rem;
-    flex-wrap: wrap;
-    width: max-content;
-    max-width: 55vw;
-    font-weight: 500;
-}
 
-#category {
-    padding-left: 1.8vw;
-    padding-right: 1.8vw;
-    font-family: 'Poppins';
-    font-weight: 400;
-    font-size: 0.3rem;
-}
