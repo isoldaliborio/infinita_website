@@ -32,7 +32,7 @@ $button-width-supersmall: 23px;
         min-height: $button-width-large;
         border: 1px solid black;
         text-align: center;
-        font-size: 0.6rem;
+        font-size: 16px;
         letter-spacing: 0.1rem;
         font-family: 'MuseoModerno';
         font-weight: 600;
@@ -81,7 +81,7 @@ $button-width-supersmall: 23px;
             min-width: $button-width-large;
             min-height: $button-width-large;
             text-align: center;
-            font-size: 0.5rem;
+            // font-size: 16px;
             letter-spacing: 0.15rem;
             font-family: 'MuseoModerno';
             font-weight: 600;
@@ -93,41 +93,60 @@ $button-width-supersmall: 23px;
                 width: $button-width-medium;
                 min-width: $button-width-medium;
                 min-height: $button-width-medium;
+                font-size: 12px;
             }
         
             @include screen("small") {
                 width: $button-width-small;
                 min-width: $button-width-small;
                 min-height: $button-width-small;
+                font-size: 10px;
             }
     
             @media (max-width: 299px) {
                 width: $button-width-supersmall;
                 min-width: $button-width-supersmall;
                 min-height: $button-width-supersmall;
+                font-size: 9px;
             }
         }
 
         .title {
             padding-left: 1rem;
-            font-size: 0.8rem;
+            font-size: 18.70px;
             flex-wrap: wrap;
             width: max-content;
             max-width: 55vw;
+            text-wrap: pretty;
             font-weight: 500;
 
+            @include screen("medium") {
+                font-size: 14px;
+            }
+
             @include screen("small") {
-                text-wrap: pretty;
                 max-width: 60vw; // TODO: choose a proper mobile width
+                font-size: 12px;
+            }
+            @media (max-width: 299px) {
+                font-size: 11px;
             }
         }
         
         .category {
-            padding-left: 1.8vw;
-            padding-right: 1.8vw;
+            padding-left:10px;
+            padding-right:10px;
             font-family: 'Poppins';
             font-weight: 400;
-            font-size: 0.3rem;
+            font-size: 10.7px;
+
+            @include screen("medium") {
+                font-size: 8px;
+            }
+
+            @include screen("small") {
+                font-size: 6px;
+            }
         }
 
     }
@@ -145,6 +164,7 @@ $button-width-supersmall: 23px;
         }
     
         @include screen("small") {
+            // min-height: $button-width-small;
             width: 70vw; // TODO: choose a proper mobile width
         }
 
