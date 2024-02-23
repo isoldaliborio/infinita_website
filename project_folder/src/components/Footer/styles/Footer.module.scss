@@ -15,17 +15,11 @@
         margin-bottom: 1vh;
         }
 
-    // @include screen("small") {
-    //     flex-direction: column-reverse;
-    //     justify-content: center; 
-    //     align-items: center;
-    //     margin-bottom: 1vh;
-    // }
     
 }
 
 .paragraph {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
     display: flex;
     justify-content: center; 
     align-items: center; 
@@ -37,11 +31,7 @@
         margin-left: 3%;
     }
 
-    // @include screen("small") {
-    //     margin-left: 0%;
-    //     margin-top: 3vh;
-    //     font-size: 0.6rem;
-    // }
+  
 
     @media all and (orientation:portrait) {
         margin-left: 0%;
