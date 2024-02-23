@@ -160,12 +160,13 @@ $button-width-supersmall: 23px;
         border: 0;
 
         @include screen("medium") {
-            min-height: $button-width-medium;
+            min-height: $button-width-large + 8px;
+            width: 70vw; // TODO: check if this width is ok
         }
     
         @include screen("small") {
             // min-height: $button-width-small;
-            width: 70vw; // TODO: choose a proper mobile width
+            width: 70vw; // TODO: check if this width is ok
         }
 
         @media (max-width: 299px) {
