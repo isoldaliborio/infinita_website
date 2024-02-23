@@ -9,7 +9,7 @@ $button-width-supersmall: 23px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    margin-bottom: 8.5vh;
+    margin-bottom: 7vh;
     z-index: 1;
     width: $button-width-large;
 
@@ -32,11 +32,10 @@ $button-width-supersmall: 23px;
         min-height: $button-width-large;
         border: 1px solid black;
         text-align: center;
-        font-size: 16px;
         letter-spacing: 0.1rem;
         font-family: 'MuseoModerno';
-        font-weight: 600;
-        margin-top: 0.4rem;
+        // font-weight: 600;
+        margin-top: 0.6rem;
         display: flex;
         justify-content: center; 
         align-items: center; 
@@ -46,6 +45,7 @@ $button-width-supersmall: 23px;
             width: $button-width-medium;
             min-width: $button-width-medium;
             min-height: $button-width-medium;
+
         }
     
         @include screen("small") {
@@ -81,10 +81,10 @@ $button-width-supersmall: 23px;
             min-width: $button-width-large;
             min-height: $button-width-large;
             text-align: center;
-            // font-size: 16px;
+            font-size: 11px;
             letter-spacing: 0.15rem;
             font-family: 'MuseoModerno';
-            font-weight: 600;
+            // font-weight: 600;
             display: flex;
             justify-content: center; 
             align-items: center;    
@@ -93,59 +93,60 @@ $button-width-supersmall: 23px;
                 width: $button-width-medium;
                 min-width: $button-width-medium;
                 min-height: $button-width-medium;
-                font-size: 12px;
+                font-size: 10px;
             }
         
             @include screen("small") {
                 width: $button-width-small;
                 min-width: $button-width-small;
                 min-height: $button-width-small;
-                font-size: 10px;
+                font-size: 8px;
             }
     
             @media (max-width: 299px) {
                 width: $button-width-supersmall;
                 min-width: $button-width-supersmall;
                 min-height: $button-width-supersmall;
-                font-size: 9px;
+                font-size: 6px;
             }
         }
 
         .title {
             padding-left: 1rem;
-            font-size: 18.70px;
+            font-size: 13px;
             flex-wrap: wrap;
             width: max-content;
             max-width: 55vw;
-            text-wrap: pretty;
             font-weight: 500;
 
             @include screen("medium") {
-                font-size: 14px;
+                font-size: 10px;    
+                text-wrap: pretty;
             }
 
             @include screen("small") {
+                text-wrap: pretty;
                 max-width: 60vw; // TODO: choose a proper mobile width
-                font-size: 12px;
+                font-size: 9px;
             }
             @media (max-width: 299px) {
-                font-size: 11px;
+                font-size: 7px;
             }
         }
         
         .category {
-            padding-left:10px;
-            padding-right:10px;
+            padding-left:9px;
+            padding-right:9px;
             font-family: 'Poppins';
             font-weight: 400;
-            font-size: 10.7px;
+            font-size: 7px;
 
             @include screen("medium") {
-                font-size: 8px;
+                font-size: 6px;
             }
 
             @include screen("small") {
-                font-size: 6px;
+                font-size: 5px;
             }
         }
 
