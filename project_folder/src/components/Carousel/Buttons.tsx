@@ -7,8 +7,9 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
 
   const [isCycling, setIsCycling] = useState(true);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [buttonWidth, setButtonWidth] = useState(null);
-  const buttonRef = useRef(null);
+  const [buttonWidth, setButtonWidth] = useState<number | null>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
+
 
 
   // Detect screen width
@@ -41,16 +42,16 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   };
 
   // Animation config
-  const variants = {
+  const variants: { closed: any; open: any } = {
     closed: {
-      width: buttonWidth,
+      width: buttonWidth !== null ? buttonWidth : undefined,
       // Desktop-specific config (i.e. free height on mobile)
-      ...(screenWidth > 700 && { height: buttonWidth }),
+      ...(screenWidth > 700 && { height: buttonWidth !== null ? buttonWidth : undefined }),
     },
     open: {
       width: "fit-content",
       // Desktop-specific config
-      ...(screenWidth > 700 && { height: buttonWidth, maxWidth: "fit-content" }),
+      ...(screenWidth > 700 && { height: buttonWidth !== null ? buttonWidth : undefined, maxWidth: "fit-content" }),
     },
   };
 

@@ -161,7 +161,7 @@ $button-width-supersmall: 23px;
         border: 0;
 
         @include screen("medium") {
-            min-height: $button-width-large + 8px;
+            min-height: $button-width-large + 8px; // this handles line breaks
             width: 70vw; // TODO: check if this width is ok
         }
     
