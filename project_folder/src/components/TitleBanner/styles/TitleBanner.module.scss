@@ -1,0 +1,22 @@
+
+
+.titleBanner {
+    height: 7vh;
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content:start;
+    
+    
+}
+
+.title {
+    height: 7vh;
+    font-size: 2.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15%;
+}
