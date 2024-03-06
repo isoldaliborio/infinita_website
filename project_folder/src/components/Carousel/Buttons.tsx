@@ -7,30 +7,31 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
 
   const [isCycling, setIsCycling] = useState(true);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [buttonWidth, setButtonWidth] = useState(null);
-  const buttonRef = useRef(null);
+  const [buttonWidth, setButtonWidth] = useState<number | null>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
+
 
 
   // Detect screen width
-  useEffect(() => {
-    const updateScreenWidth = () => setScreenWidth(window.innerWidth);
-    updateScreenWidth();
-    window.addEventListener('resize', updateScreenWidth);
-    return () => window.removeEventListener('resize', updateScreenWidth);
-  }, []);
+  // useEffect(() => {
+  //   const updateScreenWidth = () => setScreenWidth(window.innerWidth);
+  //   updateScreenWidth();
+  //   window.addEventListener('resize', updateScreenWidth);
+  //   return () => window.removeEventListener('resize', updateScreenWidth);
+  // }, []);
 
-  // Detect button width
-  useEffect(() => {
-    const updateButtonWidth = () => {
-      if (buttonRef.current) {
-        const currentWidth = buttonRef.current.offsetWidth;
-        setButtonWidth(currentWidth);
-      }
-    };
-    updateButtonWidth();
-    window.addEventListener('resize', updateButtonWidth);
-    return () => window.removeEventListener('resize', updateButtonWidth);
-  }, []);
+  // // Detect button width
+  // useEffect(() => {
+  //   const updateButtonWidth = () => {
+  //     if (buttonRef.current) {
+  //       const currentWidth = buttonRef.current.offsetWidth;
+  //       setButtonWidth(currentWidth);
+  //     }
+  //   };
+  //   updateButtonWidth();
+  //   window.addEventListener('resize', updateButtonWidth);
+  //   return () => window.removeEventListener('resize', updateButtonWidth);
+  // }, []);
 
   // Click handler
   const handleClick = (item: any, index: number) => {
@@ -41,22 +42,22 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   };
 
   // Animation config
-  const variants = {
-    closed: {
-      width: buttonWidth,
-      // Desktop-specific config (i.e. free height on mobile)
-      ...(screenWidth > 700 && { height: buttonWidth }),
-    },
-    open: {
-      width: "fit-content",
-      // Desktop-specific config
-      ...(screenWidth > 700 && { height: buttonWidth, maxWidth: "fit-content" }),
-    },
-  };
+  // const variants: { closed: any; open: any } = {
+  //   closed: {
+  //     width: buttonWidth !== null ? buttonWidth : undefined,
+  //     // Desktop-specific config (i.e. free height on mobile)
+  //     ...(screenWidth > 700 && { height: buttonWidth !== null ? buttonWidth : undefined }),
+  //   },
+  //   open: {
+  //     width: "fit-content",
+  //     // Desktop-specific config
+  //     ...(screenWidth > 700 && { height: buttonWidth !== null ? buttonWidth : undefined, maxWidth: "fit-content" }),
+  //   },
+  // };
 
-  const transition = {
-    duration: 0.6
-  }
+  // const transition = {
+  //   duration: 0.6
+  // }
 
   // Image cycling
   var imageCycleIndex = 0;
@@ -96,10 +97,10 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   return (
     <div className={styles.button_block}>
       {data.map((item: any, index: any) => (
-        <motion.div
-          animate={activeItem.title == item.title && !isLoading ? "open" : "closed"}
-          variants={variants}
-          transition={transition}
+        <div
+          // animate={activeItem.title == item.title && !isLoading ? "open" : "closed"}
+          // variants={variants}
+          // transition={transition}
           key={index}
           ref={buttonRef}
           className={`${styles.button} ${activeItem.img_url == item.img_url && !isLoading && activeItem.title ? styles.active_button : ""}`}
@@ -108,7 +109,7 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
           <div className={styles.index}>0{index + 1}</div>
           <span className={styles.title}>{item.title}</span>
           <span className={styles.category}> {item.category_names[0]}</span>
-        </motion.div>
+        </div>
       ))}
     </div>
   );

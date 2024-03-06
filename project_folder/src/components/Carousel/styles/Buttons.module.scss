@@ -25,7 +25,7 @@ $button-width-supersmall: 23px;
         width: $button-width-supersmall;
     }
 
-    
+
     .button {
         width: $button-width-large;
         min-width: $button-width-large;
@@ -37,8 +37,8 @@ $button-width-supersmall: 23px;
         // font-weight: 600;
         margin-top: 0.6rem;
         display: flex;
-        justify-content: center; 
-        align-items: center; 
+        justify-content: center;
+        align-items: center;
         cursor: pointer;
 
         @include screen("medium") {
@@ -47,7 +47,7 @@ $button-width-supersmall: 23px;
             min-height: $button-width-medium;
 
         }
-    
+
         @include screen("small") {
             width: $button-width-small;
             min-width: $button-width-small;
@@ -59,8 +59,8 @@ $button-width-supersmall: 23px;
             min-width: $button-width-supersmall;
             min-height: $button-width-supersmall;
         }
-        
-        
+
+
         span {
             display: none;
         }
@@ -69,11 +69,22 @@ $button-width-supersmall: 23px;
         overflow: hidden;
         text-overflow: clip;
         white-space: nowrap;
-        transition: background-color, color;
+        transition: background-color,
+        color;
         transition-duration: 300ms;
-        &:hover{
-            background-color: black;
-            color: white;
+
+        &.touch-device {
+            &:hover {
+                background-color: transparent;
+                color: inherit;
+            }
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: black;
+                color: white;
+            }
         }
 
         .index {
@@ -86,8 +97,8 @@ $button-width-supersmall: 23px;
             font-family: 'MuseoModerno';
             // font-weight: 600;
             display: flex;
-            justify-content: center; 
-            align-items: center;    
+            justify-content: center;
+            align-items: center;
 
             @include screen("medium") {
                 width: $button-width-medium;
@@ -95,14 +106,14 @@ $button-width-supersmall: 23px;
                 min-height: $button-width-medium;
                 font-size: 10px;
             }
-        
+
             @include screen("small") {
                 width: $button-width-small;
                 min-width: $button-width-small;
                 min-height: $button-width-small;
                 font-size: 8px;
             }
-    
+
             @media (max-width: 299px) {
                 width: $button-width-supersmall;
                 min-width: $button-width-supersmall;
@@ -120,34 +131,35 @@ $button-width-supersmall: 23px;
             font-weight: 500;
 
             @include screen("medium") {
-                font-size: 10px;    
-                text-wrap: pretty;
+                font-size: 12px;
+                white-space: pre-line;
             }
 
             @include screen("small") {
-                text-wrap: pretty;
+                white-space: pre-line;
                 max-width: 60vw; // TODO: choose a proper mobile width
-                font-size: 9px;
+                font-size: 10px;
             }
+
             @media (max-width: 299px) {
-                font-size: 7px;
+                font-size: 8px;
             }
         }
-        
+
         .category {
-            padding-left:9px;
-            padding-right:9px;
+            padding-left: 9px;
+            padding-right: 9px;
             font-family: 'Poppins';
             font-weight: 400;
             font-size: 7px;
 
-            @include screen("medium") {
-                font-size: 6px;
-            }
+            // @include screen("medium") {
+            //     font-size: 8px;
+            // }
 
-            @include screen("small") {
-                font-size: 5px;
-            }
+            // @include screen("small") {
+            //     font-size: 7px;
+            // }
         }
 
     }
@@ -156,18 +168,19 @@ $button-width-supersmall: 23px;
         background-color: black;
         color: white;
         width: fit-content;
+        max-width: 70vw;
         min-height: $button-width-large;
-        justify-content: left; 
+        justify-content: left;
         border: 0;
 
         @include screen("medium") {
-            min-height: $button-width-large + 8px;
-            width: 70vw; // TODO: check if this width is ok
+            min-height: $button-width-large + 8px; // this handles line breaks
+            // max-width: 70vw; // TODO: check if this width is ok
         }
-    
+
         @include screen("small") {
             // min-height: $button-width-small;
-            width: 70vw; // TODO: check if this width is ok
+            // max-width: 70vw; // TODO: check if this width is ok
         }
 
         @media (max-width: 299px) {
@@ -177,8 +190,6 @@ $button-width-supersmall: 23px;
         span {
             display: inline-block;
         }
-        
+
     }
 }
-
-

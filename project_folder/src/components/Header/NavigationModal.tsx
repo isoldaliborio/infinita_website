@@ -9,6 +9,7 @@ import LanguageSwitch from "./LanguageSwitch";
 import { LanguageContextType } from "../../context/LanguageContext";
 import { motion } from "framer-motion";
 import closeIcon from "../../../public/icons/close_icon.png";
+import Div100vh from 'react-div-100vh';
 
 interface NavigationModalProps {
     isOpen: boolean;
@@ -32,38 +33,40 @@ export default function NavigationModal({isOpen, closeModal, setLanguage}: Navig
     if (!isOpen) return null;
 
     return (
-        <ReactPortal wrapperId="react-portal-modal-container" >
-            <motion.div 
-                id={styles.modalMenuBackground}
-                initial="initialState"
-                animate="animateState"
-                transition={{
-                    duration: 0.3,
-                    delay: 0.2
-                }}
-                variants={{
-                    initialState: {
-                        opacity:0,
-                        y:20
-                    },
-                    animateState: {
-                        opacity: 100,
-                        y:0
-                    }
-                }}
-            >
-                <section id={styles.closeButtonContainer}>
-                    <Image 
-                        src={closeIcon}
-                        alt="close button"
-                        id={styles.closeButton} 
-                        onClick={closeModal}
-                        priority
-                    />
-                </section>
-                <NavigationButtons closeModal={closeModal}/>
-                <LanguageSwitch setLanguage = {setLanguage} />
-            </motion.div>
-        </ReactPortal>
+        <Div100vh>
+            <ReactPortal wrapperId="react-portal-modal-container" >
+                <motion.div 
+                    id={styles.modalMenuBackground}
+                    initial="initialState"
+                    animate="animateState"
+                    transition={{
+                        duration: 0.3,
+                        delay: 0.2
+                    }}
+                    variants={{
+                        initialState: {
+                            opacity:0,
+                            y:20
+                        },
+                        animateState: {
+                            opacity: 100,
+                            y:0
+                        }
+                    }}
+                >
+                    <section id={styles.closeButtonContainer}>
+                        <Image 
+                            src={closeIcon}
+                            alt="close button"
+                            id={styles.closeButton} 
+                            onClick={closeModal}
+                            priority
+                        />
+                    </section>
+                    <NavigationButtons closeModal={closeModal}/>
+                    <LanguageSwitch setLanguage = {setLanguage} />
+                </motion.div>
+            </ReactPortal>
+        </Div100vh>
     );
 };
