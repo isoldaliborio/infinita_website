@@ -33,8 +33,8 @@ export default function NavigationModal({isOpen, closeModal, setLanguage}: Navig
     if (!isOpen) return null;
 
     return (
-        <Div100vh>
-            <ReactPortal wrapperId="react-portal-modal-container" >
+        <ReactPortal wrapperId="react-portal-modal-container" >
+            <Div100vh>
                 <motion.div 
                     id={styles.modalMenuBackground}
                     initial="initialState"
@@ -46,11 +46,9 @@ export default function NavigationModal({isOpen, closeModal, setLanguage}: Navig
                     variants={{
                         initialState: {
                             opacity:0,
-                            y:20
                         },
                         animateState: {
                             opacity: 100,
-                            y:0
                         }
                     }}
                 >
@@ -66,7 +64,7 @@ export default function NavigationModal({isOpen, closeModal, setLanguage}: Navig
                     <NavigationButtons closeModal={closeModal}/>
                     <LanguageSwitch setLanguage = {setLanguage} />
                 </motion.div>
-            </ReactPortal>
-        </Div100vh>
+            </Div100vh>
+        </ReactPortal>
     );
 };
