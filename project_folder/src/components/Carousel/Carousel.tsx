@@ -67,8 +67,8 @@ export default function Carousel() {
     } catch (error) {
       console.error("Error updating image:", error);
     } finally {
-      setIsLoading(false); // Set loading state to false after data fetching is complete
-      setIsVisible(true); // Triggers fade-in of image 
+        setIsLoading(false); // Set loading state to false after data fetching is complete
+        setIsVisible(true); // Triggers fade-in of image 
     }
   }, [orderedImages]);
 
@@ -80,14 +80,10 @@ export default function Carousel() {
 
   // When activeItem changes
   useEffect(() => {
-    if (activeItem && activeItem.index) {
+    if (activeItem && activeItem.index || activeItem && activeItem.index === 0) {
       updateImage(activeItem.index);
-      console.log(activeItem)
-      console.log(homePageData)
-    };
-    if (activeItem && activeItem.index === 0){
-      setIsVisible(true); // Triggers appearance of image for image at index 0 (but not fade in- needs fixing!)
-      setIsLoading(false); //Triggers buttons transition for button at index 0
+      console.log(activeItem.index);
+      console.log(activeItem);
     };
   }, [activeItem, updateImage]);
 
