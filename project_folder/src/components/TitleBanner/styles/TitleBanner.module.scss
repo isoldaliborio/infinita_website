@@ -1,4 +1,4 @@
-
+@use '../../../app/variables' as *;
 
 .titleBanner {
     height: 7vh;
@@ -19,4 +19,8 @@
     justify-content: center;
     align-items: center;
     padding-left: 15%;
+    font-family: 'MuseoModerno';
+    color: white;
+    font-weight: 600;
+    -webkit-text-stroke: 1px black;
 }
