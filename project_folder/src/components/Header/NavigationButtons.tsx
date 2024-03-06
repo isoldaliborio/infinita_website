@@ -45,7 +45,7 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
         },
     ];
 
-    return <motion.section layout id={styles.navButtonContainer}>
+    return <section id={styles.navButtonContainer}>
         {navButtonArray.map((item) => (
             <Link
                 onClick={closeModal}
@@ -54,19 +54,19 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
                 className={`${styles.navButton} ${getPathname.includes(item.href) ? styles.activeButton : ""}`}
             >
                 {getPathname.includes(item.href) ? (
-                    <motion.div
+                    <div
                         className={`${styles.line} ${styles.top}`}
-                        layoutId="topLine"
+                        // layoutId="topLine"
                     />
                     ) : null}
                 {language === "EN" ? item.ENpageName : item.PTpageName}
                 {getPathname.includes(item.href) ? (
-                    <motion.div
+                    <div
                         className={`${styles.line} ${styles.bottom}`}
-                        layoutId="bottomLine"
+                        // layoutId="bottomLine"
                     />
                     ) : null}
             </Link>
         ))}
-    </motion.section>
+    </section>
 };

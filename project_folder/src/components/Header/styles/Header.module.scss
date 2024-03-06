@@ -28,5 +28,8 @@
         @media (max-width: $max-small-screen-width) { 
             width:46.87vw;
         }
+        @media (max-width: $max-small-screen-width) and (orientation: landscape) { 
+            width:20vw;
+        }
     }
 }
