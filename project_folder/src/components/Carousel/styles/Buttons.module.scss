@@ -171,7 +171,6 @@ $button-width-supersmall: 23px;
         max-width: 70vw;
         min-height: $button-width-large;
         justify-content: left;
-        border: 0;
 
         @include screen("medium") {
             min-height: $button-width-large + 8px; // this handles line breaks
