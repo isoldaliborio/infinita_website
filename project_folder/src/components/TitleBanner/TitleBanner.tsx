@@ -5,22 +5,22 @@ import React, { useEffect, useState } from "react";
 
 
 export default function TitleBanner() {
-    const [showComponent, setShowComponent] = useState(true);
+    const [showComponent, setShowComponent] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
-        if (pathname === "/") {
-            setShowComponent(false);
-            }
-        }, [pathname]
+        let isNotHome = (pathname !== "/")
+        setShowComponent(isNotHome);
+    }, [pathname]
     );
 
     return (
-        <> {showComponent && (
-            <div className={styles.titleBanner}>
-                <p className={styles.title}> {pathname.slice(1).toUpperCase()}</p>
-            </div>
-                )}
+        <>
+            {showComponent && (
+                <div className={styles.titleBanner}>
+                    <p className={styles.title}> {pathname.slice(1).toUpperCase()}</p>
+                </div>
+            )}
         </>
-    );  
-} 
+    );
+}
