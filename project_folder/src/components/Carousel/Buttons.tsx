@@ -10,8 +10,6 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   const [buttonWidth, setButtonWidth] = useState<number | null>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
 
-
-
   // Detect screen width
   // useEffect(() => {
   //   const updateScreenWidth = () => setScreenWidth(window.innerWidth);
@@ -32,16 +30,7 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   //   window.addEventListener('resize', updateButtonWidth);
   //   return () => window.removeEventListener('resize', updateButtonWidth);
   // }, []);
-
-  // Click handler
-  const handleClick = (item: any, index: number) => {
-    if (!isLoading) {
-      item.index = index;
-      setItem(item, index);
-    }
-  };
-
-  // Animation config
+  
   // const variants: { closed: any; open: any } = {
   //   closed: {
   //     width: buttonWidth !== null ? buttonWidth : undefined,
@@ -55,61 +44,85 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   //   },
   // };
 
-  // const transition = {
-  //   duration: 0.6
-  // }
+  // Click handler
+  const handleClick = (item: any, index: number) => {
+    setIsVisible(false); //triggers image fade-out
+
+    if (!isLoading) {
+      item.index = index;
+      setItem(item, index);
+    }
+    setIsCycling(false);
+  };
+
+  // Animation config
+  const buttonVariants = {
+    closed: { width: '0px', },//this value is overriden in the scss file.
+    open: { width:"fit-content", 
+      transition: {
+      duration: 0.4,
+      when: "beforeChildren",
+      staggerChildren: 1,
+    }, },
+  }
+
+  const transition = {
+    ease: 'easeOut',
+    duration: 0.4
+  }
 
   // Image cycling
-  var imageCycleIndex = 0;
-
   useEffect(() => {
+    // Initial value
+    var imageCycleIndex = 0;
+    // Updates the imageCycleIndex to match the active button, to resume cycling from that button
+    if (activeItem.index && imageCycleIndex !== activeItem.index){
+      imageCycleIndex = activeItem.index;
+    }
+    // Cycles through carousel images
     const cycleInterval = setInterval(() => {
       if (!isLoading && isCycling) {
         setIsVisible(false); //triggers image fade-out
-        console.log(isCycling);
         if (imageCycleIndex >= 3) {
           imageCycleIndex = 0;
         } else {
           imageCycleIndex++;
         }
-        data[imageCycleIndex].index = imageCycleIndex
+        data[imageCycleIndex].index = imageCycleIndex;
         setItem(data[imageCycleIndex], imageCycleIndex)
+      } else if (!isCycling){
       }
-    }, 5000)
+    }, 7500)
     return () => clearInterval(cycleInterval);
   }, [isCycling]);
 
-  // Reset cycling on click
+  // Reset cycling after click
   useEffect(() => {
     const cycleInterval = setInterval(() => {
-      console.log('checking to see if cycling...')
       if (!isLoading && !isCycling) {
-        console.log('is not cycling, resetting cycle...')
         setIsCycling(true);
         return () => clearInterval(cycleInterval);
-      } else {
-        console.log('is cycling, doing nothing...')
       }
-    }, 15000)
+    }, 10000)
     return () => clearInterval(cycleInterval);
   }, [isCycling]);
 
   return (
     <div className={styles.button_block}>
       {data.map((item: any, index: any) => (
-        <div
-          // animate={activeItem.title == item.title && !isLoading ? "open" : "closed"}
-          // variants={variants}
-          // transition={transition}
+        <motion.div
+          animate={activeItem.title === item.title && item.title ? "open" : "closed"}
+          variants={buttonVariants}
+          transition={transition}
           key={index}
           ref={buttonRef}
-          className={`${styles.button} ${activeItem.img_url == item.img_url && !isLoading && activeItem.title ? styles.active_button : ""}`}
+          className={`${styles.button} ${activeItem.img_url == item.img_url && activeItem.title ? styles.active_button : ""}`}
           onClick={() => handleClick(item, index)}
         >
           <div className={styles.index}>0{index + 1}</div>
-          <span className={styles.title}>{item.title}</span>
+          <span className={`${styles.title} ${item.title && item.title.length > 25 ? styles.long_title : ""}`}> {item.title}</span>
           <span className={styles.category}> {item.category_names[0]}</span>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

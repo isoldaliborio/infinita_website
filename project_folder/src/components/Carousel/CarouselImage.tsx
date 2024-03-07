@@ -5,12 +5,12 @@ import Image from "next/image";
 export default function CarouselImage({activeItem, isVisible, isLoading}:any){
 
   return <AnimatePresence>
-    { isVisible && !isLoading && (
+    { isVisible && (
       <motion.div
         initial={{opacity:0}} 
         animate={{opacity:1}}
         exit={{opacity:0}}
-        transition={{duration:0.5}} 
+        transition={{duration:0.2}} 
         className={styles.imageContainer} 
         id={activeItem}
       >
