@@ -58,9 +58,21 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   //   },
   // };
 
-  // const transition = {
-  //   duration: 0.6
-  // }
+  const buttonVariants = {
+    closed: { width: '0px', },//this value is overriden in the scss file.
+    open: { width:"fit-content", 
+      transition: {
+      duration: 0.4,
+      when: "beforeChildren",
+      staggerChildren: 1,
+    }, },
+  }
+
+  const transition = {
+    ease: 'easeOut',
+    duration: 0.4
+  }
+
 
   // Image cycling
   useEffect(() => {
@@ -98,22 +110,26 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
     return () => clearInterval(cycleInterval);
   }, [isCycling]);
 
+
+  console.log(data[3].title)
+
   return (
     <div className={styles.button_block}>
       {data.map((item: any, index: any) => (
-        <div
-          // animate={activeItem.title == item.title && !isLoading && item.title ? "open" : "closed"}
-          // variants={variants}
-          // transition={transition}
+        <motion.div
+          animate={activeItem.title === item.title && item.title ? "open" : "closed"}
+          variants={buttonVariants}
+          transition={transition}
           key={index}
           ref={buttonRef}
-          className={`${styles.button} ${activeItem.img_url == item.img_url && !isLoading && activeItem.title ? styles.active_button : ""}`}
+          className={`${styles.button} ${activeItem.img_url == item.img_url && activeItem.title ? styles.active_button : ""}`}
           onClick={() => handleClick(item, index)}
         >
           <div className={styles.index}>0{index + 1}</div>
-          <span className={styles.title}>{item.title}</span>
+          {/* <span className={`${styles.title} `}> {item.title}</span> */}
+          <span className={`${styles.title} ${item.title && item.title.length > 25 ? styles.long_title : ""}`}> {item.title}</span>
           <span className={styles.category}> {item.category_names[0]}</span>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

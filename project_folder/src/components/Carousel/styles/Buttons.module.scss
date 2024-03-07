@@ -30,6 +30,7 @@ $button-width-supersmall: 23px;
         width: $button-width-large;
         min-width: $button-width-large;
         min-height: $button-width-large;
+        max-height: $button-width-large;
         border: 1px solid black;
         text-align: center;
         letter-spacing: 0.1rem;
@@ -45,6 +46,7 @@ $button-width-supersmall: 23px;
             width: $button-width-medium;
             min-width: $button-width-medium;
             min-height: $button-width-medium;
+            max-height: $button-width-medium;
 
         }
 
@@ -52,6 +54,7 @@ $button-width-supersmall: 23px;
             width: $button-width-small;
             min-width: $button-width-small;
             min-height: $button-width-small;
+            max-height: $button-width-small;
         }
 
         @media (max-width: 299px) {
@@ -70,8 +73,8 @@ $button-width-supersmall: 23px;
         overflow: hidden;
         text-overflow: clip;
         white-space: nowrap;
-        transition: all;
-        transition-duration: 300ms;
+        transition: background-color, color;
+        transition-duration: 400ms;
 
         &.touch-device {
             &:hover {
@@ -132,11 +135,9 @@ $button-width-supersmall: 23px;
 
             @include screen("medium") {
                 font-size: 12px;
-                white-space: pre-line;
             }
 
             @include screen("small") {
-                white-space: pre-line;
                 max-width: 60vw; // TODO: choose a proper mobile width
                 font-size: 10px;
                 padding-left: 0.6rem; //reduces line break increasing height of button
@@ -145,6 +146,27 @@ $button-width-supersmall: 23px;
             @media (max-width: 299px) {
                 font-size: 6px;
                 padding-left: 0.5rem; //reduces line break increasing height of button
+            }
+        }
+
+        //element is given this class if the title exceeds 25 characters, making it appear on two lines at the start of the animation.
+        .long_title {
+            @include screen("medium") {
+                white-space: pre-line;
+                text-overflow: clip;
+                overflow: hidden;
+            }
+
+            @include screen("small") {
+                white-space: pre-line;
+                text-overflow: clip;
+                overflow: hidden;
+            }
+
+            @media (max-width: 299px) {
+                white-space: pre-line;
+                text-overflow: clip;
+                overflow: hidden;
             }
         }
 
