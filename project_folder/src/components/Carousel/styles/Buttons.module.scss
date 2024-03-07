@@ -64,7 +64,6 @@ $button-width-supersmall: 23px;
             height: $button-width-supersmall;
         }
 
-
         span {
             display: none;
         }
@@ -140,16 +139,16 @@ $button-width-supersmall: 23px;
             @include screen("small") {
                 max-width: 60vw; // TODO: choose a proper mobile width
                 font-size: 10px;
-                padding-left: 0.6rem; //reduces line break increasing height of button
+                padding-left: 0.6rem; //reduces long strings from 3 lines to 2
             }
 
             @media (max-width: 299px) {
                 font-size: 6px;
-                padding-left: 0.5rem; //reduces line break increasing height of button
+                padding-left: 0.5rem; //reduces long strings from 3 lines to 2
             }
         }
 
-        //title element is given this class if the title exceeds 25 characters, stopping other titles from having lines breaks during animation.
+        //title element is given this class only if the title text exceeds 25 characters, stopping other titles from having lines breaks during animation.
         .long_title {
             @include screen("medium") {
                 white-space: pre-line;

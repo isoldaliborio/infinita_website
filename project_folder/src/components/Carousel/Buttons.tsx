@@ -10,8 +10,6 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   const [buttonWidth, setButtonWidth] = useState<number | null>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
 
-
-
   // Detect screen width
   // useEffect(() => {
   //   const updateScreenWidth = () => setScreenWidth(window.innerWidth);
@@ -32,19 +30,7 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   //   window.addEventListener('resize', updateButtonWidth);
   //   return () => window.removeEventListener('resize', updateButtonWidth);
   // }, []);
-
-  // Click handler
-  const handleClick = (item: any, index: number) => {
-    setIsVisible(false); //triggers image fade-out
-
-    if (!isLoading) {
-      item.index = index;
-      setItem(item, index);
-    }
-    setIsCycling(false);
-  };
-
-  // Animation config
+  
   // const variants: { closed: any; open: any } = {
   //   closed: {
   //     width: buttonWidth !== null ? buttonWidth : undefined,
@@ -58,6 +44,18 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   //   },
   // };
 
+  // Click handler
+  const handleClick = (item: any, index: number) => {
+    setIsVisible(false); //triggers image fade-out
+
+    if (!isLoading) {
+      item.index = index;
+      setItem(item, index);
+    }
+    setIsCycling(false);
+  };
+
+  // Animation config
   const buttonVariants = {
     closed: { width: '0px', },//this value is overriden in the scss file.
     open: { width:"fit-content", 
@@ -72,7 +70,6 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
     ease: 'easeOut',
     duration: 0.4
   }
-
 
   // Image cycling
   useEffect(() => {
@@ -110,9 +107,6 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
     return () => clearInterval(cycleInterval);
   }, [isCycling]);
 
-
-  console.log(data[3].title)
-
   return (
     <div className={styles.button_block}>
       {data.map((item: any, index: any) => (
@@ -126,7 +120,6 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
           onClick={() => handleClick(item, index)}
         >
           <div className={styles.index}>0{index + 1}</div>
-          {/* <span className={`${styles.title} `}> {item.title}</span> */}
           <span className={`${styles.title} ${item.title && item.title.length > 25 ? styles.long_title : ""}`}> {item.title}</span>
           <span className={styles.category}> {item.category_names[0]}</span>
         </motion.div>
