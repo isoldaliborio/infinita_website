@@ -82,8 +82,6 @@ export default function Carousel() {
   useEffect(() => {
     if (activeItem && activeItem.index || activeItem && activeItem.index === 0) {
       updateImage(activeItem.index);
-      console.log(activeItem.index);
-      console.log(activeItem);
     };
   }, [activeItem, updateImage]);
 

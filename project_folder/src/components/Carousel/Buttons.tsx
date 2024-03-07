@@ -39,6 +39,9 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
       item.index = index;
       setItem(item, index);
     }
+    setIsCycling(false);
+    // console.log('stopping cycle')
+    // console.log(isCycling)
   };
 
   // Animation config
@@ -60,37 +63,39 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   // }
 
   // Image cycling
-  var imageCycleIndex = 0;
-
   useEffect(() => {
+    //initial value
+    var imageCycleIndex = 0;
+
+    //updates the imageCycleIndex to match the active button, to resume cycling from that button
+    if (activeItem.index && imageCycleIndex !== activeItem.index){
+      // console.log('image cycle index and active item index are not aligned, updating...')
+      imageCycleIndex = activeItem.index;
+    }
     const cycleInterval = setInterval(() => {
       if (!isLoading && isCycling) {
         setIsVisible(false); //triggers image fade-out
-        console.log(isCycling);
         if (imageCycleIndex >= 3) {
           imageCycleIndex = 0;
         } else {
           imageCycleIndex++;
         }
-        data[imageCycleIndex].index = imageCycleIndex
+        data[imageCycleIndex].index = imageCycleIndex;
         setItem(data[imageCycleIndex], imageCycleIndex)
+      } else if (!isCycling){
       }
-    }, 5000)
+    }, 7500)
     return () => clearInterval(cycleInterval);
   }, [isCycling]);
 
-  // Reset cycling on click
+  // Reset cycling after click
   useEffect(() => {
     const cycleInterval = setInterval(() => {
-      console.log('checking to see if cycling...')
       if (!isLoading && !isCycling) {
-        console.log('is not cycling, resetting cycle...')
         setIsCycling(true);
         return () => clearInterval(cycleInterval);
-      } else {
-        console.log('is cycling, doing nothing...')
       }
-    }, 15000)
+    }, 10000)
     return () => clearInterval(cycleInterval);
   }, [isCycling]);
 
