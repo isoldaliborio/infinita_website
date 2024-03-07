@@ -149,7 +149,7 @@ $button-width-supersmall: 23px;
             }
         }
 
-        //element is given this class if the title exceeds 25 characters, making it appear on two lines at the start of the animation.
+        //title element is given this class if the title exceeds 25 characters, stopping other titles from having lines breaks during animation.
         .long_title {
             @include screen("medium") {
                 white-space: pre-line;
