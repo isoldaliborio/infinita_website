@@ -10,7 +10,7 @@ export default function CarouselImage({activeItem, isVisible, isLoading}:any){
         initial={{opacity:0}} 
         animate={{opacity:1}}
         exit={{opacity:0}}
-        transition={{duration:0.5}} 
+        transition={{duration:0.3}} 
         className={styles.imageContainer} 
         id={activeItem}
       >

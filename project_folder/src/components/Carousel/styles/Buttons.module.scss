@@ -58,6 +58,7 @@ $button-width-supersmall: 23px;
             width: $button-width-supersmall;
             min-width: $button-width-supersmall;
             min-height: $button-width-supersmall;
+            height: $button-width-supersmall;
         }
 
 
@@ -138,10 +139,12 @@ $button-width-supersmall: 23px;
                 white-space: pre-line;
                 max-width: 60vw; // TODO: choose a proper mobile width
                 font-size: 10px;
+                padding-left: 0.6rem; //reduces line break increasing height of button
             }
 
             @media (max-width: 299px) {
-                font-size: 8px;
+                font-size: 6px;
+                padding-left: 0.5rem; //reduces line break increasing height of button
             }
         }
 
@@ -168,21 +171,24 @@ $button-width-supersmall: 23px;
         color: white;
         width: fit-content;
         max-width: 70vw;
+        max-width: 98vw;
         min-height: $button-width-large;
         justify-content: left;
 
         @include screen("medium") {
-            min-height: $button-width-large + 8px; // this handles line breaks
+            // min-height: $button-width-large + 8px; // this handles line breaks
+            min-height: $button-width-medium;
             // max-width: 70vw; // TODO: check if this width is ok
         }
 
         @include screen("small") {
-            // min-height: $button-width-small;
+            min-height: $button-width-small;
             // max-width: 70vw; // TODO: check if this width is ok
         }
 
         @media (max-width: 299px) {
             min-height: $button-width-supersmall;
+            max-height: $button-width-supersmall; //stops active button expanding 
         }
 
         span {
