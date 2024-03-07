@@ -14,7 +14,13 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  // will be overriden by js code in Main
+  height: 100vh;
+}
+
 body {
+  height: 100%;
   color: black; // remove from here
   background-image: url('/texture_white_gray_big.jpg');
   background-repeat:no-repeat;

@@ -67,8 +67,8 @@ export default function Carousel() {
     } catch (error) {
       console.error("Error updating image:", error);
     } finally {
-        setIsLoading(false); // Set loading state to false after data fetching is complete
-        setIsVisible(true); // Triggers fade-in of image 
+      setIsLoading(false); // Set loading state to false after data fetching is complete
+      setIsVisible(true); // Triggers fade-in of image 
     }
   }, [orderedImages]);
 
@@ -90,18 +90,18 @@ export default function Carousel() {
     return <LoadingScreen />;
   }
 
-    return (
-        <div className={styles.mainWrapper}>
-            <div className={styles.leftBox}>
-                <div className={styles.innerBox}>
-                    <Buttons data={homePageData} setItem={setActiveItem} activeItem={activeItem} isLoading={isLoading} setIsVisible={setIsVisible}/>
-                </div>
-            </div>
-            <section id={styles.Carousel}>
-                <div className={styles.imageContainer}>
-                    <CarouselImage activeItem={activeItem} isVisible={isVisible}/>
-                </div>
-            </section>
+  return (
+    <div className={styles.mainWrapper}>
+      <div className={styles.leftBox}>
+        <div className={styles.innerBox}>
+          <Buttons data={homePageData} setItem={setActiveItem} activeItem={activeItem} isLoading={isLoading} setIsVisible={setIsVisible} />
         </div>
-    )
+      </div>
+      <section id={styles.Carousel}>
+        <div className={styles.imageContainer}>
+          <CarouselImage activeItem={activeItem} isVisible={isVisible} />
+        </div>
+      </section>
+    </div>
+  )
 }
