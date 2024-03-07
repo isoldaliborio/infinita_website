@@ -69,8 +69,7 @@ $button-width-supersmall: 23px;
         overflow: hidden;
         text-overflow: clip;
         white-space: nowrap;
-        transition: background-color,
-        color;
+        transition: all;
         transition-duration: 300ms;
 
         &.touch-device {

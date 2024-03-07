@@ -35,13 +35,13 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
 
   // Click handler
   const handleClick = (item: any, index: number) => {
+    setIsVisible(false); //triggers image fade-out
+
     if (!isLoading) {
       item.index = index;
       setItem(item, index);
     }
     setIsCycling(false);
-    // console.log('stopping cycle')
-    // console.log(isCycling)
   };
 
   // Animation config
@@ -64,14 +64,13 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
 
   // Image cycling
   useEffect(() => {
-    //initial value
+    // Initial value
     var imageCycleIndex = 0;
-
-    //updates the imageCycleIndex to match the active button, to resume cycling from that button
+    // Updates the imageCycleIndex to match the active button, to resume cycling from that button
     if (activeItem.index && imageCycleIndex !== activeItem.index){
-      // console.log('image cycle index and active item index are not aligned, updating...')
       imageCycleIndex = activeItem.index;
     }
+    // Cycles through carousel images
     const cycleInterval = setInterval(() => {
       if (!isLoading && isCycling) {
         setIsVisible(false); //triggers image fade-out
@@ -103,7 +102,7 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
     <div className={styles.button_block}>
       {data.map((item: any, index: any) => (
         <div
-          // animate={activeItem.title == item.title && !isLoading ? "open" : "closed"}
+          // animate={activeItem.title == item.title && !isLoading && item.title ? "open" : "closed"}
           // variants={variants}
           // transition={transition}
           key={index}
