@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Footer from "../Footer/Footer";
+import TitleBanner from "../TitleBanner/TitleBanner";
 import Header from "../Header/Header";
 import { LanguageContextType, LanguageContext } from "../../context/LanguageContext";
 import Div100vh from 'react-div-100vh';
@@ -34,6 +35,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
         <Div100vh>
             <LanguageContext.Provider value={language}>
                 <Header setLanguage={setLanguage} />
+                <TitleBanner/>
                 {children}
                 <Footer />
             </LanguageContext.Provider>
