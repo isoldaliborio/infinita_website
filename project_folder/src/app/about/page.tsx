@@ -8,15 +8,16 @@ export default function About() {
 
   let language = useContext(LanguageContext);
 
+  // Temporary -- testing column sizes
   return (
     <main className={`${styles.main} marginL marginR`}>
       <section className={styles.aboutBox}>
         <div className={`${styles.textAbout} col-5`}>
           <p className={styles.title}>
-            {language === 'EN' ? 'Infinita Production' : 'Infinita Produções' }
+            {language === 'EN' ? 'Infinita Production' : 'Infinita Produções'}
           </p>
           <p className={styles.description}>
-            {language === 'EN' ? 'Welcome to the about page!' : 'Bem-vindo à página sobre' }
+            {language === 'EN' ? 'Welcome to the about page!' : 'Bem-vindo à página sobre'}
           </p>
         </div>
         <div className={`${styles.categoryBox} col-5`}>
@@ -24,8 +25,8 @@ export default function About() {
         </div>
       </section>
       <section className={`${styles.imageBox} col-7`}>
-          Imagem
+        Imagem
       </section>
     </main>
   )
-  }
+}
