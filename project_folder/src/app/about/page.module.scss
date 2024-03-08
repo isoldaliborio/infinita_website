@@ -1,12 +1,36 @@
-// @use './../.../app/variables' as *;
+@use './../variables' as *;
 
 .main {
+    // width: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction:row;
     justify-content: space-between;
-    align-items: center;
-    padding: 6rem;
+    align-items: flex-start;
     min-height: 100vh;
+    margin-top: 30px;
+
+    .aboutBox {
+      display: flex;
+      flex-direction:column;
+      justify-content: space-between;
+      align-items: center;
+      .textAbout {
+        background-color: gray;
+        height: 200px;
+      }
+
+      .categoryBox {
+        background-color: gray;
+        margin-top: 30px;
+        height: 200px;
+      }
+    
+    }
+
+    .imageBox {
+      background-color: gray;
+      height: 300px;
+      }
 
     .description {
       display: inherit;
