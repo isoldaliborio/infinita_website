@@ -49,41 +49,41 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
     duration: 0.4
   }
 
-  // // Image cycling
-  // useEffect(() => {
-  //   // Initial value
-  //   var imageCycleIndex = 0;
-  //   // Updates the imageCycleIndex to match the active button, to resume cycling from that button
-  //   if (activeItem.index && imageCycleIndex !== activeItem.index){
-  //     imageCycleIndex = activeItem.index;
-  //   }
-  //   // Cycles through carousel images
-  //   const cycleInterval = setInterval(() => {
-  //     if (!isLoading && isCycling) {
-  //       setIsVisible(false); //triggers image fade-out
-  //       if (imageCycleIndex >= 3) {
-  //         imageCycleIndex = 0;
-  //       } else {
-  //         imageCycleIndex++;
-  //       }
-  //       data[imageCycleIndex].index = imageCycleIndex;
-  //       setItem(data[imageCycleIndex], imageCycleIndex)
-  //     } else if (!isCycling){
-  //     }
-  //   }, 7500)
-  //   return () => clearInterval(cycleInterval);
-  // }, [isCycling]);
+  // Image cycling
+  useEffect(() => {
+    // Initial value
+    var imageCycleIndex = 0;
+    // Updates the imageCycleIndex to match the active button, to resume cycling from that button
+    if (activeItem.index && imageCycleIndex !== activeItem.index){
+      imageCycleIndex = activeItem.index;
+    }
+    // Cycles through carousel images
+    const cycleInterval = setInterval(() => {
+      if (!isLoading && isCycling) {
+        setIsVisible(false); //triggers image fade-out
+        if (imageCycleIndex >= 3) {
+          imageCycleIndex = 0;
+        } else {
+          imageCycleIndex++;
+        }
+        data[imageCycleIndex].index = imageCycleIndex;
+        setItem(data[imageCycleIndex], imageCycleIndex)
+      } else if (!isCycling){
+      }
+    }, 7500)
+    return () => clearInterval(cycleInterval);
+  }, [isCycling]);
 
-  // // Reset cycling after click
-  // useEffect(() => {
-  //   const cycleInterval = setInterval(() => {
-  //     if (!isLoading && !isCycling) {
-  //       setIsCycling(true);
-  //       return () => clearInterval(cycleInterval);
-  //     }
-  //   }, 10000)
-  //   return () => clearInterval(cycleInterval);
-  // }, [isCycling]);
+  // Reset cycling after click
+  useEffect(() => {
+    const cycleInterval = setInterval(() => {
+      if (!isLoading && !isCycling) {
+        setIsCycling(true);
+        return () => clearInterval(cycleInterval);
+      }
+    }, 10000)
+    return () => clearInterval(cycleInterval);
+  }, [isCycling]);
 
   const maxChar = 20;
 
