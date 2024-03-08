@@ -150,23 +150,9 @@ $button-width-supersmall: 23px;
 
         //title element is given this class only if the title text exceeds 25 characters, stopping other titles from having lines breaks during animation.
         .long_title {
-            @include screen("medium") {
-                white-space: pre-line;
-                text-overflow: clip;
-                overflow: hidden;
-            }
-
-            @include screen("small") {
-                white-space: pre-line;
-                text-overflow: clip;
-                overflow: hidden;
-            }
-
-            @media (max-width: 299px) {
-                white-space: pre-line;
-                text-overflow: clip;
-                overflow: hidden;
-            }
+            // white-space: pre-line;
+            // text-overflow: clip;
+            overflow: hidden;
         }
 
         .category {

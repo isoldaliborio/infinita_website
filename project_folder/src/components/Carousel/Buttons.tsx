@@ -30,7 +30,7 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   //   window.addEventListener('resize', updateButtonWidth);
   //   return () => window.removeEventListener('resize', updateButtonWidth);
   // }, []);
-  
+
   // const variants: { closed: any; open: any } = {
   //   closed: {
   //     width: buttonWidth !== null ? buttonWidth : undefined,
@@ -58,12 +58,14 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   // Animation config
   const buttonVariants = {
     closed: { width: '0px', },//this value is overriden in the scss file.
-    open: { width:"fit-content", 
+    open: {
+      width: "fit-content",
       transition: {
-      duration: 0.4,
-      when: "beforeChildren",
-      staggerChildren: 1,
-    }, },
+        duration: 0.4,
+        when: "beforeChildren",
+        staggerChildren: 1,
+      },
+    },
   }
 
   const transition = {
@@ -72,40 +74,42 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
   }
 
   // Image cycling
-  useEffect(() => {
-    // Initial value
-    var imageCycleIndex = 0;
-    // Updates the imageCycleIndex to match the active button, to resume cycling from that button
-    if (activeItem.index && imageCycleIndex !== activeItem.index){
-      imageCycleIndex = activeItem.index;
-    }
-    // Cycles through carousel images
-    const cycleInterval = setInterval(() => {
-      if (!isLoading && isCycling) {
-        setIsVisible(false); //triggers image fade-out
-        if (imageCycleIndex >= 3) {
-          imageCycleIndex = 0;
-        } else {
-          imageCycleIndex++;
-        }
-        data[imageCycleIndex].index = imageCycleIndex;
-        setItem(data[imageCycleIndex], imageCycleIndex)
-      } else if (!isCycling){
-      }
-    }, 7500)
-    return () => clearInterval(cycleInterval);
-  }, [isCycling]);
+  // useEffect(() => {
+  //   // Initial value
+  //   var imageCycleIndex = 0;
+  //   // Updates the imageCycleIndex to match the active button, to resume cycling from that button
+  //   if (activeItem.index && imageCycleIndex !== activeItem.index){
+  //     imageCycleIndex = activeItem.index;
+  //   }
+  //   // Cycles through carousel images
+  //   const cycleInterval = setInterval(() => {
+  //     if (!isLoading && isCycling) {
+  //       setIsVisible(false); //triggers image fade-out
+  //       if (imageCycleIndex >= 3) {
+  //         imageCycleIndex = 0;
+  //       } else {
+  //         imageCycleIndex++;
+  //       }
+  //       data[imageCycleIndex].index = imageCycleIndex;
+  //       setItem(data[imageCycleIndex], imageCycleIndex)
+  //     } else if (!isCycling){
+  //     }
+  //   }, 7500)
+  //   return () => clearInterval(cycleInterval);
+  // }, [isCycling]);
 
-  // Reset cycling after click
-  useEffect(() => {
-    const cycleInterval = setInterval(() => {
-      if (!isLoading && !isCycling) {
-        setIsCycling(true);
-        return () => clearInterval(cycleInterval);
-      }
-    }, 10000)
-    return () => clearInterval(cycleInterval);
-  }, [isCycling]);
+  // // Reset cycling after click
+  // useEffect(() => {
+  //   const cycleInterval = setInterval(() => {
+  //     if (!isLoading && !isCycling) {
+  //       setIsCycling(true);
+  //       return () => clearInterval(cycleInterval);
+  //     }
+  //   }, 10000)
+  //   return () => clearInterval(cycleInterval);
+  // }, [isCycling]);
+
+  const breakAtChar = 20;
 
   return (
     <div className={styles.button_block}>
@@ -120,7 +124,14 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
           onClick={() => handleClick(item, index)}
         >
           <div className={styles.index}>0{index + 1}</div>
-          <span className={`${styles.title} ${item.title && item.title.length > 25 ? styles.long_title : ""}`}> {item.title}</span>
+          <span
+            dangerouslySetInnerHTML={{
+              __html: item.title && item.title.length > breakAtChar
+                ? item.title.replace(new RegExp(`^(.{${breakAtChar}})`, 'g'), "$1<br>")
+                : item.title
+            }}
+            className={`${styles.title} ${item.title && item.title.length > breakAtChar ? styles.long_title : ""}`}
+          ></span>
           <span className={styles.category}> {item.category_names[0]}</span>
         </motion.div>
       ))}
