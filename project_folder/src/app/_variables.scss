@@ -1,13 +1,27 @@
+
+/* Colours */
 $faded-button-color: rgba(165, 165, 165);
 $purple-accent: rgba(188, 0, 147);
 $purple-accent-hover:rgba(188, 0, 147, 0.5);
 $infinita-black: rgba(33, 33, 33);
+
+/* Screen sizes */
 $max-small-screen-width: 700px;
 $min-medium-screen-width: $max-small-screen-width + 1px;
 $max-medium-screen-width: 1169px;
 $min-big-screen-width: $max-medium-screen-width + 1px;
 
+/* Font weights */
 $font-weights: ("regular": 400, "medium": 500, "bold": 700);
+
+/* Columns grid */
+$margin-left-width: 12.9vw;
+$col-2-width: 8.9vw;
+$col-3-width: 14.1vw; 
+$col-4-width: 19.3vw;
+$col-5-width: 24.5vw;
+$col-6-width: 29.7vw;
+$col-7-width: 34.9vw;
 
 /* Mixins */
 
