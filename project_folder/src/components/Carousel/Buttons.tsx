@@ -6,47 +6,33 @@ import { useEffect, useState, useRef } from "react";
 export default function Buttons({ data, setItem, activeItem, isLoading, setIsVisible }: { data: any; setItem: any; activeItem: any; isLoading: boolean; setIsVisible: any }) {
 
   const [isCycling, setIsCycling] = useState(true);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [buttonWidth, setButtonWidth] = useState<number | null>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-  // Detect screen width
-  // useEffect(() => {
-  //   const updateScreenWidth = () => setScreenWidth(window.innerWidth);
-  //   updateScreenWidth();
-  //   window.addEventListener('resize', updateScreenWidth);
-  //   return () => window.removeEventListener('resize', updateScreenWidth);
-  // }, []);
+  // Function to check if screen is small
+  const checkScreenSize = () => {
+    setIsSmallScreen(window.innerWidth < 701);
+  };
 
-  // // Detect button width
-  // useEffect(() => {
-  //   const updateButtonWidth = () => {
-  //     if (buttonRef.current) {
-  //       const currentWidth = buttonRef.current.offsetWidth;
-  //       setButtonWidth(currentWidth);
-  //     }
-  //   };
-  //   updateButtonWidth();
-  //   window.addEventListener('resize', updateButtonWidth);
-  //   return () => window.removeEventListener('resize', updateButtonWidth);
-  // }, []);
-  
-  // const variants: { closed: any; open: any } = {
-  //   closed: {
-  //     width: buttonWidth !== null ? buttonWidth : undefined,
-  //     // Desktop-specific config (i.e. free height on mobile)
-  //     ...(screenWidth > 700 && { height: buttonWidth !== null ? buttonWidth : undefined }),
-  //   },
-  //   open: {
-  //     width: "fit-content",
-  //     // Desktop-specific config
-  //     ...(screenWidth > 700 && { height: buttonWidth !== null ? buttonWidth : undefined, maxWidth: "fit-content" }),
-  //   },
-  // };
+  //Checking screen size
+  useEffect(() => {
+    checkScreenSize();
 
-  // Click handler
-  const handleClick = (item: any, index: number) => {
-    setIsVisible(false); //triggers image fade-out
+    // Event listener for window resize
+    window.addEventListener('resize', checkScreenSize);
+
+    // Remove event listener when component unmounts
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
+   // Click handler
+   const handleClick = (item: any, index: number) => {
+    
+    if(item.title !== activeItem.title){ //stops image from fading out if button is clicked twice.
+      setIsVisible(false); //triggers image fade-out
+    }
 
     if (!isLoading) {
       item.index = index;
@@ -57,13 +43,8 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
 
   // Animation config
   const buttonVariants = {
-    closed: { width: '0px', },//this value is overriden in the scss file.
-    open: { width:"fit-content", 
-      transition: {
-      duration: 0.4,
-      when: "beforeChildren",
-      staggerChildren: 1,
-    }, },
+    closed: { width: '0px', }, //this value is overriden in the scss file.
+    open: { width: "fit-content" },
   }
 
   const transition = {
@@ -107,6 +88,8 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
     return () => clearInterval(cycleInterval);
   }, [isCycling]);
 
+  const maxChar = 20;
+
   return (
     <div className={styles.button_block}>
       {data.map((item: any, index: any) => (
@@ -120,7 +103,14 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
           onClick={() => handleClick(item, index)}
         >
           <div className={styles.index}>0{index + 1}</div>
-          <span className={`${styles.title} ${item.title && item.title.length > 25 ? styles.long_title : ""}`}> {item.title}</span>
+          <span
+            dangerouslySetInnerHTML={{
+              __html: item.title && item.title.length > maxChar && isSmallScreen
+              ? item.title.replace(new RegExp(`^(.{0,${Math.floor(item.title.length / 2)}}\\s+)`, 'g'), "$1<br>")
+                : item.title
+            }}
+            className={`${styles.title} ${item.title && item.title.length > maxChar ? styles.long_title : ""}`}
+          ></span>
           <span className={styles.category}> {item.category_names[0]}</span>
         </motion.div>
       ))}
