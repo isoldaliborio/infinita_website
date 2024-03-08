@@ -27,9 +27,12 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
     };
   }, []);
 
-  // Click handler
-  const handleClick = (item: any, index: number) => {
-    setIsVisible(false); //triggers image fade-out
+   // Click handler
+   const handleClick = (item: any, index: number) => {
+    
+    if(item.title !== activeItem.title){ //stops image from fading out if button is clicked twice.
+      setIsVisible(false); //triggers image fade-out
+    }
 
     if (!isLoading) {
       item.index = index;
