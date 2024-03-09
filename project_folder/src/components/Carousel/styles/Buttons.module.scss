@@ -55,6 +55,11 @@ $button-width-supersmall: 23px;
             min-width: $button-width-small;
             min-height: $button-width-small;
             max-height: $button-width-small;
+
+            // increase .button height if it also has .active_button class applied AND has a child span with .long_title
+            &.active_button:has(> .long_title) {
+                max-height: $button-width-medium
+            }
         }
 
         @media (max-width: 299px) {
@@ -169,14 +174,12 @@ $button-width-supersmall: 23px;
             //     font-size: 7px;
             // }
         }
-
     }
-
+    
     .active_button {
         background-color: black;
         color: white;
         width: fit-content;
-        max-width: 70vw;
         max-width: 98vw;
         min-height: $button-width-large;
         justify-content: left;
