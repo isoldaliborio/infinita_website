@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
-    //assetPrefix: 'https://infinitaproductions.com/temp/', // remove
     images: {
         unoptimized: true,
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname:  'infinitaproductions.com',
+                // hostname:  'infinitaproductions.com', // go back to this domain eventually
+                hostname:  'infinitaproducoes.com',
                 port: '',
                 pathname: '/**'
             }
