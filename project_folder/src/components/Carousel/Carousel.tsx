@@ -72,18 +72,19 @@ export default function Carousel() {
     }
   }, [orderedImages]);
 
+  // TODO: is this needed?
   // Set initial image
-  useEffect(() => {
-    homePageData && setActiveItem(homePageData[0]);
-    setIsVisible(true); // Triggers fade-in of image on initial render
-  }, [homePageData]);
+  // useEffect(() => {
+  //   homePageData && setActiveItem(homePageData[0]);
+  //   setIsVisible(true); // Triggers fade-in of image on initial render
+  // }, [homePageData]);
 
   // When activeItem changes
   useEffect(() => {
     if (activeItem && activeItem.index || activeItem && activeItem.index === 0) {
       updateImage(activeItem.index);
     };
-  }, [activeItem, updateImage]);
+  }, [activeItem]); // is updateImage needed here?
 
   // Conditional rendering of Loading Screen
   if (!homePageData[0]?.img_id) {

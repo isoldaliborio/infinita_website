@@ -7,10 +7,10 @@ export default function CarouselImage({activeItem, isVisible, isLoading}:any){
   return <AnimatePresence>
     { isVisible && (
       <motion.div
-        initial={{opacity:0}} 
-        animate={{opacity:1}}
-        exit={{opacity:0}}
-        transition={{duration:0.2}} 
+        initial={{opacity:1}} 
+        animate={{opacity:0.999}}
+        exit={{opacity:1}}
+        transition={{duration:3}} 
         className={styles.imageContainer} 
         id={activeItem}
       >

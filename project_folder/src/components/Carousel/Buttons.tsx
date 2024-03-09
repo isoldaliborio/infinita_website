@@ -6,8 +6,8 @@ import { useEffect, useState, useRef } from "react";
 export default function Buttons({ data, setItem, activeItem, isLoading, setIsVisible }: { data: any; setItem: any; activeItem: any; isLoading: boolean; setIsVisible: any }) {
 
   const [isCycling, setIsCycling] = useState(true);
-  const buttonRef = useRef<HTMLDivElement>(null);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const buttonRef = useRef<HTMLDivElement>(null);
 
   // Function to check if screen is small
   const checkScreenSize = () => {
@@ -49,7 +49,7 @@ export default function Buttons({ data, setItem, activeItem, isLoading, setIsVis
 
   const transition = {
     ease: 'easeOut',
-    duration: 0.4
+    duration: 0.65
   }
 
   // Image cycling
