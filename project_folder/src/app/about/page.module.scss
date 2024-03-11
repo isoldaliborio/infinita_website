@@ -1,48 +1,51 @@
-@use './../variables' as *;
+@use "./../variables" as *;
 
 .main {
-    // width: 100vh;
+  // width: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 68%;
+  margin-top: 5vh;
+  width: 100%;
+  background-color: white;
+
+  .aboutBox {
     display: flex;
-    flex-direction:row;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
-    min-height: 100vh;
-    margin-top: 30px;
-
-    .aboutBox {
-      display: flex;
-      flex-direction:column;
-      justify-content: space-between;
-      align-items: center;
-      .textAbout {
-        background-color: gray;
-        height: 200px;
-      }
-
-      .categoryBox {
-        background-color: gray;
-        margin-top: 30px;
-        height: 200px;
-      }
-    
+    align-items: center;
+    .textAbout {
+      background-color: gray;
+      height: 20vh;
     }
 
-    .imageBox {
+    .categoryBox {
       background-color: gray;
-      height: 300px;
-      }
-
-    .description {
-      display: inherit;
-      justify-content: inherit;
-      align-items: inherit;
-      font-size: 0.85rem;
-      max-width: var(--max-width);
-      width: 100%;
-      z-index: 2;
-      font-family: var(--font-mono);
+      margin-top: 30px;
+      height: 20vh;
     }
   }
-  
-  
-  
+
+  .imageBox {
+    background-color: gray;
+    height: 45vh;
+
+    .aboutImage {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .description {
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    font-size: 0.85rem;
+    max-width: var(--max-width);
+    width: 100%;
+    z-index: 2;
+    font-family: var(--font-mono);
+  }
+}

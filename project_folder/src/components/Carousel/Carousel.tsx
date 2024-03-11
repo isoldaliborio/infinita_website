@@ -24,7 +24,6 @@ export default function Carousel() {
   const [orderedImages, setOrderedImages] = useState<any>();
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
-
   // Order images
   useEffect(() => {
     const getPageDataOrdered = async () => {
