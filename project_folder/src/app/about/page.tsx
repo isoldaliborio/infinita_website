@@ -45,8 +45,11 @@ export default function About() {
           <p className={styles.title}>
             {language === 'EN' ? 'Infinita Production' : 'Infinita Produções'}
           </p>
-          <p className={styles.description}>
-            {language === 'EN' ? aboutData.main_content_en : aboutData.main_content_pt}
+          <p
+            className={styles.description}
+            dangerouslySetInnerHTML={{
+              __html: language === 'EN' ? aboutData.main_content_en : aboutData.main_content_pt
+            }}>
           </p>
         </div>
         <div className={`${styles.categoryBox} col-5`}>
