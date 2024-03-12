@@ -4,7 +4,7 @@ import styles from './page.module.scss'
 import { LanguageContext } from '@/context/LanguageContext'
 import { useContext } from 'react';
 import { useState, useEffect } from "react";
-import { getAboutPageDataJson, getImageUrl } from '@/utils/processAboutData';
+import { getAboutPageDataJson, getImageUrl } from '@/lib/processAboutData';
 import { url } from 'inspector';
 import Image from 'next/image';
 

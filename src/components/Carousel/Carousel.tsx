@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "./styles/Carousel.module.scss";
 import Buttons from "@/components/Carousel/Buttons";
 import LoadingScreen from "../Loading/LoadingScreen";
-import { getHomePageDataJson, orderImages, processHomePageData } from "@/utils/processHomePageData";
+import { getHomePageDataJson, orderImages, processHomePageData } from "@/lib/processHomePageData";
 import { motion, AnimatePresence } from "framer-motion";
 import CarouselImage from "./CarouselImage";
 
