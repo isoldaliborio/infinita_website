@@ -7,13 +7,14 @@ const nextConfig = {
             {
                 protocol: 'https',
                 // hostname:  'infinitaproductions.com', // go back to this domain eventually
-                hostname:  'infinitaproducoes.com',
+                hostname: 'infinitaproducoes.com',
                 port: '',
                 pathname: '/**'
             }
         ]
     },
     reactStrictMode: false,
-}
+};
 
-module.exports = nextConfig
+
+export default nextConfig;
