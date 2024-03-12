@@ -6,9 +6,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  min-height: 68%;
+  min-height: 68vh;
   margin-top: 5vh;
-  width: 100%;
+  // width: 100%;
   background-color: white;
 
   .aboutBox {
@@ -18,7 +18,7 @@
     align-items: center;
     .textAbout {
       background-color: gray;
-      height: 20vh;
+      height:auto;
     }
 
     .categoryBox {
