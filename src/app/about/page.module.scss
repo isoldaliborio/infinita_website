@@ -41,9 +41,15 @@
     }
 
     .categoryBox {
-      background-color: rgb(174, 41, 174);
       margin-top: 30px;
       height: 20vh;
+
+      .accordionTitle {
+        font-family: "MuseoModerno";
+        background-color: $infinita-black;
+        color: white;
+        padding-left: 8%;
+      }
     }
   }
 
