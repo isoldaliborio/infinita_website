@@ -1,85 +1,35 @@
+@use "./../variables" as *;
+
 .main {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6rem;
-    min-height: 100vh;
-  }
-  
-  .description {
-    display: inherit;
-    justify-content: inherit;
-    align-items: inherit;
-    font-size: 0.85rem;
-    max-width: var(--max-width);
-    width: 100%;
-    z-index: 2;
-    font-family: var(--font-mono);
-  }
-  
-  .description a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .description p {
-    position: relative;
-    margin: 0;
-    padding: 1rem;
-    background-color: rgba(var(--callout-rgb), 0.5);
-    border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-    border-radius: var(--border-radius);
-  }
-  
-  
-  /* Mobile */
-  @media (max-width: 700px) {
-    .description {
-      font-size: 0.8rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 63%; //because title banner is 7%, and with header and footer, rest of content is 70% of screen.
+    border:1px solid blue;
+    background-color: white;
+    
+
+    .servicesText {
+      border: 1px solid green;
+      width: $col-5-width;
+      height:auto;
+      margin-left: 15vw;
+      margin-top: 5vh;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 12px;
     }
-  
-    .description a {
-      padding: 1rem;
+
+    .imageBox{
+      border: 1px solid red;
+      width: $col-6-width;
+      height: auto;
+      margin-left: 7vw;
+      margin-top: 5vh;
     }
-  
-    .description p,
-    .description div {
-      display: flex;
-      justify-content: center;
-      position: fixed;
-      width: 100%;
-    }
-  
-    .description p {
-      align-items: center;
-      inset: 0 0 auto;
-      padding: 2rem 1rem 1.4rem;
-      border-radius: 0;
-      border: none;
-      border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-      background: linear-gradient(
-        to bottom,
-        rgba(var(--background-start-rgb), 1),
-        rgba(var(--callout-rgb), 0.5)
-      );
-      background-clip: padding-box;
-      backdrop-filter: blur(24px);
-    }
-  
-    .description div {
-      align-items: flex-end;
-      pointer-events: none;
-      inset: auto 0 0;
-      padding: 2rem;
-      height: 200px;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgb(var(--background-end-rgb)) 40%
-      );
-      z-index: 1;
-    }
+
   }
+
+  
