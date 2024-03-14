@@ -9,9 +9,4 @@ export const getServicesPageDataJson = async function () {
     return acfData;
 }
 
-export const getImageUrl = async function(image_id) {
-    const response = await fetch(`${BACKENDURLSERVICES}/media/${image_id}`);
-    const jsonData = await response.json();
-    return jsonData;
-}
 
