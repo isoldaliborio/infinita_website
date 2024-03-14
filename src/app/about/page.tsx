@@ -58,7 +58,7 @@ export default function About() {
           </div>
           <div className={`${styles.categoryBox} col-5`}>
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-1">
+              <AccordionItem className={styles.accordionItem} value="item-1">
                 <AccordionTrigger className={styles.accordionTitle}>Films</AccordionTrigger>
                 <AccordionContent className={styles.accordionContent}>
                   <span
@@ -70,7 +70,7 @@ export default function About() {
                   </span>
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="item-2">
+              <AccordionItem className={`${styles.accordionItem} ${styles.middleItem} ${styles.musicCategory}`} value="item-2">
                 <AccordionTrigger className={styles.accordionTitle}>Music</AccordionTrigger>
                 <AccordionContent className={styles.accordionContent}>
                 <span
@@ -81,8 +81,8 @@ export default function About() {
                   >
                   </span>
                 </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-3">
+              </AccordionItem >
+              <AccordionItem className={`${styles.accordionItem} ${styles.middleItem}`} value="item-3">
                 <AccordionTrigger className={styles.accordionTitle}>Curating</AccordionTrigger>
                 <AccordionContent className={styles.accordionContent}>
                   <span
@@ -94,7 +94,7 @@ export default function About() {
                   </span>
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="item-5">
+              <AccordionItem className={styles.accordionItem} value="item-4">
                 <AccordionTrigger className={styles.accordionTitle}>Accounting</AccordionTrigger>
                 <AccordionContent className={styles.accordionContent}>
                 <span
