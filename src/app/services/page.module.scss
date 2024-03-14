@@ -1,85 +1,85 @@
+@use "./../variables" as *;
+
 .main {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6rem;
-    min-height: 100vh;
-  }
-  
-  .description {
-    display: inherit;
-    justify-content: inherit;
-    align-items: inherit;
-    font-size: 0.85rem;
-    max-width: var(--max-width);
-    width: 100%;
-    z-index: 2;
-    font-family: var(--font-mono);
-  }
-  
-  .description a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .description p {
-    position: relative;
-    margin: 0;
-    padding: 1rem;
-    background-color: rgba(var(--callout-rgb), 0.5);
-    border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-    border-radius: var(--border-radius);
-  }
-  
-  
-  /* Mobile */
-  @media (max-width: 700px) {
-    .description {
-      font-size: 0.8rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 63%; //because title banner is 7%, and with header and footer, rest of content is 70% of screen.
+    background-color: white;
+    padding-bottom: 5vh;
+
+    .servicesText {
+      width: $col-5-width;
+      height:auto;
+      margin-left: 15vw;
+      margin-top: 5vh;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 12px;
     }
+
+    .accordionContainer{
+      width: $col-6-width;
+      height: auto;
+      margin-left: 7vw;
+      margin-top: 5vh;
+      padding: none;
+      
+      .accordionItem {
+        border: 1px solid black;
+
+        .accordionTitle {
+          background-color: $infinita-black;
+          color: white;
+          width:100%;
+          height: auto;
+          position: relative;
+          padding: none;
+          box-sizing: border-box;
   
-    .description a {
-      padding: 1rem;
-    }
+          .accordionTitleText {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 16px; // FIXME: needs to be made responsive for smaller screens
+            font-family: "MuseoModerno";
+            z-index: 2;
+            width:100%;
+            padding-left: 3.5%;
+            padding-right: 2%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 31%;
+            background: rgba(0, 0, 0, 0.7);
+          };
   
-    .description p,
-    .description div {
-      display: flex;
-      justify-content: center;
-      position: fixed;
-      width: 100%;
+          .accordionTitleImage {
+            width:100%;
+            height: auto;
+            z-index: 1;
+            padding: none;
+          };
+        };
+
+        .accordionContent {
+          font-family: "Poppins";
+          padding: 7.5%;
+          font-size: 12px;
+          line-height: 17px;
+        }
+      };
+
+      .middleItem { //applied to middle accordion item so that borders dont double up.
+        border-top: none;
+        border-bottom: none;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+      }
     }
-  
-    .description p {
-      align-items: center;
-      inset: 0 0 auto;
-      padding: 2rem 1rem 1.4rem;
-      border-radius: 0;
-      border: none;
-      border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-      background: linear-gradient(
-        to bottom,
-        rgba(var(--background-start-rgb), 1),
-        rgba(var(--callout-rgb), 0.5)
-      );
-      background-clip: padding-box;
-      backdrop-filter: blur(24px);
-    }
-  
-    .description div {
-      align-items: flex-end;
-      pointer-events: none;
-      inset: auto 0 0;
-      padding: 2rem;
-      height: 200px;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgb(var(--background-end-rgb)) 40%
-      );
-      z-index: 1;
-    }
+
   }
+
+  
