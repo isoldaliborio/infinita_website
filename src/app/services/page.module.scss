@@ -22,12 +22,57 @@
       font-size: 12px;
     }
 
-    .imageBox{
-      border: 1px solid red;
+    .accordionContainer{
       width: $col-6-width;
       height: auto;
       margin-left: 7vw;
       margin-top: 5vh;
+      padding: none;
+      
+      .accordionItem {
+        border: 1px solid black;
+
+        .accordionTitle {
+          background-color: $infinita-black;
+          color: white;
+          width:100%;
+          height: auto;
+          position: relative;
+          padding: none;
+          box-sizing: border-box;
+  
+          .accordionTitleText {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 16px; // FIXME: needs to be made responsive for smaller screens
+            font-family: "MuseoModerno";
+            z-index: 2;
+            width:100%;
+            padding-left: 3.5%;
+            padding-right: 2%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 31%;
+            background: rgba(0, 0, 0, 0.7);
+          };
+  
+          .accordionTitleImage {
+            width:100%;
+            height: auto;
+            z-index: 1;
+            padding: none;
+          };
+        };
+      };
+
+      .middleItem { //applied to middle accordion item so that borders dont double up.
+        border-top: none;
+        border-bottom: none;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+      }
     }
 
   }
