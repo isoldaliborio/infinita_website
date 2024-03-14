@@ -85,11 +85,11 @@ export default function About() {
               <AccordionItem value="item-3">
                 <AccordionTrigger className={styles.accordionTitle}>Curating</AccordionTrigger>
                 <AccordionContent className={styles.accordionContent}>
-                <span
-                  className={styles.categoryText}
-                  dangerouslySetInnerHTML={{
-                   __html: language === 'EN' ? aboutData.curating_text_en : aboutData.curating_text_pt
-                  }}
+                  <span
+                    className={styles.categoryText}
+                    dangerouslySetInnerHTML={{
+                     __html: language === 'EN' ? aboutData.curating_text_en : aboutData.curating_text_pt
+                    }}
                   >
                   </span>
                 </AccordionContent>
@@ -104,7 +104,7 @@ export default function About() {
                   }}
                   >
                   </span>
-                </AccordionContent>
+                 </AccordionContent>
               </AccordionItem>
             </Accordion>
           </div>
