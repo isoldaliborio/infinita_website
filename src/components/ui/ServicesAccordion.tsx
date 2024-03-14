@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-// import { PlusIcon } from "@radix-ui/react-icons";
 
 import { cn } from "@/lib/utils";
 
@@ -11,9 +10,7 @@ const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
-//   <AccordionPrimitive.Header className="flex relative [&[data-state=open]>svg]:animate-hide-icon">
-  <AccordionPrimitive.Header className="flex relative">
-    
+  <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
@@ -25,7 +22,6 @@ const AccordionTrigger = React.forwardRef<
       {children}
     
     </AccordionPrimitive.Trigger>
-    {/* <PlusIcon className="h-6 w-6 absolute shrink-0  mr-4 right-0 z-10 transition-all duration-300 group-data-[state=open]:animate-hide-icon text-white" /> */}
   </AccordionPrimitive.Header>
 ))
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
