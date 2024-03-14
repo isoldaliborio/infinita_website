@@ -27,20 +27,10 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "hide-icon":{
-          from: { opacity: "100%" },
-          to: { opacity: "0%" }
-        },
-        "show-icon":{
-          from: { opacity: "0%" },
-          to: { opacity: "100%" }
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "hide-icon": "hide-icon 0.2s ease-out",
-        "show-icon": "show-icon 0.2s ease-out", 
       },
     },
   },
