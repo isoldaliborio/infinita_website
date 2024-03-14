@@ -31,6 +31,7 @@ export default function About() {
 
   useEffect(() => {
     if (aboutData) {
+      console.log(aboutData)
       getImageUrl(aboutData.image_id).then((data) => {
         const url = data.media_details.sizes.full.source_url;
         setImageUrl(url);
@@ -59,14 +60,50 @@ export default function About() {
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger className={styles.accordionTitle}>Films</AccordionTrigger>
-                <AccordionContent>
-                  Hello.
+                <AccordionContent className={styles.accordionContent}>
+                  <span
+                  className={styles.categoryText}
+                  dangerouslySetInnerHTML={{
+                   __html: language === 'EN' ? aboutData.films_text_en : aboutData.films_text_pt
+                  }}
+                  >
+                  </span>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
                 <AccordionTrigger className={styles.accordionTitle}>Music</AccordionTrigger>
-                <AccordionContent>
-                  Hello.
+                <AccordionContent className={styles.accordionContent}>
+                <span
+                  className={styles.categoryText}
+                  dangerouslySetInnerHTML={{
+                   __html: language === 'EN' ? aboutData.music_text_en : aboutData.music_text_pt
+                  }}
+                  >
+                  </span>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger className={styles.accordionTitle}>Curating</AccordionTrigger>
+                <AccordionContent className={styles.accordionContent}>
+                <span
+                  className={styles.categoryText}
+                  dangerouslySetInnerHTML={{
+                   __html: language === 'EN' ? aboutData.curating_text_en : aboutData.curating_text_pt
+                  }}
+                  >
+                  </span>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-5">
+                <AccordionTrigger className={styles.accordionTitle}>Accounting</AccordionTrigger>
+                <AccordionContent className={styles.accordionContent}>
+                <span
+                  className={styles.categoryText}
+                  dangerouslySetInnerHTML={{
+                   __html: language === 'EN' ? aboutData.accounting_text_en : aboutData.accounting_text_pt
+                  }}
+                  >
+                  </span>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
