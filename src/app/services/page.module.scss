@@ -5,13 +5,11 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 63%; //because title banner is 7%, and with header and footer, rest of content is 70% of screen.
-    // border:1px solid blue;
+    min-height: 63%; //because title banner is 7%, and with header and footer, rest of content is 70% of screen.
     background-color: white;
-    
+    padding-bottom: 5vh;
 
     .servicesText {
-      // border: 1px solid green;
       width: $col-5-width;
       height:auto;
       margin-left: 15vw;
@@ -65,6 +63,13 @@
             padding: none;
           };
         };
+
+        .accordionContent {
+          font-family: "Poppins";
+          padding: 7.5%;
+          font-size: 12px;
+          line-height: 17px;
+        }
       };
 
       .middleItem { //applied to middle accordion item so that borders dont double up.

@@ -116,7 +116,7 @@ export default function Services() {
                     { language === "EN" ? servicesData.europe_service_text_en : servicesData.europe_service_text_pt } 
                   </AccordionContent>
                 </AccordionItem>
-                
+
               </Accordion>
             </section>
           </> 
