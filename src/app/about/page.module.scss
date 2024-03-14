@@ -41,14 +41,20 @@
     }
 
     .categoryBox {
-      margin-top: 30px;
-      height: 20vh;
+      margin: 10% 0;
 
       .accordionTitle {
         font-family: "MuseoModerno";
         background-color: $infinita-black;
         color: white;
         padding-left: 8%;
+        padding-right: 2%;
+      }
+      .itemExpanded {
+        background-color: red;
+      }
+      .itemClosed {
+        background-color: green;
       }
     }
   }
