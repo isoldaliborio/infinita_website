@@ -51,16 +51,16 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
                 onClick={closeModal}
                 href={item.href}
                 key={item.ENpageName}
-                className={`${styles.navButton} ${getPathname.includes(item.href) ? styles.activeButton : ""}`}
+                className={`${styles.navButton} ${getPathname === item.href || getPathname === "/temp" ? styles.activeButton : ""}`}
             >
-                {getPathname.includes(item.href) ? (
+                {getPathname === item.href || getPathname === "/temp" ? ( //whilst homepage is deployed as temp
                     <div
                         className={`${styles.line} ${styles.top}`}
                         // layoutId="topLine"
                     />
                     ) : null}
                 {language === "EN" ? item.ENpageName : item.PTpageName}
-                {getPathname.includes(item.href) ? (
+                {getPathname === item.href || getPathname === "/temp" ? ( //whilst homepage is deployed as temp
                     <div
                         className={`${styles.line} ${styles.bottom}`}
                         // layoutId="bottomLine"
