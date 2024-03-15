@@ -1,15 +1,14 @@
 "use client";
 
 //TODO: convert tailwind into CSS 
-//TODO:  style font inside expanded accordion text boxes 
 
 import styles from "./page.module.scss";
 import { LanguageContext } from "@/context/LanguageContext";
 import { useContext } from "react";
-import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import { useState, useEffect } from "react";
 import { getServicesPageDataJson} from '@/lib/processServicesData';
 import Image from 'next/image';
+import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import LoadingScreen from "@/components/Loading/LoadingScreen";
 
 import { PlusIcon } from "@radix-ui/react-icons";
@@ -19,19 +18,16 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-} from "@/components/ui/accordion"
-
+} from "@/components/ui/accordion";
  import {
   AccordionTrigger,
- } from "@/components/ui/ServicesAccordion"
+ } from "@/components/ui/ServicesAccordion";
 
 export default function Services() {
 
   let language = useContext(LanguageContext);
   const [servicesData, setServicesData] = useState<any>();
   const [activeItem, setActiveItem] = useState<any>("");
-  const imageUrl = "https://infinitaproducoes.com/wordpress/wp-content/uploads/2024/03/"
-  const urlArray = ["img_Services_Brazil.jpg", "img_Services_UK.jpg", "img_Services_Europe.jpg"]
 
   //fetch data from api endpoint
   useEffect(() => {
@@ -69,9 +65,9 @@ export default function Services() {
                       {language === "EN" ? "BRAZIL" : "BRASIL"} 
                       { activeItem === "Brazil" 
                         ?
-                          <MinusIcon className="h-6 w-6 absolute shrink-0  mr-4 right-0 z-10 text-white" />
+                          <MinusIcon className={styles.accordionTitleIcon} />
                         :
-                          <PlusIcon className="h-6 w-6 absolute shrink-0  mr-4 right-0 z-10 text-white" />
+                          <PlusIcon className={styles.accordionTitleIcon} />
                       }
                     </div> 
                     <Image className={styles.accordionTitleImage} src={"https://infinitaproducoes.com/wordpress/wp-content/uploads/2024/03/img_Services_Brazil.jpg"} alt={"img test"} width={0} height={0}/>
@@ -87,9 +83,9 @@ export default function Services() {
                       { language === "EN" ? "UNITED KINGDOM" : "REINO UNIDO"}
                       { activeItem === "UK" 
                       ?
-                        <MinusIcon className="h-6 w-6 absolute shrink-0  mr-4 right-0 z-10 text-white" />
+                        <MinusIcon className={styles.accordionTitleIcon} />
                       :
-                        <PlusIcon className="h-6 w-6 absolute shrink-0  mr-4 right-0 z-10 text-white" />
+                        <PlusIcon className={styles.accordionTitleIcon} />
                     } 
                     </div> 
                     <Image className={styles.accordionTitleImage} src={"https://infinitaproducoes.com/wordpress/wp-content/uploads/2024/03/img_Services_UK.jpg"} alt={"img test"} width={0} height={0}/>
@@ -105,9 +101,9 @@ export default function Services() {
                       { language === "EN" ? "EUROPE" : "EUROPA" }
                       { activeItem === "Europe" 
                       ?
-                        <MinusIcon className="h-6 w-6 absolute shrink-0  mr-4 right-0 z-10 text-white" />
+                        <MinusIcon className={styles.accordionTitleIcon} />
                       :
-                        <PlusIcon className="h-6 w-6 absolute shrink-0  mr-4 right-0 z-10 text-white" />
+                        <PlusIcon className={styles.accordionTitleIcon} />
                     }
                     </div> 
                     <Image className={styles.accordionTitleImage} src={"https://infinitaproducoes.com/wordpress/wp-content/uploads/2024/03/img_Services_Europe.jpg"} alt={"img test"} width={0} height={0}/>

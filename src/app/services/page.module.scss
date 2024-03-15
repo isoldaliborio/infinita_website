@@ -53,6 +53,17 @@
             top: 0;
             height: 31%;
             background: rgba(0, 0, 0, 0.7);
+
+            .accordionTitleIcon {
+              height:1.5rem;
+              width: 1.5rem;
+              flex-shrink:0;
+              position: absolute;
+              right: 0;
+              margin-right: 1rem;
+              z-index: 3;
+              color: white;
+            };
           };
   
           .accordionTitleImage {
