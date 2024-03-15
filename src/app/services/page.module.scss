@@ -7,13 +7,13 @@
     align-items: flex-start;
     min-height: 63%; //because title banner is 7%, and with header and footer, rest of content is 70% of screen.
     background-color: white;
-    padding-bottom: 5vh;
+    padding: 5vh 0;
+    width: 100vw;
 
     .servicesText {
       width: $col-5-width;
       height:auto;
       margin-left: 15vw;
-      margin-top: 5vh;
       font-family: 'Poppins', sans-serif;
       font-weight: 400;
       font-style: normal;
@@ -24,7 +24,6 @@
       width: $col-6-width;
       height: auto;
       margin-left: 7vw;
-      margin-top: 5vh;
       padding: none;
       
       .accordionItem {

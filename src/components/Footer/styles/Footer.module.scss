@@ -1,7 +1,7 @@
 @use '../../../app/variables' as *;
 
 #footer {
-    width: 100%;
+    width: 100vw; //changed from 100% to stop scrollbar pushing the element when it appears
     height: 12%;
     display: flex;
     flex-direction: row;

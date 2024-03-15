@@ -66,7 +66,7 @@ export default function Services() {
                 <AccordionItem onClick={()=> handleClick("Brazil")} className={styles.accordionItem} value="item-1">
                   <AccordionTrigger className={styles.accordionTitle}>
                     <div className={styles.accordionTitleText}> 
-                      BRAZIL 
+                      {language === "EN" ? "BRAZIL" : "BRASIL"} 
                       { activeItem === "Brazil" 
                         ?
                           <MinusIcon className="h-6 w-6 absolute shrink-0  mr-4 right-0 z-10 text-white" />
@@ -84,7 +84,7 @@ export default function Services() {
                 <AccordionItem onClick={()=> handleClick("UK")} className={`${styles.accordionItem} ${styles.middleItem}`} value="item-2">
                   <AccordionTrigger className={styles.accordionTitle}>
                     <div className={styles.accordionTitleText}> 
-                      UNITED KINGDOM
+                      { language === "EN" ? "UNITED KINGDOM" : "REINO UNIDO"}
                       { activeItem === "UK" 
                       ?
                         <MinusIcon className="h-6 w-6 absolute shrink-0  mr-4 right-0 z-10 text-white" />
@@ -102,7 +102,7 @@ export default function Services() {
                 <AccordionItem onClick={()=> handleClick("Europe")} className={styles.accordionItem} value="item-3">
                   <AccordionTrigger className={styles.accordionTitle}>
                     <div className={styles.accordionTitleText}>
-                      EUROPE 
+                      { language === "EN" ? "EUROPE" : "EUROPA" }
                       { activeItem === "Europe" 
                       ?
                         <MinusIcon className="h-6 w-6 absolute shrink-0  mr-4 right-0 z-10 text-white" />
