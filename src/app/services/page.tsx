@@ -1,7 +1,5 @@
 "use client";
 
-//TODO: convert tailwind into CSS 
-
 import styles from "./page.module.scss";
 import { LanguageContext } from "@/context/LanguageContext";
 import { useContext } from "react";
@@ -35,7 +33,7 @@ export default function Services() {
 
   return (
     <>
-      <TitleBanner title="Services" />
+      <TitleBanner title={ language === "EN" ? "SERVICES" : "SERVIÇOS"} />
       <main className={styles.main}>
         { !servicesData ? <LoadingScreen/> : <>
           <section className={styles.servicesText}>
