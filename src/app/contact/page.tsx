@@ -14,10 +14,9 @@ export default function Contact() {
     <>
       <TitleBanner title='Contact' />
       <main className={styles.main}>
-        <ContactForm/>
+        <ContactForm />
         <div className={styles.description}>
           {language === "en" ? "Welcome to the contact page!" : "Bem-vindo à página contato"}
-
         </div>
       </main>
     </>

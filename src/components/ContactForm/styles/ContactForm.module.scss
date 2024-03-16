@@ -4,19 +4,22 @@
     background-color: aqua;
     display: flex;
     flex-direction: column;
+
     .input {
         border: 1px solid black;
         margin: 8px;
         height: 4.5vh;
+
+        &::placeholder {
+            font-size: 14px;
+            font-family: "MuseoModerno";
+            font-weight: 600;
+            color: black;
+            padding: 10px;
+            text-transform: uppercase;
+        }
     }
 
-    input::placeholder {
-        font-size: 14px;
-        font-family: "MuseoModerno";
-        font-weight: 600;
-        color: black;
-        padding: 10px;
-      }
 
     .message {
         height: 20vh;
@@ -26,7 +29,7 @@
     //     vertical-align: text-top;
     // }
 
-    .sendButton {
+    .submitButton {
         background-color: black;
         color: white;
         font-family: "MuseoModerno";
@@ -35,7 +38,7 @@
         margin-left: 8px;
         margin-bottom: 8px;
         height: 4.5vh;
-
+        text-transform: uppercase;
     }
-    
+
 }
