@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { getAboutPageDataJson, getImageUrl } from '@/lib/processAboutData';
 import Image from 'next/image';
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
+import LoadingScreen from "@/components/Loading/LoadingScreen";
 import { AccordionAbout } from "@/components/ui/Accordion/AccordionAbout";
 
 
@@ -45,37 +46,41 @@ export default function About() {
       <TitleBanner title='About us' />
 
       <main className={`${styles.main} marginR`}>
-        <section className={`${styles.aboutBox} marginL`}>
-          <div className={`${styles.textAbout} col-5`}>
-            <p className={styles.title}>
-              {language === 'en' ? 'Infinita Production' : 'Infinita Produções'}
-            </p>
-            {aboutData && <p
-              className={styles.description}
-              dangerouslySetInnerHTML={{
-                __html: language === 'en' ? aboutData.main_content_en : aboutData.main_content_pt
-              }}>
-            </p>}
-          </div>
+        {!aboutData ? <LoadingScreen /> : <>
+          <section className={`${styles.aboutBox} marginL`}>
+            <div className={`${styles.textAbout} col-5`}>
 
-          <div className={`${styles.categoryBox} col-5`}>
-            {aboutData && <AccordionAbout
-              handleClick={handleClick}
-              activeItem={activeItem}
-              aboutData={aboutData}
+              {/* Main content */}
+              <p className={styles.title}>
+                {language === 'en' ? 'Infinita Production' : 'Infinita Produções'}
+              </p>
+              <p
+                className={styles.description}
+                dangerouslySetInnerHTML={{ __html: aboutData[`main_content_${language}`] }}>
+              </p>
+            </div>
+
+            {/* Accordion */}
+            <div className={`${styles.categoryBox} col-5`}>
+              {aboutData && <AccordionAbout
+                handleClick={handleClick}
+                activeItem={activeItem}
+                aboutData={aboutData}
+              />}
+            </div>
+          </section>
+
+          {/* Side image */}
+          <section className={`${styles.imageBox} col-7`}>
+            {imageUrl && <Image
+              className={styles.aboutImage}
+              width={0}
+              height={0}
+              src={imageUrl}
+              alt="about image"
             />}
-          </div>
-        </section>
-
-        <section className={`${styles.imageBox} col-7`}>
-          {imageUrl && <Image
-            className={styles.aboutImage}
-            width={0}
-            height={0}
-            src={imageUrl}
-            alt="about image"
-          />}
-        </section>
+          </section>
+        </>}
       </main>
     </>
   )
