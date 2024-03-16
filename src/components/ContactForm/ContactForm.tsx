@@ -8,7 +8,8 @@ export default function ContactForm() {
     const formData = new FormData(event.target);
     const inputName = formData.get('inputName');
     const inputEmail = formData.get('inputEmail');
-    console.log(inputName, inputEmail)
+    const inputMessage = formData.get('inputMessage');
+    console.log(inputName, inputEmail, inputMessage)
 
     //   sendInputValueToApi(inputValue).then(() => /* Do something */)  
   };
