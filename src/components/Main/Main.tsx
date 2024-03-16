@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import { LanguageContextType, LanguageContext } from "../../context/LanguageContext";
 
 export default function Main({ children }: { children: React.ReactNode }) {
-    const [language, setLanguage] = useState<LanguageContextType>("EN");
+    const [language, setLanguage] = useState<LanguageContextType>("en");
 
     useEffect(() => {
         const updateHeight = () => {

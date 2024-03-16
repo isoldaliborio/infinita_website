@@ -14,7 +14,7 @@ export default function Projects() {
       <TitleBanner title='Projects' />
       <main className={styles.main}>
         <div className={styles.description}>
-          {language === "EN" ? "Welcome to the project page!" : "Bem-vindo à página projetos"}
+          {language === "en" ? "Welcome to the project page!" : "Bem-vindo à página projetos"}
         </div>
       </main>
     </>

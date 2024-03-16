@@ -7,14 +7,7 @@ import { useState, useEffect } from "react";
 import { getAboutPageDataJson, getImageUrl } from '@/lib/processAboutData';
 import Image from 'next/image';
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
-
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
+import { AccordionAbout } from "@/components/ui/Accordion/AccordionAbout";
 
 
 export default function About() {
@@ -22,6 +15,16 @@ export default function About() {
   let language = useContext(LanguageContext);
   const [aboutData, setAboutData] = useState<any>();
   const [imageUrl, setImageUrl] = useState<any>();
+  const [activeItem, setActiveItem] = useState<any>("");
+
+  //handling click of accordion and setting active item for icon changes
+  function handleClick(item: string) {
+    if (item === activeItem) {
+      setActiveItem("");
+    } else {
+      setActiveItem(item)
+    }
+  }
 
   useEffect(() => {
     getAboutPageDataJson().then((data) => {
@@ -31,84 +34,39 @@ export default function About() {
 
   useEffect(() => {
     if (aboutData) {
-      console.log(aboutData)
       getImageUrl(aboutData.image_id).then((data) => {
-        const url = data.media_details.sizes.full.source_url;
-        setImageUrl(url);
+        setImageUrl(data.media_details.sizes.full.source_url);
       })
     }
   }, [aboutData]);
 
-  // Temporary -- testing column sizes
   return (
     <>
       <TitleBanner title='About us' />
+
       <main className={`${styles.main} marginR`}>
-        {aboutData && <section className={`${styles.aboutBox} marginL`}>
+        <section className={`${styles.aboutBox} marginL`}>
           <div className={`${styles.textAbout} col-5`}>
             <p className={styles.title}>
-              {language === 'EN' ? 'Infinita Production' : 'Infinita Produções'}
+              {language === 'en' ? 'Infinita Production' : 'Infinita Produções'}
             </p>
-            <p
+            {aboutData && <p
               className={styles.description}
               dangerouslySetInnerHTML={{
-                __html: language === 'EN' ? aboutData.main_content_en : aboutData.main_content_pt
+                __html: language === 'en' ? aboutData.main_content_en : aboutData.main_content_pt
               }}>
-            </p>
+            </p>}
           </div>
+
           <div className={`${styles.categoryBox} col-5`}>
-            <Accordion type="single" collapsible>
-              <AccordionItem className={styles.accordionItem} value="item-1">
-                <AccordionTrigger className={styles.accordionTitle}>Films</AccordionTrigger>
-                <AccordionContent className={styles.accordionContent}>
-                  <span
-                  className={styles.categoryText}
-                  dangerouslySetInnerHTML={{
-                   __html: language === 'EN' ? aboutData.films_text_en : aboutData.films_text_pt
-                  }}
-                  >
-                  </span>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem className={`${styles.accordionItem} ${styles.middleItem} ${styles.musicCategory}`} value="item-2">
-                <AccordionTrigger className={styles.accordionTitle}>Music</AccordionTrigger>
-                <AccordionContent className={styles.accordionContent}>
-                <span
-                  className={styles.categoryText}
-                  dangerouslySetInnerHTML={{
-                   __html: language === 'EN' ? aboutData.music_text_en : aboutData.music_text_pt
-                  }}
-                  >
-                  </span>
-                </AccordionContent>
-              </AccordionItem >
-              <AccordionItem className={`${styles.accordionItem} ${styles.middleItem}`} value="item-3">
-                <AccordionTrigger className={styles.accordionTitle}>Curating</AccordionTrigger>
-                <AccordionContent className={styles.accordionContent}>
-                  <span
-                    className={styles.categoryText}
-                    dangerouslySetInnerHTML={{
-                     __html: language === 'EN' ? aboutData.curating_text_en : aboutData.curating_text_pt
-                    }}
-                  >
-                  </span>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem className={styles.accordionItem} value="item-4">
-                <AccordionTrigger className={styles.accordionTitle}>Accounting</AccordionTrigger>
-                <AccordionContent className={styles.accordionContent}>
-                <span
-                  className={styles.categoryText}
-                  dangerouslySetInnerHTML={{
-                   __html: language === 'EN' ? aboutData.accounting_text_en : aboutData.accounting_text_pt
-                  }}
-                  >
-                  </span>
-                 </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            {aboutData && <AccordionAbout
+              handleClick={handleClick}
+              activeItem={activeItem}
+              aboutData={aboutData}
+            />}
           </div>
-        </section>}
+        </section>
+
         <section className={`${styles.imageBox} col-7`}>
           {imageUrl && <Image
             className={styles.aboutImage}

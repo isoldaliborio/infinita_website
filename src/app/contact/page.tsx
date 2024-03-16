@@ -16,7 +16,7 @@ export default function Contact() {
       <main className={styles.main}>
         <ContactForm/>
         <div className={styles.description}>
-          {language === "EN" ? "Welcome to the contact page!" : "Bem-vindo à página contato"}
+          {language === "en" ? "Welcome to the contact page!" : "Bem-vindo à página contato"}
 
         </div>
       </main>
