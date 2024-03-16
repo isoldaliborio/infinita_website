@@ -2,46 +2,67 @@
 
 .accordionItem {
   border: 1px solid black;
-}
+  padding: 0;
 
-.accordionItemMid {
-  border-bottom: none;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-}
+  &.accordionItemMid {
+    border-bottom: none;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
 
-.accordionItemFirst {
-  border-bottom: none;
-}
+  &.accordionItemFirst {
+    border-bottom: none;
+  }
 
-.accordionTitle {
-  font-family: "MuseoModerno";
-  background-color: white;
-  color: black;
-  padding-left: 8%;
-  padding-right: 2%;
-  height: auto;
-}
+  .accordionTitle {
+    font-family: "MuseoModerno";
+    background-color: transparent;
+    color: black;
+    padding-left: 8%;
+    padding-right: 2%;
+    position: relative;
+    width: 100%;
+    text-align: left;
+    height: 55px;
 
-.itemExpanded {
-  background-color: red;
-}
+    &:hover {
+      text-decoration: none;
+    }
 
-.itemClosed {
-  background-color: green;
-}
+    .accordionTitleIcon {
+      height: 1.0rem;
+      width: 1.0rem;
+      flex-shrink: 0;
+      position: absolute;
+      right: 0;
+      top: 20px;
+      margin-right: 1rem;
+      z-index: 3;
+      color: black;
+      cursor: pointer;
+    }
 
-.accordionContent {
-  // border-right: 1px solid black;
-  // border-left: 1px solid black;
-  padding: 3.5%
-}
+    .accordionTitleIconOpen {
+      @extend .accordionTitleIcon;
+      color: white;
+    }
 
-.categoryText {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  line-height: 10px;
+    &.activeItem {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  .accordionContent {
+    padding: 6%;
+  }
+
+  .categoryText {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    line-height: 10px;
+  }
 }

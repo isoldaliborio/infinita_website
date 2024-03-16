@@ -40,49 +40,6 @@ export default function About() {
     }
   }, [aboutData]);
 
-  const accordionItems = (data: any) => [
-    {
-      title: {
-        en: "Films",
-        pt: "Filmes",
-      },
-      content: {
-        en: data.films_text_en,
-        pt: data.films_text_pt,
-      }
-    },
-    {
-      title: {
-        en: "Music",
-        pt: "Música",
-      },
-      content: {
-        en: data.music_text_en,
-        pt: data.music_text_pt,
-      }
-    },
-    {
-      title: {
-        en: "Curating",
-        pt: "Curadoria",
-      },
-      content: {
-        en: data.curating_text_en,
-        pt: data.curating_text_pt,
-      }
-    },
-    {
-      title: {
-        en: "Accounting",
-        pt: "Contabilidade",
-      },
-      content: {
-        en: data.accounting_text_en,
-        pt: data.accounting_text_pt,
-      }
-    }
-  ];
-
   return (
     <>
       <TitleBanner title='About us' />
@@ -105,8 +62,7 @@ export default function About() {
             {aboutData && <AccordionAbout
               handleClick={handleClick}
               activeItem={activeItem}
-              accordionItems={accordionItems}
-              data={aboutData}
+              aboutData={aboutData}
             />}
           </div>
         </section>

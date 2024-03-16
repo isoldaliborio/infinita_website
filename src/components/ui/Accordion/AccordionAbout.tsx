@@ -1,7 +1,6 @@
 'use client';
 
 import styles from './styles/AccordionAbout.module.scss';
-import Image from 'next/image';
 import { LanguageContext } from "@/context/LanguageContext";
 
 import { useContext } from "react";
@@ -10,7 +9,6 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
 } from "@/components/ui/Accordion/accordion";
 import { ModifiedAccordionTrigger } from './AccordionTriggerModified';
 import { PlusIcon } from "@radix-ui/react-icons";
@@ -19,25 +17,50 @@ import { MinusIcon } from "@radix-ui/react-icons";
 type AccordionAboutProps = {
   handleClick: any,
   activeItem: string,
-  accordionItems: any,
-  data: any,
+  aboutData: any,
 }
 
-const AccordionAbout = ({ handleClick, activeItem, accordionItems, data }: AccordionAboutProps) => {
+const accordionItems = (data: any) => [
+  {
+    title: { en: "Films", pt: "Filmes" },
+    content: { en: data.films_text_en, pt: data.films_text_pt }
+  },
+  {
+    title: { en: "Music", pt: "Música" },
+    content: { en: data.music_text_en, pt: data.music_text_pt }
+  },
+  {
+    title: { en: "Curating", pt: "Curadoria" },
+    content: { en: data.curating_text_en, pt: data.curating_text_pt }
+  },
+  {
+    title: { en: "Accounting", pt: "Contabilidade" },
+    content: { en: data.accounting_text_en, pt: data.accounting_text_pt }
+  }
+];
+
+const AccordionAbout = ({ handleClick, activeItem, aboutData }: AccordionAboutProps) => {
 
   let language = useContext(LanguageContext);
 
   return <Accordion type="single" collapsible>
-    {accordionItems(data).map((item: any, index: any) => (
+    {accordionItems(aboutData).map((item: any, index: any) => (
       <AccordionItem
-        className={`
-        ${styles.accordionItem}
-        ${index === 0 ? styles.accordionItemFirst : ""}
-        ${![0, accordionItems({}).length - 1].includes(index) ? styles.accordionItemMid : ""}
-      `}
         key={index}
-        value={`item-${index}`}>
-        <AccordionTrigger className={styles.accordionTitle}>{item.title[language]}</AccordionTrigger>
+        value={`item-${index}`}
+        className={`
+          ${styles.accordionItem}
+          ${index === 0 ? styles.accordionItemFirst : ""}
+          ${![0, accordionItems({}).length - 1].includes(index) ? styles.accordionItemMid : ""}
+        `}>
+        <ModifiedAccordionTrigger
+          onClick={() => handleClick(item.title.en)}
+          className={`${styles.accordionTitle} ${activeItem === item.title.en ? styles.activeItem : ""}`}>{item.title[language]}
+          {activeItem === item.title.en
+            ? <MinusIcon className={styles.accordionTitleIconOpen} />
+            : <PlusIcon className={styles.accordionTitleIcon} />
+          }
+        </ModifiedAccordionTrigger>
         <AccordionContent className={styles.accordionContent}>
           <span className={styles.categoryText} dangerouslySetInnerHTML={{ __html: item.content[language] }} />
         </AccordionContent>

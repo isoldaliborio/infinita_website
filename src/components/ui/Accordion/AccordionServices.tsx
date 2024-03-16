@@ -72,7 +72,6 @@ const ServicesAccordion = ({ handleClick, activeItem, servicesData }: ServicesAc
       },
       isMiddleItem: false
     },
-
   ]
 
   return <Accordion type="single" collapsible>
