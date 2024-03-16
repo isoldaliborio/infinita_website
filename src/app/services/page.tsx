@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import { getServicesPageDataJson } from '@/lib/processServicesData';
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import LoadingScreen from "@/components/Loading/LoadingScreen";
-import { ServicesAccordion } from "@/components/ui/ServicesAccordion";
+import { ServicesAccordion } from "@/components/ui/Accordion/AccordionServices";
 
 export default function Services() {
 

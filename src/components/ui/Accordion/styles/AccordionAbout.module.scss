@@ -1,0 +1,47 @@
+@use "../../../../app/variables" as *;
+
+.accordionItem {
+  border: 1px solid black;
+}
+
+.accordionItemMid {
+  border-bottom: none;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.accordionItemFirst {
+  border-bottom: none;
+}
+
+.accordionTitle {
+  font-family: "MuseoModerno";
+  background-color: white;
+  color: black;
+  padding-left: 8%;
+  padding-right: 2%;
+  height: auto;
+}
+
+.itemExpanded {
+  background-color: red;
+}
+
+.itemClosed {
+  background-color: green;
+}
+
+.accordionContent {
+  // border-right: 1px solid black;
+  // border-left: 1px solid black;
+  padding: 3.5%
+}
+
+.categoryText {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  line-height: 10px;
+}

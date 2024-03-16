@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './styles/ServicesAccordion.module.scss';
+import styles from './styles/AccordionServices.module.scss';
 import Image from 'next/image';
 import { LanguageContext } from "@/context/LanguageContext";
 import { useContext } from "react";
@@ -9,8 +9,8 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-} from "@/components/ui/accordion";
-import { ModifiedAccordionTrigger } from './ModifiedAccordionTrigger';
+} from "@/components/ui/Accordion/accordion";
+import { ModifiedAccordionTrigger } from './AccordionTriggerModified';
 import { PlusIcon } from "@radix-ui/react-icons";
 import { MinusIcon } from "@radix-ui/react-icons";
 
