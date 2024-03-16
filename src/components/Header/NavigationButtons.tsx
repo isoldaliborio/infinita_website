@@ -11,7 +11,7 @@ type NavigationButtonProps = {
     closeModal: () => void;
 };
 
-export default function NavigationButtons({closeModal}:NavigationButtonProps){
+export default function NavigationButtons({ closeModal }: NavigationButtonProps) {
 
     const language = useContext(LanguageContext);
 
@@ -19,28 +19,28 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
 
     const navButtonArray = [
         {
-            ENpageName: "HOME",
-            PTpageName: "HOME",
+            en: "HOME",
+            pt: "HOME",
             href: "/"
         },
         {
-            ENpageName: "ABOUT",
-            PTpageName: "SOBRE",
+            en: "ABOUT",
+            pt: "SOBRE",
             href: "/about"
         },
         {
-            ENpageName: "PROJECTS",
-            PTpageName: "PROJETOS",
+            en: "PROJECTS",
+            pt: "PROJETOS",
             href: "/projects"
         },
         {
-            ENpageName: "SERVICES",
-            PTpageName: "SERVIÇOS",
+            en: "SERVICES",
+            pt: "SERVIÇOS",
             href: "/services"
         },
         {
-            ENpageName: "CONTACT",
-            PTpageName: "CONTATO",
+            en: "CONTACT",
+            pt: "CONTATO",
             href: "/contact"
         },
     ];
@@ -50,22 +50,22 @@ export default function NavigationButtons({closeModal}:NavigationButtonProps){
             <Link
                 onClick={closeModal}
                 href={item.href}
-                key={item.ENpageName}
+                key={item.en}
                 className={`${styles.navButton} ${getPathname === item.href || getPathname === "/temp" ? styles.activeButton : ""}`}
             >
                 {getPathname === item.href || getPathname === "/temp" ? ( //whilst homepage is deployed as temp
                     <div
                         className={`${styles.line} ${styles.top}`}
-                        // layoutId="topLine"
+                    // layoutId="topLine"
                     />
-                    ) : null}
-                {language === "EN" ? item.ENpageName : item.PTpageName}
+                ) : null}
+                {item[language]}
                 {getPathname === item.href || getPathname === "/temp" ? ( //whilst homepage is deployed as temp
                     <div
                         className={`${styles.line} ${styles.bottom}`}
-                        // layoutId="bottomLine"
+                    // layoutId="bottomLine"
                     />
-                    ) : null}
+                ) : null}
             </Link>
         ))}
     </section>

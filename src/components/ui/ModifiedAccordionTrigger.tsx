@@ -14,7 +14,7 @@ const ModifiedAccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "items-center justify-between text-sm font-medium transition-all hover:underline  border-solid border-red-600 border-1",
+        "items-center justify-between text-sm font-medium transition-all hover:underline border-solid border-red-600 border-1",
         className
       )}
       {...props}
