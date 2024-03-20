@@ -24,7 +24,7 @@ export default function Projects() {
   
   return (
     <>
-      <TitleBanner title={language === "EN" ? "PROJECTS" : "PROJETOS"} />
+      <TitleBanner title="Projects" />
       <Tabs categories={categoryArray} currentFilter={currentFilter} setCurrentFilter={setCurrentFilter}/>
       <main className={styles.main}>
         <Masonry data={projectArray} filter={currentFilter}/>
