@@ -2,20 +2,32 @@
 
 import styles from "./page.module.scss";
 import { LanguageContext } from "@/context/LanguageContext";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
+import Masonry from "@/components/Masonry/Masonry";
+import Tabs from "@/components/Tabs/Tabs";
+import { dummyData } from "../../lib/dummyProjectData";
+
 
 export default function Projects() {
 
+  type currentFilterState ={
+    category:string
+  }
+
+  const [currentFilter, setCurrentFilter] = useState<currentFilterState>({category:"all"})
+
   let language = useContext(LanguageContext);
 
+  const projectArray = dummyData.projects;
+  const categoryArray = dummyData.categories;
+  
   return (
     <>
-      <TitleBanner title='Projects' />
+      <TitleBanner title={language === "EN" ? "PROJECTS" : "PROJETOS"} />
+      <Tabs categories={categoryArray} currentFilter={currentFilter} setCurrentFilter={setCurrentFilter}/>
       <main className={styles.main}>
-        <div className={styles.description}>
-          {language === "en" ? "Welcome to the project page!" : "Bem-vindo à página projetos"}
-        </div>
+        <Masonry data={projectArray} filter={currentFilter}/>
       </main>
     </>
   )
