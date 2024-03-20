@@ -34,6 +34,22 @@
           height:100%;
           width: 100%;
         }
+
+        .imageOverlay {
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(rgb(191, 3, 147), rgb(0, 179, 247));
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          z-index: 10;
+          transition: opacity;
+          transition-duration: 400ms;
+        }
+        :hover{
+          opacity: 100%;
+        }
       }
 
       .horizontalPoster {
