@@ -7,23 +7,25 @@
     background-color: white;
     padding: 5vh 10vw 5vh 15vw; 
     width: 100vw;
-    border: 1px solid blue;
     
     .gridContainer {
-      border: 1px solid red;
-      width: 75vw;
-      height: 75vw;
-      // height:auto;
+      width: auto;
+      min-height: 75vw;
 
       display: grid; //turns container into a grid
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr; //create 5 rows, each one even fraction wide
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr; //create 5 columns, each one even fraction high
+      grid-template-columns: repeat( 5, 14.1vw ); //creates 5 columns
+      grid-auto-rows: 14.1vw; //create as many rows as needed, ensures grid items are square
       column-gap: 15px;
       row-gap: 15px;
+      grid-auto-flow: dense; //allows grid items to be place out of order to fill open spaces
 
       .gridChild{
-        background-color: blue;
+        background-color: black;
+        color: white;
+        font-size: 2vw;
         position: relative;
+        width: 100%;
+        height: 100%;
 
         .gridImage{
           object-fit: cover;
@@ -32,6 +34,14 @@
           height:100%;
           width: 100%;
         }
+      }
+
+      .horizontalPoster {
+        grid-column: span 2;
+      }
+
+      .verticalPoster {
+        grid-row: span 2;
       }
 
       .firstChild {
