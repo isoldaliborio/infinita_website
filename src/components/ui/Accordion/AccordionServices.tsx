@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './styles/ServicesAccordion.module.scss';
+import styles from './styles/AccordionServices.module.scss';
 import Image from 'next/image';
 import { LanguageContext } from "@/context/LanguageContext";
 import { useContext } from "react";
@@ -9,8 +9,8 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-} from "@/components/ui/accordion";
-import { ModifiedAccordionTrigger } from './ModifiedAccordionTrigger';
+} from "@/components/ui/Accordion/accordion";
+import { ModifiedAccordionTrigger } from './AccordionTriggerModified';
 import { PlusIcon } from "@radix-ui/react-icons";
 import { MinusIcon } from "@radix-ui/react-icons";
 
@@ -20,77 +20,76 @@ type ServicesAccordionProps = {
   servicesData: any,
 }
 
-const ServicesAccordion = ({ handleClick, activeItem, servicesData}: ServicesAccordionProps) => {
+const ServicesAccordion = ({ handleClick, activeItem, servicesData }: ServicesAccordionProps) => {
 
   let language = useContext(LanguageContext);
 
   const accordionArray = [
     {
-      activeItemName : "Brazil",
+      activeItemName: "Brazil",
       value: "item-1",
       title: {
-        EN: "BRAZIL",
-        PT: "BRASIL"
+        en: "BRAZIL",
+        pt: "BRASIL"
       },
       imageUrl: "https://infinitaproducoes.com/wordpress/wp-content/uploads/2024/03/img_Services_Brazil.jpg",
       imageAlt: "the city of Rio de Janeiro",
       textContent: {
-        EN: servicesData.brazil_service_text_en,
-        PT: servicesData.brazil_service_text_pt
+        en: servicesData.brazil_service_text_en,
+        pt: servicesData.brazil_service_text_pt
       },
-      isMiddleItem : false
+      isMiddleItem: false
     },
 
     {
-      activeItemName : "UK",
+      activeItemName: "UK",
       value: "item-2",
       title: {
-        EN: "UNITED KINGDOM",
-        PT: "REINO UNIDO"
+        en: "UNITED KINGDOM",
+        pt: "REINO UNIDO"
       },
       imageUrl: "https://infinitaproducoes.com/wordpress/wp-content/uploads/2024/03/img_Services_UK.jpg",
       imageAlt: "the Houses of Parliament and Big Ben in London",
       textContent: {
-        EN: servicesData.uk_service_text_en,
-        PT: servicesData.uk_service_text_pt
+        en: servicesData.uk_service_text_en,
+        pt: servicesData.uk_service_text_pt
       },
-      isMiddleItem : true
+      isMiddleItem: true
     },
 
     {
-      activeItemName : "Europe",
+      activeItemName: "Europe",
       value: "item-3",
       title: {
-        EN: "EUROPE",
-        PT: "EUROPA"
+        en: "EUROPE",
+        pt: "EUROPA"
       },
       imageUrl: "https://infinitaproducoes.com/wordpress/wp-content/uploads/2024/03/img_Services_Europe.jpg",
       imageAlt: "a city in Europe",
       textContent: {
-        EN: servicesData.europe_service_text_en,
-        PT: servicesData.europe_service_text_pt
+        en: servicesData.europe_service_text_en,
+        pt: servicesData.europe_service_text_pt
       },
-      isMiddleItem : false
+      isMiddleItem: false
     },
-
   ]
 
   return <Accordion type="single" collapsible>
     {
       accordionArray.map((item, index) => (
-        <AccordionItem key={index} onClick={()=> handleClick(item.activeItemName)} className={`${styles.accordionItem} ${item.isMiddleItem ? styles.middleItem : ""}`} value={item.value}>
+        <AccordionItem key={index} onClick={() => handleClick(item.activeItemName)} className={`${styles.accordionItem} ${item.isMiddleItem ? styles.middleItem : ""}`} value={item.value}>
           <ModifiedAccordionTrigger className={styles.accordionTitle}>
-            <div className={styles.accordionTitleText}> 
-              {language === "EN" ? item.title.EN : item.title.PT} 
-              { activeItem === item.activeItemName 
+            <div className={styles.accordionTitleText}>
+              {item.title[language]}
+              {activeItem === item.activeItemName
                 ? <MinusIcon className={styles.accordionTitleIcon} />
                 : <PlusIcon className={styles.accordionTitleIcon} />
               }
-            </div> 
-            <Image className={styles.accordionTitleImage} src={item.imageUrl} alt={item.imageAlt} width={0} height={0}/>
+            </div>
+            <Image className={styles.accordionTitleImage} src={item.imageUrl} alt={item.imageAlt} width={0} height={0} />
           </ModifiedAccordionTrigger>
           <AccordionContent className={styles.accordionContent}>
-            { language === "EN" ? item.textContent.EN : item.textContent.PT } 
+            {item.textContent[language]}
           </AccordionContent>
         </AccordionItem>
       ))
