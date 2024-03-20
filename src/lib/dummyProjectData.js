@@ -12,13 +12,13 @@ export const dummyData = {
       title: "London Eye",
       size: "2",
       category:"films",
-      imageUrl: "-1573920110893-d313eb7565aa"
+      imageUrl: "-1710647789381-b91940d5f6fb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE1fEpwZzZLaWRsLUhrfHxlbnwwfHx8fHw%3D"
     },
     {
       title: "Josyara Music Video",
       size: "3",
       category:"music",
-      imageUrl: "-1710521975942-fab199c9c48c"
+      imageUrl: "-1710436053417-cf825b613c02?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDExfEpwZzZLaWRsLUhrfHxlbnwwfHx8fHw%3D"
     },
     {
       title: "Slow Horses",
@@ -120,13 +120,13 @@ export const dummyData = {
       title: "London Eye",
       size: "3",
       category:"films",
-      imageUrl: "-1573920110893-d313eb7565aa"
+      imageUrl: "-1573920110893-d313eb7565aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDI3fEpwZzZLaWRsLUhrfHxlbnwwfHx8fHw%3D"
     },
     {
       title: "Josyara Music Video",
       size: "1",
       category:"music",
-      imageUrl: "-1710521975942-fab199c9c48c"
+      imageUrl: "-1710179309595-be1a814a6d29?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM1fEpwZzZLaWRsLUhrfHxlbnwwfHx8fHw%3D"
     },
     {
       title: "Slow Horses",
