@@ -1,0 +1,16 @@
+@use '../../../app/variables' as *;
+
+.gridContainer {
+    width: auto;
+    min-height: 75vw;
+    display: grid; //turns container into a grid
+    grid-template-columns: repeat( 5, 14.1vw ); //creates 5 columns
+    grid-auto-rows: 14.1vw; //create as many rows as needed, ensures grid items are square
+    column-gap: 0.78vw;
+    row-gap: 0.78vw;
+    grid-auto-flow: dense; //allows grid items to be place out of order to fill open spaces
+
+    @include screen("small") {
+      grid-template-columns: repeat( 4, 14.1vw ); //temporary
+    }
+}

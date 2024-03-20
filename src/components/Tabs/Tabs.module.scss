@@ -1,0 +1,27 @@
+.tabs {
+    margin-left: 15vw;
+    display: flex;
+    border-width: 0px 1px 1px 1px;
+    border-style: solid;
+    border-color: black;
+    width: fit-content;
+  
+    .button {
+      padding: 1.2vw 1.6vw;
+      font-family: "MuseoModerno";
+      font-size: 0.8vw;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-right: 1px solid black;
+      cursor: pointer;
+    };
+  
+    .activeButton {
+      background-color: black;
+      color: white;
+    }
+  
+    :last-child {
+      border:none;
+    };
+  };

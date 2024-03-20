@@ -1,0 +1,74 @@
+.masonryItem {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    .image{
+      object-fit: cover;
+      position: absolute;
+      top:0;
+      height:100%;
+      width: 100%;
+    };
+
+    .imageOverlay {
+      color: white;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      opacity: 0%;
+      padding: 1.5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      .overlayTitle {
+        font-family: "MuseoModerno";
+        text-transform: uppercase;
+        font-size: 1vw;
+        z-index: 10;
+      };
+
+      .overlayBottomText {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        font-size: 0.8vw;
+        font-style: normal;
+        text-transform: uppercase;
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .overlayLine {
+          height: 1px;
+          background-color: white;
+          flex-grow: 0.9;
+        };
+      };
+
+      .gradient {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        left:0;
+        background: linear-gradient(#ac208e, #00b5f1);
+        mix-blend-mode: color;
+      };
+    };
+    
+    :hover{
+        opacity: 100%;
+    };
+  };
+
+  .horizontalPoster {
+    grid-column: span 2;
+  };
+
+  .verticalPoster {
+    grid-row: span 2;
+  };
