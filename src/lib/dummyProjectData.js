@@ -1,5 +1,13 @@
 
-export const dummyData = [
+export const dummyData = {
+  categories: [
+    "all",
+    "films",
+    "music",
+    "curating",
+    "accounting"
+  ],
+  projects: [
     {
       title: "London Eye",
       size: "2",
@@ -276,4 +284,5 @@ export const dummyData = [
       category:"films",
       imageUrl: "-1661174585122-83a2909163ad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOTV8fHxlbnwwfHx8fHw%3D"
     },
-  ]
+  ],
+}

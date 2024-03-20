@@ -2,34 +2,53 @@
 
 import styles from "./page.module.scss";
 import { LanguageContext } from "@/context/LanguageContext";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import Image from 'next/image';
 import { dummyData } from "../../lib/dummyProjectData";
 
+
+
 export default function Projects() {
+
+  type activeFilterState ={
+    filter:string
+  }
+
+  const [activeFilter, setActiveFilter] = useState<activeFilterState>({filter:"all"})
 
   let language = useContext(LanguageContext);
 
-  const imageArray = dummyData;
-
+  const projectArray = dummyData.projects;
+  const categoryArray = dummyData.categories;
   const url = "https://images.unsplash.com/photo"
+
+  function handleClick(button:string){
+    setActiveFilter({filter:button});
+  };
+
 
   return (
     <>
       <TitleBanner title={language === "EN" ? "PROJECTS" : "PROJETOS"} />
       <section className={styles.filter}>
-        <div className={styles.button}>all</div>
-        <div className={styles.button}>films</div>
-        <div className={styles.button}>music</div>
-        <div className={styles.button}>curating</div>
-        <div className={styles.button}>accounting</div>
+        {
+          categoryArray.map((item, index) => {
+            return <div 
+              key={index} 
+              className={`${styles.button} ${activeFilter.filter === item ? styles.activeButton : ""}`}
+              onClick={() => handleClick(item)}
+            >
+              {item}
+            </div>             
+          })
+        }
       </section>
       <main className={styles.main}>
         <div className={styles.gridContainer}>
           {
-            imageArray.map((item, index) => {
-              return <div key={index} className={`${styles.gridChild} ${item.size === "2" ? styles.horizontalPoster : ""} ${item.size === "3" ? styles.verticalPoster : ""}`}> 
+            projectArray.map((item, index) => {
+              return activeFilter.filter !== "all" && activeFilter.filter !== item.category ? null : <div key={index} className={`${styles.gridChild} ${item.size === "2" ? styles.horizontalPoster : ""} ${item.size === "3" ? styles.verticalPoster : ""}`}> 
                 <Image 
                   className={styles.gridImage} 
                   src={(`${url}${item.imageUrl}`)} 
