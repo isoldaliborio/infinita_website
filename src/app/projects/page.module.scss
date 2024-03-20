@@ -18,10 +18,7 @@
       row-gap: 15px;
       grid-auto-flow: dense; //allows grid items to be place out of order to fill open spaces
 
-      .gridChild{
-        background-color: black;
-        color: white;
-        font-size: 2vw;
+      .gridChild {
         position: relative;
         width: 100%;
         height: 100%;
@@ -33,9 +30,10 @@
           top:0;
           height:100%;
           width: 100%;
-        }
+        };
 
         .imageOverlay {
+          color: white;
           width: 100%;
           height: 100%;
           position: absolute;
@@ -45,16 +43,13 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          // background: linear-gradient(#ac208ecb, #00b5f1cb);
-          // mix-blend-mode: color; //test with an image
           
           .overlayTitle {
             font-family: "MuseoModerno";
             text-transform: uppercase;
             font-size: 1vw;
-            color: white;
             z-index: 10;
-          }
+          };
 
           .overlayBottomText {
             font-family: 'Poppins', sans-serif;
@@ -66,14 +61,13 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            z-index:10;
 
             .overlayLine {
               height: 2px;
               background-color: white;
               flex-grow: 0.9;
-            }
-          }
+            };
+          };
 
           .gradient {
             width: 100%;
@@ -81,27 +75,23 @@
             position: absolute;
             top:0;
             left:0;
-            z-index:0;
             background: linear-gradient(#ac208e, #00b5f1);
-            transition: all 400ms;
             mix-blend-mode: color;
-          }
-        }
+          };
+        };
         
         :hover{
             opacity: 100%;
-        }
-
-
-      }
+        };
+      };
 
       .horizontalPoster {
         grid-column: span 2;
-      }
+      };
 
       .verticalPoster {
         grid-row: span 2;
-      }
-    }
-  }
+      };
+    };
+  };
   
