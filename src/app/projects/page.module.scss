@@ -1,6 +1,30 @@
+@use '../variables' as *;
+
+.filter {
+  margin-left: 15vw;
+  display: flex;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: black;
+  width: fit-content;
+
+  .button {
+    padding: 1.2vw 1.6vw;
+    font-family: "MuseoModerno";
+    font-size: 0.8vw;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-right: 1px solid black;
+  };
+
+  :last-child {
+    border:none;
+  };
+};
+
 .main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     min-height: 63%; //because title banner is 7%, and with header and footer, rest of content is 70% of screen.
@@ -14,9 +38,14 @@
       display: grid; //turns container into a grid
       grid-template-columns: repeat( 5, 14.1vw ); //creates 5 columns
       grid-auto-rows: 14.1vw; //create as many rows as needed, ensures grid items are square
-      column-gap: 15px;
-      row-gap: 15px;
+      column-gap: 0.78vw;
+      row-gap: 0.78vw;
       grid-auto-flow: dense; //allows grid items to be place out of order to fill open spaces
+
+      @include screen("small") {
+        grid-template-columns: repeat( 4, 14.1vw ); //temporary
+      }
+
 
       .gridChild {
         position: relative;
@@ -63,7 +92,7 @@
             justify-content: space-between;
 
             .overlayLine {
-              height: 2px;
+              height: 1px;
               background-color: white;
               flex-grow: 0.9;
             };

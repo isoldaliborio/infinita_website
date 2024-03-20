@@ -18,6 +18,13 @@ export default function Projects() {
   return (
     <>
       <TitleBanner title={language === "EN" ? "PROJECTS" : "PROJETOS"} />
+      <section className={styles.filter}>
+        <div className={styles.button}>all</div>
+        <div className={styles.button}>films</div>
+        <div className={styles.button}>music</div>
+        <div className={styles.button}>curating</div>
+        <div className={styles.button}>accounting</div>
+      </section>
       <main className={styles.main}>
         <div className={styles.gridContainer}>
           {
