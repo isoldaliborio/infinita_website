@@ -1,255 +1,279 @@
 
 export const dummyData = [
     {
-      title: "1",
-      size: "2"
+      title: "London Eye",
+      size: "2",
+      category:"films",
+      imageUrl: "-1573920110893-d313eb7565aa"
     },
     {
-      title: "2",
-      size: "2"
+      title: "Josyara Music Video",
+      size: "3",
+      category:"music",
+      imageUrl: "-1710521975942-fab199c9c48c"
     },
     {
-      title: "3",
-      size: "1"
+      title: "Slow Horses",
+      size: "1",
+      category:"accounting",
+      imageUrl: "-1710600633783-061de4f000ae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4Mnx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "4",
-      size: "1"
+      title: "Sunset Screening Sessions",
+      size: "1",
+      category:"curating",
+      imageUrl: "-1682685797660-3d847763208e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
     },
     {
-      title: "5",
-      size: "2"
+      title: "burning man festival",
+      size: "2",
+      category:"curating",
+      imageUrl: "-1710912520816-0566e879d526?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8"
     },
     {
-      title: "6",
-      size: "2"
+      title: "outdoor cinema club",
+      size: "2",
+      category:"curating",
+      imageUrl: "-1704472846648-3a1f17131cd1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "7",
-      size: "3"
+      title: "end of the world fest 2012",
+      size: "3",
+      category:"accounting",
+      imageUrl: "-1710631221945-202865ddd3a1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMTV8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "8",
-      size: "1"
+      title: "behind the scenes",
+      size: "1",
+      category:"films",
+      imageUrl: "-1707343843598-39755549ac9a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "9",
-      size: "2"
+      title: "red carpet interviews",
+      size: "2",
+      category:"films",
+      imageUrl: "-1707909820111-59a53de32e0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "10",
-      size: "1"
+      title: "the chapel gallery",
+      size: "1",
+      category:"curating",
+      imageUrl: "-1709404700732-7d8c1a205de3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "11",
-      size: "2"
+      title: "coming soon",
+      size: "2",
+      category:"films",
+      imageUrl: "-1682685795557-976f03aca7b2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMDl8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "12",
-      size: "1"
+      title: "untitled works",
+      size: "1",
+      category:"films",
+      imageUrl: "-1710322144652-bcea73280334?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMzZ8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "13",
-      size: "1"
+      title: "state azure",
+      size: "1",
+      category:"music",
+      imageUrl: "-1707343848655-a196bfe88861?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwzNXx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "14",
-      size: "2"
+      title: "noahs 29th birthday party",
+      size: "2",
+      category:"accounting",
+      imageUrl: "-1710587385270-08f30d66bf31?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzN3x8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "15",
-      size: "1"
+      title: "rooftop film festival",
+      size: "1",
+      category:"curating",
+      imageUrl: "-1707147231430-7870dda96138?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "16",
-      size: "2"
+      title: "music video- arlo parks",
+      size: "2",
+      category:"music",
+      imageUrl: "-1710475512346-82585f0e9a1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1Nnx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "17",
-      size: "2"
+      title: "hookworm short horror film",
+      size: "3",
+      category:"films",
+      imageUrl: "-1710381473306-a850d6274756?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3Mnx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "18",
-      size: "3"
+      title: "dune 2",
+      size: "2",
+      category:"films",
+      imageUrl: "-1661174585122-83a2909163ad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOTV8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "19",
-      size: "1"
+      title: "London Eye",
+      size: "3",
+      category:"films",
+      imageUrl: "-1573920110893-d313eb7565aa"
     },
     {
-      title: "20",
-      size: "3"
+      title: "Josyara Music Video",
+      size: "1",
+      category:"music",
+      imageUrl: "-1710521975942-fab199c9c48c"
     },
     {
-      title: "21",
-      size: "2"
+      title: "Slow Horses",
+      size: "1",
+      category:"accounting",
+      imageUrl: "-1710600633783-061de4f000ae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4Mnx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "22",
-      size: "3"
+      title: "Sunset Screening Sessions",
+      size: "1",
+      category:"curating",
+      imageUrl: "-1682685797660-3d847763208e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
     },
     {
-      title: "23",
-      size: "2"
+      title: "burning man festival",
+      size: "1",
+      category:"curating",
+      imageUrl: "-1710912520816-0566e879d526?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8"
     },
     {
-      title: "24",
-      size: "3"
+      title: "outdoor cinema club",
+      size: "2",
+      category:"curating",
+      imageUrl: "-1704472846648-3a1f17131cd1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "25",
-      size: "1"
+      title: "end of the world fest 2012",
+      size: "3",
+      category:"accounting",
+      imageUrl: "-1710631221945-202865ddd3a1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMTV8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "26",
-      size: "1"
+      title: "deep sea diving documentary",
+      size: "2",
+      category:"films",
+      imageUrl: "-1710722960833-0d31cd3aeffb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNjN8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "27",
-      size: "2"
+      title: "you before me short film",
+      size: "3",
+      category:"films",
+      imageUrl: "-1707327956851-30a531b70cda?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2NXx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "28",
-      size: "3"
+      title: "outdoor cinema club",
+      size: "3",
+      category:"curating",
+      imageUrl: "-1704472846648-3a1f17131cd1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "29",
-      size: "1"
+      title: "end of the world fest 2012",
+      size: "1",
+      category:"accounting",
+      imageUrl: "-1710631221945-202865ddd3a1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMTV8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "30",
-      size: "2"
+      title: "deep sea diving documentary",
+      size: "2",
+      category:"films",
+      imageUrl: "-1710722960833-0d31cd3aeffb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNjN8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "31",
-      size: "1"
+      title: "you before me short film",
+      size: "2",
+      category:"films",
+      imageUrl: "-1707327956851-30a531b70cda?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2NXx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "32",
-      size: "2"
+      title: "sense8 interactive exhibition",
+      size: "1",
+      category:"curating",
+      imageUrl: "-1710438399463-e7b374c2db9e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxODh8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "33",
-      size: "1"
+      title: "behind the scenes",
+      size: "1",
+      category:"films",
+      imageUrl: "-1707343843598-39755549ac9a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "34",
-      size: "1"
+      title: "red carpet interviews",
+      size: "3",
+      category:"films",
+      imageUrl: "-1707909820111-59a53de32e0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "35",
-      size: "2"
+      title: "the chapel gallery",
+      size: "1",
+      category:"curating",
+      imageUrl: "-1709404700732-7d8c1a205de3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "36",
-      size: "1"
+      title: "coming soon",
+      size: "2",
+      category:"films",
+      imageUrl: "-1682685795557-976f03aca7b2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMDl8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "37",
-      size: "2"
+      title: "untitled works",
+      size: "1",
+      category:"films",
+      imageUrl: "-1710322144652-bcea73280334?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMzZ8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "38",
-      size: "2"
+      title: "state azure",
+      size: "1",
+      category:"music",
+      imageUrl: "-1707343848655-a196bfe88861?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwzNXx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "39",
-      size: "3"
+      title: "noahs 29th birthday party",
+      size: "2",
+      category:"accounting",
+      imageUrl: "-1710587385270-08f30d66bf31?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzN3x8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "40",
-      size: "1"
+      title: "rooftop film festival",
+      size: "2",
+      category:"curating",
+      imageUrl: "-1707147231430-7870dda96138?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "41",
-      size: "3"
+      title: "music video- arlo parks",
+      size: "1",
+      category:"music",
+      imageUrl: "-1710475512346-82585f0e9a1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1Nnx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "42",
-      size: "2"
+      title: "deep sea diving documentary",
+      size: "2",
+      category:"films",
+      imageUrl: "-1710722960833-0d31cd3aeffb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNjN8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "43",
-      size: "3"
+      title: "you before me short film",
+      size: "3",
+      category:"films",
+      imageUrl: "-1707327956851-30a531b70cda?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2NXx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "44",
-      size: "2"
+      title: "sense8 interactive exhibition",
+      size: "1",
+      category:"curating",
+      imageUrl: "-1710438399463-e7b374c2db9e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxODh8fHxlbnwwfHx8fHw%3D"
     },
     {
-      title: "45",
-      size: "3"
+      title: "hookworm short horror film",
+      size: "1",
+      category:"films",
+      imageUrl: "-1710381473306-a850d6274756?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3Mnx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "46",
-      size: "1"
-    },
-    {
-      title: "47",
-      size: "1"
-    },
-    {
-      title: "48",
-      size: "2"
-    },
-    {
-      title: "49",
-      size: "3"
-    },
-    {
-      title: "50",
-      size: "1"
-    },
-    {
-      title: "51",
-      size: "2"
-    },
-    {
-      title: "52",
-      size: "1"
-    },
-    {
-      title: "53",
-      size: "2"
-    },
-    {
-      title: "54",
-      size: "1"
-    },
-    {
-      title: "55",
-      size: "1"
-    },
-    {
-      title: "56",
-      size: "2"
-    },
-    {
-      title: "57",
-      size: "1"
-    },
-    {
-      title: "58",
-      size: "2"
-    },
-    {
-      title: "59",
-      size: "2"
-    },
-    {
-      title: "60",
-      size: "3"
-    },
-    {
-      title: "61",
-      size: "1"
-    },
-    {
-      title: "62",
-      size: "3"
-    },
-    {
-      title: "63",
-      size: "2"
+      title: "dune 2",
+      size: "1",
+      category:"films",
+      imageUrl: "-1661174585122-83a2909163ad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOTV8fHxlbnwwfHx8fHw%3D"
     },
   ]
