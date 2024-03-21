@@ -1,7 +1,6 @@
 @use '../../../app/variables' as *;
 
 .form {
-    background-color: aqua;
     display: flex;
     flex-direction: column;
 
@@ -23,11 +22,12 @@
 
     .message {
         height: 20vh;
-    }
 
-    // .mesage input:placeholder {
-    //     vertical-align: text-top;
-    // }
+        &::placeholder {
+            text-align: top;
+          }
+        }
+    }
 
     .submitButton {
         background-color: black;
@@ -41,4 +41,3 @@
         text-transform: uppercase;
     }
 
-}
