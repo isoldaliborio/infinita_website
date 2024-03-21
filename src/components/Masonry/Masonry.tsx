@@ -14,7 +14,7 @@ export default function Masonry({data, filter}:MasonryProps){
       data.map((item:any, index:any) => {
         return filter.category !== "all" && filter.category !== item.category 
         ? null
-        : <MasonryItem item={item} index={index}/>
+        : <MasonryItem key={index} item={item}/>
       })
     }
   </div>
