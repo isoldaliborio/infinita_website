@@ -11,6 +11,7 @@ import LoadingScreen from "@/components/Loading/LoadingScreen";
 import { AccordionAbout } from "@/components/ui/Accordion/AccordionAbout";
 
 
+
 export default function About() {
 
   let language = useContext(LanguageContext);
