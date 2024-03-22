@@ -24,7 +24,7 @@ export default function ContactForm() {
     <form className={`${styles.form} col-5`} onSubmit={handleSubmit} suppressHydrationWarning={true}>
       <input className={`${styles.name} ${styles.input}`} type="string" name="inputName" placeholder="name" />
       <input className={`${styles.email} ${styles.input}`} type="string" name="inputEmail" placeholder="email" />
-      <input className={`${styles.message} ${styles.input}`} type="string" name="message" placeholder="message" />
+      <textarea className={`${styles.message} ${styles.input}`} type="string" name="message" placeholder="message" />
       <button className={`${styles.submitButton} col-2`} type="submit">submit</button>
     </form>
   );
