@@ -33,7 +33,7 @@ export const dummyData = {
       imageUrl: "-1682685797660-3d847763208e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
     },
     {
-      title: "burning man festival",
+      title: "Burning man festival",
       size: "2",
       category:"curating",
       imageUrl: "-1710912520816-0566e879d526?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8"

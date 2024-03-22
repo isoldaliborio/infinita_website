@@ -7,7 +7,6 @@ type TabsProps = {
 }
 
 export default function Tabs({categories, currentFilter, setCurrentFilter}:TabsProps){
-
     function handleClick(button:string){
       setCurrentFilter({category:button});
     };

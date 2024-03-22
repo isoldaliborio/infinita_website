@@ -7,7 +7,6 @@ type MasonryItemProps = {
 }
 
 export default function MasonryItem({index, item}: MasonryItemProps){
-
     const url = "https://images.unsplash.com/photo"
 
     return <div key={index} className={`${styles.masonryItem} ${item.size === "2" ? styles.horizontalPoster : ""} ${item.size === "3" ? styles.verticalPoster : ""}`}> 

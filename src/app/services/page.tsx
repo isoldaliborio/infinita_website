@@ -10,7 +10,6 @@ import LoadingScreen from "@/components/Loading/LoadingScreen";
 import { ServicesAccordion } from "@/components/ui/Accordion/AccordionServices";
 
 export default function Services() {
-
   let language = useContext(LanguageContext);
   const [servicesData, setServicesData] = useState<any>();
   const [activeItem, setActiveItem] = useState<any>("");

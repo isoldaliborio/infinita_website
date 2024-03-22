@@ -8,7 +8,6 @@ type MasonryProps = {
 }
 
 export default function Masonry({data, filter}:MasonryProps){
-
     return <div className={styles.gridContainer}>
     {
       data.map((item:any, index:any) => {

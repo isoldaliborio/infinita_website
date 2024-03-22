@@ -18,7 +18,6 @@ export default function Projects() {
   const [currentFilter, setCurrentFilter] = useState<currentFilterState>({category:"all"})
 
   let language = useContext(LanguageContext);
-
   const projectArray = dummyData.projects;
   const categoryArray = dummyData.categories;
   
