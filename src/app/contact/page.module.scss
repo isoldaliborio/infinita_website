@@ -1,10 +1,10 @@
 .main {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-end;
+    justify-content:flex-start;
     padding: 6rem;
-    // min-height: 100vh;
+    padding-left: 15%;
+    width: 100%;
     background-color: white;
   }
   
@@ -14,6 +14,7 @@
     font-weight: 600;
     // display: flex;
     min-height: 40vh;
+    padding-left: 18%;
 
     .socialLinks {
       display: flex;
