@@ -33,7 +33,7 @@ export default function Services() {
 
   return (
     <>
-      <TitleBanner title={ language === "EN" ? "SERVICES" : "SERVIÇOS"} />
+      <TitleBanner title={ "Sevices" } />
       <main className={styles.main}>
         {!servicesData ? <LoadingScreen /> : <>
           <section className={styles.servicesText}>

@@ -26,22 +26,22 @@ export default function NavigationButtons({ closeModal }: NavigationButtonProps)
         {
             en: "ABOUT",
             pt: "SOBRE",
-            href: "/about"
+            href: "/about/"
         },
         {
             en: "PROJECTS",
             pt: "PROJETOS",
-            href: "/projects"
+            href: "/projects/"
         },
         {
             en: "SERVICES",
             pt: "SERVIÇOS",
-            href: "/services"
+            href: "/services/"
         },
         {
             en: "CONTACT",
             pt: "CONTATO",
-            href: "/contact"
+            href: "/contact/"
         },
     ];
 

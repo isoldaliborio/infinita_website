@@ -22,7 +22,7 @@ export default function MasonryItem({item}: MasonryItemProps){
       <section className={styles.overlayBottomText}>
         <div> {item.category} </div>
         <div className={styles.overlayLine}/>
-        <div> 2020 </div>
+        <div> {item.date} </div>
       </section>
       <div className={styles.gradient}/>
     </Link>
