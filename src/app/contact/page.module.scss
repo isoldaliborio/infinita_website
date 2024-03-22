@@ -9,13 +9,25 @@
   }
   
   .description {
-    font-size: 18px;
+    font-size: 19px;
     font-family: "MuseoModerno";
     font-weight: 600;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    width: 300px;
-    height: 300px;
+    // display: flex;
+    min-height: 40vh;
+
+    .socialLinks {
+      display: flex;
+      flex-direction: row;
+      font-size: 10px;
+      font-family: "Poppins";
+      font-weight: 400;
+      padding-top: 10px;
+
+      li {
+        display: inline-block;
+        padding-right: 0.4rem;
+      }
+    }
+
+
   }
-  

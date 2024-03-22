@@ -16,7 +16,19 @@ export default function Contact() {
       <main className={styles.main}>
         <ContactForm />
         <div className={styles.description}>
-          {language === "en" ? "Access our social medias!" : "Entre em Acesse nossas redes sociais"}
+          <h1>{language === "en" ? "Access our social media!" : "Acesse nossas redes sociais"}</h1>
+          <ul className={styles.socialLinks}>
+            <li><a href="https://www.linkedin.com/company/infinitaproductions/" target="_blank">LinkedIn </a></li>
+            <li> | </li>
+            <li><a href="https://www.instagram.com/infinitaproductions/" target="_blank">Instagram </a></li>
+            <li> | </li>
+            <li><a href="https://vimeo.com/infinitaprod" target="_blank">Vimeo </a></li>
+            <li> | </li>
+            <li><a href="https://www.facebook.com/infinitaproductions" target="_blank">Facebook </a></li>
+            <li> | </li>
+            <li><a href="https://twitter.com/i/flow/login?redirect_after_login=%2FInfinita_Prod" target="_blank"> x </a></li>
+            
+          </ul>
         </div>
       </main>
     </>
