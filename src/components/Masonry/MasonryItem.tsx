@@ -1,30 +1,33 @@
 import styles from "./styles/MasonryItem.module.scss";
+import { LanguageContext } from "@/context/LanguageContext";
+import { useContext } from "react";
 import Image from "next/image";
 
 type MasonryItemProps = {
-    index: any,
-    item: any,
+  index: any,
+  item: any,
 }
 
-export default function MasonryItem({index, item}: MasonryItemProps){
+export default function MasonryItem({ index, item }: MasonryItemProps) {
 
-    const url = "https://images.unsplash.com/photo"
+  let language = useContext(LanguageContext);
 
-    return <div key={index} className={`${styles.masonryItem} ${item.size === "2" ? styles.horizontalPoster : ""} ${item.size === "3" ? styles.verticalPoster : ""}`}> 
-    <Image 
-      className={styles.image} 
-      src={(`${url}${item.imageUrl}`)} 
-      alt={item.title} 
-      fill
-    />  
-    <section className={styles.imageOverlay}>
-      <div className={styles.overlayTitle}> {item.title} </div>
-      <section className={styles.overlayBottomText}>
-        <div> {item.category} </div>
-        <div className={styles.overlayLine}/>
-        <div> 2020 </div>
+  return item.image_in_list &&
+    <div key={index} className={`${styles.masonryItem} ${item.image_size === "horizontal" ? styles.horizontalPoster : ""} ${item.image_size === "vertical" ? styles.verticalPoster : ""}`}>
+      <Image
+        className={styles.image}
+        src={item.image_in_list[0]}
+        alt={item[`title_${language}`] || ""}
+        fill
+      />
+      <section className={styles.imageOverlay}>
+        <div className={styles.overlayTitle}> {item[`title_${language}`] || ""} </div>
+        <section className={styles.overlayBottomText}>
+          <div>{Array.isArray(item.categories) && item.categories.length > 0 ? item.categories[0].toLowerCase() : ""}</div>
+          <div className={styles.overlayLine} />
+          <div> {item.year} </div>
+        </section>
+        <div className={styles.gradient} />
       </section>
-      <div className={styles.gradient}/>
-    </section>
-  </div>
+    </div>
 }

@@ -61,8 +61,7 @@ function get_projects_data($data)
             'id' => $post_id,
             'title_en' => $post->post_title,
             'title_pt' => get_field('title_pt', $post_id),
-            'post_url' => get_permalink($post_id),
-            'post_categories' => wp_get_post_categories($post_id, array('fields' => 'names')),
+            'categories' => wp_get_post_categories($post_id, array('fields' => 'names')),
             'year' => get_field('year', $post_id),
             'country_en' => get_field('country_en', $post_id),
             'country_pt' => get_field('country_pt', $post_id),
@@ -72,6 +71,7 @@ function get_projects_data($data)
             'video_en' => get_field('video_en', $post_id),
             'video_pt' => get_field('video_pt', $post_id),
             'image_gallery' => get_field('image_gallery', $post_id),
+            'image_in_list' => wp_get_attachment_image_src(get_field('image_in_list', $post_id), 'large')
         );
     }
 
@@ -83,8 +83,6 @@ function custom_rest_prepare_page($data, $post, $request)
 {
     // Check if ACF plugin is active
     if (function_exists('get_fields')) {
-
-
         switch ($post->post_name) {
             case 'home-page':
                 get_homepage_data($data, $post);
@@ -94,7 +92,6 @@ function custom_rest_prepare_page($data, $post, $request)
                 break;
         }
     }
-
     return $data;
 }
 
