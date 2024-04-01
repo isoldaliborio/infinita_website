@@ -14,8 +14,7 @@ type NavigationButtonProps = {
 export default function NavigationButtons({ closeModal }: NavigationButtonProps) {
 
     const language = useContext(LanguageContext);
-
-    const getPathname = usePathname();
+    const getPathname = removeTrailingSlash(usePathname());
 
     const navButtonArray = [
         {
@@ -51,16 +50,16 @@ export default function NavigationButtons({ closeModal }: NavigationButtonProps)
                 onClick={closeModal}
                 href={item.href}
                 key={item.en}
-                className={`${styles.navButton} ${getPathname === item.href || getPathname === "/temp" ? styles.activeButton : ""}`}
+                className={`${styles.navButton} ${getPathname === item.href ? styles.activeButton : ""}`}
             >
-                {getPathname === item.href || getPathname === "/temp" ? ( //whilst homepage is deployed as temp
+                {getPathname === item.href ? (
                     <div
                         className={`${styles.line} ${styles.top}`}
                     // layoutId="topLine"
                     />
                 ) : null}
                 {item[language]}
-                {getPathname === item.href || getPathname === "/temp" ? ( //whilst homepage is deployed as temp
+                {getPathname === item.href ? (
                     <div
                         className={`${styles.line} ${styles.bottom}`}
                     // layoutId="bottomLine"
@@ -70,3 +69,8 @@ export default function NavigationButtons({ closeModal }: NavigationButtonProps)
         ))}
     </section>
 };
+
+function removeTrailingSlash(str: string) {
+    // This regex matches a trailing slash and replaces it with an empty string
+    return str.replace(/\/$/, '');
+}

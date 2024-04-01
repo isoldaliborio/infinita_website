@@ -1,13 +1,13 @@
 @use '../../../app/variables' as *;
 
 .form {
-    background-color: aqua;
     display: flex;
     flex-direction: column;
 
     .input {
         border: 1px solid black;
         margin: 8px;
+        margin-left: 0;
         height: 4.5vh;
 
         &::placeholder {
@@ -15,7 +15,7 @@
             font-family: "MuseoModerno";
             font-weight: 600;
             color: black;
-            padding: 10px;
+            padding: 18px;
             text-transform: uppercase;
         }
     }
@@ -23,11 +23,11 @@
 
     .message {
         height: 20vh;
-    }
 
-    // .mesage input:placeholder {
-    //     vertical-align: text-top;
-    // }
+        &::placeholder {
+            text-align: top;
+          }
+    }
 
     .submitButton {
         background-color: black;
@@ -35,8 +35,8 @@
         font-family: "MuseoModerno";
         font-weight: 600;
         font-size: 12px;
-        margin-left: 8px;
-        margin-bottom: 8px;
+        margin: 8px;
+        margin-left: 0;
         height: 4.5vh;
         text-transform: uppercase;
     }

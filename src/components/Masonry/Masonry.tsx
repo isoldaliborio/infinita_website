@@ -1,21 +1,42 @@
 import MasonryItem from "./MasonryItem";
 import styles from "./styles/Masonry.module.scss";
-import Image from "next/image";
+import { useState, useEffect } from 'react';
 
 type MasonryProps = {
-    data: any,
-    filter: any
+  data: any,
+  filter: any
 }
 
-export default function Masonry({data, filter}:MasonryProps){
+export default function Masonry({ data, filter }: MasonryProps) {
+  const [resolvedData, setResolvedData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    return <div className={styles.gridContainer}>
-    {
-      data.map((item:any, index:any) => {
-        return filter.category !== "all" && filter.category !== item.category 
-        ? null
-        : <MasonryItem key={index} item={item}/>
-      })
-    }
-  </div>
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await data;
+        setResolvedData(result);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, [data]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className={styles.gridContainer}>
+      {resolvedData.map((item: any, index: any) => {
+        const category = Array.isArray(item.categories) && item.categories.length > 0 ? item.categories[0].toLowerCase() : ""
+        return filter.category !== 'all' && filter.category.toLowerCase() !== category ? null : (
+          <MasonryItem item={item} index={index} key={index} />
+        );
+      })}
+    </div>
+  );
 }
