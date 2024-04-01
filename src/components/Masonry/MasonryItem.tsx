@@ -21,16 +21,14 @@ export default function MasonryItem({ index, item }: MasonryItemProps) {
         alt={item[`title_${language}`] || ""}
         fill
       />
-      <section className={styles.imageOverlay}>
-        <Link href={`/projects/${item.slug}`} className={styles.imageOverlay}>
-          <div className={styles.overlayTitle}> {item[`title_${language}`] || ""} </div>
-          <section className={styles.overlayBottomText}>
-            <div>{Array.isArray(item.categories) && item.categories.length > 0 ? item.categories[0].toLowerCase() : ""}</div>
-            <div className={styles.overlayLine} />
-            <div> {item.year} </div>
-          </section>
-          <div className={styles.gradient} />
-        </Link>
-      </section>
+      <Link href={`/projects/${item.slug}`} className={styles.imageOverlay}>
+        <div className={styles.overlayTitle}> {item[`title_${language}`] || ""} </div>
+        <section className={styles.overlayBottomText}>
+          <div>{Array.isArray(item.categories) && item.categories.length > 0 ? item.categories[0].toLowerCase() : ""}</div>
+          <div className={styles.overlayLine} />
+          <div> {item.year} </div>
+        </section>
+        <div className={styles.gradient} />
+      </Link>
     </div>
 }
