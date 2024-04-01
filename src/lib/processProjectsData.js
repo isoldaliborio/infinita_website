@@ -16,5 +16,8 @@ export const processCategories = function (projects) {
         }
     });
 
-    return Array.from(categoriesSet).sort();
+    let sortedCategories = Array.from(categoriesSet).sort();
+    sortedCategories.unshift("all");
+
+    return sortedCategories;
 }
