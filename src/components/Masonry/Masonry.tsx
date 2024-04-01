@@ -32,8 +32,8 @@ export default function Masonry({ data, filter }: MasonryProps) {
   return (
     <div className={styles.gridContainer}>
       {resolvedData.map((item: any, index: any) => {
-        const category = Array.isArray(item.categories) && item.categories.length > 0 ? item.categories[0].toLowerCase() : ""
-        return filter.category !== 'all' && filter.category.toLowerCase() !== category ? null : (
+        const currentCategory = Array.isArray(item.categories) && item.categories.length > 0 ? item.categories[0].toLowerCase() : ""
+        return filter.category !== 'all' && filter.category.toLowerCase() !== currentCategory ? null : (
           <MasonryItem item={item} index={index} key={index} />
         );
       })}
