@@ -1,14 +1,18 @@
 import styles from "./page.module.scss"
 import Link from "next/link";
+import { getProjectsDataJson } from "@/lib/processProjectsData";
 
-//FIXME: this page throws an error on render unless next.config.mjs is changed to remove/comment out- output:'exports'. 
-//I believe it has something to do with static generation of all paths vs dynamically generated routes,
-//need Edu to discuss what best way forward is
+export async function generateStaticParams() {
+    const projects = await getProjectsDataJson();
+    console
 
-//error message: Error: Page "/projects/[slug]/page" is missing exported function "generateStaticParams()", which is required with "output: export" config.
-//    at DevServer.renderToResponseWithComponentsImpl
+    return projects.map((project: any) => ({
+        slug: project.slug,
+        project: project,
+    }))
+}
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default function Page({ params }: { params: { slug: string, project: any } }) {
 
     //pseudo code
     // res = fetch (wordpress/projects/${param.sslug})
@@ -22,10 +26,13 @@ export default function Page({ params }: { params: { slug: string } }) {
     // carousel of images (shadcn?) data.carouselArray.map
     // back to projects Link
 
+    const projects = getProjectsDataJson();
+    console.log(projects)
 
     return <div>
         <div>
             -----Single Project: {params.slug}
+            -----Id: {params.project}
         </div>
         <Link href="/projects"> ----- Back to Projects</Link>
     </div>
