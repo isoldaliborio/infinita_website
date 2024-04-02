@@ -1,31 +1,28 @@
 import styles from "./page.module.scss"
 import Link from "next/link";
-import { getProjectsDataJson } from "@/lib/processProjectsData";
+import TitleBanner from "@/components/TitleBanner/TitleBanner";
 
 
+export default function Project() {
 
-export default function Page({ params }: { params: { slug: string, project: any } }) {
-
-    //pseudo code
-    // res = fetch (wordpress/projects/${param.sslug})
-    // data = response from fetch
-
-    // if(data)
-    // return Page 
-    // div data.title
-    // image src=data.imgUrl
-    // embed video link=data.videoLink
-    // carousel of images (shadcn?) data.carouselArray.map
-    // back to projects Link
-
-    const projects = getProjectsDataJson();
-    console.log(projects)
-
-    return <div>
-        <div>
-            -----Single Project: {params.slug}
-            -----Id: {params.project}
+    return <>
+        <TitleBanner title='Project' />
+        <div className={styles.allContent}>
+            <div className={styles.mainContet}>
+                <section className={styles.imageBox} >Banner    
+                </section>
+                <section className={styles.rightContent}>
+                    <section className={styles.titleTop}>
+                        <p>Project Name</p>
+                        <p>Category</p>
+                    </section>
+                    <section className={styles.titleBottom}>
+                        <p>Country</p>
+                        <p>year</p>
+                    </section>
+                </section> 
+            </div>
+            <Link href="/projects" > ----- Back to Projects</Link>
         </div>
-        <Link href="/projects"> ----- Back to Projects</Link>
-    </div>
+    </>
 }

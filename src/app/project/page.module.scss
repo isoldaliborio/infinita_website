@@ -1,0 +1,39 @@
+@use "./../variables" as *;
+
+.allContent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-left: 15%;
+    .imageBox {
+        background-color: gray;
+        width: $col-5-width;
+        
+    }
+    .mainContet {
+        display: flex;
+        justify-content: space-between;
+        .rightContent {
+            width: $col-7-width;
+            margin-right: $margin-left-width;
+
+            .titleTop{
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                border-bottom: 1px solid black;   
+            }
+            .titleBottom{
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                
+                
+            }
+        }
+        
+    }
+    
+    
+    
+}

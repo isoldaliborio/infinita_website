@@ -21,7 +21,7 @@ export default function MasonryItem({ index, item }: MasonryItemProps) {
         alt={item[`title_${language}`] || ""}
         fill
       />
-      <Link href={`/project/${item.slug}`} className={styles.imageOverlay}>
+      <Link href={`/project/?${item.slug}`} className={styles.imageOverlay}>
         <div className={styles.overlayTitle}> {item[`title_${language}`] || ""} </div>
         <section className={styles.overlayBottomText}>
           <div>{Array.isArray(item.categories) && item.categories.length > 0 ? item.categories[0].toLowerCase() : ""}</div>
