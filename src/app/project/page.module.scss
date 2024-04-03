@@ -4,10 +4,8 @@
     display: flex;
     flex-direction: column;
     margin-top: 2%;
-    margin-left: 15%;
-
-
-
+    padding-left: 15%;
+    background-color: white;
 
     .mainContet {
         display: flex;
@@ -64,10 +62,14 @@
             }
 
             .imageGalery {
-                background-color: pink;
                 width: $col-7-width;
                 margin-top: 5%;
                 height: 20%;
+
+                .image {
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
         }
         

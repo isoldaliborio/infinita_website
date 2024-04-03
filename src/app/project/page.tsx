@@ -20,6 +20,13 @@ import image2 from "../../../public/images_gallery/ddd_IMG_9797.jpeg";
 import image3 from "../../../public/images_gallery/mms_squared.png";
 import image4 from "../../../public/images_gallery/Arthur_Vieira.jpg";
 
+
+//dummy image imports
+import image1 from "../../../public/images_gallery/WINGS_Still 1.jpg"; 
+import image2 from "../../../public/images_gallery/ddd_IMG_9797.jpeg";
+import image3 from "../../../public/images_gallery/mms_squared.png";
+import image4 from "../../../public/images_gallery/Arthur_Vieira.jpg";
+
 import {
     Carousel,
     CarouselContent,
@@ -83,17 +90,18 @@ export default function Project() {
                         <Carousel>
                             <CarouselContent>
                                 <CarouselItem className="basis-1/3">
-                                    <Image alt="" src={image1}/>
+                                    <Image className={styles.image} alt="" src={image1}/>
                                 </CarouselItem>
                                 <CarouselItem className="basis-1/3">
-                                    <Image alt="" src={image2}/>
+                                    <Image className={styles.image} alt="" src={image2}/>
                                 </CarouselItem>
                                 <CarouselItem className="basis-1/3">
-                                    <Image alt="" src={image3}/>
+                                    <Image className={styles.image} alt="" src={image3}/>
                                 </CarouselItem>
                                 <CarouselItem className="basis-1/3">
-                                    <Image alt="" src={image4}/>
+                                    <Image className={styles.image} alt="" src={image4}/>
                                 </CarouselItem>
+                       
                             </CarouselContent>
                             <CarouselPrevious />
                             <CarouselNext />
