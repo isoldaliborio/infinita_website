@@ -1,7 +1,13 @@
 const BACKENDURL = "https://infinitaproducoes.com/wordpress/wp-json/wp/v2";
 
-export const getProjectsDataJson = async function () {
-    const response = await fetch(`${BACKENDURL}/pages?slug=projects`);
+export const getProjectsDataJson = async function (project = null) {
+    let url = `${BACKENDURL}/pages?slug=projects`;
+
+    if (project !== null) {
+        url += `&project=${project}`;
+    }
+
+    const response = await fetch(url);
     const jsonData = await response.json();
 
     // Sort by year
@@ -10,6 +16,7 @@ export const getProjectsDataJson = async function () {
 
     return projects;
 }
+
 
 export const processCategories = function (projects) {
     const categoriesSet = new Set();
