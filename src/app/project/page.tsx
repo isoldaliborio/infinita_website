@@ -1,9 +1,19 @@
+'use client';
+
 import styles from "./page.module.scss"
 import Link from "next/link";
 import Image from "next/image";
 import VideoEmbed from "../../components/VideoEmbed/VideoEmbed";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import img_project from "../../../public/img_project.jpg";
+
+import { useSearchParams } from "next/navigation";
+
+//dummy image imports
+import image1 from "../../../public/images_gallery/WINGS_Still 1.jpg"; 
+import image2 from "../../../public/images_gallery/ddd_IMG_9797.jpeg";
+import image3 from "../../../public/images_gallery/mms_squared.png";
+import image4 from "../../../public/images_gallery/Arthur_Vieira.jpg";
 
 import {
     Carousel,
@@ -16,6 +26,10 @@ import {
 
 
 export default function Project() {
+
+    const searchParams = useSearchParams();
+
+    const search = searchParams.get('p')
 
     return <>
         <TitleBanner title='Project' />
@@ -46,12 +60,18 @@ export default function Project() {
                     <section className={styles.imageGalery}>
                         <Carousel>
                             <CarouselContent>
-                                <CarouselItem className="basis-1/3">1</CarouselItem>
-                                <CarouselItem className="basis-1/3">2</CarouselItem>
-                                <CarouselItem className="basis-1/3">3</CarouselItem>
-                                <CarouselItem className="basis-1/3">4</CarouselItem>
-                                <CarouselItem className="basis-1/3">5</CarouselItem>
-                                <CarouselItem className="basis-1/3">6</CarouselItem>
+                                <CarouselItem className="basis-1/3">
+                                    <Image alt="" src={image1}/>
+                                </CarouselItem>
+                                <CarouselItem className="basis-1/3">
+                                    <Image alt="" src={image2}/>
+                                </CarouselItem>
+                                <CarouselItem className="basis-1/3">
+                                    <Image alt="" src={image3}/>
+                                </CarouselItem>
+                                <CarouselItem className="basis-1/3">
+                                    <Image alt="" src={image4}/>
+                                </CarouselItem>
                             </CarouselContent>
                             <CarouselPrevious />
                             <CarouselNext />
