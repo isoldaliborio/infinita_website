@@ -43,37 +43,53 @@ function get_homepage_data($data, $post)
     }
 }
 
-function get_projects_data($data)
+function get_projects_data($data, $request)
 {
+    // Extract query parameters from the request
+    $parameters = $request->get_params();
+
     $args = array(
         'post_type' => 'post',
         'post_status' => 'publish',
-        'posts_per_page' => -1, // Get all posts
+        'posts_per_page' => -1, // Get all posts by default
     );
 
+    if (isset($parameters['project'])) {
+        // Find post ID by exact post title or slug
+        $post_slug = $parameters['project'];
+        $post = get_page_by_path($post_slug, OBJECT, 'post');
+        if ($post instanceof WP_Post && $post->post_name === $post_slug) {
+            $args['p'] = $post->ID;
+        }
+    }
+
+    // Query posts
     $posts = get_posts($args);
     $posts_data = array();
 
     foreach ($posts as $post) {
         $post_id = $post->ID;
 
-        $posts_data[] = array(
-            'id' => $post_id,
-            'slug' => $post->post_name,
-            'title_en' => $post->post_title,
-            'title_pt' => get_field('title_pt', $post_id),
-            'categories' => wp_get_post_categories($post_id, array('fields' => 'names')),
-            'year' => get_field('year', $post_id),
-            'country_en' => get_field('country_en', $post_id),
-            'country_pt' => get_field('country_pt', $post_id),
-            'image_size' => get_field('image_size', $post_id),
-            'description_en' => get_field('description_en', $post_id),
-            'description_pt' => get_field('description_pt', $post_id),
-            'video_en' => get_field('video_en', $post_id),
-            'video_pt' => get_field('video_pt', $post_id),
-            'image_gallery' => get_field('image_gallery', $post_id),
-            'image_in_list' => wp_get_attachment_image_src(get_field('image_in_list', $post_id), 'large')
-        );
+        // Check if the retrieved post's slug matches the provided slug exactly
+        if (!isset($parameters['project']) || $post->post_name === $post_slug) {
+            $posts_data[] = array(
+                'id' => $post_id,
+                'slug' => $post->post_name,
+                'title_en' => $post->post_title,
+                'title_pt' => get_field('title_pt', $post_id),
+                'categories' => wp_get_post_categories($post_id, array('fields' => 'names')),
+                'year' => get_field('year', $post_id),
+                'country_en' => get_field('country_en', $post_id),
+                'country_pt' => get_field('country_pt', $post_id),
+                'image_size' => get_field('image_size', $post_id),
+                'description_en' => get_field('description_en', $post_id),
+                'description_pt' => get_field('description_pt', $post_id),
+                'video_en' => get_field('video_en', $post_id),
+                'video_pt' => get_field('video_pt', $post_id),
+                'image_gallery' => get_field('image_gallery', $post_id),
+                'image_in_list' => wp_get_attachment_image_src(get_field('image_in_list', $post_id), 'large')
+            );
+        }
     }
 
     $data->data['projects'] = $posts_data;
@@ -89,7 +105,7 @@ function custom_rest_prepare_page($data, $post, $request)
                 get_homepage_data($data, $post);
                 break;
             case 'projects':
-                get_projects_data($data);
+                get_projects_data($data, $request);
                 break;
         }
     }
