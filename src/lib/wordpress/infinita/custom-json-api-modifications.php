@@ -59,6 +59,7 @@ function get_projects_data($data)
 
         $posts_data[] = array(
             'id' => $post_id,
+            'slug' => $post->post_name,
             'title_en' => $post->post_title,
             'title_pt' => get_field('title_pt', $post_id),
             'categories' => wp_get_post_categories($post_id, array('fields' => 'names')),

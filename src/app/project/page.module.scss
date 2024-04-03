@@ -1,0 +1,87 @@
+@use "./../variables" as *;
+
+.allContent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-left: 15%;
+
+
+
+
+    .mainContet {
+        display: flex;
+        justify-content: space-between;
+
+        .imageBox {
+            background-color: gray;
+            width: $col-5-width;
+            
+        }
+        .rightContent {
+            width: $col-7-width;
+            margin-right: $margin-left-width;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+
+            .titleTop{
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                border-bottom: 1px solid black;
+                padding-bottom: 1%;
+           
+
+                .projectName {
+                    font-family: "MuseoModerno";
+                    font-weight: 800;
+                    font-size: 20px;
+                    align-self: flex-end;
+                }
+                .category {
+                    font-size: 10px;
+                    text-transform: capitalize;
+                    align-self: flex-end;
+
+                }  
+            }
+            .titleBottom{
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row; 
+                font-size: 10px;
+                text-transform: capitalize;
+            }
+
+            .descripition {
+                margin-top: 2%;
+                font-size: 10px;
+            }
+            .videoEmbed {
+                padding-top: 5%;
+                width: $col-7-width;
+            }
+
+            .imageGalery {
+                background-color: pink;
+                width: $col-7-width;
+                margin-top: 5%;
+                height: 20%;
+            }
+        }
+        
+    }
+    .back {
+        font-family: "MuseoModerno";
+        font-weight: 800;
+        font-size: 20px;
+        border-top: 1px solid black;
+        margin-top: 5%;
+        margin-right: $margin-left-width;
+    }
+    
+    
+    
+}
+

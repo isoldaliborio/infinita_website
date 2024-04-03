@@ -6,7 +6,7 @@ import { useState, useContext, useEffect } from "react";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import Masonry from "@/components/Masonry/Masonry";
 import Tabs from "@/components/Tabs/Tabs";
-import { getProjectsDataJson, processCategories } from "../../lib/processProjectsData";
+import { getProjectsDataJson, processCategories } from "@/lib/processProjectsData";
 
 export default function Projects() {
 
