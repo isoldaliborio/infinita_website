@@ -7,7 +7,10 @@ import VideoEmbed from "../../components/VideoEmbed/VideoEmbed";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import img_project from "../../../public/img_project.jpg";
 
+//backend integration
+import { getProjectsDataJson } from "@/lib/processProjectsData";
 import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 //dummy image imports
 import image1 from "../../../public/images_gallery/WINGS_Still 1.jpg"; 
@@ -24,12 +27,22 @@ import {
   } from "@/components/ui/Carousel/carousel"
 
 
-
 export default function Project() {
 
     const searchParams = useSearchParams();
 
-    const search = searchParams.get('p')
+    const search:any = searchParams.get('p')
+
+    
+    useEffect(() => {
+
+        
+        const fetchData = async () => {
+          const project = await getProjectsDataJson(search);
+          console.log(project)
+        };
+        fetchData();
+      }, []);
 
     return <>
         <TitleBanner title='Project' />
