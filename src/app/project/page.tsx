@@ -54,13 +54,13 @@ export default function Project() {
         {projectData && <div className={styles.allContent}>
             <div className={styles.mainContet}>
                 <div className={styles.imageBox}>
-                    <Image
+                    {projectData.featured_image && <Image
                         className={styles.image}
-                        src={projectData["featured_image"]}
+                        src={projectData.featured_image}
                         alt="Banner"
                         fill
                         priority
-                    />
+                    />}
                 </div>
 
                 <section className={styles.rightContent}>
