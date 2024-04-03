@@ -6,6 +6,8 @@ import Image from "next/image";
 import VideoEmbed from "../../components/VideoEmbed/VideoEmbed";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import img_project from "../../../public/img_project.jpg";
+import { LanguageContext } from '@/context/LanguageContext'
+import { useContext } from 'react';
 
 //backend integration
 import { getProjectsDataJson } from "@/lib/processProjectsData";
@@ -28,25 +30,31 @@ import {
 
 
 export default function Project() {
+    let language = useContext(LanguageContext);
 
     const searchParams = useSearchParams();
 
     const search:any = searchParams.get('p')
+
+    const [projectData, setProjectData] = useState<any>();
 
     
     useEffect(() => {
 
         
         const fetchData = async () => {
-          const project = await getProjectsDataJson(search);
-          console.log(project)
+            const data = await getProjectsDataJson(search)
+            console.log(data);
+            setProjectData(data[0]);
+            console.log(projectData);
+        
         };
         fetchData();
       }, []);
 
     return <>
         <TitleBanner title='Project' />
-        <div className={styles.allContent}>
+        {projectData &&< div className={styles.allContent}>
             <div className={styles.mainContet}>
               
                 <Image 
@@ -58,17 +66,18 @@ export default function Project() {
                 
                 <section className={styles.rightContent}>
                     <section className={styles.titleTop}>
-                        <p className={styles.projectName}>London Eye</p>
-                        <p className={styles.category}>Films</p>
+                        <p className={styles.projectName} dangerouslySetInnerHTML={{ __html: projectData[`title_${language}`] }}/>
+                        <p className={styles.category}> {projectData.categories[0]}</p>
                     </section>
                     <section className={styles.titleBottom}>
-                        <p>United Kingdom</p>
-                        <p>2020</p>
+                        <p dangerouslySetInnerHTML={{ __html: projectData[`country_${language}`] }}/>
+                        <p>{projectData.year}</p>
+
                     </section>
-                    <section className={styles.descripition}>London Eye its a co-production between Brazil/UK and the first feature film developed by Infinita Productions in a partnership with Brazilian Production Company Truque. The project written by Director Tiago Di Mauro was granted a development grant by ANCINE ( Brazil Film Agency) BRDE/FSA – PRODAV 05/2016.
+                    <section className={styles.descripition} dangerouslySetInnerHTML={{ __html: projectData[`description_${language}`] }}>
                     </section>
                     <section className={styles.videoEmbed}>
-                        <VideoEmbed type="vimeo" videoId="886624349" />
+                        <VideoEmbed type="vimeo" videoId= {projectData.video_id} />
                     </section>
                     <section className={styles.imageGalery}>
                         <Carousel>
@@ -93,6 +102,6 @@ export default function Project() {
                 </section> 
             </div>
             <Link href="/projects" className={styles.back}> ← Back to Projects</Link>
-        </div>
+        </div>}
     </>
 }
