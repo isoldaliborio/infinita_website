@@ -5,6 +5,14 @@ import VideoEmbed from "../../components/VideoEmbed/VideoEmbed";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import img_project from "../../../public/img_project.jpg";
 
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+  } from "@/components/ui/Carousel/carousel"
+
 
 
 export default function Project() {
@@ -36,7 +44,18 @@ export default function Project() {
                         <VideoEmbed type="vimeo" videoId="886624349" />
                     </section>
                     <section className={styles.imageGalery}>
-
+                        <Carousel>
+                            <CarouselContent>
+                                <CarouselItem className="basis-1/3">1</CarouselItem>
+                                <CarouselItem className="basis-1/3">2</CarouselItem>
+                                <CarouselItem className="basis-1/3">3</CarouselItem>
+                                <CarouselItem className="basis-1/3">4</CarouselItem>
+                                <CarouselItem className="basis-1/3">5</CarouselItem>
+                                <CarouselItem className="basis-1/3">6</CarouselItem>
+                            </CarouselContent>
+                            <CarouselPrevious />
+                            <CarouselNext />
+                        </Carousel>
                     </section>
                 </section> 
             </div>
