@@ -53,12 +53,19 @@ export default function Project() {
                     <section className={styles.imageGalery}>
                         <Carousel>
                             <CarouselContent>
-                                <CarouselItem className="basis-1/3">1</CarouselItem>
-                                <CarouselItem className="basis-1/3">2</CarouselItem>
-                                <CarouselItem className="basis-1/3">3</CarouselItem>
-                                <CarouselItem className="basis-1/3">4</CarouselItem>
-                                <CarouselItem className="basis-1/3">5</CarouselItem>
-                                <CarouselItem className="basis-1/3">6</CarouselItem>
+                                <CarouselItem className="basis-1/3">
+                                    <Image className={styles.image} alt="" src={image1}/>
+                                </CarouselItem>
+                                <CarouselItem className="basis-1/3">
+                                    <Image className={styles.image} alt="" src={image2}/>
+                                </CarouselItem>
+                                <CarouselItem className="basis-1/3">
+                                    <Image className={styles.image} alt="" src={image3}/>
+                                </CarouselItem>
+                                <CarouselItem className="basis-1/3">
+                                    <Image className={styles.image} alt="" src={image4}/>
+                                </CarouselItem>
+                       
                             </CarouselContent>
                             <CarouselPrevious />
                             <CarouselNext />

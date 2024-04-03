@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from "./VideoEmbed.module.scss"
 
 export interface VideoProps {
   // src: string;
@@ -19,9 +20,10 @@ const VideoEmbed: React.FC<VideoProps> = ({ type, videoId, src }) => {
   };
 
   return (
-    <div className="video-responsive">
+    <div className={styles.videoResponsive}>
       <iframe
-        width="560"
+        className={styles.embeddedVideo}
+        width="1000" //THIS IS OVERRIDDEN IN SCSS FILE
         height="315"
         src={getEmbedUrl()}
         title={`${type} video player`}
