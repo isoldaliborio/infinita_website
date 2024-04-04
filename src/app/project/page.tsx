@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import styles from "./page.module.scss"
 import Link from "next/link";
@@ -8,7 +8,7 @@ import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import { LanguageContext } from '@/context/LanguageContext'
 import { useContext } from 'react';
 
-import { getProjectsDataJson } from "@/lib/processProjectsData";
+import { getProjectsDataJson, parseImageGallery } from "@/lib/processProjectsData";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -33,6 +33,7 @@ export default function Project() {
     const router = useRouter();
 
     const [projectData, setProjectData] = useState<any>();
+    const [galleryImages, setGalleryImages] = useState<any>();
 
     const searchParams = useSearchParams();
     const search: any = searchParams.get("p")
@@ -43,8 +44,10 @@ export default function Project() {
                 router.push("/projects");
             }
             const data = await getProjectsDataJson(search)
-            console.log(data);
             setProjectData(data[0]);
+
+            const images = parseImageGallery(data);
+            setGalleryImages(images);
         };
         fetchData();
     }, []);
@@ -88,19 +91,11 @@ export default function Project() {
                     <section className={styles.imageGalery}>
                         <Carousel>
                             <CarouselContent>
-                                <CarouselItem className="basis-1/3">
-                                    <Image className={styles.image} alt="" src={image1} />
-                                </CarouselItem>
-                                <CarouselItem className="basis-1/3">
-                                    <Image className={styles.image} alt="" src={image2} />
-                                </CarouselItem>
-                                <CarouselItem className="basis-1/3">
-                                    <Image className={styles.image} alt="" src={image3} />
-                                </CarouselItem>
-                                <CarouselItem className="basis-1/3">
-                                    <Image className={styles.image} alt="" src={image4} />
-                                </CarouselItem>
-
+                                {galleryImages && galleryImages.map((item: any, index: any) => (
+                                    item["1536w"] && <CarouselItem className="basis-1/3" key={index}>
+                                        <Image className={styles.galleryItem} alt="" src={item["1536w"]} width="0" height="0" />
+                                    </CarouselItem>
+                                ))}
                             </CarouselContent>
                             <CarouselPrevious />
                             <CarouselNext />
