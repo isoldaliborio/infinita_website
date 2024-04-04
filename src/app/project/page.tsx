@@ -53,28 +53,18 @@ export default function Project() {
         <TitleBanner title='Project' />
         {projectData && <div className={styles.allContent}>
             <div className={styles.mainContet}>
-            <div className={styles.imageBox}>
-                {projectData.featured_image && (
-                    <Image
-                        className={styles.image}
-                        width="565" //THIS IS OVERRIDDEN IN SCSS FILE
-                        height="315"
-                        src={projectData.featured_image}
-                        alt=""
-                        priority
-                    />
-                )}
-            </div>
-
-                {/* <div className={styles.imageBox}>
-                    {projectData.featured_image && <Image
-                        className={styles.image}
-                        src={projectData.featured_image}
-                        alt="Banner"
-                        fill
-                        priority
-                    />} 
-                </div> */}
+                <div className={styles.imageBox}>
+                    {projectData.featured_image && (
+                        <Image
+                            className={styles.image}
+                            width="0" //THIS IS OVERRIDDEN IN SCSS FILE
+                            height="0"
+                            src={projectData.featured_image}
+                            alt=""
+                            priority
+                        />
+                    )}
+                </div>
 
                 <section className={styles.rightContent}>
                     <section className={styles.titleTop}>
@@ -90,9 +80,9 @@ export default function Project() {
                     </section>
 
                     {projectData.video_en && (
-                    <section className={styles.videoEmbed}>
-                        <VideoEmbed type="vimeo" videoUrl={projectData.video_en} />
-                    </section> 
+                        <section className={styles.videoEmbed}>
+                            <VideoEmbed type="vimeo" videoUrl={projectData.video_en} />
+                        </section>
                     )}
 
                     <section className={styles.imageGalery}>
