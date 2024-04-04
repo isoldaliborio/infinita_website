@@ -4,11 +4,17 @@ import styles from "./VideoEmbed.module.scss"
 export interface VideoProps {
   // src: string;
   type: "youtube" | "vimeo";
-  videoId: string;
+  videoUrl: string;
 }
 
-const VideoEmbed: React.FC<VideoProps> = ({ type, videoId, src }) => {
+const VideoEmbed: React.FC<VideoProps> = ({ type, videoUrl, src }) => {
+  const getVideoIdFromUrl = (url: string) => {
+    const urlParts = url.split('/');
+    return urlParts[urlParts.length - 1];
+  };
+
   const getEmbedUrl = () => {
+    const videoId = getVideoIdFromUrl(videoUrl);
     switch (type) {
       case "youtube":
         return `https://www.youtube.com/embed/${videoId}`;
@@ -23,7 +29,7 @@ const VideoEmbed: React.FC<VideoProps> = ({ type, videoId, src }) => {
     <div className={styles.videoResponsive}>
       <iframe
         className={styles.embeddedVideo}
-        width="1000" //THIS IS OVERRIDDEN IN SCSS FILE
+        width="565" //THIS IS OVERRIDDEN IN SCSS FILE
         height="315"
         src={getEmbedUrl()}
         title={`${type} video player`}
