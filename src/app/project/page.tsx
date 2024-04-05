@@ -6,29 +6,13 @@ import Image from "next/image";
 import VideoEmbed from "../../components/VideoEmbed/VideoEmbed";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import { LanguageContext } from '@/context/LanguageContext'
-import { useContext } from 'react';
-
 import { getProjectsDataJson, parseImageGallery } from "@/lib/processProjectsData";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-
-//dummy image imports
-import image1 from "../../../public/images_gallery/WINGS_Still 1.jpg";
-import image2 from "../../../public/images_gallery/ddd_IMG_9797.jpeg";
-import image3 from "../../../public/images_gallery/mms_squared.png";
-import image4 from "../../../public/images_gallery/Arthur_Vieira.jpg";
-
-
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/Carousel/carousel"
-
+import { useEffect, useState, useContext } from "react";
+import ImageGallery from "@/components/ImageGallery/ImageGallery";
 
 export default function Project() {
+
     const language = useContext(LanguageContext);
     const router = useRouter();
 
@@ -45,9 +29,11 @@ export default function Project() {
             }
             const data = await getProjectsDataJson(search)
             setProjectData(data[0]);
+            console.log(data[0]);
 
             const images = parseImageGallery(data);
             setGalleryImages(images);
+            
         };
         fetchData();
     }, []);
@@ -87,20 +73,11 @@ export default function Project() {
                             <VideoEmbed type="vimeo" videoUrl={projectData.video_en} />
                         </section>
                     )}
-
-                    <section className={styles.imageGalery}>
-                        <Carousel>
-                            <CarouselContent>
-                                {galleryImages && galleryImages.map((item: any, index: any) => (
-                                    item["1536w"] && <CarouselItem className="basis-1/3" key={index}>
-                                        <Image className={styles.galleryItem} alt="" src={item["1536w"]} width="0" height="0" />
-                                    </CarouselItem>
-                                ))}
-                            </CarouselContent>
-                            <CarouselPrevious />
-                            <CarouselNext />
-                        </Carousel>
-                    </section>
+                    {galleryImages && (
+                        <section className={styles.imageGalleryContainer}>
+                            <ImageGallery galleryImages={galleryImages} />
+                        </section>
+                    )}
                 </section>
             </div>
             <Link href="/projects" className={styles.back}> ← Back to Projects</Link>
