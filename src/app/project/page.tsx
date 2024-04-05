@@ -6,11 +6,21 @@ import Image from "next/image";
 import VideoEmbed from "../../components/VideoEmbed/VideoEmbed";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import { LanguageContext } from '@/context/LanguageContext'
-import { useContext } from 'react';
-
 import { getProjectsDataJson, parseImageGallery } from "@/lib/processProjectsData";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
+
+//light gallery
+import type { LightGallery } from "lightgallery/lightgallery";
+//component import renamed to avoid conflict with type import on line above
+import LightGalleryComponent from "lightgallery/react";
+
+// import styles
+// import "../../app/dependencies/lightgallery/css/lightgallery.css";
+// import "../../app/dependencies/lightgallery/css/lg-thumbnail.css";
+
+// import plugins
+import lgThumbnail from "lightgallery/plugins/thumbnail";
 
 //dummy image imports
 import image1 from "../../../public/images_gallery/WINGS_Still 1.jpg";
@@ -37,6 +47,8 @@ export default function Project() {
 
     const searchParams = useSearchParams();
     const search: any = searchParams.get("p")
+
+    const lightboxRef = useRef<LightGallery | null>(null)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -93,7 +105,14 @@ export default function Project() {
                             <CarouselContent>
                                 {galleryImages && galleryImages.map((item: any, index: any) => (
                                     item["1536w"] && <CarouselItem className="basis-1/3" key={index}>
-                                        <Image className={styles.galleryItem} alt="" src={item["1536w"]} width="0" height="0" />
+                                        <Image 
+                                            onClick={() => { lightboxRef.current?.openGallery(index);}}
+                                            className={styles.galleryItem} 
+                                            alt="" 
+                                            src={item["1536w"]} 
+                                            width="0" 
+                                            height="0" 
+                                        />
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
