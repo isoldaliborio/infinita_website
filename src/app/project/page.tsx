@@ -29,10 +29,11 @@ export default function Project() {
             }
             const data = await getProjectsDataJson(search)
             setProjectData(data[0]);
+            console.log(data[0]);
 
             const images = parseImageGallery(data);
             setGalleryImages(images);
-            console.log(galleryImages);
+            
         };
         fetchData();
     }, []);
@@ -72,9 +73,11 @@ export default function Project() {
                             <VideoEmbed type="vimeo" videoUrl={projectData.video_en} />
                         </section>
                     )}
-                    <section className={styles.imageGalleryContainer}>
-                        <ImageGallery galleryImages={galleryImages}/>
-                    </section>
+                    {galleryImages && (
+                        <section className={styles.imageGalleryContainer}>
+                            <ImageGallery galleryImages={galleryImages} />
+                        </section>
+                    )}
                 </section>
             </div>
             <Link href="/projects" className={styles.back}> ← Back to Projects</Link>
