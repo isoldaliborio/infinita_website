@@ -8,37 +8,11 @@ import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import { LanguageContext } from '@/context/LanguageContext'
 import { getProjectsDataJson, parseImageGallery } from "@/lib/processProjectsData";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState, useRef, useContext } from "react";
-
-//light gallery
-import type { LightGallery } from "lightgallery/lightgallery";
-//component import renamed to avoid conflict with type import on line above
-import LightGalleryComponent from "lightgallery/react";
-
-// import styles
-// import "../../app/dependencies/lightgallery/css/lightgallery.css";
-// import "../../app/dependencies/lightgallery/css/lg-thumbnail.css";
-
-// import plugins
-import lgThumbnail from "lightgallery/plugins/thumbnail";
-
-//dummy image imports
-import image1 from "../../../public/images_gallery/WINGS_Still 1.jpg";
-import image2 from "../../../public/images_gallery/ddd_IMG_9797.jpeg";
-import image3 from "../../../public/images_gallery/mms_squared.png";
-import image4 from "../../../public/images_gallery/Arthur_Vieira.jpg";
-
-
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/Carousel/carousel"
-
+import { useEffect, useState, useContext } from "react";
+import ImageGallery from "@/components/ImageGallery/ImageGallery";
 
 export default function Project() {
+
     const language = useContext(LanguageContext);
     const router = useRouter();
 
@@ -47,8 +21,6 @@ export default function Project() {
 
     const searchParams = useSearchParams();
     const search: any = searchParams.get("p")
-
-    const lightboxRef = useRef<LightGallery | null>(null)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -60,6 +32,7 @@ export default function Project() {
 
             const images = parseImageGallery(data);
             setGalleryImages(images);
+            console.log(galleryImages);
         };
         fetchData();
     }, []);
@@ -99,26 +72,8 @@ export default function Project() {
                             <VideoEmbed type="vimeo" videoUrl={projectData.video_en} />
                         </section>
                     )}
-
-                    <section className={styles.imageGalery}>
-                        <Carousel>
-                            <CarouselContent>
-                                {galleryImages && galleryImages.map((item: any, index: any) => (
-                                    item["1536w"] && <CarouselItem className="basis-1/3" key={index}>
-                                        <Image 
-                                            onClick={() => { lightboxRef.current?.openGallery(index);}}
-                                            className={styles.galleryItem} 
-                                            alt="" 
-                                            src={item["1536w"]} 
-                                            width="0" 
-                                            height="0" 
-                                        />
-                                    </CarouselItem>
-                                ))}
-                            </CarouselContent>
-                            <CarouselPrevious />
-                            <CarouselNext />
-                        </Carousel>
+                    <section className={styles.imageGalleryContainer}>
+                        <ImageGallery galleryImages={galleryImages}/>
                     </section>
                 </section>
             </div>
