@@ -2,6 +2,7 @@
 const nextConfig = {
     output: 'export',
     trailingSlash: true,
+    optimizeFonts: true,
     images: {
         unoptimized: true,
         remotePatterns: [

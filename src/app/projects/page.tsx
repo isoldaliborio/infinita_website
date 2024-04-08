@@ -2,32 +2,39 @@
 
 import styles from "./page.module.scss";
 import { LanguageContext } from "@/context/LanguageContext";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import Masonry from "@/components/Masonry/Masonry";
 import Tabs from "@/components/Tabs/Tabs";
-import { dummyData } from "../../lib/dummyProjectData";
-
+import { getProjectsDataJson, processCategories } from "@/lib/processProjectsData";
 
 export default function Projects() {
 
-  type currentFilterState ={
-    category:string
+  type currentFilterState = {
+    category: string
   }
 
-  const [currentFilter, setCurrentFilter] = useState<currentFilterState>({category:"all"})
+  const [currentFilter, setCurrentFilter] = useState<currentFilterState>({ category: "all" })
+  const [projectsData, setProjectsData] = useState<any>(null)
+  const [categories, setCategories] = useState<any>(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const projects = await getProjectsDataJson();
+      setProjectsData(projects);
+      setCategories(processCategories(projects));
+    };
+    fetchData();
+  }, []);
 
   let language = useContext(LanguageContext);
 
-  const projectArray = dummyData.projects;
-  const categoryArray = dummyData.categories;
-  
   return (
     <>
-      <TitleBanner title="Projects" />
-      <Tabs categories={categoryArray} currentFilter={currentFilter} setCurrentFilter={setCurrentFilter}/>
+      <TitleBanner title={language === "en" ? "projects" : "projetos"} />
+      {categories && <Tabs categories={categories} currentFilter={currentFilter} setCurrentFilter={setCurrentFilter} />}
       <main className={styles.main}>
-        <Masonry data={projectArray} filter={currentFilter}/>
+        {projectsData && <Masonry data={projectsData} filter={currentFilter} />}
       </main>
     </>
   )

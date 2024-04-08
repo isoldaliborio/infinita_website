@@ -16,7 +16,7 @@ export default function Contact() {
       <main className={styles.main}>
         <ContactForm />
         <div className={styles.description}>
-          <h1>{language === "en" ? "Access our social media!" : "Acesse nossas redes sociais"}</h1>
+          <h1>{language === "en" ? "Contact us on our social media!" : "Entre en contato através das nossas redes sociais"}</h1>
           <ul className={styles.socialLinks}>
             <li><a href="https://www.linkedin.com/company/infinitaproductions/" target="_blank">LinkedIn </a></li>
             <li> | </li>
