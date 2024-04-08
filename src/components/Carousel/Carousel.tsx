@@ -16,12 +16,12 @@ export default function Carousel() {
     img_url: null,
     category_names: [null],
     title: null,
-    index: null,
+    index: 0,
   }));
 
   const [homePageData, setHomePageData] = useState<any>(initialData);
   const [activeItem, setActiveItem] = useState<any>();
-  const [orderedImages, setOrderedImages] = useState<any>();
+  const [orderedImages, setOrderedImages] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   // Order images
@@ -35,22 +35,24 @@ export default function Carousel() {
         return [];
       }
     };
-
-    setOrderedImages(getPageDataOrdered());
+    if (orderedImages === null) {
+      setOrderedImages(getPageDataOrdered());
+    }
   }, []);
 
   // Update home page image
-  useEffect(() => {
-    const processImages = async () => {
-      try {
-        updateImage(0);
-      } catch (error) {
-        console.error("Error processing images:", error);
-      }
-    };
-
-    processImages();
-  }, [orderedImages]);
+  // useEffect(() => {
+  //   const processImages = async () => {
+  //     try {
+  //       updateImage(0);
+  //     } catch (error) {
+  //       console.error("Error processing images:", error);
+  //     }
+  //   };
+  //   if (orderImages !== null) {
+  //     processImages();
+  //   }
+  // }, [orderedImages]);
 
   const updateImage = useCallback(async (idx: number) => {
     try {
@@ -73,17 +75,18 @@ export default function Carousel() {
 
   // TODO: is this needed?
   // Set initial image
-  // useEffect(() => {
-  //   homePageData && setActiveItem(homePageData[0]);
-  //   setIsVisible(true); // Triggers fade-in of image on initial render
-  // }, [homePageData]);
+  useEffect(() => {
+    homePageData && setActiveItem(homePageData[0]);
+    setIsVisible(true); // Triggers fade-in of image on initial render
+  }, [homePageData]);
 
   // When activeItem changes
   useEffect(() => {
     if (activeItem && activeItem.index || activeItem && activeItem.index === 0) {
       updateImage(activeItem.index);
     };
-  }, [activeItem]); // is updateImage needed here?
+  }, [activeItem, updateImage]); // is updateImage needed here?
+
 
   // Conditional rendering of Loading Screen
   if (!homePageData[0]?.img_id) {
@@ -97,7 +100,7 @@ export default function Carousel() {
           <Buttons data={homePageData} setItem={setActiveItem} activeItem={activeItem} isLoading={isLoading} setIsVisible={setIsVisible} />
         </div>
       </div>
-      <section id={styles.Carousel}>
+      <section id={styles.carousel}>
         <div className={styles.imageContainer}>
           <CarouselImage activeItem={activeItem} isVisible={isVisible} />
         </div>
