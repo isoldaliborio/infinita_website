@@ -10,13 +10,23 @@
   align-items: flex-start;
   margin-top: 2%;
   background-color: white;
+  padding-left: 15%;
+
+
+  @include screen("small") {
+    flex-direction: column;
+    padding-left: 1%;
+  }
 
   .aboutBox {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding-left: 2.5%;
+    width: $col-5-width;
+    @include screen("small") {
+      width: 95vw;
+    }
 
     .textAbout {
       height: auto;
@@ -42,20 +52,23 @@
 
     .categoryBox {
       margin: 8% 0;
-    }
+      width: 100%;
   }
 
   .imageBox {
-    // background-color: gray;
-    // height: auto;
     margin-bottom: 2%;
+    width: $col-7-width;
 
+    @include screen("small") {
+      padding-left: 2.5%;
+      width: 95%;
+    }
 
     .aboutImage {
       width: 100%;
       height: auto;
-      // padding-bottom: 5%;
     }
   }
+}
 
 }

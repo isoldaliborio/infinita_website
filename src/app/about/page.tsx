@@ -46,10 +46,10 @@ export default function About() {
     <>
       <TitleBanner title='About us' />
 
-      <main className={`${styles.main} marginR`}>
+      <main className={styles.main}>
         {!aboutData ? <LoadingScreen /> : <>
-          <section className={`${styles.aboutBox} marginL`}>
-            <div className={`${styles.textAbout} col-5`}>
+          <section className={styles.aboutBox}>
+            <div className={styles.textAbout}>
 
               {/* Main content */}
               <p className={styles.title}>
@@ -62,7 +62,7 @@ export default function About() {
             </div>
 
             {/* Accordion */}
-            <div className={`${styles.categoryBox} col-5`}>
+            <div className={styles.categoryBox}>
               {aboutData && <AccordionAbout
                 handleClick={handleClick}
                 activeItem={activeItem}
@@ -72,7 +72,7 @@ export default function About() {
           </section>
 
           {/* Side image */}
-          <section className={`${styles.imageBox} col-7`}>
+          <section className={styles.imageBox}>
             {imageUrl && <Image
               className={styles.aboutImage}
               width={0}
