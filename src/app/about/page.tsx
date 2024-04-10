@@ -53,7 +53,7 @@ export default function About() {
 
               {/* Main content */}
               <p className={styles.title}>
-                {language === 'en' ? 'Infinita Production' : 'Infinita Produções'}
+                {language === 'en' ? 'Infinita Production'.toUpperCase() : 'Infinita Produções'.toUpperCase()}
               </p>
               <p
                 className={styles.description}

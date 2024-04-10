@@ -12,10 +12,16 @@
   background-color: white;
   padding-left: 15%;
 
+  @include screen("medium") {
+    padding-left: 7%;
+  }
+
   @include screen("small") {
     flex-direction: column;
     padding-left: 2%;
   }
+
+
 
   .aboutBox {
     display: flex;
@@ -23,9 +29,15 @@
     justify-content: space-between;
     align-items: center;
     width: $col-5-width;
+
+    @include screen("medium") {
+      width: 40vw;
+    }
+
     @include screen("small") {
       width: 95vw;
     }
+    
 
     .textAbout {
       height: auto;
