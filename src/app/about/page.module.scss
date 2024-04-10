@@ -6,16 +6,15 @@
   min-height: 63%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content:flex-start;
   align-items: flex-start;
   margin-top: 2%;
   background-color: white;
   padding-left: 15%;
 
-
   @include screen("small") {
     flex-direction: column;
-    padding-left: 1%;
+    padding-left: 2%;
   }
 
   .aboutBox {
@@ -39,29 +38,29 @@
 
       .description {
         padding-top: 0.5rem;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         font-weight: 400;
         font-style: normal;
         font-size: 12px;
-        // letter-spacing: 0.5px;
-        // line-height: 15px;
         height: auto;
       }
-
     }
 
     .categoryBox {
       margin: 8% 0;
       width: 100%;
+    }
   }
 
   .imageBox {
     margin-bottom: 2%;
+    margin-left: 12%;
     width: $col-7-width;
+    
 
     @include screen("small") {
-      padding-left: 2.5%;
       width: 95%;
+      margin-left: 1%;
     }
 
     .aboutImage {
@@ -69,6 +68,4 @@
       height: auto;
     }
   }
-}
-
 }
