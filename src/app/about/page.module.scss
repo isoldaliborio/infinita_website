@@ -6,17 +6,37 @@
   min-height: 63%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content:flex-start;
   align-items: flex-start;
-  margin-top: 2%;
+  padding: 3% 15% 2% 15%;
   background-color: white;
+
+
+  @include screen("medium") {
+    padding: 3% 7% 2% 7%;
+  }
+
+  @include screen("small") {
+    flex-direction: column;
+    padding: 2% 2% 2% 2%;
+  }
+
+
 
   .aboutBox {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding-left: 2.5%;
+    width: $col-5-width;
+
+    @include screen("medium") {
+      width: 80%;
+    }
+
+    @include screen("small") {
+      width: 100%;
+    }
 
     .textAbout {
       height: auto;
@@ -24,38 +44,44 @@
       .title {
         font-family: "MuseoModerno";
         font-weight: 800;
-        font-size: 1rem;
+        font-size: 16px;
       }
 
       .description {
         padding-top: 0.5rem;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         font-weight: 400;
         font-style: normal;
         font-size: 12px;
-        // letter-spacing: 0.5px;
-        // line-height: 15px;
         height: auto;
       }
-
     }
 
     .categoryBox {
       margin: 8% 0;
+      width: 100%;
     }
   }
 
   .imageBox {
-    // background-color: gray;
-    // height: auto;
     margin-bottom: 2%;
+    margin-left: 12%;
+    width: $col-7-width;
 
+    @include screen("medium") {
+      width: 80%;
+      margin-left: 7%;
+    }
+
+    @include screen("small") {
+      width: 100%;
+      margin-left: 0%;
+      margin-bottom: 5%;
+    }
 
     .aboutImage {
       width: 100%;
       height: auto;
-      // padding-bottom: 5%;
     }
   }
-
 }
