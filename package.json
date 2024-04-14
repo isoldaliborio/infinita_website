@@ -25,6 +25,7 @@
     "react": "^18",
     "react-div-100vh": "^0.7.0",
     "react-dom": "^18",
+    "react-responsive-carousel": "^3.2.23",
     "sass": "^1.70.0",
     "sharp": "^0.33.3",
     "tailwind-merge": "^2.2.1",
