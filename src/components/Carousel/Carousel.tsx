@@ -59,6 +59,7 @@ export default function Carousel() {
             showIndicators={false}
             showThumbs={false}
             showStatus={false}
+            stopOnHover={false}
             autoPlay={true}
             interval={5000}
             onChange={slideHandler}
