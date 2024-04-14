@@ -60,7 +60,7 @@ export default function Carousel() {
             showThumbs={false}
             showStatus={false}
             autoPlay={true}
-            interval={50000}
+            interval={5000}
             onChange={slideHandler}
             selectedItem={activeItem}
             onClickItem={goToProject}
