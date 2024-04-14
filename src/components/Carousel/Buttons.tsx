@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import styles from "./styles/Buttons.module.scss";
+import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 
 
 export default function Buttons({ data, setItem, activeItem }: { data: any; setItem: any; activeItem: any; }) {
-
+  
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const buttonRef = useRef<HTMLDivElement>(null);
+
+  const router = useRouter();
 
   const checkScreenSize = () => {
     setIsSmallScreen(window.innerWidth < 701);
@@ -18,7 +21,10 @@ export default function Buttons({ data, setItem, activeItem }: { data: any; setI
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  const handleClick = (item: any, index: number) => {
+  const handleClick = (item: any, index: number, activeItem: any) => {
+    if (index === activeItem) {
+      router.push(`/project?p=${item.slug}`)
+    }
     setItem(index);
   };
 
@@ -45,7 +51,7 @@ export default function Buttons({ data, setItem, activeItem }: { data: any; setI
           key={index}
           ref={buttonRef}
           className={`${styles.button} ${index === activeItem ? styles.active_button : ""}`}
-          onClick={() => handleClick(item, index)}
+          onClick={() => handleClick(item, index, activeItem)}
         >
           <div className={styles.index}>0{index + 1}</div>
           <span

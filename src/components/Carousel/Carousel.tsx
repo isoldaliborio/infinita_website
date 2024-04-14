@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import styles from "./styles/Carousel.module.scss";
 import Buttons from "@/components/Carousel/Buttons";
+import { useRouter } from "next/navigation";
 import { getHomePageDataJson, orderImages } from "@/lib/processHomePageData";
 
 import { Carousel as ResponsiveCarousel } from 'react-responsive-carousel';
@@ -15,8 +16,15 @@ export default function Carousel() {
   const [activeItem, setActiveItem] = useState<any>(0);
   const [isLoading, setIsLoading] = useState(true);
 
+  const router = useRouter();
+
   const slideHandler = (index: any, item: any) => {
     setActiveItem(index);
+  }
+
+  const goToProject = (index: any, item: any) => {
+    const slug = item.props.children.props["project-slug"];
+    router.push(`/project?p=${slug}`)
   }
 
   useEffect(() => {
@@ -52,13 +60,14 @@ export default function Carousel() {
             showThumbs={false}
             showStatus={false}
             autoPlay={true}
-            interval={5000}
+            interval={50000}
             onChange={slideHandler}
             selectedItem={activeItem}
+            onClickItem={goToProject}
           >
             {orderedImages.map((item: any, index: any) => (
-              <div key={index}>
-                <img className={styles.carouselImage} src={item.img_url} />
+              <div key={index} className={styles.slideContainer} >
+                <img className={styles.carouselImage} src={item.img_url} alt={item.post_title} project-slug={item.slug} />
               </div>
             ))}
           </ResponsiveCarousel>

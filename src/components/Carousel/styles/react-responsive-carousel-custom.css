@@ -36,6 +36,8 @@
   margin: 0;
   position: relative;
   text-align: center;
+  z-index: 1 !important;
+  cursor: pointer;
 }
 
 .carousel .slide div {

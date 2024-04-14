@@ -10,7 +10,7 @@ $button-width-supersmall: 23px;
     flex-direction: column;
     justify-content: flex-end;
     margin-bottom: 7vh;
-    z-index: 1;
+    z-index: 2;
     width: $button-width-large;
 
     @include screen("medium") {

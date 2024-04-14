@@ -40,7 +40,7 @@ export const parseImageGallery = function (data) {
     const htmlString = data[0].image_gallery
 
     if (!htmlString || typeof htmlString !== 'string') {
-        throw new Error('Invalid HTML string');
+        console.error('Invalid HTML string');
     }
 
     const srcsetArray = [];
@@ -49,24 +49,24 @@ export const parseImageGallery = function (data) {
     const galleryItems = doc.querySelectorAll('.gallery-item');
 
     if (galleryItems.length === 0) {
-        throw new Error('No gallery items found');
+        console.error('No gallery items found');
     }
 
     galleryItems.forEach(item => {
         const imgElement = item.querySelector('img');
         if (!imgElement) {
-            throw new Error('No img element found in gallery item');
+            console.error('No img element found in gallery item');
         }
 
         const srcset = imgElement.getAttribute('srcset');
         if (!srcset) {
-            throw new Error('No srcset attribute found in img element');
+            console.error('No srcset attribute found in img element');
         }
 
         const srcsetPairs = srcset.split(',').map(pair => {
             const parts = pair.trim().split(' ');
             if (parts.length !== 2) {
-                throw new Error('Invalid srcset format');
+                console.error('Invalid srcset format');
             }
             const [url, size] = parts;
             return { [size]: url };
@@ -74,8 +74,6 @@ export const parseImageGallery = function (data) {
 
         srcsetArray.push(Object.assign({}, ...srcsetPairs));
     });
-
-    console.log(srcsetArray);
 
     return srcsetArray;
 }
