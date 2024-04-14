@@ -18,6 +18,7 @@ export default function NavigationBar({setLanguage}:NavigationBarProps){
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
     function closeModal(){
+        document.body.style.overflow = "auto";
         setModalIsOpen(false);
     };
 
