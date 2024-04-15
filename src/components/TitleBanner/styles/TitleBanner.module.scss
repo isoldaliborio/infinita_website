@@ -27,8 +27,10 @@
         
         @include screen("small") {
             flex-direction: column;
-            padding-left: 2%;
-            font-size: 6vw;
+            padding-left: 3.75%;
+            font-size: 8vw;
+            -webkit-text-stroke: 1.5px black;
+
           }
     }
 }

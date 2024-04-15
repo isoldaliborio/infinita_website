@@ -45,6 +45,12 @@
         height: auto;
         z-index: 1;
         padding: none;
+
+        @include screen("small"){
+          height: 52.5vw;
+          object-fit: cover;
+        }
+
       };
     };
 
@@ -53,6 +59,12 @@
       padding: 7.5%;
       font-size: 12px;
       line-height: 17px;
+
+      @include screen("small"){
+        padding: 4%;
+        font-size: 14.5px;
+        line-height: normal;
+      }
     }
 }
 

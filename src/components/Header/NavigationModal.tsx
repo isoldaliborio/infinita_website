@@ -19,17 +19,6 @@ interface NavigationModalProps {
 
 export default function NavigationModal({isOpen, closeModal, setLanguage}: NavigationModalProps){
 
-    function disableScrollOnModalLoad(){
-        document.body.style.overflow = "hidden";
-        return (): void => {
-            document.body.style.overflow = "unset";
-        };
-    };
-
-    useEffect(() => {
-        disableScrollOnModalLoad();
-    }, [isOpen]);
-
     if (!isOpen) return null;
 
     return (
