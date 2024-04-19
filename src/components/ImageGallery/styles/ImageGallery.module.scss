@@ -1,7 +1,7 @@
 .galleryItem {
-    width: auto;
-    height: 100%;
+    width: 100%;
     object-fit: cover;
     border: solid 1px black;
     cursor: pointer;
+    aspect-ratio: 1/1;
 }

@@ -118,17 +118,11 @@
 
                 @include screen("small") {
                     margin-top: 0;
-                    width: 60%;
+                    width: 50%;
                     align-self: center;
                     margin-bottom: 12.5%;
                 };
 
-                // .galleryItem {
-                //     width: auto;
-                //     height: 100%;
-                //     object-fit: cover;
-                //     border: solid 1px black;
-                // }
             }
         }
         
