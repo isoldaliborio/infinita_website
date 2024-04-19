@@ -29,8 +29,6 @@ const VideoEmbed: React.FC<VideoProps> = ({ type, videoUrl }) => {
     <div className={styles.videoResponsive}>
       <iframe
         className={styles.embeddedVideo}
-        width="565" //THIS IS OVERRIDDEN IN SCSS FILE
-        height="315"
         src={getEmbedUrl()}
         title={`${type} video player`}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

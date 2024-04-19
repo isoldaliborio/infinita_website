@@ -30,7 +30,7 @@ export default function ImageGallery({galleryImages}:ImageGalleryProps){
          <Carousel>
             <CarouselContent>
                 {galleryImages && galleryImages.map((item: any, index: any) => (
-                    item["1536w"] && <CarouselItem className="basis-1/3" key={index}>
+                    item["1536w"] && <CarouselItem className="sm:basis-1/3" key={index}>
                         <Image 
                             onClick={() => { lightboxRef.current?.openGallery(index);}}
                             className={styles.galleryItem} 

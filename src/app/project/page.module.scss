@@ -6,16 +6,33 @@
     flex-direction: column;
     margin-top: 4%;
     background-color: white;
+    border: 1px solid green;
+
+    @include screen("small") {
+        margin: 0;
+        padding: 8% 3.75% 3.75% 3.75%;
+    };
     
     .mainContet {
         padding-left: 15%;
         display: flex;
         justify-content:flex-start;
+        border: 1px solid red;
+
+        @include screen("small") {
+            flex-direction: column;
+            padding: 0
+        };
 
         .imageBox {
             width: $col-4-width; // Set width to 19.3vw
             position: relative;
             padding-top: 0.5%;
+
+            @include screen("small") {
+                width: 100%;
+                padding: 0;
+            };
 
             .image {
                 width: 100%; // Ensure the image fills its container
@@ -29,6 +46,16 @@
             font-weight: 400;
             font-style: normal;
             margin-left: 10%;
+            
+
+            @include screen("small") {
+                width: 100%;
+                margin: 0;
+                padding-top: 8%;
+                display: flex;
+                flex-direction: column;
+                // align-items: center;
+            };
         
             .titleTop{
                 display: flex;
@@ -36,7 +63,10 @@
                 flex-direction: row;
                 border-bottom: 1px solid black;
                 padding-bottom: 0.5%;
-           
+                
+                @include screen("small") {
+                    padding-bottom: 1%
+                };
 
                 .projectName {
                     font-family: "MuseoModerno";
@@ -48,6 +78,10 @@
                     font-size: 10px;
                     align-self: flex-end;
 
+                    @include screen("small") {
+                        font-size: 12px;
+                    };
+                
                 }  
             }
             .titleBottom{
@@ -56,21 +90,41 @@
                 flex-direction: row; 
                 font-size: 10px;
                 padding-top: 1%;
+
+                @include screen("small") {
+                    font-size: 12px;
+                    padding-top: 1.5%;
+                };
             }
 
             .descripition {
                 margin-top: 6%;
                 font-size: 12px;
+
+                @include screen("small") {
+                    margin-top: 8%;
+                };
             }
             .videoEmbed {
                 margin-top: 2%;
-                width: 100%;
+
+                @include screen("small") {
+                    margin: 12.5% 0;
+                };
             }
 
             .imageGalleryContainer {
                 width: 100%;
                 margin-top: 5%;
                 height: 20%;
+
+                @include screen("small") {
+                    margin-top: 0;
+                    border: 1px solid pink;
+                    width: 60%;
+                    align-self: center;
+                    margin-bottom: 12.5%;
+                };
 
                 // .galleryItem {
                 //     width: auto;
@@ -91,9 +145,10 @@
         padding-bottom: 7%;
         margin-right: 27.5%;
         margin-left: 15%;
+
+        @include screen("small") {
+            margin: 0;
+        };
     }
-    
-    
-    
 }
 
