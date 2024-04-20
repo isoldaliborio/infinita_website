@@ -1,18 +1,16 @@
 "use client";
 
 import styles from "./page.module.scss";
-import { LanguageContext } from "@/context/LanguageContext";
-import { useContext } from "react";
+import { useLanguageContext } from "@/context/LanguageContext";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
-import ContactForm from "@/components/ContactForm/ContactForm"
+import ContactForm from "@/components/ContactForm/ContactForm";
 
 export default function Contact() {
-
-  let language = useContext(LanguageContext);
+  const { language } = useLanguageContext();
 
   return (
     <>
-      <TitleBanner title='Contact' />
+      <TitleBanner title={language === "en" ? "contact" : "contato"} />
       <main className={styles.main}>
         <ContactForm />
         <div className={styles.description}>
@@ -27,7 +25,6 @@ export default function Contact() {
             <li><a href="https://www.facebook.com/infinitaproductions" target="_blank">Facebook </a></li>
             <li> | </li>
             <li><a href="https://twitter.com/i/flow/login?redirect_after_login=%2FInfinita_Prod" target="_blank"> x </a></li>
-            
           </ul>
         </div>
       </main>

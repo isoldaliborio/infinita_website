@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import styles from "./styles/Buttons.module.scss";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
+import { useLanguageContext } from "@/context/LanguageContext";
 
 
 export default function Buttons({ data, setItem, activeItem }: { data: any; setItem: any; activeItem: any; }) {
-  
+
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const buttonRef = useRef<HTMLDivElement>(null);
+  const { language } = useLanguageContext();
 
   const router = useRouter();
 
@@ -56,11 +58,11 @@ export default function Buttons({ data, setItem, activeItem }: { data: any; setI
           <div className={styles.index}>0{index + 1}</div>
           <span
             dangerouslySetInnerHTML={{
-              __html: item.post_title && item.post_title.length > maxChar && isSmallScreen
-                ? item.post_title.replace(new RegExp(`^(.{0,${Math.floor(item.post_title.length / 2)}}\\s+)`, 'g'), "$1<br>")
-                : item.post_title
+              __html: item[`post_title_${language}`] && item[`post_title_${language}`].length > maxChar && isSmallScreen
+                ? item[`post_title_${language}`].replace(new RegExp(`^(.{0,${Math.floor(item[`post_title_${language}`].length / 2)}}\\s+)`, 'g'), "$1<br>")
+                : item[`post_title_${language}`]
             }}
-            className={`${styles.title} ${item.post_title && item.post_title.length > maxChar ? styles.long_title : ""}`}
+            className={`${styles.title} ${item[`post_title_${language}`] && item[`post_title_${language}`].length > maxChar ? styles.long_title : ""}`}
           ></span>
           <span className={styles.category}> {item.category_names[0]}</span>
         </motion.div>
