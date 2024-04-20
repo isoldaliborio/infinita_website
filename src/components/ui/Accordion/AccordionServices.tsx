@@ -1,9 +1,6 @@
-'use client';
-
 import styles from './styles/AccordionServices.module.scss';
 import Image from 'next/image';
-import { LanguageContext } from "@/context/LanguageContext";
-import { useContext } from "react";
+import { useLanguageContext } from "@/context/LanguageContext";
 import * as React from "react";
 import {
   Accordion,
@@ -22,7 +19,7 @@ type ServicesAccordionProps = {
 
 const ServicesAccordion = ({ handleClick, activeItem, servicesData }: ServicesAccordionProps) => {
 
-  let language = useContext(LanguageContext);
+  const { language } = useLanguageContext();
 
   const accordionArray = [
     {
@@ -72,7 +69,7 @@ const ServicesAccordion = ({ handleClick, activeItem, servicesData }: ServicesAc
       },
       isMiddleItem: false
     },
-  ]
+  ];
 
   return <Accordion type="single" collapsible>
     {
@@ -80,7 +77,7 @@ const ServicesAccordion = ({ handleClick, activeItem, servicesData }: ServicesAc
         <AccordionItem key={index} onClick={() => handleClick(item.activeItemName)} className={`${styles.accordionItem} ${item.isMiddleItem ? styles.middleItem : ""}`} value={item.value}>
           <ModifiedAccordionTrigger className={styles.accordionTitle}>
             <div className={styles.accordionTitleText}>
-              {item.title[language]}
+              {item.title[language as keyof typeof item.title]}
               {activeItem === item.activeItemName
                 ? <MinusIcon className={styles.accordionTitleIcon} />
                 : <PlusIcon className={styles.accordionTitleIcon} />
@@ -89,7 +86,7 @@ const ServicesAccordion = ({ handleClick, activeItem, servicesData }: ServicesAc
             <Image className={styles.accordionTitleImage} src={item.imageUrl} alt={item.imageAlt} width={0} height={0} />
           </ModifiedAccordionTrigger>
           <AccordionContent className={styles.accordionContent}>
-            {item.textContent[language]}
+            {item.textContent[language as keyof typeof item.textContent]}
           </AccordionContent>
         </AccordionItem>
       ))

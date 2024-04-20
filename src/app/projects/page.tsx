@@ -1,22 +1,26 @@
 "use client";
 
 import styles from "./page.module.scss";
-import { LanguageContext } from "@/context/LanguageContext";
-import { useState, useContext, useEffect } from "react";
+import { useLanguageContext } from "@/context/LanguageContext";
+import { useState, useEffect } from "react";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import Masonry from "@/components/Masonry/Masonry";
 import Tabs from "@/components/Tabs/Tabs";
 import { getProjectsDataJson, processCategories } from "@/lib/processProjectsData";
+import { addLangParam } from "@/lib/utils";
 
 export default function Projects() {
-
   type currentFilterState = {
     category: string
   }
 
-  const [currentFilter, setCurrentFilter] = useState<currentFilterState>({ category: "all" })
-  const [projectsData, setProjectsData] = useState<any>(null)
-  const [categories, setCategories] = useState<any>(null)
+  const { language } = useLanguageContext();
+  const [currentFilter, setCurrentFilter] = useState<currentFilterState>({ category: "all" });
+  const [projectsData, setProjectsData] = useState<any>(null);
+  const [categories, setCategories] = useState<any>(null);
+
+  // Add lang=pt to url if not present
+  useEffect(() => addLangParam(language), [language]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,8 +30,6 @@ export default function Projects() {
     };
     fetchData();
   }, []);
-
-  let language = useContext(LanguageContext);
 
   return (
     <>

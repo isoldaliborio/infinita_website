@@ -1,6 +1,7 @@
+"use client";
+
 import styles from "./styles/MasonryItem.module.scss";
-import { LanguageContext } from "@/context/LanguageContext";
-import { useContext } from "react";
+import { useLanguageContext } from "@/context/LanguageContext";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,10 +11,9 @@ type MasonryItemProps = {
 }
 
 export default function MasonryItem({ index, item }: MasonryItemProps) {
+  const { language } = useLanguageContext();
 
-  let language = useContext(LanguageContext);
-
-  return item.image_in_list &&
+  return item.image_in_list && (
     <div key={index} className={`${styles.masonryItem} ${item.image_size === "horizontal" ? styles.horizontalPoster : ""} ${item.image_size === "vertical" ? styles.verticalPoster : ""}`}>
       <Image
         className={styles.image}
@@ -31,4 +31,5 @@ export default function MasonryItem({ index, item }: MasonryItemProps) {
         <div className={styles.gradient} />
       </Link>
     </div>
+  );
 }
