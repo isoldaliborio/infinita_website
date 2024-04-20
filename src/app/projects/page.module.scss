@@ -9,4 +9,12 @@
     background-color: white;
     padding: 5vh 10vw 5vh 15vw; 
     width: 100vw;
+    @include screen("medium") {
+      padding: 5vh 5vw 5vh 10vw; 
+    }
+  
+    @include screen("small") {  
+      flex-direction: column;
+      padding: 2vh 0vw 2vh 1.5vw; 
+    }
   };

@@ -10,7 +10,14 @@
     row-gap: 0.78vw;
     grid-auto-flow: dense; //allows grid items to be place out of order to fill open spaces
 
-    @include screen("small") {
-      grid-template-columns: repeat( 4, 14.1vw ); //temporary
+
+    @include screen("medium") {
+      grid-template-columns: repeat( 4, 18vw );
+      grid-auto-rows: 18vw;
+    }
+  
+    @include screen("small") {  
+      grid-template-columns: repeat( 2, 48vw );
+      grid-auto-rows: 40vw;
     }
 }
