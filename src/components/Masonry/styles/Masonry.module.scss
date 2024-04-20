@@ -18,6 +18,6 @@
   
     @include screen("small") {  
       grid-template-columns: repeat( 2, 48vw );
-      grid-auto-rows: 40vw;
+      grid-auto-rows: 48vw;
     }
 }
