@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "./styles/LanguageSwitch.module.scss";
 import { useEffect } from "react";
 import { useLanguageContext, LanguageContextType } from "@/context/LanguageContext";
@@ -12,14 +10,22 @@ export default function LanguageSwitch({ setLanguage }: LanguageSwitchProps) {
     const { language } = useLanguageContext();
 
     function changeLanguage(lang: LanguageContextType) {
-        setLanguage(lang);
+        // Check if the language is changing to "en"
+        const isSwitchingToEnglish = lang === "en";
 
-        const newUrl = new URL(window.location.href);
-        newUrl.searchParams.set('lang', lang);
-
-        if (window.location.search !== newUrl.search) {
+        // If switching to English, remove the "lang" param from the URL
+        if (isSwitchingToEnglish) {
+            const urlWithoutLangParam = window.location.href.replace(/[?&]lang=pt/, "");
+            window.history.pushState({}, '', urlWithoutLangParam);
+        } else {
+            // Otherwise, add/update the "lang" param in the URL
+            const newUrl = new URL(window.location.href);
+            newUrl.searchParams.set('lang', lang);
             window.history.pushState({}, '', newUrl.toString());
         }
+
+        // Set the language
+        setLanguage(lang);
     };
 
     useEffect(() => {

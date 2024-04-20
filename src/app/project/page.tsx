@@ -5,22 +5,26 @@ import Link from "next/link";
 import Image from "next/image";
 import VideoEmbed from "@/components/VideoEmbed/VideoEmbed";
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
-import { useLanguageContext, LanguageContextType } from '@/context/LanguageContext';
+import { useLanguageContext } from '@/context/LanguageContext';
 import { getProjectsDataJson, parseImageGallery } from "@/lib/processProjectsData";
+import { addLangParam } from "@/lib/utils";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ImageGallery from "@/components/ImageGallery/ImageGallery";
 
 export default function Project() {
 
-    const { language } = useLanguageContext();
+    const { language } = useLanguageContext();   
     const router = useRouter();
-
+    
     const [projectData, setProjectData] = useState<any>();
     const [galleryImages, setGalleryImages] = useState<any>();
-
+    
     const searchParams = useSearchParams();
     const search: any = searchParams.get("p")
+
+    // Add lang=pt to url if not present
+    useEffect(() => addLangParam(language), [language]);
 
     useEffect(() => {
         const fetchData = async () => {

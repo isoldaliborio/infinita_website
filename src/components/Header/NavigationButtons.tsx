@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./styles/NavigationButtons.module.scss";
 import { useLanguageContext } from "@/context/LanguageContext";
+import { removeTrailingSlash } from "@/lib/utils";
 
 type NavigationButtonProps = {
     closeModal: () => void;
@@ -15,31 +16,11 @@ export default function NavigationButtons({ closeModal }: NavigationButtonProps)
     const getPathname = removeTrailingSlash(usePathname());
 
     const navButtonArray = [
-        {
-            en: "HOME",
-            pt: "HOME",
-            href: "/"
-        },
-        {
-            en: "ABOUT",
-            pt: "SOBRE",
-            href: "/about/"
-        },
-        {
-            en: "PROJECTS",
-            pt: "PROJETOS",
-            href: "/projects/"
-        },
-        {
-            en: "SERVICES",
-            pt: "SERVIÇOS",
-            href: "/services/"
-        },
-        {
-            en: "CONTACT",
-            pt: "CONTATO",
-            href: "/contact/"
-        },
+        { en: "home", pt: "home", href: "/" },
+        { en: "about", pt: "sobre", href: "/about" },
+        { en: "projects", pt: "projetos", href: "/projects" },
+        { en: "services", pt: "serviços", href: "/services" },
+        { en: "contact", pt: "contato", href: "/contact" },
     ];
 
     return (
@@ -49,20 +30,14 @@ export default function NavigationButtons({ closeModal }: NavigationButtonProps)
                     onClick={closeModal}
                     href={item.href}
                     key={item.en}
-                    className={`${styles.navButton} ${getPathname === item.href ? styles.activeButton : ""}`}
+                    className={`${styles.navButton} ${checkActiveUrl(item, getPathname) ? styles.activeButton : ""}`}
                 >
-                    {getPathname === item.href ? (
-                        <div
-                            className={`${styles.line} ${styles.top}`}
-                        // layoutId="topLine"
-                        />
+                    {checkActiveUrl(item, getPathname) ? (
+                        <div className={`${styles.line} ${styles.top}`} />
                     ) : null}
                     {item[language]}
-                    {getPathname === item.href ? (
-                        <div
-                            className={`${styles.line} ${styles.bottom}`}
-                        // layoutId="bottomLine"
-                        />
+                    {checkActiveUrl(item, getPathname) ? (
+                        <div className={`${styles.line} ${styles.bottom}`} />
                     ) : null}
                 </Link>
             ))}
@@ -70,7 +45,15 @@ export default function NavigationButtons({ closeModal }: NavigationButtonProps)
     );
 };
 
-function removeTrailingSlash(str: string) {
-    // This regex matches a trailing slash and replaces it with an empty string
-    return str.replace(/\/$/, '');
+const checkActiveUrl = (item: any, getPathname: any) => {
+    // home
+    if (getPathname === "" && item.en === "home") {
+        return true;
+    }
+    // inner project
+    if (getPathname === "/project" && item.en === "projects") {
+        return true;
+    }
+    // all others
+    return getPathname.includes(item.en)
 }

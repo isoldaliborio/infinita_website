@@ -7,11 +7,15 @@ import { getServicesPageDataJson } from '@/lib/processServicesData';
 import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import LoadingScreen from "@/components/Loading/LoadingScreen";
 import { ServicesAccordion } from "@/components/ui/Accordion/AccordionServices";
+import { addLangParam } from "@/lib/utils";
 
 export default function Services() {
   const { language } = useLanguageContext();
   const [servicesData, setServicesData] = useState<any>();
   const [activeItem, setActiveItem] = useState<any>("");
+
+  // Add lang=pt to url if not present
+  useEffect(() => addLangParam(language), [language]);
 
   // Fetch data from API endpoint
   useEffect(() => {

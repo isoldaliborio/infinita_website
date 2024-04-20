@@ -7,15 +7,20 @@ import TitleBanner from "@/components/TitleBanner/TitleBanner";
 import Masonry from "@/components/Masonry/Masonry";
 import Tabs from "@/components/Tabs/Tabs";
 import { getProjectsDataJson, processCategories } from "@/lib/processProjectsData";
+import { addLangParam } from "@/lib/utils";
 
 export default function Projects() {
   type currentFilterState = {
     category: string
   }
 
+  const { language } = useLanguageContext();
   const [currentFilter, setCurrentFilter] = useState<currentFilterState>({ category: "all" });
   const [projectsData, setProjectsData] = useState<any>(null);
   const [categories, setCategories] = useState<any>(null);
+
+  // Add lang=pt to url if not present
+  useEffect(() => addLangParam(language), [language]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,8 +30,6 @@ export default function Projects() {
     };
     fetchData();
   }, []);
-
-  const { language } = useLanguageContext();
 
   return (
     <>

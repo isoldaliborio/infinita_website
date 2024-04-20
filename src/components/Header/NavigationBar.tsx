@@ -13,26 +13,25 @@ type NavigationBarProps = {
     setLanguage: React.Dispatch<React.SetStateAction<LanguageContextType>>;
 };
 
-export default function NavigationBar({setLanguage}:NavigationBarProps){
+export default function NavigationBar({ setLanguage }: NavigationBarProps) {
 
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
-    function closeModal(){
+    function closeModal() {
         document.body.style.overflow = "auto";
         setModalIsOpen(false);
     };
 
-    function disableScrollOnModalLoad(){
+    function disableScrollOnModalLoad() {
         document.body.style.overflow = "hidden";
     };
 
-    function enableScrollOnModalClose(){
-            document.body.style.overflow = "unset"
+    function enableScrollOnModalClose() {
+        document.body.style.overflow = "unset"
     }
 
     useEffect(() => {
-        console.log(modalIsOpen)
-        if(modalIsOpen){
+        if (modalIsOpen) {
             disableScrollOnModalLoad();
         } else {
             enableScrollOnModalClose();
@@ -41,17 +40,17 @@ export default function NavigationBar({setLanguage}:NavigationBarProps){
 
     return <>
         <section id={styles.buttonContainer}>
-            <NavigationButtons closeModal={closeModal}/>
-            <LanguageSwitch setLanguage = {setLanguage}/>
+            <NavigationButtons closeModal={closeModal} />
+            <LanguageSwitch setLanguage={setLanguage} />
         </section>
-        <Image 
-            className={styles.modalMenuButton} 
-            src={menuIcon} 
-            alt="hamburger menu button" 
-            onClick={() => setModalIsOpen(!modalIsOpen)} 
+        <Image
+            className={styles.modalMenuButton}
+            src={menuIcon}
+            alt="hamburger menu button"
+            onClick={() => setModalIsOpen(!modalIsOpen)}
         />
         {modalIsOpen && (
-            <NavigationModal 
+            <NavigationModal
                 isOpen={modalIsOpen}
                 closeModal={closeModal}
                 setLanguage={setLanguage}

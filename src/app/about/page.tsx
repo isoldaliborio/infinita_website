@@ -8,6 +8,7 @@ import Image from 'next/image';
 import TitleBanner from '@/components/TitleBanner/TitleBanner';
 import LoadingScreen from '@/components/Loading/LoadingScreen';
 import { AccordionAbout } from '@/components/ui/Accordion/AccordionAbout';
+import { addLangParam } from "@/lib/utils";
 
 export default function About() {
   const { language } = useLanguageContext();
@@ -16,7 +17,10 @@ export default function About() {
   const [imageUrl, setImageUrl] = useState<any>();
   const [activeItem, setActiveItem] = useState<any>('');
 
-  //handling click of accordion and setting active item for icon changes
+  // Add lang=pt to url if not present
+  useEffect(() => addLangParam(language), [language]);
+
+  // Handling click of accordion and setting active item for icon changes
   function handleClick(item: string) {
     setActiveItem((prevItem: any) => (prevItem === item ? '' : item));
   }
