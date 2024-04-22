@@ -1,0 +1,63 @@
+.popOverWrapper {
+
+  .categoryButton {
+    width: 97vw;
+    justify-content: left;
+    font-family: "MuseoModerno";
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border: 1px solid black;
+    border-top: 0;
+    border-radius: 0;
+    margin: 0 1.5vw;
+
+    &.hideButton {
+      display: none;
+    }
+  }
+}
+
+.popoverContent {
+  width: 97vw;
+  margin: 0 1.5vw;
+  justify-content: left;
+  background-color: white;
+  font-family: "MuseoModerno";
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: 1px solid black;
+  border-top: none;
+  border-radius: 0;
+  padding: 0;
+  // position: absolute;
+  // top: -3px;
+
+  .commandList {
+    .commandGroup {
+      padding-left: 0;
+      padding-right: 0;
+      padding: 0;
+    }
+
+    border-radius: 0;
+
+    .allItems {
+      border-bottom: 1px solid black;
+      border-radius: 0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    .activeItem {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+.popoverAnchor {
+  width: 0;
+}
