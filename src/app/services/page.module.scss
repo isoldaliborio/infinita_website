@@ -10,6 +10,11 @@
     padding: 5vh 0;
     width: 100vw;
 
+    @include screen("small") {
+      flex-direction: column;
+      padding: 8% 3.75% 3.75% 3.75%;
+    };
+
     .servicesText {
       width: $col-5-width;
       height:auto;
@@ -18,78 +23,27 @@
       font-weight: 400;
       font-style: normal;
       font-size: 12px;
-    }
+
+      @include screen("small") {
+        margin: 0;
+        width: 100%;
+        font-size: 14px;
+      }
+    };
 
     .accordionContainer{
       width: $col-6-width;
       height: auto;
       margin-left: 7vw;
       padding: none;
-      
-      .accordionItem {
-        border: 1px solid black;
 
-        .accordionTitle {
-          background-color: $infinita-black;
-          color: white;
-          width:100%;
-          height: auto;
-          position: relative;
-          padding: none;
-          box-sizing: border-box;
-  
-          .accordionTitleText {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            font-size: 16px; // FIXME: needs to be made responsive for smaller screens
-            font-family: "MuseoModerno";
-            z-index: 2;
-            width:100%;
-            padding-left: 3.5%;
-            padding-right: 2%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 31%;
-            background: rgba(0, 0, 0, 0.7);
-
-            .accordionTitleIcon {
-              height:1.5rem;
-              width: 1.5rem;
-              flex-shrink:0;
-              position: absolute;
-              right: 0;
-              margin-right: 1rem;
-              z-index: 3;
-              color: white;
-            };
-          };
-  
-          .accordionTitleImage {
-            width:100%;
-            height: auto;
-            z-index: 1;
-            padding: none;
-          };
-        };
-
-        .accordionContent {
-          font-family: "Poppins";
-          padding: 7.5%;
-          font-size: 12px;
-          line-height: 17px;
-        }
+      @include screen("small") {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 8%;
+        margin-bottom: 5%;
       };
-
-      .middleItem { //applied to middle accordion item so that borders dont double up.
-        border-top: none;
-        border-bottom: none;
-        border-left: 1px solid black;
-        border-right: 1px solid black;
-      }
-    }
-
-  }
+    };
+  };
 
   

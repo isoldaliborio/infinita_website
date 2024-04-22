@@ -23,8 +23,12 @@ function get_homepage_data($data, $post)
         }
 
         /* Post title */
-        $post_title = $acf_fields['work_id_' . $i]->post_title;
-        $home_item['post_title'] = $post_title;
+        $home_item['post_title_en'] = $acf_fields['work_id_' . $i]->post_title;
+        $home_item['post_title_pt'] = $acf_fields['work_id_' . $i]->title_pt;
+        
+        /* Slug */
+        $slug = $acf_fields['work_id_' . $i]->post_name;
+        $home_item['slug'] = $slug;
 
         /* Category names */
         $category_names = array();

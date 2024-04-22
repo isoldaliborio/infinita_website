@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
+    optimizeFonts: false,
     trailingSlash: true,
-    optimizeFonts: true,
     images: {
         unoptimized: true,
         remotePatterns: [

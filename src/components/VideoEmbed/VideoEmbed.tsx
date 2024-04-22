@@ -7,7 +7,7 @@ export interface VideoProps {
   videoUrl: string;
 }
 
-const VideoEmbed: React.FC<VideoProps> = ({ type, videoUrl, src }) => {
+const VideoEmbed: React.FC<VideoProps> = ({ type, videoUrl }) => {
   const getVideoIdFromUrl = (url: string) => {
     const urlParts = url.split('/');
     return urlParts[urlParts.length - 1];

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 import './globals.scss'
 import "./globals.css";
-import  Main  from '@/components/Main/Main'
+import Main from '@/components/Main/Main'
 
 export const metadata: Metadata = {
   title: 'Infinita Productions',
@@ -16,6 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500;600&display=swap" rel="stylesheet" />
+      </head>
       <body>
         <Main>
           {children}

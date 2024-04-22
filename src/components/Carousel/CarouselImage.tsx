@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import styles from "./styles/Carousel.module.scss";
 import Image from "next/image";
 
-export default function CarouselImage({activeItem, isVisible, isLoading}:any){
+export default function CarouselImage({activeItem, isVisible}: any){
 
   return <AnimatePresence>
     { isVisible && (
@@ -12,11 +12,9 @@ export default function CarouselImage({activeItem, isVisible, isLoading}:any){
         exit={{opacity:1}}
         transition={{duration:3}} 
         className={styles.imageContainer} 
-        id={activeItem}
       >
         <Image
-          id={styles.imageSpace}
-          src={activeItem?.img_url || "/images/blank.png"}
+          src={activeItem.img_url || "/images/blank.png"}
           alt="img"
           style={{ objectFit: "cover" }}
           fill
