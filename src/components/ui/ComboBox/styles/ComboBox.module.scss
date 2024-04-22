@@ -4,7 +4,7 @@
     width: 97vw;
     justify-content: left;
     font-family: "MuseoModerno";
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 500;
     text-transform: uppercase;
     border: 1px solid black;
@@ -28,36 +28,27 @@
   font-weight: 500;
   text-transform: uppercase;
   border: 1px solid black;
-  border-top: none;
-  border-radius: 0;
+  border-top: 0.1px solid black;
   padding: 0;
-  // position: absolute;
-  // top: -3px;
+  position: relative;
+  top: -4px;
 
   .commandList {
     .commandGroup {
-      padding-left: 0;
-      padding-right: 0;
       padding: 0;
     }
 
-    border-radius: 0;
-
     .allItems {
       border-bottom: 1px solid black;
-      border-radius: 0;
 
       &:last-child {
         border-bottom: none;
       }
     }
+
     .activeItem {
       background-color: black;
       color: white;
     }
   }
-}
-
-.popoverAnchor {
-  width: 0;
 }

@@ -33,14 +33,12 @@ export function ComboboxDemo({ categories, currentFilter, setCurrentFilter }: an
     return (
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverAnchor className={styles.popoverAnchor} />
-
             <div className={styles.popOverWrapper}>
                 <PopoverTrigger asChild={false} className={styles.popOverTrigger}>
                     <Button
                         variant="outline"
                         role="combobox"
                         aria-expanded={open}
-                        // className="w-[200px] justify-between" 
                         className={`${styles.categoryButton} ${open ? styles.hideButton : ""}`}
                     >
                         {currentFilter
@@ -51,7 +49,6 @@ export function ComboboxDemo({ categories, currentFilter, setCurrentFilter }: an
                 </PopoverTrigger>
                 <PopoverContent
                     className={styles.popoverContent}
-                // className= "w-[200px] p-0"
                 >
                     <Command className={styles.command} >
                         <CommandEmpty>No framework found.</CommandEmpty>
