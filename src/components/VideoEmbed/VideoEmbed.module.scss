@@ -1,8 +1,15 @@
 @use "../../../src/app/variables" as *;
 
 .videoResponsive {
+    width: 100%;
+    position:relative;
+    padding-top:56.25%; //do not change! this very specific padding ensures correct aspect ratio for the iframe.
 
     .embeddedVideo{
-        width: 100%;
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%
     }
 }
