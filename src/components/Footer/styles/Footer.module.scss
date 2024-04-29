@@ -7,6 +7,10 @@
     flex-direction: row;
     justify-content:space-between;
     padding-top: 1%;
+    background-image: url('/texture_white_gray_big.jpg');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: bottom;
 
     @media all and (orientation:portrait) {
         flex-direction: column-reverse;
