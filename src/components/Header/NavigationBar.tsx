@@ -27,7 +27,7 @@ export default function NavigationBar({ setLanguage }: NavigationBarProps) {
     };
 
     function enableScrollOnModalClose() {
-        document.body.style.overflow = "unset"
+        document.body.removeAttribute("style");
     }
 
     useEffect(() => {
