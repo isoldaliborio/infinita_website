@@ -61,6 +61,7 @@ export default function Carousel() {
             showStatus={false}
             stopOnHover={false}
             autoPlay={true}
+            swipeable={false}
             interval={5000}
             onChange={slideHandler}
             selectedItem={activeItem}
