@@ -2,12 +2,15 @@
 
 .titleBanner {
     height: 7%;
-    width: 100vw; //changed from 100% to stop scrollbar pushing the element when it appears
+    /* changed from 100% to stop scrollbar pushing the element when it appears */
+    width: 100vw;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+
+   
     
     .title {
         height: 100%;
@@ -15,21 +18,22 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-left: 15%;
+        padding: 2% 15%;
         font-family: 'MuseoModerno';
         color: white;
         font-weight: 600;
         -webkit-text-stroke: 1px black;
+
         @include screen("medium") {
-            padding-left: 7%;
-            font-size: 4vw;
+            padding: 2% 7%;
+            font-size: 36px;
           }
         
         @include screen("small") {
-            flex-direction: column;
+            // flex-direction: column;
             padding-left: 3.75%;
-            font-size: 8vw;
-            -webkit-text-stroke: 1.5px black;
+            font-size: 22px;
+            -webkit-text-stroke: 0.8px black
 
           }
     }

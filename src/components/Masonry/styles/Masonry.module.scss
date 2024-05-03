@@ -12,8 +12,10 @@
 
 
     @include screen("medium") {
-      grid-template-columns: repeat( 4, 18vw );
-      grid-auto-rows: 18vw;
+      grid-template-columns: repeat( 4, 20.7vw );
+      grid-auto-rows: 20.7vw;
+      column-gap: 0.78vw;
+      row-gap: 0.78vw
     }
   
     @include screen("small") {  
