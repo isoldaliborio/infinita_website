@@ -18,6 +18,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/Carousel/carousel"
 
+
 type ImageGalleryProps = {
     galleryImages: any
 }
@@ -27,7 +28,11 @@ export default function ImageGallery({galleryImages}:ImageGalleryProps){
     const lightboxRef = useRef<LightGallery | null>(null)
 
     return <>
-         <Carousel>
+        <Carousel
+            opts={{
+                loop: true,
+            }}
+        >
             <CarouselContent>
                 {galleryImages && galleryImages.map((item: any, index: any) => (
                     item["1536w"] && <CarouselItem className="sm:basis-1/3" key={index}>
