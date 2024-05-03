@@ -46,8 +46,8 @@ export default function Project() {
         <>
             <TitleBanner title={language === "en" ? "project" : "projeto"} />
             {projectData && (
-                <div className={styles.allContent}>
-                    <div className={styles.mainContet}>
+                <div className={styles.main}>
+                    <div className={styles.mainContent}>
                         <div className={styles.imageBox}>
                             {projectData.featured_image && (
                                 <Image
