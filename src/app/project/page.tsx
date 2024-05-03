@@ -78,11 +78,11 @@ export default function Project() {
                                     <VideoEmbed type="vimeo" videoUrl={projectData.video_en} />
                                 </section>
                             )}
-                            {galleryImages && (
+                            {galleryImages.length ? (
                                 <section className={styles.imageGalleryContainer}>
                                     <ImageGallery galleryImages={galleryImages} />
                                 </section>
-                            )}
+                            ) : null}
                         </section>
                     </div>
                     <Link href="/projects" className={styles.back}> ← Back to Projects</Link>
