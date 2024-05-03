@@ -7,8 +7,13 @@
     align-items: flex-start;
     min-height: 63%; //because title banner is 7%, and with header and footer, rest of content is 70% of screen.
     background-color: white;
-    padding: 5vh 0;
-    width: 100vw;
+    padding: 3% 15% 2% 15%;
+    width: 100vw;  
+
+    @include screen("medium") {
+      padding: 3% 7% 2% 7%;
+      justify-content: space-between;
+    }
 
     @include screen("small") {
       flex-direction: column;
@@ -18,11 +23,15 @@
     .servicesText {
       width: $col-5-width;
       height:auto;
-      margin-left: 15vw;
+      // margin-left: 15vw;
       font-family: 'Poppins', sans-serif;
       font-weight: 400;
       font-style: normal;
       font-size: 12px;
+
+      @include screen("medium") {
+        width: $col-7-width;
+      }
 
       @include screen("small") {
         margin: 0;
@@ -36,6 +45,11 @@
       height: auto;
       margin-left: 7vw;
       padding: none;
+
+      @include screen("medium") {
+        width: $col-7-width;
+        margin-left: 0;
+      }
 
       @include screen("small") {
         width: 100%;
