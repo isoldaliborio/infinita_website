@@ -9,6 +9,7 @@ import { getHomePageDataJson, orderImages } from "@/lib/processHomePageData";
 import { Carousel as ResponsiveCarousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.css"
 import "./styles/react-responsive-carousel-custom.css"
+import LoadingScreen from "../Loading/LoadingScreen";
 
 export default function Carousel() {
 
@@ -40,7 +41,7 @@ export default function Carousel() {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingScreen/>;
   }
 
   return (
