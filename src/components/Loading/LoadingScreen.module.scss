@@ -1,8 +1,10 @@
+@use "../../app/variables" as *;
+
 #loadingScreen{
 
     z-index:100;
     width: 100vw;
-    height: 100%;
+    height: 63vh;
     background-color: white;
     display: flex;
     justify-content:center;
@@ -15,9 +17,16 @@
         justify-self: center;
         align-self: center;
         opacity:15%;
+
+        @include screen("small"){
+            width: 90vw
+        }
     }
 
     #loadingText{
+        position:absolute;
+        justify-self: center;
+        align-self: center;
         color: black;
         font-family: 'MuseoModerno';
         font-size: 2vw;
@@ -36,6 +45,10 @@
             100% {
                 opacity:100%;
             }
+        }
+
+        @include screen("small"){
+            font-size: 24px;
         }
     }
 }

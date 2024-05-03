@@ -11,6 +11,7 @@ import { addLangParam } from "@/lib/utils";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ImageGallery from "@/components/ImageGallery/ImageGallery";
+import LoadingScreen from "@/components/Loading/LoadingScreen";
 
 export default function Project() {
 
@@ -45,49 +46,53 @@ export default function Project() {
     return (
         <>
             <TitleBanner title={language === "en" ? "project" : "projeto"} />
-            {projectData && (
-                <div className={styles.main}>
-                    <div className={styles.mainContent}>
-                        <div className={styles.imageBox}>
-                            {projectData.featured_image && (
-                                <Image
-                                    className={styles.image}
-                                    width="0" //THIS IS OVERRIDDEN IN SCSS FILE
-                                    height="0"
-                                    src={projectData.featured_image}
-                                    alt=""
-                                    priority
-                                />
-                            )}
+            {!projectData ? (
+                <LoadingScreen />
+                ) : 
+                projectData && (
+                    <div className={styles.main}>
+                        <div className={styles.mainContent}>
+                            <div className={styles.imageBox}>
+                                {projectData.featured_image && (
+                                    <Image
+                                        className={styles.image}
+                                        width="0" //THIS IS OVERRIDDEN IN SCSS FILE
+                                        height="0"
+                                        src={projectData.featured_image}
+                                        alt=""
+                                        priority
+                                    />
+                                )}
+                            </div>
+
+                            <section className={styles.rightContent}>
+                                <section className={styles.titleTop}>
+                                    <p className={styles.projectName} dangerouslySetInnerHTML={{ __html: projectData[`title_${language}`].toUpperCase() }} />
+                                    <p className={styles.category}> {projectData.categories[0].toUpperCase()}</p>
+                                </section>
+                                <section className={styles.titleBottom}>
+                                    <p dangerouslySetInnerHTML={{ __html: projectData[`country_${language}`].toUpperCase() }} />
+                                    <p>{projectData.year}</p>
+                                </section>
+                                <section className={styles.descripition} dangerouslySetInnerHTML={{ __html: projectData[`description_${language}`] }}>
+                                </section>
+
+                                {projectData.video_en && (
+                                    <section className={styles.videoEmbed}>
+                                        <VideoEmbed type="vimeo" videoUrl={projectData.video_en} />
+                                    </section>
+                                )}
+                                {galleryImages.length ? (
+                                    <section className={styles.imageGalleryContainer}>
+                                        <ImageGallery galleryImages={galleryImages} />
+                                    </section>
+                                ) : null}
+                            </section>
                         </div>
-
-                        <section className={styles.rightContent}>
-                            <section className={styles.titleTop}>
-                                <p className={styles.projectName} dangerouslySetInnerHTML={{ __html: projectData[`title_${language}`].toUpperCase() }} />
-                                <p className={styles.category}> {projectData.categories[0].toUpperCase()}</p>
-                            </section>
-                            <section className={styles.titleBottom}>
-                                <p dangerouslySetInnerHTML={{ __html: projectData[`country_${language}`].toUpperCase() }} />
-                                <p>{projectData.year}</p>
-                            </section>
-                            <section className={styles.descripition} dangerouslySetInnerHTML={{ __html: projectData[`description_${language}`] }}>
-                            </section>
-
-                            {projectData.video_en && (
-                                <section className={styles.videoEmbed}>
-                                    <VideoEmbed type="vimeo" videoUrl={projectData.video_en} />
-                                </section>
-                            )}
-                            {galleryImages.length ? (
-                                <section className={styles.imageGalleryContainer}>
-                                    <ImageGallery galleryImages={galleryImages} />
-                                </section>
-                            ) : null}
-                        </section>
+                        <Link href="/projects" className={styles.back}> ← Back to Projects</Link>
                     </div>
-                    <Link href="/projects" className={styles.back}> ← Back to Projects</Link>
-                </div>
-            )}
+                )
+            }
         </>
     );
 }
