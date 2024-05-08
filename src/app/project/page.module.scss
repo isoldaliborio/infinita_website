@@ -125,6 +125,10 @@
                 @include screen("small") {
                     margin-top: 8%;
                 };
+
+                p {
+                    margin-bottom: 7%;
+                }
             }
             .videoEmbed {
                 margin-top: 2%;
