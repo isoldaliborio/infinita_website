@@ -27,6 +27,7 @@ type ImageGalleryProps = {
 export default function ImageGallery({galleryImages}:ImageGalleryProps){
 
     const lightboxRef = useRef<LightGallery | null>(null)
+    console.log(galleryImages)
 
     return <>
         <Carousel
@@ -63,7 +64,7 @@ export default function ImageGallery({galleryImages}:ImageGalleryProps){
             dynamic
             dynamicEl={galleryImages.map((item:any) => ({
                 src: findClosestImageSize(item, 1536) , 
-                thumb: findClosestImageSize(item, 1536)
+                thumb: findClosestImageSize(item, 300)
             }))}
         />
     </>
