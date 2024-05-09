@@ -100,18 +100,8 @@ export const findClosestImageSize = function(item, desiredSize) {
     let sortedSizes = Array.from(sizes).sort((a, b) => a - b);
 
     // Find the closest size that is greater than or equal to the desired size
-    let foundIndex = sortedSizes.findIndex(size => size >= desiredSize);
+    let closestSize = sortedSizes.find(size => size >= desiredSize);
 
-    // Check if we found a size and if it's a valid key in the item object
-    while (foundIndex >= 0) {
-        let potentialKey = `${sortedSizes[foundIndex]}w`;
-        if (item[potentialKey]) {
-            return item[potentialKey];
-        }
-        // If the key does not exist, decrement the index to try the next lower size
-        foundIndex--;
-    }
-
-    // Return undefined if no suitable size is found
-    return undefined;
+    // Return the closest size with 'w' appended or undefined if no suitable size is found
+    return closestSize ? item[`${closestSize}w`] : undefined;
 }
