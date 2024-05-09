@@ -9,6 +9,7 @@ import LightGalleryComponent from "lightgallery/react";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-thumbnail.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
+import { findClosestImageSize } from "@/lib/processProjectsData";
 
 import {
     Carousel,
@@ -35,12 +36,12 @@ export default function ImageGallery({galleryImages}:ImageGalleryProps){
         >
             <CarouselContent>
                 {galleryImages && galleryImages.map((item: any, index: any) => (
-                    item["1536w"] && <CarouselItem className="sm:basis-1/3" key={index}>
+                    findClosestImageSize(item, 1536) && <CarouselItem className="sm:basis-1/3" key={index}>
                         <Image 
                             onClick={() => { lightboxRef.current?.openGallery(index);}}
                             className={styles.galleryItem} 
                             alt="" 
-                            src={item["1536w"]} 
+                            src={findClosestImageSize(item, 1536)} 
                             width="0" 
                             height="0" 
                         />
@@ -61,8 +62,8 @@ export default function ImageGallery({galleryImages}:ImageGalleryProps){
             plugins={[lgThumbnail]}
             dynamic
             dynamicEl={galleryImages.map((item:any) => ({
-                src: item["1536w"] , 
-                thumb: item["300w"]
+                src: findClosestImageSize(item, 1536) , 
+                thumb: findClosestImageSize(item, 1536)
             }))}
         />
     </>
