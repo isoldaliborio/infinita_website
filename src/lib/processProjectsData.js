@@ -84,10 +84,8 @@ export const parseImageGallery = function (data) {
 }
 
 export const findClosestImageSize = function(item, desiredSize) {
-    // Create a set to hold unique sizes
     let sizes = new Set();
 
-    // Loop through each item to extract all keys
     Object.keys(item).forEach(key => {
         if (key.endsWith('w')) {
             // Remove the 'w' and convert to integer
@@ -96,16 +94,13 @@ export const findClosestImageSize = function(item, desiredSize) {
         }
     });
 
-    // Convert the set back to an array and sort it
     let sortedSizes = Array.from(sizes).sort((a, b) => a - b);
 
     // Find the closest size to the desired size
     let closestSize = sortedSizes.find(size => size >= desiredSize);
-
     if(!closestSize){
         closestSize = sortedSizes.find(size => size <= desiredSize);
     }
 
-    // Return the closest size with 'w' appended or undefined if no suitable size is found
     return closestSize ? item[`${closestSize}w`] : undefined;
 }
