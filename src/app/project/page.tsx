@@ -79,7 +79,7 @@ export default function Project() {
 
                                 {projectData.video_en && (
                                     <section className={styles.videoEmbed}>
-                                        <VideoEmbed type="vimeo" videoUrl={projectData.video_en} />
+                                        <VideoEmbed type={projectData.video_en.includes("vimeo") ? "vimeo" : "youtube"} videoUrl={projectData.video_en} />
                                     </section>
                                 )}
                                 {galleryImages.length ? (
