@@ -8,9 +8,19 @@ export interface VideoProps {
 }
 
 const VideoEmbed: React.FC<VideoProps> = ({ type, videoUrl }) => {
+
   const getVideoIdFromUrl = (url: string) => {
-    const urlParts = url.split('/');
-    return urlParts[urlParts.length - 1];
+    let videoId = '';
+    if (type === 'youtube') {
+      const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&\n?#]+)/);
+      if (match) {
+        videoId = match[1];
+      }
+    } else if (type === 'vimeo') {
+      const urlParts = url.split('/');
+      videoId = urlParts[urlParts.length - 1];
+    }
+    return videoId;
   };
 
   const getEmbedUrl = () => {
