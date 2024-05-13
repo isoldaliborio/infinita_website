@@ -16,6 +16,7 @@ type MasonryItemProps = {
 export default function MasonryItem({ index, item }: MasonryItemProps) {
   const { language } = useLanguageContext();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isMouseEnter, setIsMouseEnter] = useState(false)
   const router = useRouter();
 
   const checkScreenSize = () => {
@@ -29,12 +30,25 @@ export default function MasonryItem({ index, item }: MasonryItemProps) {
   }, []);
 
   const goToProject = (item: any) => router.push(`/project/?p=${item.slug}`);
+  const mouseEnter = () => {
+    setIsMouseEnter(true)
+  };
+
+  const mouseOut = () => {
+    setIsMouseEnter(false)
+  };
 
   return item.image_in_list && (
-    <div key={index} className={`${styles.masonryItem} ${item.image_size === "horizontal" ? styles.horizontalPoster : ""} ${item.image_size === "vertical" ? styles.verticalPoster : ""}`}>
+    <div 
+      key={index} 
+      className={`${styles.masonryItem} ${item.image_size === "horizontal" ? styles.horizontalPoster : ""} ${item.image_size === "vertical" ? styles.verticalPoster : ""}`}
+      onMouseEnter={mouseEnter}
+      onMouseLeave={mouseOut}
+
+      >
       <Image
         onClick={() => goToProject(item)}
-        className={styles.image}
+        className={`${styles.image} ${isMouseEnter === true ? styles.grayscale : ""} `}
         src={item.image_in_list[0]}
         alt={item[`title_${language}`] || ""}
         fill

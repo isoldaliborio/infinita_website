@@ -10,7 +10,13 @@
       top:0;
       height:100%;
       width: 100%;
+
     };
+    .grayscale{
+      filter: grayscale(80%) brightness(120%);
+
+    }
+
 
     .imageOverlay {
       color: white;
@@ -41,6 +47,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        z-index: 11;
 
         .overlayLine {
           height: 1px;
@@ -56,7 +63,7 @@
         top:0;
         left:0;
         background: linear-gradient(#ac208e, #00b5f1);
-        mix-blend-mode: color;
+        mix-blend-mode: multiply;
       };
     };
     
