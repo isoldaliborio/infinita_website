@@ -50,36 +50,9 @@ Infinita Website serves as a portfolio platform for a company deeply involved in
    - Optimize image galleries for fast loading times.
    - Minimize server response time by leveraging existing infrastructure.
 
-## ERD Diagram
+## Architecture Diagram
 
-The ERD diagram illustrates the database schema for the Infinita website, depicting the relationships between different entities such as projects, categories, services, and locations.
-
-## Prototype Diagram
-
-The prototype diagram showcases the layout and design of the Infinita website, including the placement of various elements such as navigation menus, project grids, service descriptions, and contact forms.
-
-## Roadmap
-
-**February:**
-- Requirement gathering and analysis.
-- Design prototyping.
-- Initial setup of development environment.
-
-**March:**
-- Front-end development (HTML, CSS, JavaScript).
-- Integration with WordPress CMS.
-- Implementation of basic site functionality (Homepage, About, Contact).
-
-**April:**
-- Development of dynamic features (Projects, Services).
-- Language localization implementation.
-- Testing and debugging phase.
-
-**May:**
-- Final refinements based on feedback.
-- Deployment to production environment.
-- Client training for content management.
-- Project handover and documentation.
+![Architecture Diagram](documentation/architecture_diagram_infinita.png)
 
 ## Tools and Libraries
 
@@ -89,7 +62,16 @@ The prototype diagram showcases the layout and design of the Infinita website, i
 4. **Tailwind CSS and shad/cn:** Libraries for UI component styling and optimization.
 5. **SQL:** Database management system for storing and retrieving site data.
 6. **WordPress CMS:** Content management system for easy content updates.
-7. **GitLab:** Version control and project management tool for collaboration and issue tracking.
+7. **GitHub:** Version control and project management tool for collaboration and issue tracking.
+
+## Management
+
+**Agile Methodology:**
+- We adopted Agile methodologies for efficient task management, fostering adaptability and collaboration. By breaking tasks into smaller iterations, known as epics and issues, we ensured flexibility in responding to changes and delivering value incrementally.
+
+**Jira Integration:**
+- We leveraged Jira as our primary project management tool, facilitating the tracking of tasks, user stories, and sprints. With Jira, we organized our workflow seamlessly, allowing us to visualize progress, manage priorities, and enhance communication within the team.
+
 
 ## Test
 
