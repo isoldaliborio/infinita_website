@@ -57,11 +57,11 @@ Infinita Website serves as a portfolio platform for a company deeply involved in
 ## Tools and Libraries
 
 1. **Typescript, JavaScript, PHP:** Primary programming languages for front-end and back-end development.
-2. **SCSS:** Used for styling to enhance maintainability and reusability.
-3. **React Native, NextJS:** Frameworks for building dynamic and responsive user interfaces.
-4. **Tailwind CSS and shad/cn:** Libraries for UI component styling and optimization.
-5. **SQL:** Database management system for storing and retrieving site data.
-6. **WordPress CMS:** Content management system for easy content updates.
+2. **SASS, Tailwind:** Used for styling to enhance maintainability and reusability of CSS code.
+3. **React, NextJS:** Frameworks for building dynamic and responsive user interfaces.
+4. **shad/cn:** Libraries for UI component styling and optimization.
+5. **MySQL:** Database management system for storing and retrieving site data.
+6. **WordPress:** Content management system for easy content updates.
 7. **GitHub:** Version control and project management tool for collaboration and issue tracking.
 
 ## Management
@@ -73,19 +73,9 @@ Infinita Website serves as a portfolio platform for a company deeply involved in
 - We leveraged Jira as our primary project management tool, facilitating the tracking of tasks, user stories, and sprints. With Jira, we organized our workflow seamlessly, allowing us to visualize progress, manage priorities, and enhance communication within the team.
 
 
-## Test
-
-- Unit tests for individual components.
-- Integration tests for end-to-end functionality.
-- Cross-browser compatibility testing.
-- Mobile responsiveness testing using inspector. 
-- Localization testing for language support.
-- Form validation testing.
-
 ## Limitations
 
 1. **Content Update Frequency:** Reliance on client updates may result in delays in showcasing new projects.
 2. **Performance Dependency:** Performance may vary based on the existing server infrastructure.
 3. **Localization Constraints:** Limited language support beyond Portuguese and English.
 4. **Security Risks:** Vulnerabilities associated with WordPress plugins and third-party integrations.
-
