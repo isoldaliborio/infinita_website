@@ -8,6 +8,18 @@
     min-height: 63%; //because title banner is 7%, and with header and footer, rest of content is 70% of screen.
     width: 100vw;
     background-color: white;
+
+    @include screen("medium") {
+      padding: 3% 7% 2% 7%;
+    };
+
+    @include screen("small") {
+        margin: 0;
+        padding: 8% 3.75% 3.75% 3.75%;
+        flex-direction: column;
+        // height: unset;
+    };
+
   }
   
   .description {
@@ -22,11 +34,13 @@
 
     @include screen("medium") {
       width: $col-7-width;
-    }
+    };
 
     @include screen("small") {
       margin: 0;
       width: 100%;
       font-size: 14px;
+      min-height: 0;
+      margin-bottom: 10%;
     }
   }
