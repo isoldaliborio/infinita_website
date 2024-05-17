@@ -21,6 +21,8 @@ const ServicesAccordion = ({ handleClick, activeItem, servicesData }: ServicesAc
 
   const { language } = useLanguageContext();
 
+  console.log(servicesData)
+
   const accordionArray = [
     {
       activeItemName: "Brazil",
@@ -29,8 +31,8 @@ const ServicesAccordion = ({ handleClick, activeItem, servicesData }: ServicesAc
         en: "BRAZIL",
         pt: "BRASIL"
       },
-      imageUrl: "https://infinitaproducoes.com/wordpress/wp-content/uploads/2024/03/img_Services_Brazil.jpg",
-      imageAlt: "the city of Rio de Janeiro",
+      imageUrl: servicesData.brazil_image,
+      imageAlt: "the city of Salvador",
       textContent: {
         en: servicesData.brazil_service_text_en,
         pt: servicesData.brazil_service_text_pt
@@ -45,7 +47,7 @@ const ServicesAccordion = ({ handleClick, activeItem, servicesData }: ServicesAc
         en: "UNITED KINGDOM",
         pt: "REINO UNIDO"
       },
-      imageUrl: "https://infinitaproducoes.com/wordpress/wp-content/uploads/2024/03/img_Services_UK.jpg",
+      imageUrl: servicesData.uk_image,
       imageAlt: "the Houses of Parliament and Big Ben in London",
       textContent: {
         en: servicesData.uk_service_text_en,
@@ -61,7 +63,7 @@ const ServicesAccordion = ({ handleClick, activeItem, servicesData }: ServicesAc
         en: "EUROPE",
         pt: "EUROPA"
       },
-      imageUrl: "https://infinitaproducoes.com/wordpress/wp-content/uploads/2024/03/img_Services_Europe.jpg",
+      imageUrl: servicesData.europe_image,
       imageAlt: "a city in Europe",
       textContent: {
         en: servicesData.europe_service_text_en,
