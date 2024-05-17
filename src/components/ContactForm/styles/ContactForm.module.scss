@@ -1,76 +1,74 @@
-@use '../../../app/variables' as *;
+@use "../../../app/variables" as *;
 
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: $col-6-width;
 
-    @include screen("medium") {
-        width: 40%;
-      };
+  @include screen("medium") {
+    width: $col-7-width;
+  }
+
+  @include screen("small") {
+    width: 100%;
+  }
+
+  .input {
+    border: 1px solid black;
+    // margin: 8px;
+    margin-bottom: 16px;
+    // margin-left: 0;
+    height: 4.5vh;
+    padding: 14px;
+    padding-left: 22px;
+    font-family: "Poppins";
+
+    &::placeholder {
+      font-size: 14px;
+      font-family: "MuseoModerno";
+      font-weight: 600;
+      color: black;
+      // padding: 18px;
+      text-transform: uppercase;
+
+      @include screen("small") {
+        font-size: 16px;
+      }
+    }
 
     @include screen("small") {
-        width: 100%;
+      padding-left: 16px;
+    }
+  }
+
+  .message {
+    height: 20vh;
+
+    &::placeholder {
+      text-align: top;
+    }
+  }
+
+  .submitButton {
+    background-color: black;
+    color: white;
+    font-family: "MuseoModerno";
+    font-weight: 600;
+    font-size: 12px;
+    margin: 8px;
+    margin-left: 0;
+    height: 4.5vh;
+    text-transform: uppercase;
+
+    @include screen("medium") {
+      width: 15vw;
+      height: 5vw;
     }
 
-    .input {
-        border: 1px solid black;
-        // margin: 8px;
-        margin-bottom: 16px;
-        // margin-left: 0;
-        height: 4.5vh;
-        padding: 14px;
-        padding-left: 22px;
-        font-family: "Poppins";
-
-        &::placeholder {
-            font-size: 14px;
-            font-family: "MuseoModerno";
-            font-weight: 600;
-            color: black;
-            // padding: 18px;
-            text-transform: uppercase;
-            
-            @include screen("small") {
-                font-size: 16px;
-            }
-        }
-
-        @include screen("small") {
-            padding-left: 16px;
-        }
+    @include screen("small") {
+      width: 50vw;
+      height: 15vw;
+      font-size: 16px;
     }
-
-
-    .message {
-        height: 20vh;
-
-        &::placeholder {
-            text-align: top;
-          }
-    }
-
-    .submitButton {
-        background-color: black;
-        color: white;
-        font-family: "MuseoModerno";
-        font-weight: 600;
-        font-size: 12px;
-        margin: 8px;
-        margin-left: 0;
-        height: 4.5vh;
-        text-transform: uppercase;
-
-        @include screen("medium") {
-            width: 15vw;
-            height: 5vw;
-          };
-
-        @include screen("small") {
-            width: 50vw;
-            height: 15vw;
-            font-size: 16px;
-        }
-
-    }
-
+  }
 }
