@@ -8,7 +8,7 @@
     min-height: 63%; //because title banner is 7%, and with header and footer, rest of content is 70% of screen.
     background-color: white;
     padding: 5vh 10vw 5vh 15vw; 
-    width: 100vw;
+    width: 100%;
     @include screen("medium") {
       padding: 5vh 7vw 5vh 7vw; 
     }
