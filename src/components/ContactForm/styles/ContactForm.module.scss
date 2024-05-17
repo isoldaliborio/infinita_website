@@ -6,16 +6,20 @@
 
     .input {
         border: 1px solid black;
-        margin: 8px;
-        margin-left: 0;
+        // margin: 8px;
+        margin-bottom: 16px;
+        // margin-left: 0;
         height: 4.5vh;
+        padding: 14px;
+        padding-left: 22px;
+        font-family: "Poppins";
 
         &::placeholder {
             font-size: 14px;
             font-family: "MuseoModerno";
             font-weight: 600;
             color: black;
-            padding: 18px;
+            // padding: 18px;
             text-transform: uppercase;
         }
     }
