@@ -17,21 +17,18 @@ export default function Contact() {
     <>
       <TitleBanner title={language === "en" ? "contact" : "contato"} />
       <main className={styles.main}>
-        <ContactForm />
         <div className={styles.description}>
-          <h1>{language === "en" ? "Contact us on our social media!" : "Entre en contato através das nossas redes sociais"}</h1>
-          <ul className={styles.socialLinks}>
-            <li><a href="https://www.linkedin.com/company/infinitaproductions/" target="_blank">LinkedIn </a></li>
-            <li> | </li>
-            <li><a href="https://www.instagram.com/infinitaproductions/" target="_blank">Instagram </a></li>
-            <li> | </li>
-            <li><a href="https://vimeo.com/infinitaprod" target="_blank">Vimeo </a></li>
-            <li> | </li>
-            <li><a href="https://www.facebook.com/infinitaproductions" target="_blank">Facebook </a></li>
-            <li> | </li>
-            <li><a href="https://twitter.com/i/flow/login?redirect_after_login=%2FInfinita_Prod" target="_blank"> x </a></li>
-          </ul>
+          {language === "en" 
+            ? "Infinita Productions is a production company based in London, UK and Salvador, Brazil. We aim to support projects in both countries, encounraging co-productions and stimulatingg a cultural dialogue. Infinita is also committed to creating original content." 
+            : "Infinita Productions é uma produtora com sede em Londres, Reino Unido e Salvador, Brasil. Pretendemos apoiar projetos em ambos os países, incentivando as coproduções e estimulando o diálogo cultural. A Infinita também está comprometida em criar conteúdo original."
+          }
+        <br/>
+        {language === "en" 
+            ? "Our action areas are Films, Music, Curating and Accounting." 
+            : "As nossas áreas de atuação são Cinema, Música, Curadoria e Contabilidade."
+          }
         </div>
+        <ContactForm />
       </main>
     </>
   )
