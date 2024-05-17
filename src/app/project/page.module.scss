@@ -1,7 +1,7 @@
 @use "./../variables" as *;
 
 .main {
-    width: 100vw;
+    width: 100%;
     min-height: 63%; //because title banner is 7%, and with header and footer, rest of content is 70% of screen.
     display: flex;
     flex-direction: column;
