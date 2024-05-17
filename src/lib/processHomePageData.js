@@ -1,4 +1,4 @@
-const BACKENDURL = "https://infinitaproducoes.com/wordpress/wp-json/wp/v2";
+const BACKENDURL = "https://infinitaproductions.com/admin/wp-json/wp/v2";
 
 export const getHomePageDataJson = async function () {
     const response = await fetch(`${BACKENDURL}/pages?slug=home-page`);
