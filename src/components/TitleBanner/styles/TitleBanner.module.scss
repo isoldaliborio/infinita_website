@@ -3,7 +3,7 @@
 .titleBanner {
     height: 7%;
     /* changed from 100% to stop scrollbar pushing the element when it appears */
-    width: 100vw;
+    width: 100%;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     display: flex;

@@ -47,6 +47,14 @@ function get_homepage_data($data, $post)
     }
 }
 
+function get_service_data($data, $post)
+{
+    $acf_fields = get_fields($post->ID);
+    $data->data['service_data']['brazil_image'] = $acf_fields['brazil_image'];
+    $data->data['service_data']['europe_image'] = $acf_fields['europe_image'];
+    $data->data['service_data']['uk_image'] = $acf_fields['uk_image'];
+}
+
 function get_projects_data($data, $request)
 {
     // Extract query parameters from the request
@@ -111,6 +119,9 @@ function custom_rest_prepare_page($data, $post, $request)
                 break;
             case 'projects':
                 get_projects_data($data, $request);
+                break;
+            case 'service':
+                get_service_data($data, $post);
                 break;
         }
     }

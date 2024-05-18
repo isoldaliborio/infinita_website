@@ -1,5 +1,5 @@
 
-const BACKENDURLABOUT = "https://infinitaproducoes.com/wordpress/wp-json/wp/v2";
+const BACKENDURLABOUT = "https://infinitaproductions.com/admin/wp-json/wp/v2";
 
 export const getAboutPageDataJson = async function () {
     // Fetch data from the provided API endpoint
