@@ -64,6 +64,25 @@ Infinita Website serves as a portfolio platform for a company deeply involved in
 6. **WordPress:** Content management system for easy content updates.
 7. **GitHub:** Version control and project management tool for collaboration and issue tracking.
 
+## Project Team
+
+### Isolda Liborio
+- **Role**: Full Stack Developer and Project Manager
+- **GitHub**: [Isolda Liborio](https://github.com/isoldaliborio/)
+
+### Noah Aldhous
+- **Role**: Full Stack Developer
+- **GitHub**: [NoahAldhous](https://github.com/NoahAldhous)
+
+### Eduardo Di Nardo
+- **Role**: Developer Chief
+- **GitHub**: [Eduardo Di Nardo](https://github.com/eduardo-haddad)
+
+### Mariana Neri
+- **Role**: Designer
+- **GitHub**: *([Mariana Neri](https://www.mariananeri.com/))*
+
+
 ## Management
 
 **Agile Methodology:**
