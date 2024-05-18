@@ -3,7 +3,8 @@
 
 ## Background
 
-Infinita Website serves as a portfolio platform for a company deeply involved in the cinema industry. The site showcases the company's varied services, including production, curation, music, and accounting. The primary aim is to exhibit the projects the company has undertaken, attracting potential clients and partners.
+Infinita Website serves as a portfolio platform for a company deeply involved in the cinema industry. The site, developed by [Adomuka](https://adomuka.com/), showcases the company's varied services, including production, curation, music, and accounting. The primary aim is to exhibit the projects the company has undertaken, attracting potential clients and partners.
+
 
 ## Functional Requirements
 
@@ -50,6 +51,72 @@ Infinita Website serves as a portfolio platform for a company deeply involved in
    - Optimize image galleries for fast loading times.
    - Minimize server response time by leveraging existing infrastructure.
 
+## Wordpress integration
+
+This app integrates with the Wordpress backend via its REST API. 
+
+A custom plugin was implemented to modify the JSON response to our needs. To work properly, it is necessary to create pages in Wordpress whose slug/permalink match the endpoint's "slug" parameter (see below), otherwise the JSON response will be returned empty.
+
+**Endpoints**:
+   - [GET] /wp-json/wp/v2/pages?slug=about 
+   - [GET] /wp-json/wp/v2/pages?slug=home-page 
+   - [GET] /wp-json/wp/v2/pages?slug=projects 
+   - [GET] /wp-json/wp/v2/pages?slug=service
+
+**Plugin location**:
+   - Source code: src/lib/wordpress/infinita/custom-json-api-modifications.php
+   - Wordpress installation folder: wp-content/plugins/infinita/custom-json-api-modifications.php
+
+**Custom fields**:
+   - All endpoints and related Wordpress pages rely on custom fields, created with the ACF plugin. 
+
+##### Featured Image
+
+| **Label**     | **Name**        | **Type**     |
+|---------------|-----------------|--------------|
+| Title - EN    | title_en        | text         |
+| Title - PT    | title_pt        | text         |
+| Select image  | featured_img_4  | image        |
+| Work          | work_id_4       | post_object  |
+
+##### Português
+
+| **Label**  | **Name**    | **Type**  |
+|------------|-------------|-----------|
+| Conteúdo   | content_pt  | wysiwyg   |
+
+##### Project
+
+| **Label**                     | **Name**          | **Type**     |
+|-------------------------------|-------------------|--------------|
+| Title - PT                    | title_pt          | text         |
+| Year                          | year              | number       |
+| Country - EN                  | country_en        | text         |
+| Country - PT                  | country_pt        | text         |
+| Image size (in project list)  | image_size        | radio        |
+| Image in project list         | image_in_list     | image        |
+| Description - EN              | description_en    | wysiwyg      |
+| Description - PT              | description_pt    | wysiwyg      |
+| Video URL                     | video_en          | url          |
+| Image gallery                 | image_gallery     | wysiwyg      |
+
+##### Service
+
+| **Label**                  | **Name**                | **Type**     |
+|----------------------------|-------------------------|--------------|
+| Service Main Text - EN     | service_main_text_en    | wysiwyg      |
+| Service Main Text - PT     | service_main_text_pt    | wysiwyg      |
+| Brazil Service Text - EN   | brazil_service_text_en  | wysiwyg      |
+| Brazil Service Text - PT   | brazil_service_text_pt  | wysiwyg      |
+| UK Service Text - EN       | uk_service_text_en      | wysiwyg      |
+| UK Service Text - PT       | uk_service_text_pt      | wysiwyg      |
+| Europe Service Text - EN   | europe_service_text_en  | wysiwyg      |
+| Europe Service Text - PT   | europe_service_text_pt  | wysiwyg      |
+| Brazil Image               | brazil_image            | image        |
+| UK Image                   | uk_image                | image        |
+| Europe Image               | europe_image            | image        |
+
+
 ## Architecture Diagram
 
 ![Architecture Diagram](documentation/architecture_diagram_infinita.png)
@@ -63,6 +130,25 @@ Infinita Website serves as a portfolio platform for a company deeply involved in
 5. **MySQL:** Database management system for storing and retrieving site data.
 6. **WordPress:** Content management system for easy content updates.
 7. **GitHub:** Version control and project management tool for collaboration and issue tracking.
+
+## Project Team - Adomuka
+
+### Isolda Liborio
+- **Role**: Full Stack Developer and Project Manager
+- **GitHub**: [Isolda Liborio](https://github.com/isoldaliborio/)
+
+### Noah Aldhous
+- **Role**: Full Stack Developer
+- **GitHub**: [NoahAldhous](https://github.com/NoahAldhous)
+
+### Eduardo Di Nardo
+- **Role**: Developer Chief
+- **GitHub**: [Eduardo Di Nardo](https://github.com/eduardo-haddad)
+
+### Mariana Neri
+- **Role**: Designer
+- **GitHub**: *([Mariana Neri](https://www.mariananeri.com/))*
+
 
 ## Management
 
