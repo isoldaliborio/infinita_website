@@ -58,8 +58,8 @@ export default function ContactForm() {
       {emailStatus !== 'success' && (
         <button className={`${styles.submitButton} col-2`} type="submit">{language === "en" ? "send" : "enviar"}</button>
       )}
-      {emailStatus === 'success' && <p>{language === "en" ? "Your message was sent!" : "Seu email foi enviado!"}</p>}
+      {emailStatus === 'success' && <p className={styles.sentMail}> {language === "en" ? "Thank you for reaching out to Infinita Productions. We have received your message and will respond to your email shortly." : "Obrigado por entrar em contato com a Infinita Produções. Recebemos sua mensagem e responderemos ao seu e-mail em breve."}</p>}
       {emailStatus === 'error' && <p>{language === "en" ? "There was an error sending your message, try again" : "Erro ao enviar sua mensagem, tente novamente"}</p>}
     </form>
   );
-}
+} 
