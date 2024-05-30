@@ -19,13 +19,12 @@ export default function Carousel() {
 
   const router = useRouter();
 
-  const slideHandler = (index: any, item: any) => {
+  const slideHandler = (index: any) => {
     setActiveItem(index);
   }
 
-  const goToProject = (index: any, item: any) => {
-    const slug = item.props.children.props["project-slug"];
-    router.push(`/project?p=${slug}`)
+  const goToProject = (array: any) => {
+    router.push(`/project?p=${array[activeItem].slug}`)
   }
 
   useEffect(() => {
@@ -41,7 +40,7 @@ export default function Carousel() {
   }, []);
 
   if (isLoading) {
-    return <LoadingScreen/>;
+    return <LoadingScreen />;
   }
 
   return (
@@ -66,10 +65,9 @@ export default function Carousel() {
             interval={5000}
             onChange={slideHandler}
             selectedItem={activeItem}
-            onClickItem={goToProject}
           >
-            {orderedImages.map((item: any, index: any) => (
-              <div key={index} className={styles.slideContainer} >
+            {orderedImages.map((item: any, index: any, array: any) => (
+              <div key={index} className={styles.slideContainer} onClick={() => goToProject(array)}>
                 <img className={styles.carouselImage} src={item.img_url} alt={item.post_title} project-slug={item.slug} />
               </div>
             ))}
