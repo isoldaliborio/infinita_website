@@ -23,8 +23,6 @@ type ImageGalleryProps = {
 };
 
 export default function ImageGallery({ galleryImages }: ImageGalleryProps) {
-  console.log(galleryImages);
-
   function findImageWidth(item: any, targetWidth: any) {
     //make an array of keys
     const keyArray = Object.keys(item);

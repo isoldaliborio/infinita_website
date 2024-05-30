@@ -34,7 +34,6 @@ export default function Project() {
             }
             const data = await getProjectsDataJson(search)
             setProjectData(data[0]);
-            console.log(data[0]);
 
             const images = parseImageGallery(data);
             setGalleryImages(images);

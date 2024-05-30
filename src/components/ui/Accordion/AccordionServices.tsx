@@ -21,8 +21,6 @@ const ServicesAccordion = ({ handleClick, activeItem, servicesData }: ServicesAc
 
   const { language } = useLanguageContext();
 
-  console.log(servicesData)
-
   const accordionArray = [
     {
       activeItemName: "Brazil",
