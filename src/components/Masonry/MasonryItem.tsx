@@ -38,8 +38,6 @@ export default function MasonryItem({ index, item }: MasonryItemProps) {
     setIsMouseEnter(false)
   };
 
-  console.log(item);
-
   return item.image_in_list && (
     <div 
       key={index} 

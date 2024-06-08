@@ -15,7 +15,6 @@ export default function Masonry({ data, filter }: MasonryProps) {
     const fetchData = async () => {
       try {
         const result = await data;
-        console.log(result);
         setResolvedData(result);
         setIsLoading(false);
       } catch (error) {
