@@ -2,8 +2,8 @@ import styles from "./Tabs.module.scss";
 
 export default function Tabs({ categories, currentFilter, setCurrentFilter }: any) {
 
-  function handleClick(button: string) {
-    setCurrentFilter({ category: button });
+  function handleClick(categoryFilter: string) {
+    setCurrentFilter({ category: categoryFilter });
   };
 
   return (
