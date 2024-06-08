@@ -1,0 +1,11 @@
+@use '../../../app/variables' as *;
+
+.image-caption {
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px !important;
+
+    @include screen("small") {
+        font-size: 13px !important;
+    }
+}

@@ -37,7 +37,7 @@ export const processCategories = function (projects) {
 
 
 export const parseImageGallery = function (data) {
-    const htmlString = data[0].image_gallery
+    const htmlString = data[0].image_gallery;
 
     if (!htmlString || typeof htmlString !== 'string') {
         console.error(`Invalid HTML string: ${htmlString}`);
@@ -58,26 +58,29 @@ export const parseImageGallery = function (data) {
         const imgElement = item.querySelector('img');
         if (!imgElement) {
             console.error('No img element found in gallery item');
-            return [];
+            return;
         }
 
         const srcset = imgElement.getAttribute('srcset');
         if (!srcset) {
             console.error('No srcset attribute found in img element');
-            return [];
+            return;
         }
 
         const srcsetPairs = srcset.split(',').map(pair => {
             const parts = pair.trim().split(' ');
             if (parts.length !== 2) {
                 console.error('Invalid srcset format');
-                return [];
+                return null;
             }
             const [url, size] = parts;
             return { [size]: url };
-        });
+        }).filter(pair => pair !== null);
 
-        srcsetArray.push(Object.assign({}, ...srcsetPairs));
+        const figcaptionElement = item.querySelector('figcaption');
+        const caption = figcaptionElement ? { caption: figcaptionElement.innerHTML.trim() } : { caption: "" };
+
+        srcsetArray.push(Object.assign({}, ...srcsetPairs, caption));
     });
 
     return srcsetArray;
