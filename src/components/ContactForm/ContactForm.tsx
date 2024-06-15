@@ -5,13 +5,34 @@ import { useState, useEffect } from "react";
 import { useLanguageContext } from "@/context/LanguageContext";
 import emailjs from 'emailjs-com';
 
+type MessageKeys = "name" | "email" | "emailInvalid" | "message";
+type LanguageKeys = "en" | "pt";
+
+const messages: Record<LanguageKeys, Record<MessageKeys, string>> = {
+  en: {
+    name: "Name is required",
+    email: "Email is required",
+    emailInvalid: "Invalid email format.",
+    message: "Message is required"
+  },
+  pt: {
+    name: "Nome é obrigatório",
+    email: "E-mail é obrigatório",
+    emailInvalid: "Formato de e-mail inválido.",
+    message: "Mensagem é obrigatória"
+  }
+};
+
+const getErrorMessage = (field: MessageKeys, language: LanguageKeys): string => {
+  return messages[language][field];
+};
+
 export default function ContactForm() {
   const { language } = useLanguageContext();
 
   const [isClient, setIsClient] = useState(false);
   const [emailStatus, setEmailStatus] = useState<string | null>(null);
   const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
-   
 
   useEffect(() => setIsClient(true), []);
 
@@ -24,13 +45,13 @@ export default function ContactForm() {
 
   const validateFields = (name: string, email: string, message: string) => {
     const errors: { name?: string; email?: string; message?: string } = {};
-    if (!name) errors.name = language === "en" ? "Name is required" : "Nome é obrigatório";
+    if (!name) errors.name = getErrorMessage("name", language as LanguageKeys);
     if (!email) {
-      errors.email = language === "en" ? "Email is required" : "E-mail é obrigatório";
+      errors.email = getErrorMessage("email", language as LanguageKeys);
     } else if (!validateEmail(email)) {
-      errors.email = language === "en" ? "Invalid email format." : "Formato de e-mail inválido.";
+      errors.email = getErrorMessage("emailInvalid", language as LanguageKeys);
     }
-    if (!message) errors.message = language === "en" ? "Message is required" : "Mensagem é obrigatória";
+    if (!message) errors.message = getErrorMessage("message", language as LanguageKeys);
     return errors;
   };
 
@@ -38,17 +59,25 @@ export default function ContactForm() {
     event.preventDefault();
     setEmailStatus('pending');
     const formData = new FormData(event.target);
-    const inputName = formData.get('inputName');
-    const inputEmail = formData.get('inputEmail');
-    const inputMessage = formData.get('message');
+    const inputName = formData.get('inputName') as string | null;
+    const inputEmail = formData.get('inputEmail') as string | null;
+    const inputMessage = formData.get('message') as string | null;
+
+    // Ensure the inputs are strings
+    if (inputName === null || inputEmail === null || inputMessage === null) {
+      setErrors({
+        name: inputName === null ? getErrorMessage("name", language as LanguageKeys) : undefined,
+        email: inputEmail === null ? getErrorMessage("email", language as LanguageKeys) : undefined,
+        message: inputMessage === null ? getErrorMessage("message", language as LanguageKeys) : undefined,
+      });
+      return;
+    }
 
     const formErrors = validateFields(inputName, inputEmail, inputMessage);
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
       return;
-    }
-
-    else {
+    } else {
       setErrors({});
     }
 
@@ -83,41 +112,37 @@ export default function ContactForm() {
   return (
     <div>
       {emailStatus !== 'success' &&
-      <form className={`${styles.form} col-5`} onSubmit={handleSubmit} suppressHydrationWarning={true}>
-        <input
-          required
-          className={`${styles.name} ${styles.input}`}
-          type="text"
-          name="inputName"
-          placeholder={language === "en" ? "name" : "nome"}
-        />
-        {errors.name && <p className={styles.error}>{errors.name}</p>}
+        <form className={`${styles.form} col-5`} onSubmit={handleSubmit} suppressHydrationWarning={true}>
+          <input
+            required
+            className={`${styles.name} ${styles.input}`}
+            type="text"
+            name="inputName"
+            placeholder={language === "en" ? "name" : "nome"}
+          />
+          {errors.name && <p className={styles.error}>{errors.name}</p>}
 
+          <input
+            required
+            className={`${styles.email} ${styles.input}`}
+            type="text"
+            name="inputEmail"
+            placeholder={language === "en" ? "email" : "e-mail"}
+          />
+          {errors.email && <p className={styles.error}>{errors.email}</p>}
 
-        <input
-          required
-          className={`${styles.email} ${styles.input}`}
-          type="text"
-          name="inputEmail"
-          placeholder={language === "en" ? "email" : "e-mail"}
-        />
-        {errors.email && <p className={styles.error}>{errors.email}</p>}
+          <textarea
+            required
+            className={`${styles.message} ${styles.input}`}
+            name="message"
+            placeholder={language === "en" ? "message" : "mensagem"}
+          />
+          {errors.message && <p className={styles.error}>{errors.message}</p>}
 
-        <textarea
-          required
-          className={`${styles.message} ${styles.input}`}
-          name="message"
-          placeholder={language === "en" ? "message" : "mensagem"}
-        />
-        {errors.message && <p className={styles.error}>{errors.message}</p>}
-
-        <button className={`${styles.submitButton} col-2`} type="submit" disabled={emailStatus === 'pending'}> {language === "en" ? "send" : "enviar"} </button>
-  
-      </form>}
+          <button className={`${styles.submitButton} col-2`} type="submit" disabled={emailStatus === 'pending'}> {language === "en" ? "send" : "enviar"} </button>
+        </form>}
       {emailStatus === 'success' && <p className={styles.sentMail}> {language === "en" ? "Thank you for reaching out to Infinita Productions. We have received your message and will respond to your email shortly." : "Obrigado por entrar em contato com a Infinita Produções. Recebemos sua mensagem e responderemos ao seu e-mail em breve."}</p>}
       {emailStatus === 'error' && <p>{language === "en" ? "There was an error sending your message, try again" : "Erro ao enviar sua mensagem, tente novamente"}</p>}
     </div>
-
-
   );
-} 
+}
