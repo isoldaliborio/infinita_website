@@ -104,6 +104,9 @@ function get_projects_data($data, $request)
             foreach ($categories as $category) {
                 if (isset($cat_translations[$category])) {
                     $final_categories[$category] = $cat_translations[$category];
+                } else {
+                    // If no translation is found, use the original name
+                    $final_categories[$category] = $category;
                 }
             }
 
