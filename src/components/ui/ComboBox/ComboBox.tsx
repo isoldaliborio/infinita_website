@@ -1,9 +1,8 @@
-// import * as React from "react";
 import { useState } from "react";
+import { useLanguageContext } from "@/context/LanguageContext";
 import { ChevronDown } from "lucide-react";
 import styles from "./styles/ComboBox.module.scss";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/ComboBox/button";
 import {
     Command,
@@ -20,13 +19,12 @@ import {
 } from "@/components/ui/ComboBox/popover";
 
 
-
-
 export function ComboboxDemo({ categories, currentFilter, setCurrentFilter }: any) {
+    const { language } = useLanguageContext();
     const [open, setOpen] = useState<any>(false);
 
     const handleItem = (currentValue: any) => {
-        setCurrentFilter(currentValue === currentFilter.category ? { category: "all" } : { category: currentValue });
+        setCurrentFilter(currentValue === currentFilter.category ? { category: language === "en" ? "all" : "todos" } : { category: currentValue });
         setOpen(false);
     }
 

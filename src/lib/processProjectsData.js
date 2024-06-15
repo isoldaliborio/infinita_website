@@ -18,18 +18,18 @@ export const getProjectsDataJson = async function (project = null) {
 }
 
 
-export const processCategories = function (projects) {
+export const processCategories = function (projects, language) {
     const categoriesSet = new Set();
 
     projects.forEach(obj => {
-        const category = obj.categories[0].toLowerCase();
-        if (category !== "uncategorised") {
-            categoriesSet.add(category);
-        }
+        obj[`categories_${language}`].forEach(categoryKey => {
+            categoriesSet.add(categoryKey.toLowerCase());
+        });
     });
 
     let sortedCategories = Array.from(categoriesSet).sort();
-    sortedCategories.unshift("all");
+    const all = language === "en" ? "all" : "todos"
+    sortedCategories.unshift(all);
 
     return sortedCategories;
 }
