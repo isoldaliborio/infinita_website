@@ -38,7 +38,7 @@ export default function Masonry({ data, filter }: MasonryProps) {
         const currentCategory = Array.isArray(categories) && categories.length > 0 ? categories.map(c => c.toLowerCase()) : [""];
         const all = language === "en" ? "all" : "todos";
         return filter.category && filter.category !== all && !currentCategory.includes(filter.category.toLowerCase()) ? null : (
-          <MasonryItem item={item} index={index} key={index} />
+          <MasonryItem index={index} item={item} key={index} />
         );
       })}
     </div>

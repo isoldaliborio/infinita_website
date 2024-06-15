@@ -67,7 +67,7 @@ export default function Project() {
                             <section className={styles.rightContent}>
                                 <section className={styles.titleTop}>
                                     <p className={styles.projectName} dangerouslySetInnerHTML={{ __html: projectData[`title_${language}`].toUpperCase() }} />
-                                    <p className={styles.category}> {projectData.categories[0].toUpperCase()}</p>
+                                    <p className={styles.category}> {projectData[`categories_${language}`].join(", ").toUpperCase()}</p>
                                 </section>
                                 <section className={styles.titleBottom}>
                                     <p dangerouslySetInnerHTML={{ __html: projectData[`country_${language}`].toUpperCase() }} />
