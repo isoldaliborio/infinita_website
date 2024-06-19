@@ -137,7 +137,7 @@ A custom plugin was implemented to modify the JSON response to our needs. To wor
 The contact form uses the EmailJS service to relay outgoing messages.
 
 - website: https://www.emailjs.com
-- username: eduardo.torquemada@gmail.com / password: (same as one.com)
+- username: infinita.productions.uk@gmail.com / password: (same as one.com)
 - email messages will be sent from a Gmail account: infinita.productions.uk@gmail.com (Gmail password also the same as one.com)
 
 ### Change Gmail account
