@@ -130,6 +130,32 @@ A custom plugin was implemented to modify the JSON response to our needs. To wor
 5. **MySQL:** Database management system for storing and retrieving site data.
 6. **WordPress:** Content management system for easy content updates.
 7. **GitHub:** Version control and project management tool for collaboration and issue tracking.
+8. **EmailJS:** Email sending service used in the contact form.
+
+## Contact Form
+
+The contact form uses the EmailJS service to relay outgoing messages.
+
+- website: https://www.emailjs.com
+- username: eduardo.torquemada@gmail.com / password: (same as one.com)
+- email messages will be sent from a Gmail account: infinita.productions.uk@gmail.com (Gmail password also the same as one.com)
+
+### Change Gmail account
+- In EmailJS, go to "Email Services" and connect to a different email service
+- The new "service ID" has to be declared in the `.env` file and will be used in the `ContactForm` component
+
+### Change email template
+- In EmailJS, go to "Email Templates"
+- There you can change the message body, subject, sender and receiver emails, etc
+- Dynamic values such as {{message}} have to be declared in the `ContactForm` component, within the `templateParams` object
+- In "Email Templates" > "Settings", the displayed template ID has to be declared in the `.env` file
+
+### API keys
+- In EmailJS, go to "Account" > "General"
+- The "public key" value has to be declared in the `.env` file and used in the `ContactForm` component. The public key will be matched against the account's private key
+
+### Environment variables
+- The variables declared in `.env` must be: `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`, `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`
 
 ## Project Team - Adomuka
 
