@@ -18,6 +18,7 @@ export default function MasonryItem({ index, item }: MasonryItemProps) {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isMouseEnter, setIsMouseEnter] = useState(false)
   const router = useRouter();
+  const categories = item[`categories_${language}`]
 
   const checkScreenSize = () => {
     setIsSmallScreen(window.innerWidth < 701);
@@ -56,7 +57,7 @@ export default function MasonryItem({ index, item }: MasonryItemProps) {
       {!isSmallScreen && <Link href={`/project/?p=${item.slug}`} className={styles.imageOverlay}>
         <div className={styles.overlayTitle}> {item[`title_${language}`] || ""} </div>
         <section className={styles.overlayBottomText}>
-          <div>{Array.isArray(item.categories) && item.categories.length > 0 ? item.categories[0].toLowerCase() : ""}</div>
+          <div>{Array.isArray(categories) && categories.length > 0 ? categories.join(" / ").toLowerCase() : ""}</div>
           <div className={styles.overlayLine} />
           <div> {item.year} </div>
         </section>

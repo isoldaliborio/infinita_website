@@ -17,7 +17,7 @@ export default function Projects() {
   }
 
   const { language } = useLanguageContext();
-  const [currentFilter, setCurrentFilter] = useState<currentFilterState>({ category: "all" });
+  const [currentFilter, setCurrentFilter] = useState<currentFilterState>({ category: language === "en" ? "all" : "todos" });
   const [projectsData, setProjectsData] = useState<any>(null);
   const [categories, setCategories] = useState<any>(null);
   const [screenSize, setScreenSize] = useState<string>('large'); // Default to large
@@ -29,11 +29,18 @@ export default function Projects() {
     const fetchData = async () => {
       const projects = await getProjectsDataJson();
       setProjectsData(projects);
-      setCategories(processCategories(projects));
+      setCategories(processCategories(projects, language));
     };
     fetchData();
-
   }, []);
+
+  // Refresh categories if language changes
+  useEffect(() => {
+    if (projectsData) {
+      setCategories(processCategories(projectsData, language));
+      setCurrentFilter({ category: language === "en" ? "all" : "todos" });
+    }
+  }, [language, projectsData]);
 
   useEffect(() => {
     const checkScreenSize = () => {

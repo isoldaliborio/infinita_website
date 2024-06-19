@@ -25,7 +25,7 @@ function get_homepage_data($data, $post)
         /* Post title */
         $home_item['post_title_en'] = $acf_fields['work_id_' . $i]->post_title;
         $home_item['post_title_pt'] = $acf_fields['work_id_' . $i]->title_pt;
-        
+
         /* Slug */
         $slug = $acf_fields['work_id_' . $i]->post_name;
         $home_item['slug'] = $slug;
@@ -79,17 +79,49 @@ function get_projects_data($data, $request)
     $posts = get_posts($args);
     $posts_data = array();
 
+    // Fetch category translations from the page with slug "categories"
+    $categories_page = get_page_by_path('categories', OBJECT, 'page');
+    $cat_translations_field = get_field('cat_translations', $categories_page->ID);
+    $cat_translations = array();
+
+    if ($cat_translations_field) {
+        $lines = explode("\n", $cat_translations_field);
+        foreach ($lines as $line) {
+            list($en, $pt) = explode(' - ', trim($line));
+            $cat_translations[trim($en)] = trim($pt);
+        }
+    }
+
     foreach ($posts as $post) {
         $post_id = $post->ID;
 
         // Check if the retrieved post's slug matches the provided slug exactly
         if (!isset($parameters['project']) || $post->post_name === $post_slug) {
+            // Fetch categories and build the final_categories array
+            $categories = wp_get_post_categories($post_id, array('fields' => 'names'));
+            $final_categories = array();
+
+            foreach ($categories as $category) {
+                if (isset($cat_translations[$category])) {
+                    $final_categories[$category] = $cat_translations[$category];
+                } else {
+                    // If no translation is found, use the original name
+                    $final_categories[$category] = $category;
+                }
+            }
+
+            // Create arrays for English and Portuguese categories
+            $categories_en = array_keys($final_categories);
+            $categories_pt = array_values($final_categories);
+
             $posts_data[] = array(
                 'id' => $post_id,
                 'slug' => $post->post_name,
                 'title_en' => $post->post_title,
                 'title_pt' => get_field('title_pt', $post_id),
                 'categories' => wp_get_post_categories($post_id, array('fields' => 'names')),
+                'categories_en' => $categories_en,
+                'categories_pt' => $categories_pt,
                 'year' => get_field('year', $post_id),
                 'country_en' => get_field('country_en', $post_id),
                 'country_pt' => get_field('country_pt', $post_id),
@@ -100,13 +132,14 @@ function get_projects_data($data, $request)
                 'video_pt' => get_field('video_pt', $post_id),
                 'image_gallery' => get_field('image_gallery', $post_id),
                 'image_in_list' => wp_get_attachment_image_src(get_field('image_in_list', $post_id), 'large'),
-                'featured_image' => get_the_post_thumbnail_url($post_id, 'large')
+                'featured_image' => get_the_post_thumbnail_url($post_id, 'large'),
             );
         }
     }
 
     $data->data['projects'] = $posts_data;
 }
+
 
 
 function custom_rest_prepare_page($data, $post, $request)

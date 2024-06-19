@@ -1,13 +1,12 @@
 "use client";
 
-import "./styles/LightGallery.scss";
 import styles from "./styles/ImageGallery.module.scss";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 
 import type { LightGallery } from "lightgallery/lightgallery";
 import LightGalleryComponent from "lightgallery/react";
-import "lightgallery/css/lightgallery.css";
+import "./styles/LightGallery.scss";
 import "lightgallery/css/lg-thumbnail.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 
@@ -106,9 +105,9 @@ export default function ImageGallery({ galleryImages }: ImageGalleryProps) {
         dynamicEl={galleryImages.map((item: any) => ({
           src: item[findImageWidth(item, "1536w")],
           thumb: item[findImageWidth(item, "300w")],
-          subHtml: `<div class="lightGallery-captions"><p class="image-caption">${item.caption}</p></div>`,
+          subHtml: `<p>${item.caption}</p>`,
         }))}
-        appendSubHtmlTo={screenSize === "small" ? ".lg-outer" : ".lg-sub-html"}
+        appendSubHtmlTo={screenSize === "small" ? ".lg-sub-html" : ".lg-item"}
         thumbnail={screenSize !== "small"}
       />
     </>
