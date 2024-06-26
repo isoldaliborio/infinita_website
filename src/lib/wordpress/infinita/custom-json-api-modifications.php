@@ -131,7 +131,7 @@ function get_projects_data($data, $request)
                 'video_en' => get_field('video_en', $post_id),
                 'video_pt' => get_field('video_pt', $post_id),
                 'image_gallery' => get_field('image_gallery', $post_id),
-                'image_in_list' => wp_get_attachment_image_src(get_field('image_in_list', $post_id), 'large'),
+                'image_in_list' => wp_get_attachment_image_src(get_field('image_in_list', $post_id), 'medium_large'),
                 'featured_image' => get_the_post_thumbnail_url($post_id, 'large'),
             );
         }
