@@ -28,7 +28,6 @@ export default function Projects() {
   useEffect(() => {
     const fetchData = async () => {
       const projects = await getProjectsDataJson();
-      console.log(projects);
       setProjectsData(projects);
       setCategories(processCategories(projects, language));
     };
